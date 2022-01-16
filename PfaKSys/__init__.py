@@ -1,3 +1,5 @@
+import os
+
 from flask import current_app, Flask, request
 from flask_babel import Babel
 from flask_bcrypt import Bcrypt
@@ -37,10 +39,11 @@ def create_app(config=Config):
     login_manager.init_app(app)
     mail.init_app(app)
 
-    from PfaKSys.models import User
-    with app.app_context():
-        db.create_all()
-        db.session.commit()
+    if not os.path.isfile(os.path.join(app.root_path, app.config['NAMESPACE'], 'db.sqlite')):
+        from PfaKSys.models import User
+        with app.app_context():
+            db.create_all()
+            db.session.commit()
 
     from PfaKSys.error.handlers import errors
     from PfaKSys.main.routes import main
