@@ -1,0 +1,13 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <div class="content-section">
+        <h1>You don't have permission to do that! (404)</h1>
+        <p>Please check your account and try again.</p>
+
+        {% if debug_mode %}
+            <h3>Error Message</h3>
+            <p>{{ error }}</p>
+        {% endif %}
+    </div>
+{% endblock %}
