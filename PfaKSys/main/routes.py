@@ -5,6 +5,11 @@ from flask_babel import gettext
 main = Blueprint('main', __name__)
 
 
+@main.route('/about')
+def about():
+    return render_template('about.html', title=gettext('ui.common.about'))
+
+
 @main.route('/')
 @main.route('/home')
 def home():
