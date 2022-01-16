@@ -5,4 +5,5 @@ logs*
 
 *.code-workspace
 
+.babel_commands.txt
 db.sqlite
