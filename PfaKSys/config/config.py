@@ -4,6 +4,12 @@ from logging.config import dictConfig
 
 
 class Config():
+    """
+    This class contains the standard configuration for a PfaKSys-app.
+
+    It should be used with `app.config.from_object()`.
+    """
+
     BABEL_DEFAULT_LOCALE = 'de'
     DEBUG_MODE = True
     LANGUAGES = {
@@ -23,6 +29,10 @@ class Config():
 
 
 def init_logging() -> None:
+    """
+    This functions inititalizes the console and file loggers for PfaKSys. It should be called in the `__init__.py` file.
+    """
+
     if not os.path.isdir('./PfaKSys/logs/'):
         os.mkdir('./PfaKSys/logs/')
 
