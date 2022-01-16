@@ -1,2 +1,6 @@
 .vscode*
+logs*
+
 *.code-workspace
+
+db.sqlite
