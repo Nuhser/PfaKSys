@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-17 10:59+0100\n"
+"POT-Creation-Date: 2022-01-17 11:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "ui.common.home"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:43 PfaKSys/user/routes.py:47
+#: PfaKSys/templates/_base.html:43 PfaKSys/user/routes.py:48
 msgid "ui.common.account"
 msgstr ""
 
@@ -43,12 +43,12 @@ msgid "ui.common.logout"
 msgstr ""
 
 #: PfaKSys/templates/_base.html:46 PfaKSys/templates/user/login.html:9
-#: PfaKSys/user/forms.py:17 PfaKSys/user/routes.py:70
+#: PfaKSys/user/forms.py:17 PfaKSys/user/routes.py:71
 msgid "ui.common.login"
 msgstr ""
 
 #: PfaKSys/templates/_base.html:47 PfaKSys/user/forms.py:27
-#: PfaKSys/user/routes.py:104
+#: PfaKSys/user/routes.py:105
 msgid "ui.common.sign_up"
 msgstr ""
 
@@ -89,16 +89,16 @@ msgid "ui.register.login"
 msgstr ""
 
 #: PfaKSys/templates/user/request_reset.html:9
-#: PfaKSys/templates/user/reset_password.html:9 PfaKSys/user/routes.py:122
-#: PfaKSys/user/routes.py:147
+#: PfaKSys/templates/user/reset_password.html:9 PfaKSys/user/routes.py:123
+#: PfaKSys/user/routes.py:148
 msgid "page.reset_password.title"
 msgstr ""
 
-#: PfaKSys/user/forms.py:12 PfaKSys/user/forms.py:21 PfaKSys/user/forms.py:58
+#: PfaKSys/user/forms.py:12 PfaKSys/user/forms.py:21 PfaKSys/user/forms.py:76
 msgid "ui.common.username"
 msgstr ""
 
-#: PfaKSys/user/forms.py:13 PfaKSys/user/forms.py:24 PfaKSys/user/forms.py:51
+#: PfaKSys/user/forms.py:13 PfaKSys/user/forms.py:24 PfaKSys/user/forms.py:60
 msgid "ui.common.password"
 msgstr ""
 
@@ -106,71 +106,75 @@ msgstr ""
 msgid "ui.login.remember_me"
 msgstr ""
 
-#: PfaKSys/user/forms.py:22 PfaKSys/user/forms.py:59
+#: PfaKSys/user/forms.py:22 PfaKSys/user/forms.py:77
 msgid "ui.common.full_name"
 msgstr ""
 
-#: PfaKSys/user/forms.py:23 PfaKSys/user/forms.py:41 PfaKSys/user/forms.py:60
+#: PfaKSys/user/forms.py:23 PfaKSys/user/forms.py:50 PfaKSys/user/forms.py:78
 msgid "ui.common.email"
 msgstr ""
 
-#: PfaKSys/user/forms.py:25 PfaKSys/user/forms.py:52
+#: PfaKSys/user/forms.py:25 PfaKSys/user/forms.py:61
 msgid "ui.common.confirm_password"
 msgstr ""
 
-#: PfaKSys/user/forms.py:32 PfaKSys/user/forms.py:69
+#: PfaKSys/user/forms.py:32 PfaKSys/user/forms.py:87
 msgid "validation_error.username_already_taken"
 msgstr ""
 
-#: PfaKSys/user/forms.py:37 PfaKSys/user/forms.py:75
+#: PfaKSys/user/forms.py:37 PfaKSys/user/forms.py:93
 msgid "validation_error.email_already_exists"
 msgstr ""
 
-#: PfaKSys/user/forms.py:42
+#: PfaKSys/user/forms.py:46 PfaKSys/user/forms.py:72
+msgid "validation_error.password_not_valid"
+msgstr ""
+
+#: PfaKSys/user/forms.py:51
 msgid "ui.password_reset.request"
 msgstr ""
 
-#: PfaKSys/user/forms.py:47
+#: PfaKSys/user/forms.py:56
 msgid "validation_error.email_does_not_exist"
 msgstr ""
 
-#: PfaKSys/user/forms.py:54
+#: PfaKSys/user/forms.py:63
 msgid "ui.password_reset.reset"
 msgstr ""
 
-#: PfaKSys/user/forms.py:61
+#: PfaKSys/user/forms.py:79
 msgid "ui.account.profile_picture"
 msgstr ""
 
-#: PfaKSys/user/forms.py:63
+#: PfaKSys/user/forms.py:81
 msgid "ui.common.update"
 msgstr ""
 
-#: PfaKSys/user/routes.py:39
+#: PfaKSys/user/routes.py:40
 msgid "flash.success.account_update"
 msgstr ""
 
-#: PfaKSys/user/routes.py:68
+#: PfaKSys/user/routes.py:69
 msgid "flash.danger.login_failed"
 msgstr ""
 
-#: PfaKSys/user/routes.py:80
+#: PfaKSys/user/routes.py:81
 msgid "flash.success.logout"
 msgstr ""
 
-#: PfaKSys/user/routes.py:101
+#: PfaKSys/user/routes.py:102
 msgid "flash.success.account_created"
 msgstr ""
 
-#: PfaKSys/user/routes.py:119
+#: PfaKSys/user/routes.py:120
 msgid "flash.info.reset_email_send"
 msgstr ""
 
-#: PfaKSys/user/routes.py:133
+#: PfaKSys/user/routes.py:134
 msgid "flash.warning.reset_token_expired_or_invalid"
 msgstr ""
 
-#: PfaKSys/user/routes.py:144
+#: PfaKSys/user/routes.py:145
 msgid "flash.success.password_reset"
 msgstr ""
 

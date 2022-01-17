@@ -36,6 +36,15 @@ class RegistrationForm(FlaskForm):
         if user:
             raise ValidationError(lazy_gettext('validation_error.email_already_exists'))
 
+    def validate_password(self, password: PasswordField) -> None:
+        password_string = password.data
+
+        if (not any(c.islower() for c in password_string))\
+            or (not any(c.isupper() for c in password_string))\
+            or (not any(c.isdigit() for c in password_string))\
+            or (not any(c.isalpha() for c in password_string)):
+            raise ValidationError(lazy_gettext('validation_error.password_not_valid'))
+
 
 class RequestResetForm(FlaskForm):
     email = StringField(lazy_gettext('ui.common.email'), validators=[DataRequired(), Email()])
@@ -52,6 +61,15 @@ class ResetPasswordForm(FlaskForm):
     confirm_password = PasswordField(lazy_gettext('ui.common.confirm_password'), validators=[DataRequired(), Length(8, 32), EqualTo('password')])
 
     submit = SubmitField(lazy_gettext('ui.password_reset.reset'))
+
+    def validate_password(self, password: PasswordField) -> None:
+        password_string = password.data
+
+        if (not any(c.islower() for c in password_string))\
+            or (not any(c.isupper() for c in password_string))\
+            or (not any(c.isdigit() for c in password_string))\
+            or (not any(c.isalpha() for c in password_string)):
+            raise ValidationError(lazy_gettext('validation_error.password_not_valid'))
 
 
 class UpdateAccountForm(FlaskForm):

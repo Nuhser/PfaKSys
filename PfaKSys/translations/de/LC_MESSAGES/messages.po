@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-17 10:59+0100\n"
+"POT-Creation-Date: 2022-01-17 11:39+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -35,7 +35,7 @@ msgstr "PfaKSys"
 msgid "ui.common.home"
 msgstr "Startseite"
 
-#: PfaKSys/templates/_base.html:43 PfaKSys/user/routes.py:47
+#: PfaKSys/templates/_base.html:43 PfaKSys/user/routes.py:48
 msgid "ui.common.account"
 msgstr "Profil"
 
@@ -44,12 +44,12 @@ msgid "ui.common.logout"
 msgstr "Abmelden"
 
 #: PfaKSys/templates/_base.html:46 PfaKSys/templates/user/login.html:9
-#: PfaKSys/user/forms.py:17 PfaKSys/user/routes.py:70
+#: PfaKSys/user/forms.py:17 PfaKSys/user/routes.py:71
 msgid "ui.common.login"
 msgstr "Anmelden"
 
 #: PfaKSys/templates/_base.html:47 PfaKSys/user/forms.py:27
-#: PfaKSys/user/routes.py:104
+#: PfaKSys/user/routes.py:105
 msgid "ui.common.sign_up"
 msgstr "Registrieren"
 
@@ -90,16 +90,16 @@ msgid "ui.register.login"
 msgstr "Melde dich hier an."
 
 #: PfaKSys/templates/user/request_reset.html:9
-#: PfaKSys/templates/user/reset_password.html:9 PfaKSys/user/routes.py:122
-#: PfaKSys/user/routes.py:147
+#: PfaKSys/templates/user/reset_password.html:9 PfaKSys/user/routes.py:123
+#: PfaKSys/user/routes.py:148
 msgid "page.reset_password.title"
 msgstr "Passwort Zurücksetzen"
 
-#: PfaKSys/user/forms.py:12 PfaKSys/user/forms.py:21 PfaKSys/user/forms.py:58
+#: PfaKSys/user/forms.py:12 PfaKSys/user/forms.py:21 PfaKSys/user/forms.py:76
 msgid "ui.common.username"
 msgstr "Benutzername"
 
-#: PfaKSys/user/forms.py:13 PfaKSys/user/forms.py:24 PfaKSys/user/forms.py:51
+#: PfaKSys/user/forms.py:13 PfaKSys/user/forms.py:24 PfaKSys/user/forms.py:60
 msgid "ui.common.password"
 msgstr "Passwort"
 
@@ -107,73 +107,86 @@ msgstr "Passwort"
 msgid "ui.login.remember_me"
 msgstr "Angemeldet bleiben"
 
-#: PfaKSys/user/forms.py:22 PfaKSys/user/forms.py:59
+#: PfaKSys/user/forms.py:22 PfaKSys/user/forms.py:77
 msgid "ui.common.full_name"
 msgstr "Vollständiger Name"
 
-#: PfaKSys/user/forms.py:23 PfaKSys/user/forms.py:41 PfaKSys/user/forms.py:60
+#: PfaKSys/user/forms.py:23 PfaKSys/user/forms.py:50 PfaKSys/user/forms.py:78
 msgid "ui.common.email"
 msgstr "Email-Adresse"
 
-#: PfaKSys/user/forms.py:25 PfaKSys/user/forms.py:52
+#: PfaKSys/user/forms.py:25 PfaKSys/user/forms.py:61
 msgid "ui.common.confirm_password"
 msgstr "Passwort bestätigen"
 
-#: PfaKSys/user/forms.py:32 PfaKSys/user/forms.py:69
+#: PfaKSys/user/forms.py:32 PfaKSys/user/forms.py:87
 msgid "validation_error.username_already_taken"
 msgstr "Dieser Benutzername existiert bereits. Bitte wähle einen anderen."
 
-#: PfaKSys/user/forms.py:37 PfaKSys/user/forms.py:75
+#: PfaKSys/user/forms.py:37 PfaKSys/user/forms.py:93
 msgid "validation_error.email_already_exists"
-msgstr "Diese Email-Adresse wird bereits von einem anderen Benutzer verwendet. Bitte wähle eine andere."
+msgstr ""
+"Diese Email-Adresse wird bereits von einem anderen Benutzer verwendet. "
+"Bitte wähle eine andere."
 
-#: PfaKSys/user/forms.py:42
+#: PfaKSys/user/forms.py:46 PfaKSys/user/forms.py:72
+msgid "validation_error.password_not_valid"
+msgstr "Dein Passwort muss zwischen 8 und 32 Zeichen lang sein und mindestens einen Großbuchstaben, einen Kleinbuchstaben und eine Zahl enthalten."
+
+#: PfaKSys/user/forms.py:51
 msgid "ui.password_reset.request"
 msgstr "Passwort Zurücksetzen"
 
-#: PfaKSys/user/forms.py:47
+#: PfaKSys/user/forms.py:56
 msgid "validation_error.email_does_not_exist"
 msgstr "Diese Email-Adresse gehört zu keinem Profil. Bitte versuche eine andere."
 
-#: PfaKSys/user/forms.py:54
+#: PfaKSys/user/forms.py:63
 msgid "ui.password_reset.reset"
 msgstr "Passwort Zurücksetzen"
 
-#: PfaKSys/user/forms.py:61
+#: PfaKSys/user/forms.py:79
 msgid "ui.account.profile_picture"
 msgstr "Profilbild"
 
-#: PfaKSys/user/forms.py:63
+#: PfaKSys/user/forms.py:81
 msgid "ui.common.update"
 msgstr "Aktualisieren"
 
-#: PfaKSys/user/routes.py:39
+#: PfaKSys/user/routes.py:40
 msgid "flash.success.account_update"
 msgstr "Die Änderungen an deinem Profil wurde gespeichert."
 
-#: PfaKSys/user/routes.py:68
+#: PfaKSys/user/routes.py:69
 msgid "flash.danger.login_failed"
-msgstr "Anmeldung fehlgeschlagen. Bitte überprüfe deinen Benutzernamen und dein Passwort!"
+msgstr ""
+"Anmeldung fehlgeschlagen. Bitte überprüfe deinen Benutzernamen und dein "
+"Passwort!"
 
-#: PfaKSys/user/routes.py:80
+#: PfaKSys/user/routes.py:81
 msgid "flash.success.logout"
 msgstr "Du hast dich erfolgreich abgemeldet."
 
-#: PfaKSys/user/routes.py:101
+#: PfaKSys/user/routes.py:102
 msgid "flash.success.account_created"
 msgstr "Dein Profil wurde angelegt! Du kannst dich jetzt anmelden."
 
-#: PfaKSys/user/routes.py:119
+#: PfaKSys/user/routes.py:120
 msgid "flash.info.reset_email_send"
-msgstr "Eine Email mit Anweisungen zum Zurücksetzen deines Passwortes wurde versendet.\n(Solltest du die Email nicht sehen, sie auch mal im Spam-Ordner nach.)"
+msgstr ""
+"Eine Email mit Anweisungen zum Zurücksetzen deines Passwortes wurde "
+"versendet.\n"
+"(Solltest du die Email nicht sehen, sie auch mal im Spam-Ordner nach.)"
 
-#: PfaKSys/user/routes.py:133
+#: PfaKSys/user/routes.py:134
 msgid "flash.warning.reset_token_expired_or_invalid"
 msgstr "Dieser Link ist entweder ungültig oder bereits abgelaufen."
 
-#: PfaKSys/user/routes.py:144
+#: PfaKSys/user/routes.py:145
 msgid "flash.success.password_reset"
-msgstr "Dein Passowort wurde erfolgreich zurückgesetzt! Du kannst dich jetzt anmelden."
+msgstr ""
+"Dein Passowort wurde erfolgreich zurückgesetzt! Du kannst dich jetzt "
+"anmelden."
 
 #: PfaKSys/user/utils.py:43
 msgid "mail.reset_password.subject"
@@ -181,5 +194,11 @@ msgstr "Zurücksetzen deines PfaKSys-Passworts"
 
 #: PfaKSys/user/utils.py:44
 msgid "mail.reset_password.body"
-msgstr "Um dein Passwort zurückzusetzen, klicke auf folgenden Link:\n%(link)s\nDieser Link ist 30 Minuten gültig.\n\nFalls du nicht versucht haben solltest, dein Passwort zurückzusetzen, kannst du diese Mail ignorieren."
+msgstr ""
+"Um dein Passwort zurückzusetzen, klicke auf folgenden Link:\n"
+"%(link)s\n"
+"Dieser Link ist 30 Minuten gültig.\n"
+"\n"
+"Falls du nicht versucht haben solltest, dein Passwort zurückzusetzen, "
+"kannst du diese Mail ignorieren."
 
