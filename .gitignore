@@ -1,9 +1,12 @@
 *__pycache__*
 
 .vscode*
-logs*
+PfaKSys/logs*
+PfaKSys/static/profile_pics/*
 
 *.code-workspace
 
 .babel_commands.txt
 db.sqlite
+
+!PfaKSys/static/profile_pics/default.jpg
