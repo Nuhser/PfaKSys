@@ -30,6 +30,7 @@ def account():
             current_user.image_file =  save_picture(form.picture.data)
 
         current_user.username = form.username.data
+        current_user.full_name = form.full_name.data
         current_user.email = form.email.data
         db.session.commit()
 
