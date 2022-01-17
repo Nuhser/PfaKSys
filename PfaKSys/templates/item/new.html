@@ -67,19 +67,11 @@
                         {{ form.description(class="form-control form-control-lg") }}
                     {% endif %}
                 </div>
+            </fieldset>
 
             <div class="form-group">
                 {{ form.submit(class="btn btn-outline-info") }}
             </div>
         </form>
     </div>
-{% endblock %}
-
-{% block sidebar %}
-    <form action="{{ url_for('item.new') }}" method='GET'>
-        <button class="btn btn-primary" type="submit">
-            <img class="mr-2" src="{{ url_for('static', filename='item/new.png') }}">
-            {{ _('ui.item.new') }}
-        </button>
-    </form>
 {% endblock %}
