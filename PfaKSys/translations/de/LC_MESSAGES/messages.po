@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-17 22:31+0100\n"
+"POT-Creation-Date: 2022-01-17 23:03+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -30,7 +30,7 @@ msgstr "Fehler 404"
 msgid "page.error_500.title"
 msgstr "Fehler 500"
 
-#: PfaKSys/item/forms.py:11
+#: PfaKSys/item/forms.py:11 PfaKSys/item/forms.py:24 PfaKSys/item/forms.py:34
 msgid "ui.common.name"
 msgstr "Name"
 
@@ -46,13 +46,21 @@ msgstr "Zustand"
 msgid "ui.common.description"
 msgstr "Beschreibung"
 
-#: PfaKSys/item/forms.py:15
+#: PfaKSys/item/forms.py:15 PfaKSys/item/forms.py:25 PfaKSys/item/forms.py:35
 msgid "ui.common.save"
 msgstr "Speichern"
 
 #: PfaKSys/item/forms.py:20
 msgid "validation_error.item.name_already_taken"
 msgstr "Dieser Gegenstandsname existiert bereits. Bitte wähle einen anderen."
+
+#: PfaKSys/item/forms.py:30
+msgid "validation_error.item_category.name_already_taken"
+msgstr "Dieser Kategoriename existiert bereits. Bitte wähle einen anderen."
+
+#: PfaKSys/item/forms.py:40
+msgid "validation_error.item_location.name_already_taken"
+msgstr "Dieser Lagername existiert bereits. Bitte wähle einen anderen."
 
 #: PfaKSys/item/item_condition.py:7
 msgid "item.item_condition.unknown"
@@ -94,11 +102,27 @@ msgstr "Dein Gegenstand \"%(item_name)s\" wurde angelegt!"
 msgid "page.item_new.title"
 msgstr "Neuer Gegenstand"
 
-#: PfaKSys/item/routes.py:36
+#: PfaKSys/item/routes.py:40
+msgid "flash.success.item_category.created"
+msgstr "Die Gegenstandskategorie \"%(item_name)s\" wurde angelegt!"
+
+#: PfaKSys/item/routes.py:43 PfaKSys/templates/item/new_category.html:9
+msgid "page.item_new_category.title"
+msgstr "Neue Kategorie"
+
+#: PfaKSys/item/routes.py:56
+msgid "flash.success.item_location.created"
+msgstr "Der Lagerort \"%(item_name)s\" wurde angelegt!"
+
+#: PfaKSys/item/routes.py:59 PfaKSys/templates/item/new_location.html:9
+msgid "page.item_new_location.title"
+msgstr "Neuer Lagerort"
+
+#: PfaKSys/item/routes.py:68
 msgid "page.item_overview.title"
 msgstr "Gegenstandsübersicht"
 
-#: PfaKSys/item/routes.py:36
+#: PfaKSys/item/routes.py:68
 msgid "ui.common.menu"
 msgstr "Menu"
 
@@ -173,9 +197,17 @@ msgstr "Etwas ist schiefgelaufen... (500)"
 msgid "page.error_500.explanation"
 msgstr "Wir haben ein Problem auf unserer Seite. Bitte versuche es später nochmal."
 
-#: PfaKSys/templates/item/new.html:82 PfaKSys/templates/item/overview.html:36
+#: PfaKSys/templates/item/overview.html:36
 msgid "ui.item.new"
 msgstr "Gegenstand anlegen"
+
+#: PfaKSys/templates/item/overview.html:43
+msgid "ui.item.new_category"
+msgstr "Kategory anlegen"
+
+#: PfaKSys/templates/item/overview.html:50
+msgid "ui.item.new_location"
+msgstr "Lagerort anlegen"
 
 #: PfaKSys/templates/user/account.html:18
 msgid "page.account.title"
