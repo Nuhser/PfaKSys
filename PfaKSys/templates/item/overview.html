@@ -31,9 +31,23 @@
 
 {% block sidebar %}
     <form action="{{ url_for('item.new') }}" method='GET'>
-        <button class="btn btn-primary" type="submit">
+        <button class="btn btn-primary btn-block mb-2" type="submit">
             <img class="mr-2" src="{{ url_for('static', filename='item/ui/new.png') }}">
             {{ _('ui.item.new') }}
+        </button>
+    </form>
+
+    <form action="{{ url_for('item.new_category') }}" method='GET'>
+        <button class="btn btn-info btn-block mb-2" type="submit">
+            <img class="mr-2" src="{{ url_for('static', filename='item/ui/new_category.png') }}">
+            {{ _('ui.item.new_category') }}
+        </button>
+    </form>
+
+    <form action="{{ url_for('item.new_location') }}" method='GET'>
+        <button class="btn btn-info btn-block mb-2" type="submit">
+            <img class="mr-2" src="{{ url_for('static', filename='item/ui/new_location.png') }}">
+            {{ _('ui.item.new_location') }}
         </button>
     </form>
 {% endblock %}

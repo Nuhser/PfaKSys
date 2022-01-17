@@ -4,7 +4,7 @@ from wtforms import IntegerField, SelectField, StringField, SubmitField, TextAre
 from wtforms.validators import DataRequired, Length, NumberRange, ValidationError
 
 from PfaKSys.item.item_condition import ItemCondition
-from PfaKSys.models import Item
+from PfaKSys.models import Item, ItemCategory, ItemLocation
 
 
 class NewItemForm(FlaskForm):
@@ -18,3 +18,23 @@ class NewItemForm(FlaskForm):
         item = Item.query.filter_by(name=name.data).first()
         if item:
             raise ValidationError(lazy_gettext('validation_error.item.name_already_taken'))
+
+
+class NewItemCategoryForm(FlaskForm):
+    name = StringField(lazy_gettext('ui.common.name'), validators=[DataRequired(), Length(2, 60)])
+    submit = SubmitField(lazy_gettext('ui.common.save'))
+
+    def validate_name(self, name: StringField) -> None:
+        item = ItemCategory.query.filter_by(name=name.data).first()
+        if item:
+            raise ValidationError(lazy_gettext('validation_error.item_category.name_already_taken'))
+
+
+class NewItemLocationForm(FlaskForm):
+    name = StringField(lazy_gettext('ui.common.name'), validators=[DataRequired(), Length(2, 60)])
+    submit = SubmitField(lazy_gettext('ui.common.save'))
+
+    def validate_name(self, name: StringField) -> None:
+        item = ItemLocation.query.filter_by(name=name.data).first()
+        if item:
+            raise ValidationError(lazy_gettext('validation_error.item_location.name_already_taken'))
