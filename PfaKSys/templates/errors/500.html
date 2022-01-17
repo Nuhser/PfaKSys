@@ -2,8 +2,8 @@
 
 {% block content %}
     <div class="content-section">
-        <h1>Something went wrong... (500)</h1>
-        <p>We're experiencing some trouble on our end. Please try again later.</p>
+        <h1>{{ _('page.error_500.heading') }}</h1>
+        <p>{{ _('page.error_500.explanation') }}</p>
 
         {% if debug_mode %}
             <h3>Error Message</h3>
