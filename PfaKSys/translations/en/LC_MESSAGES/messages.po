@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-17 15:02+0100\n"
+"POT-Creation-Date: 2022-01-17 17:07+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,15 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
+#: PfaKSys/error/handlers.py:10
+msgid "page.error_403.title"
+msgstr "Error 403"
+
+#: PfaKSys/error/handlers.py:15
+msgid "page.error_404.title"
+msgstr "Error 404"
+
+#: PfaKSys/error/handlers.py:20
+msgid "page.error_500.title"
+msgstr "Error 500"
+
 #: PfaKSys/item/forms.py:11
 msgid "ui.common.name"
 msgstr "Name"
 
-#: PfaKSys/item/forms.py:12
+#: PfaKSys/item/forms.py:12 PfaKSys/templates/item/overview.html:13
 msgid "ui.common.count"
 msgstr "Quantity"
 
-#: PfaKSys/item/forms.py:13
+#: PfaKSys/item/forms.py:13 PfaKSys/templates/item/overview.html:14
 msgid "ui.common.condition"
 msgstr "Condition"
 
@@ -82,6 +94,14 @@ msgstr "Your item \"%(item_name)s\" has been created!"
 msgid "page.item_new.title"
 msgstr "New Item"
 
+#: PfaKSys/item/routes.py:36
+msgid "page.item_overview.title"
+msgstr "Item Overview"
+
+#: PfaKSys/item/routes.py:36
+msgid "ui.common.menu"
+msgstr "Menu"
+
 #: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:42
 msgid "ui.common.about"
 msgstr "About"
@@ -100,8 +120,8 @@ msgid "ui.common.home"
 msgstr "Home"
 
 #: PfaKSys/templates/_base.html:39
-msgid "ui.item.new"
-msgstr "Create new item"
+msgid "ui.item.overview"
+msgstr "Items"
 
 #: PfaKSys/templates/_base.html:48 PfaKSys/user/routes.py:48
 msgid "ui.common.account"
@@ -128,6 +148,34 @@ msgstr "About Page"
 #: PfaKSys/templates/about.html:6
 msgid "page.about.body"
 msgstr ""
+
+#: PfaKSys/templates/errors/403.html:5
+msgid "page.error_403.heading"
+msgstr "You don't have permission to do that! (403)"
+
+#: PfaKSys/templates/errors/403.html:6
+msgid "page.error_403.explanation"
+msgstr "Please check your account and try again."
+
+#: PfaKSys/templates/errors/404.html:5
+msgid "page.error_404.heading"
+msgstr "Oops. Page Not Fount (404)"
+
+#: PfaKSys/templates/errors/404.html:6
+msgid "page.error_404.explanation"
+msgstr "That page doesn't exist. Please try a different location."
+
+#: PfaKSys/templates/errors/500.html:5
+msgid "page.error_500.heading"
+msgstr "Something went wrong... (500)"
+
+#: PfaKSys/templates/errors/500.html:6
+msgid "page.error_500.explanation"
+msgstr "We're experiencing some trouble on our end. Please try again later."
+
+#: PfaKSys/templates/item/new.html:82 PfaKSys/templates/item/overview.html:36
+msgid "ui.item.new"
+msgstr "Create Item"
 
 #: PfaKSys/templates/user/account.html:18
 msgid "page.account.title"

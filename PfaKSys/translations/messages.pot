@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-17 15:02+0100\n"
+"POT-Creation-Date: 2022-01-17 17:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
+#: PfaKSys/error/handlers.py:10
+msgid "page.error_403.title"
+msgstr ""
+
+#: PfaKSys/error/handlers.py:15
+msgid "page.error_404.title"
+msgstr ""
+
+#: PfaKSys/error/handlers.py:20
+msgid "page.error_500.title"
+msgstr ""
+
 #: PfaKSys/item/forms.py:11
 msgid "ui.common.name"
 msgstr ""
 
-#: PfaKSys/item/forms.py:12
+#: PfaKSys/item/forms.py:12 PfaKSys/templates/item/overview.html:13
 msgid "ui.common.count"
 msgstr ""
 
-#: PfaKSys/item/forms.py:13
+#: PfaKSys/item/forms.py:13 PfaKSys/templates/item/overview.html:14
 msgid "ui.common.condition"
 msgstr ""
 
@@ -81,6 +93,14 @@ msgstr ""
 msgid "page.item_new.title"
 msgstr ""
 
+#: PfaKSys/item/routes.py:36
+msgid "page.item_overview.title"
+msgstr ""
+
+#: PfaKSys/item/routes.py:36
+msgid "ui.common.menu"
+msgstr ""
+
 #: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:42
 msgid "ui.common.about"
 msgstr ""
@@ -99,7 +119,7 @@ msgid "ui.common.home"
 msgstr ""
 
 #: PfaKSys/templates/_base.html:39
-msgid "ui.item.new"
+msgid "ui.item.overview"
 msgstr ""
 
 #: PfaKSys/templates/_base.html:48 PfaKSys/user/routes.py:48
@@ -126,6 +146,34 @@ msgstr ""
 
 #: PfaKSys/templates/about.html:6
 msgid "page.about.body"
+msgstr ""
+
+#: PfaKSys/templates/errors/403.html:5
+msgid "page.error_403.heading"
+msgstr ""
+
+#: PfaKSys/templates/errors/403.html:6
+msgid "page.error_403.explanation"
+msgstr ""
+
+#: PfaKSys/templates/errors/404.html:5
+msgid "page.error_404.heading"
+msgstr ""
+
+#: PfaKSys/templates/errors/404.html:6
+msgid "page.error_404.explanation"
+msgstr ""
+
+#: PfaKSys/templates/errors/500.html:5
+msgid "page.error_500.heading"
+msgstr ""
+
+#: PfaKSys/templates/errors/500.html:6
+msgid "page.error_500.explanation"
+msgstr ""
+
+#: PfaKSys/templates/item/new.html:82 PfaKSys/templates/item/overview.html:36
+msgid "ui.item.new"
 msgstr ""
 
 #: PfaKSys/templates/user/account.html:18
