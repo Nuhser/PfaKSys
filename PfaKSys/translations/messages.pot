@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-16 17:27+0100\n"
+"POT-Creation-Date: 2022-01-17 10:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,11 +34,151 @@ msgstr ""
 msgid "ui.common.home"
 msgstr ""
 
+#: PfaKSys/templates/_base.html:43 PfaKSys/user/routes.py:47
+msgid "ui.common.account"
+msgstr ""
+
+#: PfaKSys/templates/_base.html:44
+msgid "ui.common.logout"
+msgstr ""
+
+#: PfaKSys/templates/_base.html:46 PfaKSys/templates/user/login.html:9
+#: PfaKSys/user/forms.py:17 PfaKSys/user/routes.py:70
+msgid "ui.common.login"
+msgstr ""
+
+#: PfaKSys/templates/_base.html:47 PfaKSys/user/forms.py:27
+#: PfaKSys/user/routes.py:104
+msgid "ui.common.sign_up"
+msgstr ""
+
 #: PfaKSys/templates/about.html:4
 msgid "page.about.title"
 msgstr ""
 
 #: PfaKSys/templates/about.html:6
 msgid "page.about.body"
+msgstr ""
+
+#: PfaKSys/templates/user/account.html:18
+msgid "page.account.title"
+msgstr ""
+
+#: PfaKSys/templates/user/login.html:51
+msgid "ui.login.forgot_password"
+msgstr ""
+
+#: PfaKSys/templates/user/login.html:59
+msgid "page.login.need_account"
+msgstr ""
+
+#: PfaKSys/templates/user/login.html:59
+msgid "ui.login.sign_up"
+msgstr ""
+
+#: PfaKSys/templates/user/register.html:9
+msgid "page.register.title"
+msgstr ""
+
+#: PfaKSys/templates/user/register.html:95
+msgid "page.register.already_have_account"
+msgstr ""
+
+#: PfaKSys/templates/user/register.html:95
+msgid "ui.register.login"
+msgstr ""
+
+#: PfaKSys/templates/user/request_reset.html:9
+#: PfaKSys/templates/user/reset_password.html:9 PfaKSys/user/routes.py:122
+#: PfaKSys/user/routes.py:147
+msgid "page.reset_password.title"
+msgstr ""
+
+#: PfaKSys/user/forms.py:12 PfaKSys/user/forms.py:21 PfaKSys/user/forms.py:58
+msgid "ui.common.username"
+msgstr ""
+
+#: PfaKSys/user/forms.py:13 PfaKSys/user/forms.py:24 PfaKSys/user/forms.py:51
+msgid "ui.common.password"
+msgstr ""
+
+#: PfaKSys/user/forms.py:15
+msgid "ui.login.remember_me"
+msgstr ""
+
+#: PfaKSys/user/forms.py:22 PfaKSys/user/forms.py:59
+msgid "ui.common.full_name"
+msgstr ""
+
+#: PfaKSys/user/forms.py:23 PfaKSys/user/forms.py:41 PfaKSys/user/forms.py:60
+msgid "ui.common.email"
+msgstr ""
+
+#: PfaKSys/user/forms.py:25 PfaKSys/user/forms.py:52
+msgid "ui.common.confirm_password"
+msgstr ""
+
+#: PfaKSys/user/forms.py:32 PfaKSys/user/forms.py:69
+msgid "validation_error.username_already_taken"
+msgstr ""
+
+#: PfaKSys/user/forms.py:37 PfaKSys/user/forms.py:75
+msgid "validation_error.email_already_exists"
+msgstr ""
+
+#: PfaKSys/user/forms.py:42
+msgid "ui.password_reset.request"
+msgstr ""
+
+#: PfaKSys/user/forms.py:47
+msgid "validation_error.email_does_not_exist"
+msgstr ""
+
+#: PfaKSys/user/forms.py:54
+msgid "ui.password_reset.reset"
+msgstr ""
+
+#: PfaKSys/user/forms.py:61
+msgid "ui.account.profile_picture"
+msgstr ""
+
+#: PfaKSys/user/forms.py:63
+msgid "ui.common.update"
+msgstr ""
+
+#: PfaKSys/user/routes.py:39
+msgid "flash.success.account_update"
+msgstr ""
+
+#: PfaKSys/user/routes.py:68
+msgid "flash.danger.login_failed"
+msgstr ""
+
+#: PfaKSys/user/routes.py:80
+msgid "flash.success.logout"
+msgstr ""
+
+#: PfaKSys/user/routes.py:101
+msgid "flash.success.account_created"
+msgstr ""
+
+#: PfaKSys/user/routes.py:119
+msgid "flash.info.reset_email_send"
+msgstr ""
+
+#: PfaKSys/user/routes.py:133
+msgid "flash.warning.reset_token_expired_or_invalid"
+msgstr ""
+
+#: PfaKSys/user/routes.py:144
+msgid "flash.success.password_reset"
+msgstr ""
+
+#: PfaKSys/user/utils.py:43
+msgid "mail.reset_password.subject"
+msgstr ""
+
+#: PfaKSys/user/utils.py:44
+msgid "mail.reset_password.body"
 msgstr ""
 
