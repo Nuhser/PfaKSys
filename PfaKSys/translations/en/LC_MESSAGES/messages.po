@@ -104,7 +104,7 @@ msgstr "New Item"
 
 #: PfaKSys/item/routes.py:40
 msgid "flash.success.item_category.created"
-msgstr "The category \"%(item_name)s\" has been created!"
+msgstr "The category \"%(category_name)s\" has been created!"
 
 #: PfaKSys/item/routes.py:43 PfaKSys/templates/item/new_category.html:9
 msgid "page.item_new_category.title"
@@ -112,7 +112,7 @@ msgstr "New Category"
 
 #: PfaKSys/item/routes.py:56
 msgid "flash.success.item_location.created"
-msgstr "The storage location \"%(item_name)s\" has been created!"
+msgstr "The storage location \"%(location_name)s\" has been created!"
 
 #: PfaKSys/item/routes.py:59 PfaKSys/templates/item/new_location.html:9
 msgid "page.item_new_location.title"
