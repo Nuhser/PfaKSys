@@ -21,7 +21,7 @@ def new():
         db.session.add(item)
         db.session.commit()
 
-        flash(gettext('flash.success.item.created'), 'success')
+        flash(gettext('flash.success.item.created', item_name=item.name), 'success')
         return redirect(url_for('main.home'))
 
     return render_template('item/new.html', title=gettext('page.item_new.title'), form=form)
