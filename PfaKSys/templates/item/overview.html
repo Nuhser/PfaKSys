@@ -3,15 +3,15 @@
 {% block content %}
     {% for item in pagination.items %}
         <article class="media content-section">
-            <img class="border border-primary rounded article-img" src="{{ url_for('static', filename='item/images/' + item.image_file) }}">
+            <img class="rounded article-img" src="{{ url_for('static', filename='item/images/' + item.image_file) }}">
 
             <div class="media-body">
                 <!-- <div class="article-metadata">
                     <a class="mr-2" href="#">{{ item.name }}</a>
                 </div> -->
                 <h2><a class="article-title" href="#">{{ item.name }}</a></h2>
-                <p class="article-content">{{ _('ui.common.count') }}: {{ item.count }}
-                    {{ _('ui.common.condition') }}: {{ _(item.condition.value) }}
+                <p class="article-content"><b>{{ _('ui.common.count') }}:</b> {{ item.count }}
+                    <b>{{ _('ui.common.condition') }}:</b> <span class="rounded" style="padding: 3px; {{ item.condition.get_condition_color() }}">{{ _(item.condition.value) }}</span>
                 </p>
             </div>
         </article>
