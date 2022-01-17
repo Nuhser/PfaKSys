@@ -1,4 +1,3 @@
-from datetime import datetime
 from itsdangerous.jws import TimedJSONWebSignatureSerializer
 from flask import current_app
 from flask_login import UserMixin
@@ -6,15 +5,23 @@ from flask_login import UserMixin
 from PfaKSys import db, login_manager
 
 
+user_group_association_table = db.Table('user_group_association', db.Model.metadata,
+    db.Column('user_id', db.ForeignKey('user.id'), primary_key=True),
+    db.Column('user_group_id', db.ForeignKey('user_group.id'), primary_key=True)
+)
+
+
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)
+    full_name = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
+    groups = db.relationship('UserGroup', secondary=user_group_association_table, backref='users')
 
     def __repr__(self) -> str:
-        return f"User('{self.username}, '{self.email}', '{self.image_file}')"
+        return f"User('{self.username}, '{self.full_name}', '{self.email}', Groups: '{self.groups}', '{self.image_file}')"
 
     def get_reset_token(self, expire_sec: int=1800) -> str:
         serializer = TimedJSONWebSignatureSerializer(current_app.config['SECRET_KEY'], expire_sec)
@@ -29,6 +36,15 @@ class User(db.Model, UserMixin):
             return User.query.get(user_id)
         except:
             return None
+
+
+class UserGroup(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(60), unique=True, nullable=False)
+
+    def __repr__(self) -> str:
+        return f"UserGroup('{self.name}')"
+
 
 @login_manager.user_loader
 def load_user(user_id: int) -> User:

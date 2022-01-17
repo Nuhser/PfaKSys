@@ -40,9 +40,11 @@
                         <!-- Navbar Right Side -->
                         <div class="navbar-nav">
                             {% if current_user.is_authenticated %}
-                                
+                                <a class="nav-item nav-link" href="{{ url_for('user.account') }}">{{ _('ui.common.account') }}</a>
+                                <a class="nav-item nav-link" href="{{ url_for('user.logout') }}">{{ _('ui.common.logout') }}</a>
                             {% else %}
-
+                                <a class="nav-item nav-link" href="{{ url_for('user.login') }}">{{ _('ui.common.login') }}</a>
+                                <a class="nav-item nav-link" href="{{ url_for('user.register') }}">{{ _('ui.common.sign_up') }}</a>
                             {% endif %}
                         </div>
                     </div>

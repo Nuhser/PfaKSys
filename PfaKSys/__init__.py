@@ -20,7 +20,7 @@ login_manager = LoginManager()
 mail = Mail()
 
 # configure login manager
-login_manager.login_view = 'users.login'
+login_manager.login_view = 'user.login'
 login_manager.login_message_category = 'info'
 
 
@@ -44,11 +44,13 @@ def create_app(config=Config):
     login_manager.init_app(app)
     mail.init_app(app)
 
-    # create database if not existing
-    if not os.path.isfile(os.path.join(app.root_path, app.config['NAMESPACE'], 'db.sqlite')):
-        from PfaKSys.models import User
+    # create database and basic groups if not existing
+    if not os.path.isfile(os.path.join(app.root_path, 'db.sqlite')):
+        from PfaKSys.models import User, UserGroup
         with app.app_context():
             db.create_all()
+            db.session.add(UserGroup(name='default'))
+            db.session.add(UserGroup(name='admin'))
             db.session.commit()
 
     # import and register blueprints
