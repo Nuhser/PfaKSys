@@ -1,14 +1,49 @@
+from datetime import datetime
 from itsdangerous.jws import TimedJSONWebSignatureSerializer
 from flask import current_app
 from flask_login import UserMixin
 
 from PfaKSys import db, login_manager
+from PfaKSys.item.item_condition import ItemCondition
 
 
 user_group_association_table = db.Table('user_group_association', db.Model.metadata,
     db.Column('user_id', db.ForeignKey('user.id'), primary_key=True),
     db.Column('user_group_id', db.ForeignKey('user_group.id'), primary_key=True)
 )
+
+
+class Item(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), unique=True, nullable=False)
+    count = db.Column(db.Integer, nullable=False, default=0)
+    condition = db.Column(db.Enum(ItemCondition), nullable=False, default=ItemCondition.good)
+    date_checked = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    description = db.Column(db.Text)
+    comment = db.Column(db.Text)
+    category_id = db.Column(db.Integer, db.ForeignKey('item_category.id'), nullable=False)
+    location_id = db.Column(db.Integer, db.ForeignKey('item_location.id'), nullable=False)
+
+    def __repr__(self) -> str:
+        return f"Item('{self.name}', '{self.count}', '{self.condition}', '{self.date_checked}')"
+
+
+class ItemCategory(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(60), unique=True, nullable=False)
+    items = db.relationship('Item', backref='category')
+
+    def __repr__(self) -> str:
+        return f"ItemCategory('{self.name}')"
+
+
+class ItemLocation(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(60), unique=True, nullable=False)
+    items = db.relationship('Item', backref='location')
+
+    def __repr__(self) -> str:
+        return f"ItemLocation('{self.name}')"
 
 
 class User(db.Model, UserMixin):
