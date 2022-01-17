@@ -24,4 +24,4 @@ def new():
         flash(gettext('flash.success.item.created', item_name=item.name), 'success')
         return redirect(url_for('main.home'))
 
-    return render_template('item/new.html', title=gettext('page.item_new.title'), form=form)
+    return render_template('item/new.html', title=gettext('page.item_new.title'), sidebar=gettext('ui.common.menu'), form=form)
