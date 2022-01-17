@@ -52,13 +52,13 @@ def create_app(config=Config):
             db.session.commit()
 
     # import and register blueprints
-    from PfaKSys.error.handlers import errors
-    from PfaKSys.main.routes import main
-    from PfaKSys.user.routes import user
+    from PfaKSys.error.handlers import error_blueprint
+    from PfaKSys.main.routes import main_blueprint
+    from PfaKSys.user.routes import user_blueprint
 
-    app.register_blueprint(errors)
-    app.register_blueprint(main)
-    app.register_blueprint(user)
+    app.register_blueprint(error_blueprint)
+    app.register_blueprint(main_blueprint)
+    app.register_blueprint(user_blueprint)
 
     app.logger.info('Server has been started successfully.')
 
