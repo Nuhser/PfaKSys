@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-17 17:07+0100\n"
+"POT-Creation-Date: 2022-01-17 22:31+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -54,35 +54,35 @@ msgstr "Speichern"
 msgid "validation_error.item.name_already_taken"
 msgstr "Dieser Gegenstandsname existiert bereits. Bitte wähle einen anderen."
 
-#: PfaKSys/item/item_condition.py:6
+#: PfaKSys/item/item_condition.py:7
 msgid "item.item_condition.unknown"
 msgstr "Unbekannt"
 
-#: PfaKSys/item/item_condition.py:7
+#: PfaKSys/item/item_condition.py:8
 msgid "item.item_condition.good"
 msgstr "Gut"
 
-#: PfaKSys/item/item_condition.py:8
+#: PfaKSys/item/item_condition.py:9
 msgid "item.item_condition.ok"
 msgstr "OK"
 
-#: PfaKSys/item/item_condition.py:9
+#: PfaKSys/item/item_condition.py:10
 msgid "item.item_condition.mostly_ok"
 msgstr "Größtenteils OK"
 
-#: PfaKSys/item/item_condition.py:10
+#: PfaKSys/item/item_condition.py:11
 msgid "item.item_condition.damaged"
 msgstr "Beschädigt"
 
-#: PfaKSys/item/item_condition.py:11
-msgid "item.item_condition.in_repair"
-msgstr "In Reperatur"
-
 #: PfaKSys/item/item_condition.py:12
+msgid "item.item_condition.in_repair"
+msgstr "In Reparatur"
+
+#: PfaKSys/item/item_condition.py:13
 msgid "item.item_condition.unhygienic"
 msgstr "Unhygienisch"
 
-#: PfaKSys/item/item_condition.py:13
+#: PfaKSys/item/item_condition.py:14
 msgid "item.item_condition.other"
 msgstr "Sonstiges"
 
