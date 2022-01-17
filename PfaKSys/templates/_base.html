@@ -36,7 +36,7 @@
                             <a class="nav-item nav-link" href="{{ url_for('main.home') }}">{{ _('ui.common.home') }}</a>
 
                             {% if current_user.is_authenticated %}
-                                <a class="nav-item nav-link" href="{{ url_for('item.new') }}">{{ _('ui.item.new') }}</a>
+                                <a class="nav-item nav-link" href="{{ url_for('item.overview') }}">{{ _('ui.item.overview') }}</a>
                             {% endif %}
                             
                             <a class="nav-item nav-link" href="{{ url_for('main.about') }}">{{ _('ui.common.about') }}</a>
@@ -59,7 +59,7 @@
 
         <main role="main" class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div {% if sidebar %}class="col-md-8"{% else %}class="col-md-12"{% endif %}>
                     {% with messages = get_flashed_messages(with_categories=true) %}
                         {% if messages %}
                             {% for category, message in messages %}

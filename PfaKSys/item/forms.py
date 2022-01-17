@@ -9,7 +9,7 @@ from PfaKSys.models import Item
 
 class NewItemForm(FlaskForm):
     name = StringField(lazy_gettext('ui.common.name'), validators=[DataRequired(), Length(2, 120)])
-    count = IntegerField(lazy_gettext('ui.common.count'), validators=[DataRequired(), NumberRange(min=0)])
+    count = IntegerField(lazy_gettext('ui.common.count'), validators=[NumberRange(min=0)])
     condition = SelectField(lazy_gettext('ui.common.condition'), choices=[(c.name, c.value) for c in ItemCondition])
     description = TextAreaField(lazy_gettext('ui.common.description'))
     submit = SubmitField(lazy_gettext('ui.common.save'))
