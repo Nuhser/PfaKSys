@@ -3,16 +3,25 @@
 {% block content %}
     {% for item in pagination.items %}
         <article class="media content-section">
-            <img class="rounded article-img" src="{{ url_for('static', filename='item/images/' + item.image_file) }}">
+            <img class="rounded article-img" src="{{ url_for('static', filename='item_images/' + item.image_file) }}">
 
             <div class="media-body">
                 <!-- <div class="article-metadata">
                     <a class="mr-2" href="#">{{ item.name }}</a>
                 </div> -->
                 <h2><a class="article-title" href="#">{{ item.name }}</a></h2>
-                <p class="article-content"><b>{{ _('ui.common.count') }}:</b> {{ item.count }}
-                    <b>{{ _('ui.common.condition') }}:</b> <span class="rounded" style="padding: 3px; {{ item.condition.get_condition_color() }}">{{ _(item.condition.value) }}</span>
-                </p>
+                <div style="margin-bottom: 7px;">
+                    <b>{{ _('ui.common.count') }}:</b> 
+                    <span class="border border-primary rounded" style="padding-top: 1px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; ">
+                            <b>{{ item.count }}</b>
+                    </span>
+                </div>
+                <div>
+                    <b>{{ _('ui.common.condition') }}:</b> 
+                    <span class="rounded" style="padding-top: 1px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; {{ item.condition.get_condition_color() }}">
+                        {{ _(item.condition.value) }}
+                    </span>
+                </div>
             </div>
         </article>
     {% endfor %}
@@ -32,21 +41,21 @@
 {% block sidebar %}
     <form action="{{ url_for('item.new') }}" method='GET'>
         <button class="btn btn-primary btn-block mb-2" type="submit">
-            <img class="mr-2" src="{{ url_for('static', filename='item/ui/new.png') }}">
+            <span class="material-icons">add_box</span>
             {{ _('ui.item.new') }}
         </button>
     </form>
 
     <form action="{{ url_for('item.new_category') }}" method='GET'>
         <button class="btn btn-info btn-block mb-2" type="submit">
-            <img class="mr-2" src="{{ url_for('static', filename='item/ui/new_category.png') }}">
+            <span class="material-icons">sell</span>
             {{ _('ui.item.new_category') }}
         </button>
     </form>
 
     <form action="{{ url_for('item.new_location') }}" method='GET'>
         <button class="btn btn-info btn-block mb-2" type="submit">
-            <img class="mr-2" src="{{ url_for('static', filename='item/ui/new_location.png') }}">
+            <span class="material-icons">place</span>
             {{ _('ui.item.new_location') }}
         </button>
     </form>

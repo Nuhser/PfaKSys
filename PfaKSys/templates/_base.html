@@ -8,10 +8,13 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+        <!-- Google Material Icons -->
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
         <!-- Load style from main.css -->
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
-        <!-- Icon -->
+        <!-- Favicon -->
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
         {% if title %}
@@ -33,23 +36,23 @@
 
                     <div class="collapse navbar-collapse" id="navbarToggle">
                         <div class="navbar-nav mr-auto">
-                            <a class="nav-item nav-link" href="{{ url_for('main.home') }}">{{ _('ui.common.home') }}</a>
+                            <a class="nav-item nav-link" href="{{ url_for('main.home') }}"><span class="material-icons">home</span> {{ _('ui.common.home') }}</a>
 
                             {% if current_user.is_authenticated %}
-                                <a class="nav-item nav-link" href="{{ url_for('item.overview') }}">{{ _('ui.item.overview') }}</a>
+                                <a class="nav-item nav-link" href="{{ url_for('item.overview') }}"><span class="material-icons">inventory</span> {{ _('ui.item.overview') }}</a>
                             {% endif %}
                             
-                            <a class="nav-item nav-link" href="{{ url_for('main.about') }}">{{ _('ui.common.about') }}</a>
+                            <a class="nav-item nav-link" href="{{ url_for('main.about') }}"><span class="material-icons">info</span> {{ _('ui.common.about') }}</a>
                         </div>
 
                         <!-- Navbar Right Side -->
                         <div class="navbar-nav">
                             {% if current_user.is_authenticated %}
-                                <a class="nav-item nav-link" href="{{ url_for('user.account') }}">{{ _('ui.common.account') }}</a>
-                                <a class="nav-item nav-link" href="{{ url_for('user.logout') }}">{{ _('ui.common.logout') }}</a>
+                                <a class="nav-item nav-link" href="{{ url_for('user.account') }}"><span class="material-icons">account_circle</span> {{ _('ui.common.account') }}</a>
+                                <a class="nav-item nav-link" href="{{ url_for('user.logout') }}"><span class="material-icons">logout</span> {{ _('ui.common.logout') }}</a>
                             {% else %}
-                                <a class="nav-item nav-link" href="{{ url_for('user.login') }}">{{ _('ui.common.login') }}</a>
-                                <a class="nav-item nav-link" href="{{ url_for('user.register') }}">{{ _('ui.common.sign_up') }}</a>
+                                <a class="nav-item nav-link" href="{{ url_for('user.login') }}"><span class="material-icons">login</span> {{ _('ui.common.login') }}</a>
+                                <a class="nav-item nav-link" href="{{ url_for('user.register') }}"><span class="material-icons">person_add</span> {{ _('ui.common.sign_up') }}</a>
                             {% endif %}
                         </div>
                     </div>

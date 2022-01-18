@@ -83,3 +83,28 @@ a.article-title:hover {
 .account-heading {
     font-size: 2.5rem;
 }
+
+.material-icons{
+    display: inline-flex;
+    vertical-align: top;
+}
+
+.material-icons-outlined{
+    display: inline-flex;
+    vertical-align: top;
+}
+
+.material-icons-two-tone{
+    display: inline-flex;
+    vertical-align: top;
+}
+
+.material-icons-round{
+    display: inline-flex;
+    vertical-align: top;
+}
+
+.material-icons-sharp{
+    display: inline-flex;
+    vertical-align: top;
+}
