@@ -112,7 +112,7 @@ msgstr "Neue Kategorie"
 
 #: PfaKSys/item/routes.py:56
 msgid "flash.success.item_location.created"
-msgstr "Der Lagerort \"%(locaiton_name)s\" wurde angelegt!"
+msgstr "Der Lagerort \"%(location_name)s\" wurde angelegt!"
 
 #: PfaKSys/item/routes.py:59 PfaKSys/templates/item/new_location.html:9
 msgid "page.item_new_location.title"
