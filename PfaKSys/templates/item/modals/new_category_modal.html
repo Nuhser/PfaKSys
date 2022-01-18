@@ -1,0 +1,42 @@
+<div class="modal fade" id="new-item-category-modal" tabindex="-1" aria-labelledby="newItemCategoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            {{ new_category_form.hidden_tag() }}
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="newItemCategoryModalLabel">{{ _('modal.item_new_category.title') }}</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <form method="POST">
+                <div class="modal-body">
+                    {{ modal_messages() }}
+
+                    <div class="form-group">
+                        {{ new_category_form.name.label(class="form-control-label") }}
+
+                        {% if new_category_form.name.errors %}
+                            {{ new_category_form.name(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in new_category_form.name.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ new_category_form.name(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    {{ new_category_form.submit(class="btn btn-success") }}
+                    
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('ui.common.cancel') }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
