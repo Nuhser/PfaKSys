@@ -59,7 +59,7 @@ def new_location():
     return render_template('item/new_location.html', title=gettext('page.item_new_location.title'), form=form)
 
 
-@item_blueprint.route('/items/')
+@item_blueprint.route('/items')
 @login_required
 def overview():
     page = request.args.get('page', 1, type=int)
