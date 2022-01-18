@@ -1,0 +1,13 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <div class="content-section">
+        <h1>{{ _('page.error_405.heading') }}</h1>
+        <p>{{ _('page.error_405.explanation') }}</p>
+
+        {% if debug_mode %}
+            <h3>Error Message</h3>
+            <p>{{ error }}</p>
+        {% endif %}
+    </div>
+{% endblock %}
