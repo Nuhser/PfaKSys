@@ -8,42 +8,15 @@ h1, h2, h3, h4, h5, h6 {
     color: #444444;
 }
 
-.bg-steel {
-    background-color: #d1c300;
+.account-heading {
+    font-size: 2.5rem;
 }
 
-.site-header .navbar-brand {
-    color: #242424;
-    font-weight: bold;
-}
-
-.site-header .navbar-nav .nav-link {
-    color: #242424;
-}
-
-.site-header .navbar-nav .nav-link:hover {
-    color: #ffffff;
-}
-
-.site-header .navbar-nav .nav-link.active {
-    font-weight: 500;
-}
-
-.content-section {
-    background: #ffffff;
-    padding: 10px 20px;
-    border: 1px solid #dddddd;
-    border-radius: 3px;
-    margin-bottom: 20px;
-}
-
-.article-title {
-    color: #444444;
-}
-
-a.article-title:hover {
-    color: #428bca;
-    text-decoration: none;
+.account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
 }
 
 .article-content {
@@ -67,44 +40,65 @@ a.article-title:hover {
     text-decoration: none;
 }
 
-.article-svg {
-    width: 25px;
-    height: 25px;
-    vertical-align: middle;
+.article-title {
+    color: #444444;
 }
 
-.account-img {
-    height: 125px;
-    width: 125px;
-    margin-right: 20px;
-    margin-bottom: 16px;
+a.article-title:hover {
+    color: #428bca;
+    text-decoration: none;
 }
 
-.account-heading {
-    font-size: 2.5rem;
+.bg-steel {
+    background-color: #d1c300;
 }
 
-.material-icons{
+.content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.material-icons {
     display: inline-flex;
     vertical-align: top;
 }
 
-.material-icons-outlined{
+.material-icons-outlined {
     display: inline-flex;
     vertical-align: top;
 }
 
-.material-icons-two-tone{
+.material-icons-two-tone {
     display: inline-flex;
     vertical-align: top;
 }
 
-.material-icons-round{
+.material-icons-round {
     display: inline-flex;
     vertical-align: top;
 }
 
-.material-icons-sharp{
+.material-icons-sharp {
     display: inline-flex;
     vertical-align: top;
+}
+
+.site-header .navbar-brand {
+    color: #242424;
+    font-weight: bold;
+}
+
+.site-header .navbar-nav .nav-link {
+    color: #242424;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+    color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
 }
