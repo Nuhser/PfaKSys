@@ -39,24 +39,42 @@
 {% endblock %}
 
 {% block sidebar %}
-    <form action="{{ url_for('item.new') }}" method='GET'>
-        <button class="btn btn-primary btn-block mb-2" type="submit">
+    <form class="btn-block" action="{{ url_for('item.new') }}" method='GET'>
+        <button class="btn btn-primary btn-block" type="submit">
             <span class="material-icons">add_box</span>
             {{ _('ui.item.new') }}
         </button>
     </form>
 
-    <form action="{{ url_for('item.new_category') }}" method='GET'>
-        <button class="btn btn-info btn-block mb-2" type="submit">
-            <span class="material-icons">sell</span>
-            {{ _('ui.item.new_category') }}
-        </button>
-    </form>
+    <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#new-item-category-modal">
+        <span class="material-icons">sell</span>
+        {{ _('ui.item.new_category') }}
+    </button>
 
-    <form action="{{ url_for('item.new_location') }}" method='GET'>
-        <button class="btn btn-info btn-block mb-2" type="submit">
-            <span class="material-icons">place</span>
-            {{ _('ui.item.new_location') }}
-        </button>
-    </form>
+    <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#new-item-location-modal">
+        <span class="material-icons">place</span>
+        {{ _('ui.item.new_location') }}
+    </button>
+    
+    {% include 'item/modals/new_category_modal.html' %}
+    {% include 'item/modals/new_location_modal.html' %}
+{% endblock %}
+
+{% block scripts %}
+    <!-- Modal Scripts -->
+    {% if new_category_form.category_name.errors %}
+        <script type="text/javascript">
+            $(window).on('load', function() {
+                $("#new-item-category-modal").modal("show")
+            });
+        </script>
+    {% endif %}
+
+    {% if new_location_form.location_name.errors %}
+        <script type="text/javascript">
+            $(window).on('load', function() {
+                $("#new-item-location-modal").modal("show")
+            });
+        </script>
+    {% endif %}
 {% endblock %}

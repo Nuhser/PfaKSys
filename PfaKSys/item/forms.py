@@ -21,20 +21,20 @@ class NewItemForm(FlaskForm):
 
 
 class NewItemCategoryForm(FlaskForm):
-    name = StringField(lazy_gettext('ui.common.name'), validators=[DataRequired(), Length(2, 60)])
+    category_name = StringField(lazy_gettext('ui.common.name'), validators=[DataRequired(), Length(2, 60)])
     submit = SubmitField(lazy_gettext('ui.common.save'))
 
-    def validate_name(self, name: StringField) -> None:
-        item = ItemCategory.query.filter_by(name=name.data).first()
+    def validate_category_name(self, category_name: StringField) -> None:
+        item = ItemCategory.query.filter_by(name=category_name.data).first()
         if item:
             raise ValidationError(lazy_gettext('validation_error.item_category.name_already_taken'))
 
 
 class NewItemLocationForm(FlaskForm):
-    name = StringField(lazy_gettext('ui.common.name'), validators=[DataRequired(), Length(2, 60)])
+    location_name = StringField(lazy_gettext('ui.common.name'), validators=[DataRequired(), Length(2, 60)])
     submit = SubmitField(lazy_gettext('ui.common.save'))
 
-    def validate_name(self, name: StringField) -> None:
-        item = ItemLocation.query.filter_by(name=name.data).first()
+    def validate_location_name(self, location_name: StringField) -> None:
+        item = ItemLocation.query.filter_by(name=location_name.data).first()
         if item:
             raise ValidationError(lazy_gettext('validation_error.item_location.name_already_taken'))
