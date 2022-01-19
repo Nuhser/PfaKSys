@@ -9,7 +9,7 @@
                 <!-- <div class="article-metadata">
                     <a class="mr-2" href="#">{{ item.name }}</a>
                 </div> -->
-                <h2><a class="article-title" href="#">{{ item.name }}</a></h2>
+                <h2><a class="article-title" href="{{ url_for('item.details', item_id=item.id) }}">{{ item.name }}</a></h2>
                 <div style="margin-bottom: 7px;">
                     <b>{{ _('ui.common.count') }}:</b> 
                     <span class="border border-primary rounded" style="padding-top: 1px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; ">

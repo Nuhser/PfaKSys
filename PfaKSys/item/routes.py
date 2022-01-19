@@ -27,6 +27,24 @@ def new():
     return render_template('item/new.html', title=gettext('page.item_new.title'), form=form)
 
 
+@item_blueprint.route('/items/<int:item_id>/delete', methods=['POST'])
+@login_required
+def delete(item_id):
+    item = Item.query.get_or_404(item_id)
+    db.session.delete(item)
+    db.session.commit()
+
+    flash(gettext('flash.success.item.deleted', item_name=item.name), 'success')
+    return redirect(url_for('item.overview'))
+
+
+@item_blueprint.route('/items/<int:item_id>')
+@login_required
+def details(item_id):
+    item = Item.query.get_or_404(item_id)
+    return render_template('item/details.html', title=item.name, item=item)
+
+
 @item_blueprint.route('/items', methods=['GET', 'POST'])
 @login_required
 def overview():

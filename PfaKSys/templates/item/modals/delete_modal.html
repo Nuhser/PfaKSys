@@ -1,0 +1,19 @@
+<div class="modal fade" id="delete-item-modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newItemCategoryModalLabel">{{ _('modal.item_delete.title') }}</h5>
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-footer">
+                <form action="{{ url_for('item.delete', item_id=item.id) }}" method='POST'>
+                    <input class="btn btn-danger" type="submit" value="{{ _('ui.common.delete') }}">
+                </form>
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('ui.common.cancel') }}</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <article class="media content-section">
+        <img class="rounded border border-secondary article-img-lg" src="{{ url_for('static', filename='item_images/' + item.image_file) }}">
+
+        <div class="media-body">
+            <div class="article-metadata">
+                <small class="text-muted">{{ _('ui.common.as_of') }}: {{ item.date_checked.strftime("%d. %B %Y, %H:%M") }}</small>
+
+                <div>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="#">
+                        <span class="material-icons">edit</span>
+                        {{ _('ui.common.edit') }}
+                    </a>
+                    <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#delete-item-modal">
+                        <span class="material-icons">delete</span>
+                        {{ _('ui.common.delete') }}
+                    </button>
+                </div>
+            </div>
+            <h2 class="article-title">{{ item.name }}</h2>
+            <p class="article-content">{{ item.description }}</p>
+        </div>
+    </article>
+
+    {% include "item/modals/delete_modal.html" %}
+{% endblock %}

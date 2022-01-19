@@ -29,6 +29,12 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 16px;
 }
 
+.article-img-lg {
+    height: 125px;
+    width: 125px;
+    margin-right: 16px;
+}
+
 .article-metadata {
     padding-bottom: 1px;
     margin-bottom: 4px;
