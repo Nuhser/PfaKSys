@@ -4,3 +4,12 @@
     <h1 class="mb-3">{{ _('page.home.title') }}</h1>
     <p>Hier stehen später interessante Sachen.</p>
 {% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $(window).on('load', function(){
+            $(".nav").find(".active").removeClass("active");
+            $("#nav-home").addClass("active");
+        });
+    </script>
+{% endblock %}

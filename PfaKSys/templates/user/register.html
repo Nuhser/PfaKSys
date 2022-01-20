@@ -96,3 +96,12 @@
         </small>
     </div>
 {% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $(window).on('load', function(){
+            $(".nav").find(".active").removeClass("active");
+            $("#nav-register").addClass("active");
+        });
+    </script>
+{% endblock %}

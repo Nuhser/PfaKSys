@@ -30,3 +30,11 @@
         </form>
     </div>
 {% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $(window).on('load', function(){
+            $(".nav").find(".active").removeClass("active");
+        });
+    </script>
+{% endblock %}
