@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-20 15:29+0100\n"
+"POT-Creation-Date: 2022-01-20 19:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,48 +33,56 @@ msgstr ""
 msgid "page.error_500.title"
 msgstr ""
 
-#: PfaKSys/item/forms.py:11 PfaKSys/item/forms.py:29 PfaKSys/item/forms.py:39
+#: PfaKSys/item/forms.py:12 PfaKSys/item/forms.py:38 PfaKSys/item/forms.py:48
 msgid "ui.common.name"
 msgstr ""
 
-#: PfaKSys/item/forms.py:12 PfaKSys/templates/item/details.html:35
-#: PfaKSys/templates/item/edit.html:32 PfaKSys/templates/item/overview.html:11
+#: PfaKSys/item/forms.py:13
+msgid "ui.item.has_count"
+msgstr ""
+
+#: PfaKSys/item/forms.py:14 PfaKSys/templates/item/details.html:35
+#: PfaKSys/templates/item/edit.html:53 PfaKSys/templates/item/overview.html:11
 msgid "ui.common.count"
 msgstr ""
 
-#: PfaKSys/item/forms.py:13 PfaKSys/templates/item/details.html:53
-#: PfaKSys/templates/item/edit.html:60 PfaKSys/templates/item/overview.html:17
+#: PfaKSys/item/forms.py:15 PfaKSys/templates/item/details.html:53
+#: PfaKSys/templates/item/edit.html:93 PfaKSys/templates/item/overview.html:17
 msgid "ui.common.condition"
 msgstr ""
 
-#: PfaKSys/item/forms.py:14 PfaKSys/templates/item/details.html:42
-#: PfaKSys/templates/item/edit.html:46
+#: PfaKSys/item/forms.py:16 PfaKSys/templates/item/details.html:42
+#: PfaKSys/templates/item/edit.html:72
 msgid "ui.item.category"
 msgstr ""
 
-#: PfaKSys/item/forms.py:15 PfaKSys/templates/item/details.html:60
-#: PfaKSys/templates/item/edit.html:74
+#: PfaKSys/item/forms.py:17 PfaKSys/templates/item/details.html:60
+#: PfaKSys/templates/item/edit.html:112
 msgid "ui.item.location"
 msgstr ""
 
-#: PfaKSys/item/forms.py:16 PfaKSys/templates/item/details.html:73
-#: PfaKSys/templates/item/edit.html:90
+#: PfaKSys/item/forms.py:18 PfaKSys/templates/item/details.html:73
+#: PfaKSys/templates/item/edit.html:133
 msgid "ui.common.description"
 msgstr ""
 
-#: PfaKSys/item/forms.py:17 PfaKSys/item/forms.py:30 PfaKSys/item/forms.py:40
+#: PfaKSys/item/forms.py:19 PfaKSys/item/forms.py:39 PfaKSys/item/forms.py:49
 msgid "ui.common.save"
 msgstr ""
 
-#: PfaKSys/item/forms.py:25
+#: PfaKSys/item/forms.py:27
 msgid "validation_error.item.name_already_taken"
 msgstr ""
 
-#: PfaKSys/item/forms.py:35
+#: PfaKSys/item/forms.py:32
+msgid "validation_error.item.count_min_zero"
+msgstr ""
+
+#: PfaKSys/item/forms.py:44
 msgid "validation_error.item_category.name_already_taken"
 msgstr ""
 
-#: PfaKSys/item/forms.py:45
+#: PfaKSys/item/forms.py:54
 msgid "validation_error.item_location.name_already_taken"
 msgstr ""
 
@@ -114,31 +122,31 @@ msgstr ""
 msgid "flash.success.item.deleted"
 msgstr ""
 
-#: PfaKSys/item/routes.py:59
+#: PfaKSys/item/routes.py:60
 msgid "flash.success.item.edited"
 msgstr ""
 
-#: PfaKSys/item/routes.py:85
+#: PfaKSys/item/routes.py:87
 msgid "flash.success.item_category.created"
 msgstr ""
 
-#: PfaKSys/item/routes.py:94
+#: PfaKSys/item/routes.py:96
 msgid "flash.success.item_location.created"
 msgstr ""
 
-#: PfaKSys/item/routes.py:101
+#: PfaKSys/item/routes.py:103
 msgid "page.item_overview.title"
 msgstr ""
 
-#: PfaKSys/item/routes.py:102
+#: PfaKSys/item/routes.py:104
 msgid "ui.common.menu"
 msgstr ""
 
-#: PfaKSys/item/routes.py:126
+#: PfaKSys/item/routes.py:130
 msgid "flash.success.item.created"
 msgstr ""
 
-#: PfaKSys/item/routes.py:129 PfaKSys/templates/item/new.html:9
+#: PfaKSys/item/routes.py:133 PfaKSys/templates/item/new.html:9
 msgid "page.item_new.title"
 msgstr ""
 
@@ -235,29 +243,29 @@ msgid "ui.common.delete"
 msgstr ""
 
 #: PfaKSys/templates/item/details.html:31 PfaKSys/templates/item/edit.html:28
-msgid "ui.common.common"
+msgid "ui.common.generel"
 msgstr ""
 
 #: PfaKSys/templates/item/details.html:81
 msgid "ui.common.comment"
 msgstr ""
 
-#: PfaKSys/templates/item/edit.html:108
+#: PfaKSys/templates/item/edit.html:151
 #: PfaKSys/templates/item/modals/delete_modal.html:15
 #: PfaKSys/templates/item/modals/new_category_modal.html:33
 #: PfaKSys/templates/item/modals/new_location_modal.html:33
 msgid "ui.common.cancel"
 msgstr ""
 
-#: PfaKSys/templates/item/overview.html:42
+#: PfaKSys/templates/item/overview.html:59
 msgid "ui.item.new"
 msgstr ""
 
-#: PfaKSys/templates/item/overview.html:48
+#: PfaKSys/templates/item/overview.html:65
 msgid "ui.item.new_category"
 msgstr ""
 
-#: PfaKSys/templates/item/overview.html:53
+#: PfaKSys/templates/item/overview.html:70
 msgid "ui.item.new_location"
 msgstr ""
 
