@@ -73,7 +73,7 @@
             <legend class="border-bottom mb-3">{{ _('ui.common.description') }}</legend>
 
             {% if item.description %}
-                <p>{{ item.description }}</p>
+                <p style="white-space: pre-line;">{{ item.description }}</p>
             {% endif %}
         </fieldset>
 
@@ -81,7 +81,7 @@
             <legend class="border-bottom mb-3">{{ _('ui.common.comment') }}</legend>
 
             {% if item.comment %}
-                <p>{{ item.comment }}</p>
+                <p style="white-space: pre-line;">{{ item.comment }}</p>
             {% endif %}
         </fieldset>
     </div>
