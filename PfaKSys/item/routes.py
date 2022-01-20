@@ -53,6 +53,7 @@ def edit(item_id):
             item.category = ItemCategory.query.get(form.category.data)
             item.location = ItemLocation.query.get(form.location.data)
             item.description = form.description.data
+            item.comment = form.comment.data
             item.date_checked = datetime.utcnow()
 
             db.session.commit()
@@ -68,6 +69,7 @@ def edit(item_id):
         form.category.process_data(item.category.id if item.category else None)
         form.location.process_data(item.location.id if item.location else None)
         form.description.data = item.description
+        form.comment.data = item.comment
 
     return render_template('item/edit.html', title=f'{item.name} ({gettext("ui.common.edit")})', item=item, form=form)
 
@@ -121,7 +123,8 @@ def new():
                 condition=(form.condition.data if form.condition.data else ItemCondition.unknown),
                 category=ItemCategory.query.get(form.category.data),
                 location=ItemLocation.query.get(form.location.data),
-                description=form.description.data)
+                description=form.description.data,
+                comment=form.comment.data)
 
         db.session.add(item)
         db.session.commit()

@@ -15,6 +15,7 @@ class ItemForm(FlaskForm):
     category = SelectField(lazy_gettext('ui.item.category'))
     location = SelectField(lazy_gettext('ui.item.location'))
     description = TextAreaField(lazy_gettext('ui.common.description'))
+    comment = TextAreaField(lazy_gettext('ui.common.comment'))
     submit = SubmitField(lazy_gettext('ui.common.save'))
 
     # set if form is used for item editing

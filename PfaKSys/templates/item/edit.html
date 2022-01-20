@@ -156,6 +156,21 @@
                 {% endif %}
             </fieldset>
 
+            <fieldset class="mb-4">
+                <legend class="border-bottom mb-3">{{ _('ui.common.comment') }}</legend>
+
+                {% if form.comment.errors %}
+                    {{ form.comment(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.comment.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.comment(class="form-control form-control-lg") }}
+                {% endif %}
+            </fieldset>
+
             <div class="border-top form-group">
                 {{ form.submit(class="btn btn-success mt-2") }}
 

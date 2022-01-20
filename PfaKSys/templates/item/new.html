@@ -116,6 +116,21 @@
                         {{ form.description(class="form-control form-control-lg") }}
                     {% endif %}
                 </div>
+
+                <div class="form-group">
+                    {{ form.comment.label(class="form-control-label") }}
+
+                    {% if form.comment.errors %}
+                        {{ form.comment(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.comment.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.comment(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
             </fieldset>
 
             <div class="form-group">
