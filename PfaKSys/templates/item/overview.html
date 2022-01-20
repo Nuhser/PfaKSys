@@ -22,17 +22,34 @@
             </div>
         </article>
     {% endfor %}
-    {% for page in pagination.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
-        {% if page %}
-            {% if pagination.page == page %}
-                <a class="btn btn-info mb-4" href="{{ url_for('item.overview', page=page) }}">{{ page }}</a>
+
+    {% if pagination.pages > 0 %}
+        <div class="btn-group d-flex justify-content-center">
+            {% if pagination.page > 1 %}
+                <a class="btn btn-outline-secondary mb-4" href="{{ url_for('item.overview', page=pagination.page-1) }}">&laquo;</a>
             {% else %}
-                <a class="btn btn-outline-info mb-4" href="{{ url_for('item.overview', page=page) }}">{{ page }}</a>
+                <a class="btn btn-outline-secondary disabled mb-4" href="{{ url_for('item.overview', page=pagination.page-1) }}">&laquo;</a>
             {% endif %}
-        {% else %}
-            ...
-        {% endif %}
-    {% endfor %}
+
+            {% for page in pagination.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                {% if page %}
+                    {% if pagination.page == page %}
+                        <a class="btn btn-info mb-4" href="{{ url_for('item.overview', page=page) }}">{{ page }}</a>
+                    {% else %}
+                        <a class="btn btn-outline-info mb-4" href="{{ url_for('item.overview', page=page) }}">{{ page }}</a>
+                    {% endif %}
+                {% else %}
+                    ...
+                {% endif %}
+            {% endfor %}
+            
+            {% if pagination.page < pagination.pages %}
+                <a class="btn btn-outline-secondary mb-4" href="{{ url_for('item.overview', page=pagination.page+1) }}">&raquo;</a>
+            {% else %}
+                <a class="btn btn-outline-secondary disabled mb-4" href="{{ url_for('item.overview', page=pagination.page+1) }}">&raquo;</a>
+            {% endif %}
+        </div>
+    {% endif %}
 {% endblock %}
 
 {% block sidebar %}
