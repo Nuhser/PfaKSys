@@ -1,0 +1,115 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <div class="content-section">
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="media mb-5">
+                <img class="rounded border border-secondary article-img-lg" src="{{ url_for('static', filename='item_images/' + item.image_file) }}">
+
+                <div class="media-body">
+                    <h2 class="article-title">
+                        {% if form.name.errors %}
+                            {{ form.name(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.name.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.name(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </h2>
+                </div>
+            </div>
+
+            <fieldset class="mb-4 form-group">
+                <legend class="border-bottom mb-3">{{ _('ui.common.common') }}</legend>
+
+                <div class="d-flex justify-content-around">
+                    <div>
+                        <b>{{ _('ui.common.count') }}:</b> 
+                        {% if form.count.errors %}
+                            {{ form.count(class="form-control form-control-sm is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.count.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.count(class="form-control form-control-sm") }}
+                        {% endif %}
+
+                        <br><br>
+
+                        <b>{{ _('ui.item.category') }}:</b>
+                        {% if form.category.errors %}
+                            {{ form.category(class="form-control form-control-sm is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.category.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.category(class="form-control form-control-sm") }}
+                        {% endif %}
+                    </div>
+
+                    <div>
+                        <b>{{ _('ui.common.condition') }}:</b> 
+                        {% if form.condition.errors %}
+                            {{ form.condition(class="form-control form-control-sm is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.condition.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.condition(class="form-control form-control-sm") }}
+                        {% endif %}
+
+                        <br><br>
+
+                        <b>{{ _('ui.item.location') }}:</b>
+                        {% if form.location.errors %}
+                            {{ form.location(class="form-control form-control-sm is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.location.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.location(class="form-control form-control-sm") }}
+                        {% endif %}
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="mb-4">
+                <legend class="border-bottom mb-3">{{ _('ui.common.description') }}</legend>
+
+                {% if form.description.errors %}
+                    {{ form.description(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.description.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.description(class="form-control form-control-lg") }}
+                {% endif %}
+            </fieldset>
+
+            <div class="border-top form-group">
+                {{ form.submit(class="btn btn-success mt-2") }}
+
+                <a class="btn btn-secondary mt-2" href="{{ url_for('item.details', item_id=item.id) }}">
+                    {{ _('ui.common.cancel') }}
+                </a>
+            </div>
+        </form>
+    </div>
+
+    {% include "item/modals/delete_modal.html" %}
+{% endblock %}

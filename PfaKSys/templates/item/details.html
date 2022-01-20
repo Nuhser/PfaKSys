@@ -1,28 +1,90 @@
 {% extends '_base.html' %}
 
 {% block content %}
-    <article class="media content-section">
-        <img class="rounded border border-secondary article-img-lg" src="{{ url_for('static', filename='item_images/' + item.image_file) }}">
+    <div class="content-section">
+        <div class="media mb-5">
+            <img class="rounded border border-secondary article-img-lg" src="{{ url_for('static', filename='item_images/' + item.image_file) }}">
 
-        <div class="media-body">
-            <div class="article-metadata">
-                <small class="text-muted">{{ _('ui.common.as_of') }}: {{ item.date_checked.strftime("%d. %B %Y, %H:%M") }}</small>
+            <div class="media-body">
+                <div class="border-bottom d-flex justify-content-between" style="padding-bottom: 5px; border-bottom: 1px solid #e3e3e3">
+                    <div>
+                        <small class="text-muted">{{ _('ui.common.as_of') }}: {{ item.date_checked.strftime("%d. %B %Y, %H:%M") }}</small>
+                    </div>
+
+                    <div>
+                        <a class="btn btn-secondary btn-sm" href="{{ url_for('item.edit', item_id=item.id) }}">
+                            <span class="material-icons">edit</span>
+                            {{ _('ui.common.edit') }}
+                        </a>
+                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-item-modal">
+                            <span class="material-icons">delete</span>
+                            {{ _('ui.common.delete') }}
+                        </button>
+                    </div>
+                </div>
+
+                <h2 class="article-title">{{ item.name }}</h2>
+            </div>
+        </div>
+
+        <fieldset class="mb-4">
+            <legend class="border-bottom mb-3">{{ _('ui.common.common') }}</legend>
+
+            <div class="d-flex justify-content-around">
+                <div>
+                    <b>{{ _('ui.common.count') }}:</b> 
+                    <span class="border border-info rounded" style="padding-top: 1px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px;">
+                            <b>{{ item.count }}</b>
+                    </span>
+
+                    <br><br>
+
+                    <b>{{ _('ui.item.category') }}:</b>
+                    {% if item.category %}
+                        <span class="border border-info rounded" style="padding-top: 1px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px;">
+                            {{ item.category.name }}
+                        </span>
+                    {% else %}
+                        <span class="material-icons">block</span>
+                    {% endif %}
+                </div>
 
                 <div>
-                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="#">
-                        <span class="material-icons">edit</span>
-                        {{ _('ui.common.edit') }}
-                    </a>
-                    <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#delete-item-modal">
-                        <span class="material-icons">delete</span>
-                        {{ _('ui.common.delete') }}
-                    </button>
+                    <b>{{ _('ui.common.condition') }}:</b> 
+                    <span class="rounded" style="padding-top: 1px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; {{ item.condition.get_condition_color() }}">
+                        {{ _(item.condition.value) }}
+                    </span>
+
+                    <br><br>
+
+                    <b>{{ _('ui.item.location') }}:</b>
+                    {% if item.location %}
+                        <span class="border border-info rounded" style="padding-top: 1px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px;">
+                            {{ item.location.name }}
+                        </span>
+                    {% else %}
+                        <span class="material-icons">block</span>
+                    {% endif %}
                 </div>
             </div>
-            <h2 class="article-title">{{ item.name }}</h2>
-            <p class="article-content">{{ item.description }}</p>
-        </div>
-    </article>
+        </fieldset>
+
+        <fieldset class="mb-4">
+            <legend class="border-bottom mb-3">{{ _('ui.common.description') }}</legend>
+
+            {% if item.description %}
+                <p>{{ item.description }}</p>
+            {% endif %}
+        </fieldset>
+
+        <fieldset class="mb-4">
+            <legend class="border-bottom mb-3">{{ _('ui.common.comment') }}</legend>
+
+            {% if item.comment %}
+                <p>{{ item.comment }}</p>
+            {% endif %}
+        </fieldset>
+    </div>
 
     {% include "item/modals/delete_modal.html" %}
 {% endblock %}
