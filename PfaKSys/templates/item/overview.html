@@ -9,9 +9,13 @@
                 <h2><a class="article-title" href="{{ url_for('item.details', item_id=item.id) }}">{{ item.name }}</a></h2>
                 <div style="margin-bottom: 7px;">
                     <b>{{ _('ui.common.count') }}:</b> 
-                    <span class="border border-info rounded" style="padding-top: 1px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px;">
-                            <b>{{ item.count }}</b>
-                    </span>
+                    {% if item.has_count %}
+                        <span class="border border-info rounded" style="padding-top: 1px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px;">
+                                <b>{{ item.count }}</b>
+                        </span>
+                    {% else %}
+                        <span class="material-icons">block</span>
+                    {% endif %}
                 </div>
                 <div>
                     <b>{{ _('ui.common.condition') }}:</b> 
@@ -91,4 +95,11 @@
             });
         </script>
     {% endif %}
+
+    <script type="text/javascript">
+        $(window).on('load', function(){
+            $(".nav").find(".active").removeClass("active");
+            $("#nav-material").addClass("active");
+        });
+    </script>
 {% endblock %}

@@ -27,8 +27,33 @@
             <fieldset class="mb-4">
                 <legend class="border-bottom mb-3">{{ _('ui.common.generel') }}</legend>
 
-                <div class="d-flex justify-content-around">
-                    <div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row">
+                            <label for="count" class="col-sm-2">
+                                <b>{{ _('ui.item.has_count') }}:</b>
+                            </label>
+        
+                            <div class="col-sm-10">
+                                <div class="form-check">
+                                    {% if form.has_count.errors %}
+                                        {{ form.has_count(class="form-check-input is-invalid")}}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.has_count.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.has_count(class="form-check-input") }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
                         <div class="form-group row">
                             <label for="count" class="col-sm-3 col-form-label">
                                 <b>{{ _('ui.common.count') }}:</b>
@@ -47,7 +72,32 @@
                                 {% endif %}
                             </div>
                         </div>
+                    </div>
 
+                    <div class="col">
+                        <div class="form-group row">
+                            <label for="condition" class="col-sm-3 col-form-label">
+                                <b>{{ _('ui.common.condition') }}:</b>
+                            </label>
+
+                            <div class="col-sm-9">
+                                {% if form.condition.errors %}
+                                    {{ form.condition(class="form-control is-invalid", id="condition")}}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.condition.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.condition(class="form-control", id="condition") }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
                         <div class="form-group row">
                             <label for="category" class="col-sm-3 col-form-label">
                                 <b>{{ _('ui.item.category') }}:</b>
@@ -68,26 +118,7 @@
                         </div>
                     </div>
 
-                    <div>
-                        <div class="form-group row">
-                            <label for="condition" class="col-sm-3 col-form-label">
-                                <b>{{ _('ui.common.condition') }}:</b>
-                            </label>
-
-                            <div class="col-sm-9">
-                                {% if form.condition.errors %}
-                                    {{ form.condition(class="form-control is-invalid", id="condition")}}
-                                    <div class="invalid-feedback">
-                                        {% for error in form.condition.errors %}
-                                            <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
-                                {% else %}
-                                    {{ form.condition(class="form-control", id="condition") }}
-                                {% endif %}
-                            </div>
-                        </div>
-
+                    <div class="col">
                         <div class="form-group row">
                             <label for="location" class="col-sm-3 col-form-label">
                                 <b>{{ _('ui.item.location') }}:</b>
@@ -136,4 +167,13 @@
     </div>
 
     {% include "item/modals/delete_modal.html" %}
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $(window).on('load', function(){
+            $(".nav").find(".active").removeClass("active");
+            $("#nav-material").addClass("active");
+        });
+    </script>
 {% endblock %}

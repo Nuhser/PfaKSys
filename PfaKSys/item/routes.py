@@ -47,6 +47,7 @@ def edit(item_id):
                 if not _:
                     item.name = form.name.data
 
+            item.has_count = form.has_count.data
             item.count = form.count.data
             item.condition = form.condition.data
             item.category = ItemCategory.query.get(form.category.data)
@@ -61,6 +62,7 @@ def edit(item_id):
 
     elif request.method == 'GET':
         form.name.data = item.name
+        form.has_count.data = item.has_count
         form.count.data = item.count
         form.condition.process_data(item.condition.name)
         form.category.process_data(item.category.id if item.category else None)
@@ -114,6 +116,7 @@ def new():
 
     if form.validate_on_submit():
         item = Item(name=form.name.data,
+                has_count=form.has_count.data,
                 count=form.count.data,
                 condition=(form.condition.data if form.condition.data else ItemCondition.unknown),
                 category=ItemCategory.query.get(form.category.data),

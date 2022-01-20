@@ -16,6 +16,7 @@ user_group_association_table = db.Table('user_group_association', db.Model.metad
 class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), unique=True, nullable=False)
+    has_count = db.Column(db.Boolean, nullable=False, default=True)
     count = db.Column(db.Integer, nullable=False, default=0)
     condition = db.Column(db.Enum(ItemCondition), nullable=False, default=ItemCondition.unknown)
     date_checked = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)

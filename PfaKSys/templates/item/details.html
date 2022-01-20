@@ -32,10 +32,14 @@
 
             <div class="d-flex justify-content-around">
                 <div>
-                    <b>{{ _('ui.common.count') }}:</b> 
-                    <span class="border border-info rounded" style="padding-top: 1px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px;">
-                            <b>{{ item.count }}</b>
-                    </span>
+                    <b>{{ _('ui.common.count') }}:</b>
+                    {% if item.has_count %}
+                        <span class="border border-info rounded" style="padding-top: 1px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px;">
+                                <b>{{ item.count }}</b>
+                        </span>
+                    {% else %}
+                        <span class="material-icons">block</span>
+                    {% endif %}
 
                     <br><br>
 
@@ -87,4 +91,13 @@
     </div>
 
     {% include "item/modals/delete_modal.html" %}
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $(window).on('load', function(){
+            $(".nav").find(".active").removeClass("active");
+            $("#nav-material").addClass("active");
+        });
+    </script>
 {% endblock %}

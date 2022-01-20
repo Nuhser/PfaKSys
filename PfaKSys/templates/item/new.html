@@ -23,6 +23,25 @@
                     {% endif %}
                 </div>
 
+                <div class="form-group row">
+                    {{ form.has_count.label(class="col-sm-2") }}
+
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            {% if form.has_count.errors %}
+                                {{ form.has_count(class="form-check-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.has_count.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.has_count(class="form-check-input") }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     {{ form.count.label(class="form-control-label") }}
 
@@ -104,4 +123,13 @@
             </div>
         </form>
     </div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $(window).on('load', function(){
+            $(".nav").find(".active").removeClass("active");
+            $("#nav-material").addClass("active");
+        });
+    </script>
 {% endblock %}

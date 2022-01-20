@@ -1,7 +1,7 @@
 from flask_babel import lazy_gettext
 from flask_wtf import FlaskForm
-from wtforms import IntegerField, SelectField, StringField, SubmitField, TextAreaField
-from wtforms.validators import DataRequired, Length, NumberRange, ValidationError
+from wtforms import BooleanField, IntegerField, SelectField, StringField, SubmitField, TextAreaField
+from wtforms.validators import DataRequired, Length, ValidationError
 
 from PfaKSys.item.item_condition import ItemCondition
 from PfaKSys.models import Item, ItemCategory, ItemLocation
@@ -9,7 +9,8 @@ from PfaKSys.models import Item, ItemCategory, ItemLocation
 
 class ItemForm(FlaskForm):
     name = StringField(lazy_gettext('ui.common.name'), validators=[DataRequired(), Length(2, 120)])
-    count = IntegerField(lazy_gettext('ui.common.count'), validators=[NumberRange(min=0)])
+    has_count = BooleanField(lazy_gettext('ui.item.has_count'), default=True)
+    count = IntegerField(lazy_gettext('ui.common.count'), default=0)
     condition = SelectField(lazy_gettext('ui.common.condition'), choices=[(condition.name, condition.value) for condition in ItemCondition])
     category = SelectField(lazy_gettext('ui.item.category'))
     location = SelectField(lazy_gettext('ui.item.location'))
@@ -23,6 +24,11 @@ class ItemForm(FlaskForm):
         item = Item.query.filter_by(name=name.data).first()
         if item and item.id != self.item_id:
             raise ValidationError(lazy_gettext('validation_error.item.name_already_taken'))
+
+    def validate_count(self, count: IntegerField) -> None:
+        if self.has_count.data:
+            if (count.data == None) or (count.data < 0):
+                raise ValidationError(lazy_gettext('validation_error.item.count_min_zero'))
 
 
 class NewItemCategoryForm(FlaskForm):
