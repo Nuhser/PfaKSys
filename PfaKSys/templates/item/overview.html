@@ -6,9 +6,6 @@
             <img class="rounded article-img" src="{{ url_for('static', filename='item_images/' + item.image_file) }}">
 
             <div class="media-body">
-                <!-- <div class="article-metadata">
-                    <a class="mr-2" href="#">{{ item.name }}</a>
-                </div> -->
                 <h2><a class="article-title" href="{{ url_for('item.details', item_id=item.id) }}">{{ item.name }}</a></h2>
                 <div style="margin-bottom: 7px;">
                     <b>{{ _('ui.common.count') }}:</b> 
