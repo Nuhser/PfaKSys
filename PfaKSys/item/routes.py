@@ -37,8 +37,8 @@ def edit(item_id):
 
     form = ItemForm()
     form.item_id = item.id
-    form.category.choices = [(None, '')] + [(category.id, category.name) for category in ItemCategory.query.order_by(ItemCategory.name.asc()).all()]
-    form.location.choices = [(None, '')] + [(location.id, location.name) for location in ItemLocation.query.order_by(ItemLocation.name.asc()).all()]
+    form.category.choices = [(None, '')] + [(category.id, category.name) for category in ItemCategory.query.order_by(ItemCategory.name.collate('NOCASE').asc()).all()]
+    form.location.choices = [(None, '')] + [(location.id, location.name) for location in ItemLocation.query.order_by(ItemLocation.name.collate('NOCASE').asc()).all()]
 
     if form.validate_on_submit():
         with db.session.no_autoflush:
@@ -95,7 +95,7 @@ def overview():
             return redirect(url_for('item.overview'))
         
     page = request.args.get('page', 1, type=int)
-    pagination = Item.query.order_by(Item.name.asc()).paginate(page=page, per_page=10)
+    pagination = Item.query.order_by(Item.name.collate('NOCASE').asc()).paginate(page=page, per_page=10)
 
     return render_template('item/overview.html',
                             title=gettext('page.item_overview.title'),
@@ -109,8 +109,8 @@ def overview():
 @login_required
 def new():
     form = ItemForm()
-    form.category.choices = [(None, '')] + [(category.id, category.name) for category in ItemCategory.query.order_by(ItemCategory.name.asc()).all()]
-    form.location.choices = [(None, '')] + [(location.id, location.name) for location in ItemLocation.query.order_by(ItemLocation.name.asc()).all()]
+    form.category.choices = [(None, '')] + [(category.id, category.name) for category in ItemCategory.query.order_by(ItemCategory.name.collate('NOCASE').asc()).all()]
+    form.location.choices = [(None, '')] + [(location.id, location.name) for location in ItemLocation.query.order_by(ItemLocation.name.collate('NOCASE').asc()).all()]
 
     if form.validate_on_submit():
         item = Item(name=form.name.data,
