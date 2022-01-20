@@ -23,7 +23,9 @@ class Item(db.Model):
     comment = db.Column(db.Text)
     image_file = db.Column(db.String(20), nullable=False, default='default.png')
     category_id = db.Column(db.Integer, db.ForeignKey('item_category.id'))
+    category = db.relationship('ItemCategory', back_populates='items')
     location_id = db.Column(db.Integer, db.ForeignKey('item_location.id'))
+    location = db.relationship('ItemLocation', back_populates='items')
 
     def __repr__(self) -> str:
         return f"Item('{self.name}', '{self.count}', '{self.condition}', '{self.date_checked}')"
@@ -32,7 +34,7 @@ class Item(db.Model):
 class ItemCategory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(60), unique=True, nullable=False)
-    items = db.relationship('Item', backref='category')
+    items = db.relationship('Item', back_populates='category')
 
     def __repr__(self) -> str:
         return f"ItemCategory('{self.name}')"
@@ -41,7 +43,7 @@ class ItemCategory(db.Model):
 class ItemLocation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(60), unique=True, nullable=False)
-    items = db.relationship('Item', backref='location')
+    items = db.relationship('Item', back_populates='location')
 
     def __repr__(self) -> str:
         return f"ItemLocation('{self.name}')"
