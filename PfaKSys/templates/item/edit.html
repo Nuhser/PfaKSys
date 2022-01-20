@@ -24,64 +24,88 @@
                 </div>
             </div>
 
-            <fieldset class="mb-4 form-group">
+            <fieldset class="mb-4">
                 <legend class="border-bottom mb-3">{{ _('ui.common.generel') }}</legend>
 
                 <div class="d-flex justify-content-around">
                     <div>
-                        <b>{{ _('ui.common.count') }}:</b> 
-                        {% if form.count.errors %}
-                            {{ form.count(class="form-control form-control-sm is-invalid")}}
-                            <div class="invalid-feedback">
-                                {% for error in form.count.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                        {% else %}
-                            {{ form.count(class="form-control form-control-sm") }}
-                        {% endif %}
+                        <div class="form-group row">
+                            <label for="count" class="col-sm-3 col-form-label">
+                                <b>{{ _('ui.common.count') }}:</b>
+                            </label>
 
-                        <br><br>
-
-                        <b>{{ _('ui.item.category') }}:</b>
-                        {% if form.category.errors %}
-                            {{ form.category(class="form-control form-control-sm is-invalid")}}
-                            <div class="invalid-feedback">
-                                {% for error in form.category.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
+                            <div class="col-sm-9">
+                                {% if form.count.errors %}
+                                    {{ form.count(class="form-control is-invalid", id="count")}}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.count.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.count(class="form-control", id="count") }}
+                                {% endif %}
                             </div>
-                        {% else %}
-                            {{ form.category(class="form-control form-control-sm") }}
-                        {% endif %}
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="category" class="col-sm-3 col-form-label">
+                                <b>{{ _('ui.item.category') }}:</b>
+                            </label>
+
+                            <div class="col-sm-9">
+                                {% if form.category.errors %}
+                                    {{ form.category(class="form-control is-invalid", id="category")}}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.category.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.category(class="form-control", id="category") }}
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
 
                     <div>
-                        <b>{{ _('ui.common.condition') }}:</b> 
-                        {% if form.condition.errors %}
-                            {{ form.condition(class="form-control form-control-sm is-invalid")}}
-                            <div class="invalid-feedback">
-                                {% for error in form.condition.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                        {% else %}
-                            {{ form.condition(class="form-control form-control-sm") }}
-                        {% endif %}
+                        <div class="form-group row">
+                            <label for="condition" class="col-sm-3 col-form-label">
+                                <b>{{ _('ui.common.condition') }}:</b>
+                            </label>
 
-                        <br><br>
-
-                        <b>{{ _('ui.item.location') }}:</b>
-                        {% if form.location.errors %}
-                            {{ form.location(class="form-control form-control-sm is-invalid")}}
-                            <div class="invalid-feedback">
-                                {% for error in form.location.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
+                            <div class="col-sm-9">
+                                {% if form.condition.errors %}
+                                    {{ form.condition(class="form-control is-invalid", id="condition")}}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.condition.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.condition(class="form-control", id="condition") }}
+                                {% endif %}
                             </div>
-                        {% else %}
-                            {{ form.location(class="form-control form-control-sm") }}
-                        {% endif %}
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="location" class="col-sm-3 col-form-label">
+                                <b>{{ _('ui.item.location') }}:</b>
+                            </label>
+
+                            <div class="col-sm-9">
+                                {% if form.location.errors %}
+                                    {{ form.location(class="form-control is-invalid", id="location")}}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.location.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.location(class="form-control", id="location") }}
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </fieldset>
