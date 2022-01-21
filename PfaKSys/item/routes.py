@@ -12,6 +12,52 @@ from PfaKSys.models import Item, ItemCategory, ItemLocation
 item_blueprint = Blueprint('item', __name__)
 
 
+@item_blueprint.route('/categories', methods=['GET', 'POST'])
+@login_required
+def categories():
+    new_category_form = NewItemCategoryForm()    
+    if 'category_name' in request.form:
+        if new_category_form.validate_on_submit():
+            item_category = ItemCategory(name=new_category_form.category_name.data)
+            db.session.add(item_category)
+            db.session.commit()
+
+            flash(gettext('flash.success.item_category.created', category_name=item_category.name), 'success')
+            return redirect(url_for('item.categories'))
+
+    page = request.args.get('page', 1, type=int)
+    pagination = ItemCategory.query.order_by(ItemCategory.name.collate('NOCASE').asc()).paginate(page=page, per_page=10)
+
+    return render_template('item/categories.html',
+                            title=gettext('page.item_categories.title'),
+                            sidebar=gettext('ui.common.menu'),
+                            pagination=pagination,
+                            new_category_form=new_category_form)
+
+
+@item_blueprint.route('/locations', methods=['GET', 'POST'])
+@login_required
+def locations():
+    new_location_form = NewItemLocationForm()
+    if 'location_name' in request.form:
+        if new_location_form.validate_on_submit():
+            item_location = ItemLocation(name=new_location_form.location_name.data)
+            db.session.add(item_location)
+            db.session.commit()
+
+            flash(gettext('flash.success.item_location.created', location_name=item_location.name), 'success')
+            return redirect(url_for('item.locations'))
+
+    page = request.args.get('page', 1, type=int)
+    pagination = ItemLocation.query.order_by(ItemLocation.name.collate('NOCASE').asc()).paginate(page=page, per_page=10)
+
+    return render_template('item/locations.html',
+                            title=gettext('page.item_locations.title'),
+                            sidebar=gettext('ui.common.menu'),
+                            pagination=pagination,
+                            new_location_form=new_location_form)
+
+
 @item_blueprint.route('/items/<int:item_id>/delete', methods=['POST'])
 @login_required
 def delete(item_id):
@@ -21,6 +67,28 @@ def delete(item_id):
 
     flash(gettext('flash.success.item.deleted', item_name=item.name), 'success')
     return redirect(url_for('item.overview'))
+
+
+@item_blueprint.route('/categories/<int:category_id>/delete', methods=['POST'])
+@login_required
+def delete_category(category_id):
+    category = ItemCategory.query.get_or_404(category_id)
+    db.session.delete(category)
+    db.session.commit()
+
+    flash(gettext('flash.success.category.deleted', category_name=category.name), 'success')
+    return redirect(url_for('item.categories'))
+
+
+@item_blueprint.route('/locations/<int:location_id>/delete', methods=['POST'])
+@login_required
+def delete_location(location_id):
+    location = ItemLocation.query.get_or_404(location_id)
+    db.session.delete(location)
+    db.session.commit()
+
+    flash(gettext('flash.success.location.deleted', location_name=location.name), 'success')
+    return redirect(url_for('item.locations'))
 
 
 @item_blueprint.route('/items/<int:item_id>')
@@ -99,7 +167,18 @@ def overview():
             return redirect(url_for('item.overview'))
         
     page = request.args.get('page', 1, type=int)
-    pagination = Item.query.order_by(Item.name.collate('NOCASE').asc()).paginate(page=page, per_page=10)
+    filter_category = request.args.get('filter_category', type=int)
+    filter_location = request.args.get('filter_location', type=int)
+
+    pagination = Item.query
+
+    if filter_category != None:
+        pagination = pagination.filter_by(category_id=filter_category)
+
+    if filter_location != None:
+        pagination = pagination.filter_by(location_id=filter_location)
+
+    pagination = pagination.order_by(Item.name.collate('NOCASE').asc()).paginate(page=page, per_page=10)
 
     return render_template('item/overview.html',
                             title=gettext('page.item_overview.title'),

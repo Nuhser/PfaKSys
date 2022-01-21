@@ -40,6 +40,10 @@
 
                             {% if current_user.is_authenticated %}
                                 <a class="nav-item nav-link" href="{{ url_for('item.overview') }}" id="nav-material"><span class="material-icons">inventory</span> {{ _('ui.item.overview') }}</a>
+
+                                <a class="nav-item nav-link" href="{{ url_for('item.categories') }}" id="nav-categories"><span class="material-icons">sell</span> {{ _('ui.item.categories') }}</a>
+
+                                <a class="nav-item nav-link" href="{{ url_for('item.locations') }}" id="nav-locations"><span class="material-icons">place</span> {{ _('ui.item.locations') }}</a>
                             {% endif %}
                             
                             <a class="nav-item nav-link" href="{{ url_for('main.about') }}" id="nav-about"><span class="material-icons">info</span> {{ _('ui.common.about') }}</a>

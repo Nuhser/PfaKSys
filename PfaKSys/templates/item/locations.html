@@ -1,0 +1,96 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <h1 class="mb-4">{{ _('page.item_locations.title') }} ({{ pagination.total }})</h1>
+
+    {% for location in pagination.items %}
+        <article class="media content-section">
+            <div class="media-body">
+                <h2><a class="article-title" href="{{ url_for('item.overview', filter_location=location.id) }}">{{ location.name }}</a></h2>
+
+                <div>
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-location-modal{{ location.id }}">
+                        <span class="material-icons">delete</span>
+                        {{ _('ui.common.delete') }}
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Delete Modal -->
+        <div class="modal fade" id="delete-location-modal{{ location.id }}" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteCategoryModalLabel">{{ _('modal.location_delete.title', location_name=location.name) }}</h5>
+        
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+        
+                    <div class="modal-footer">
+                        <form action="{{ url_for('item.delete_location', location_id=location.id) }}" method='POST'>
+                            <input class="btn btn-danger" type="submit" value="{{ _('ui.common.delete') }}">
+                        </form>
+        
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('ui.common.cancel') }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    {% if pagination.pages > 0 %}
+        <div class="btn-group d-flex justify-content-center">
+            {% if pagination.page > 1 %}
+                <a class="btn btn-outline-info mb-4" href="{{ url_for('item.locations', page=pagination.page-1) }}">&laquo;</a>
+            {% else %}
+                <a class="btn btn-outline-info disabled mb-4" href="{{ url_for('item.locations', page=pagination.page-1) }}">&laquo;</a>
+            {% endif %}
+
+            {% for page in pagination.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                {% if page %}
+                    {% if pagination.page == page %}
+                        <a class="btn btn-info mb-4" href="{{ url_for('item.locations', page=page) }}">{{ page }}</a>
+                    {% else %}
+                        <a class="btn btn-outline-info mb-4" href="{{ url_for('item.locations', page=page) }}">{{ page }}</a>
+                    {% endif %}
+                {% else %}
+                <a class="btn btn-outline-info disabled mb-4" href="#">...</a>
+                {% endif %}
+            {% endfor %}
+            
+            {% if pagination.page < pagination.pages %}
+                <a class="btn btn-outline-info mb-4" href="{{ url_for('item.locations', page=pagination.page+1) }}">&raquo;</a>
+            {% else %}
+                <a class="btn btn-outline-info disabled mb-4" href="{{ url_for('item.locations', page=pagination.page+1) }}">&raquo;</a>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block sidebar %}
+    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#new-item-location-modal">
+        <span class="material-icons">sell</span>
+        {{ _('ui.item.new_location') }}
+    </button>
+    
+    {% include 'item/modals/new_location_modal.html' %}
+{% endblock %}
+
+{% block scripts %}
+    <!-- Modal Scripts -->
+    {% if new_location_form.location_name.errors %}
+        <script type="text/javascript">
+            $(window).on('load', function() {
+                $("#new-item-location-modal").modal("show")
+            });
+        </script>
+    {% endif %}
+
+    <script type="text/javascript">
+        $(window).on('load', function(){
+            $(".nav").find(".active").removeClass("active");
+            $("#nav-locations").addClass("active");
+        });
+    </script>
+{% endblock %}
