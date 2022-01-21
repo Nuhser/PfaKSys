@@ -6,7 +6,7 @@
     {% for category in pagination.items %}
         <article class="media content-section">
             <div class="media-body">
-                <h2><a class="article-title" href="{{ url_for('item.overview', filter_category=category.id) }}">{{ category.name }}</a></h2>
+                <h2><a class="article-title" href="{{ url_for('item.overview', categories=category.id) }}">{{ category.name }}</a></h2>
 
                 <div>
                     <a class="btn btn-secondary btn-sm" href="{{ url_for('item.edit_category', category_id=category.id) }}">

@@ -209,22 +209,23 @@ def overview():
             return redirect(url_for('item.overview'))
         
     page = request.args.get('page', 1, type=int)
-    filter_category = request.args.get('filter_category', type=int)
-    filter_location = request.args.get('filter_location', type=int)
+    filter_categories = request.args.getlist('categories', type=int)
+    filter_locations = request.args.getlist('locations', type=int)
 
     pagination = Item.query
 
-    if filter_category != None:
-        pagination = pagination.filter_by(category_id=filter_category)
+    if (filter_categories != None) and (len(filter_categories) > 0):
+        pagination = pagination.filter(Item.category_id.in_(filter_categories))
 
-    if filter_location != None:
-        pagination = pagination.filter_by(location_id=filter_location)
+    if (filter_locations != None) and (len(filter_locations) > 0):
+        pagination = pagination.filter(Item.location_id.in_(filter_locations))
 
     pagination = pagination.order_by(Item.name.collate('NOCASE').asc()).paginate(page=page, per_page=10)
 
     return render_template('item/overview.html',
                             title=gettext('page.item_overview.title'),
                             sidebar=gettext('ui.common.menu'),
+                            filter_categories=filter_categories,
                             pagination=pagination,
                             new_category_form=new_category_form,
                             new_location_form=new_location_form)

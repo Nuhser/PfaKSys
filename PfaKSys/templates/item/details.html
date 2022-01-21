@@ -46,7 +46,7 @@
                     <b>{{ _('ui.item.category') }}:</b>
                     {% if item.category %}
                         <span class="border border-info rounded" style="padding-top: 1px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px;">
-                            <a class="pfaksys-link" href="{{ url_for('item.overview', filter_category=item.category.id) }}">{{ item.category.name }}</a>
+                            <a class="pfaksys-link" href="{{ url_for('item.overview', categories=item.category.id) }}">{{ item.category.name }}</a>
                         </span>
                     {% else %}
                         <span class="material-icons">block</span>
@@ -64,7 +64,7 @@
                     <b>{{ _('ui.item.location') }}:</b>
                     {% if item.location %}
                         <span class="border border-info rounded" style="padding-top: 1px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px;">
-                            <a class="pfaksys-link" href="{{ url_for('item.overview', filter_location=item.location.id) }}">{{ item.location.name }}</a>
+                            <a class="pfaksys-link" href="{{ url_for('item.overview', locations=item.location.id) }}">{{ item.location.name }}</a>
                         </span>
                     {% else %}
                         <span class="material-icons">block</span>
