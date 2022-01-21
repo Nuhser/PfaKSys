@@ -1,0 +1,41 @@
+<div class="modal fade" id="delete-location-modal{{ location.id }}" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ _('modal.location_delete.title', location_name=location.name) }}</h5>
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            {% if location.items %}
+                <div class="modal-body">
+                    <p>{{ ngettext('modal.delete_location.warning_singular', 'modal.delete_location.warning_plural', (location.items | length )) }}</p>
+
+                    <a class="btn btn-outline-secondary btn-sm" data-toggle="collapse" href="#items-collapse{{ location.id }}" role="button">
+                        {{ ngettext('ui.item.show_item', 'ui.item.show_items', (location.items | length )) }}
+                    </a>
+
+                    <div class="collapse" id="items-collapse{{ location.id }}">
+                        <div class="card card-body">
+                            <ul>
+                                {% for item in location.items | sort(attribute='name') %}
+                                    <li>
+                                        <a href="{{ url_for('item.details', item_id=item.id) }}">{{ item.name }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="modal-footer">
+                <form action="{{ url_for('item.delete_location', location_id=location.id) }}" method='POST'>
+                    <input class="btn btn-danger" type="submit" value="{{ _('ui.common.delete') }}">
+                </form>
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('ui.common.cancel') }}</button>
+            </div>
+        </div>
+    </div>
+</div>

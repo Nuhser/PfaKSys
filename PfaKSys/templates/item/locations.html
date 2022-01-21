@@ -17,26 +17,8 @@
             </div>
         </article>
 
-        <!-- Delete Modal -->
-        <div class="modal fade" id="delete-location-modal{{ location.id }}" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deleteCategoryModalLabel">{{ _('modal.location_delete.title', location_name=location.name) }}</h5>
-        
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-        
-                    <div class="modal-footer">
-                        <form action="{{ url_for('item.delete_location', location_id=location.id) }}" method='POST'>
-                            <input class="btn btn-danger" type="submit" value="{{ _('ui.common.delete') }}">
-                        </form>
-        
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('ui.common.cancel') }}</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!-- Modals -->
+        {% include 'item/modals/delete_location_modal.html' %}
     {% endfor %}
 
     {% if pagination.pages > 0 %}
@@ -55,7 +37,7 @@
                         <a class="btn btn-outline-info mb-4" href="{{ url_for('item.locations', page=page) }}">{{ page }}</a>
                     {% endif %}
                 {% else %}
-                <a class="btn btn-outline-info disabled mb-4" href="#">...</a>
+                    <a class="btn btn-outline-info disabled mb-4" href="#">...</a>
                 {% endif %}
             {% endfor %}
             
