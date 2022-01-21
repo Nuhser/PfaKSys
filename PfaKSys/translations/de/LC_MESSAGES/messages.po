@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-21 09:24+0100\n"
+"POT-Creation-Date: 2022-01-21 10:12+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -34,7 +34,7 @@ msgstr "Fehler 405"
 msgid "page.error_500.title"
 msgstr "Fehler 500"
 
-#: PfaKSys/item/forms.py:11 PfaKSys/item/forms.py:36 PfaKSys/item/forms.py:46
+#: PfaKSys/item/forms.py:11 PfaKSys/item/forms.py:36 PfaKSys/item/forms.py:49
 msgid "ui.common.name"
 msgstr "Name"
 
@@ -72,7 +72,7 @@ msgstr "Beschreibung"
 msgid "ui.common.comment"
 msgstr "Kommentar"
 
-#: PfaKSys/item/forms.py:19 PfaKSys/item/forms.py:37 PfaKSys/item/forms.py:47
+#: PfaKSys/item/forms.py:19 PfaKSys/item/forms.py:37 PfaKSys/item/forms.py:50
 msgid "ui.common.save"
 msgstr "Speichern"
 
@@ -84,11 +84,11 @@ msgstr "Dieser Materialname existiert bereits. Bitte wähle einen anderen."
 msgid "validation_error.item.count_min_zero"
 msgstr "Die Anzahl muss mindestens 0 sein."
 
-#: PfaKSys/item/forms.py:42
+#: PfaKSys/item/forms.py:45
 msgid "validation_error.item_category.name_already_taken"
 msgstr "Dieser Kategoriename existiert bereits. Bitte wähle einen anderen."
 
-#: PfaKSys/item/forms.py:52
+#: PfaKSys/item/forms.py:58
 msgid "validation_error.item_location.name_already_taken"
 msgstr "Dieser Lagername existiert bereits. Bitte wähle einen anderen."
 
@@ -124,7 +124,7 @@ msgstr "Unhygienisch"
 msgid "item.item_condition.other"
 msgstr "Sonstiges"
 
-#: PfaKSys/item/routes.py:25 PfaKSys/item/routes.py:157
+#: PfaKSys/item/routes.py:25 PfaKSys/item/routes.py:199
 msgid "flash.success.item_category.created"
 msgstr "Die Materialkategorie \"%(category_name)s\" wurde angelegt!"
 
@@ -132,44 +132,52 @@ msgstr "Die Materialkategorie \"%(category_name)s\" wurde angelegt!"
 msgid "page.item_categories.title"
 msgstr "Alle Kategorien"
 
-#: PfaKSys/item/routes.py:33 PfaKSys/item/routes.py:56
-#: PfaKSys/item/routes.py:185
+#: PfaKSys/item/routes.py:33 PfaKSys/item/routes.py:182
+#: PfaKSys/item/routes.py:227
 msgid "ui.common.menu"
 msgstr "Menu"
 
-#: PfaKSys/item/routes.py:48 PfaKSys/item/routes.py:166
-msgid "flash.success.item_location.created"
-msgstr "Der Lagerort \"%(location_name)s\" wurde angelegt!"
-
-#: PfaKSys/item/routes.py:55 PfaKSys/templates/item/locations.html:4
-msgid "page.item_locations.title"
-msgstr "Alle Lagerorte"
-
-#: PfaKSys/item/routes.py:68
+#: PfaKSys/item/routes.py:45
 msgid "flash.success.item.deleted"
 msgstr "Das Material \"%(item_name)s\" wurde gelöscht!"
 
-#: PfaKSys/item/routes.py:79
+#: PfaKSys/item/routes.py:56
 msgid "flash.success.category.deleted"
 msgstr "Die Kategorie \"%(category_name)s\" wurde gelöscht!"
 
-#: PfaKSys/item/routes.py:90
+#: PfaKSys/item/routes.py:67
 msgid "flash.success.location.deleted"
 msgstr "Der Lagerort \"%(location_name)s\" wurde gelöscht!"
 
-#: PfaKSys/item/routes.py:129
+#: PfaKSys/item/routes.py:106
 msgid "flash.success.item.edited"
 msgstr "Das Material \"%(item_name)s\" wurde bearbeitet!"
 
-#: PfaKSys/item/routes.py:184
+#: PfaKSys/item/routes.py:134
+msgid "flash.success.category.edited"
+msgstr "Die Kategorie \"%(category_name)s\" wurde bearbeitet!"
+
+#: PfaKSys/item/routes.py:155
+msgid "flash.success.location.edited"
+msgstr "Der Lagerort \"%(location_name)s\" wurde bearbeitet!"
+
+#: PfaKSys/item/routes.py:174 PfaKSys/item/routes.py:208
+msgid "flash.success.item_location.created"
+msgstr "Der Lagerort \"%(location_name)s\" wurde angelegt!"
+
+#: PfaKSys/item/routes.py:181 PfaKSys/templates/item/locations.html:4
+msgid "page.item_locations.title"
+msgstr "Alle Lagerorte"
+
+#: PfaKSys/item/routes.py:226
 msgid "page.item_overview.title"
 msgstr "Materialübersicht"
 
-#: PfaKSys/item/routes.py:211
+#: PfaKSys/item/routes.py:253
 msgid "flash.success.item.created"
 msgstr "Das Material \"%(item_name)s\" wurde angelegt!"
 
-#: PfaKSys/item/routes.py:214 PfaKSys/templates/item/new.html:9
+#: PfaKSys/item/routes.py:256 PfaKSys/templates/item/new.html:9
 msgid "page.item_new.title"
 msgstr "Neues Material"
 
@@ -228,6 +236,16 @@ msgstr "About Page"
 msgid "page.about.body"
 msgstr ""
 
+#: PfaKSys/templates/category/edit.html:29 PfaKSys/templates/item/edit.html:178
+#: PfaKSys/templates/item/modals/delete_category_modal.html:37
+#: PfaKSys/templates/item/modals/delete_item_modal.html:15
+#: PfaKSys/templates/item/modals/delete_location_modal.html:37
+#: PfaKSys/templates/item/modals/new_category_modal.html:33
+#: PfaKSys/templates/item/modals/new_location_modal.html:33
+#: PfaKSys/templates/location/edit.html:29
+msgid "ui.common.cancel"
+msgstr "Abbrechen"
+
 #: PfaKSys/templates/errors/403.html:5
 msgid "page.error_403.heading"
 msgstr "Du hast nicht die Berechtigung, um das zu tun! (403)"
@@ -263,15 +281,21 @@ msgid "page.error_500.explanation"
 msgstr "Wir haben ein Problem auf unserer Seite. Bitte versuche es später nochmal."
 
 #: PfaKSys/templates/item/categories.html:14
-#: PfaKSys/templates/item/details.html:21
+#: PfaKSys/templates/item/details.html:17
 #: PfaKSys/templates/item/locations.html:14
+msgid "ui.common.edit"
+msgstr "Bearbeiten"
+
+#: PfaKSys/templates/item/categories.html:19
+#: PfaKSys/templates/item/details.html:21
+#: PfaKSys/templates/item/locations.html:19
 #: PfaKSys/templates/item/modals/delete_category_modal.html:34
 #: PfaKSys/templates/item/modals/delete_item_modal.html:12
 #: PfaKSys/templates/item/modals/delete_location_modal.html:34
 msgid "ui.common.delete"
 msgstr "Löschen"
 
-#: PfaKSys/templates/item/categories.html:56
+#: PfaKSys/templates/item/categories.html:61
 #: PfaKSys/templates/item/overview.html:69
 msgid "ui.item.new_category"
 msgstr "Kategorie anlegen"
@@ -280,24 +304,11 @@ msgstr "Kategorie anlegen"
 msgid "ui.common.as_of"
 msgstr "Stand vom"
 
-#: PfaKSys/templates/item/details.html:17
-msgid "ui.common.edit"
-msgstr "Bearbeiten"
-
 #: PfaKSys/templates/item/details.html:31 PfaKSys/templates/item/edit.html:28
 msgid "ui.common.generel"
 msgstr "Anzahl"
 
-#: PfaKSys/templates/item/edit.html:178
-#: PfaKSys/templates/item/modals/delete_category_modal.html:37
-#: PfaKSys/templates/item/modals/delete_item_modal.html:15
-#: PfaKSys/templates/item/modals/delete_location_modal.html:37
-#: PfaKSys/templates/item/modals/new_category_modal.html:33
-#: PfaKSys/templates/item/modals/new_location_modal.html:33
-msgid "ui.common.cancel"
-msgstr "Abbrechen"
-
-#: PfaKSys/templates/item/locations.html:56
+#: PfaKSys/templates/item/locations.html:61
 #: PfaKSys/templates/item/overview.html:74
 msgid "ui.item.new_location"
 msgstr "Lagerort anlegen"

@@ -1,0 +1,43 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <div class="content-section">
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="media mb-5">
+                <div class="media-body">
+                    <h2 class="article-title">{{ title }}</h2>
+
+                    {% if form.location_name.errors %}
+                        {{ form.location_name(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.location_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.location_name(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="border-top form-group">
+                {{ form.submit(class="btn btn-success mt-2") }}
+
+                <a class="btn btn-secondary mt-2" href="{{ url_for('item.locations') }}">
+                    {{ _('ui.common.cancel') }}
+                </a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $(window).on('load', function(){
+            $(".nav").find(".active").removeClass("active");
+            $("#nav-locations").addClass("active");
+        });
+    </script>
+{% endblock %}

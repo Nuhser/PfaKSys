@@ -4,7 +4,7 @@ from flask_babel import gettext
 from flask_login import login_required
 
 from PfaKSys import db
-from PfaKSys.item.forms import ItemForm, NewItemCategoryForm, NewItemLocationForm
+from PfaKSys.item.forms import ItemForm, ItemCategoryForm, ItemLocationForm
 from PfaKSys.item.item_condition import ItemCondition
 from PfaKSys.models import Item, ItemCategory, ItemLocation
 
@@ -15,7 +15,7 @@ item_blueprint = Blueprint('item', __name__)
 @item_blueprint.route('/categories', methods=['GET', 'POST'])
 @login_required
 def categories():
-    new_category_form = NewItemCategoryForm()    
+    new_category_form = ItemCategoryForm()    
     if 'category_name' in request.form:
         if new_category_form.validate_on_submit():
             item_category = ItemCategory(name=new_category_form.category_name.data)
@@ -33,29 +33,6 @@ def categories():
                             sidebar=gettext('ui.common.menu'),
                             pagination=pagination,
                             new_category_form=new_category_form)
-
-
-@item_blueprint.route('/locations', methods=['GET', 'POST'])
-@login_required
-def locations():
-    new_location_form = NewItemLocationForm()
-    if 'location_name' in request.form:
-        if new_location_form.validate_on_submit():
-            item_location = ItemLocation(name=new_location_form.location_name.data)
-            db.session.add(item_location)
-            db.session.commit()
-
-            flash(gettext('flash.success.item_location.created', location_name=item_location.name), 'success')
-            return redirect(url_for('item.locations'))
-
-    page = request.args.get('page', 1, type=int)
-    pagination = ItemLocation.query.order_by(ItemLocation.name.collate('NOCASE').asc()).paginate(page=page, per_page=10)
-
-    return render_template('item/locations.html',
-                            title=gettext('page.item_locations.title'),
-                            sidebar=gettext('ui.common.menu'),
-                            pagination=pagination,
-                            new_location_form=new_location_form)
 
 
 @item_blueprint.route('/items/<int:item_id>/delete', methods=['POST'])
@@ -142,11 +119,76 @@ def edit(item_id):
     return render_template('item/edit.html', title=f'{item.name} ({gettext("ui.common.edit")})', item=item, form=form)
 
 
+@item_blueprint.route('/categories/<int:category_id>/edit', methods=['GET', 'POST'])
+@login_required
+def edit_category(category_id):
+    category = ItemCategory.query.get_or_404(category_id)
+
+    form = ItemCategoryForm()
+    form.category_id = category_id
+
+    if form.validate_on_submit():
+        category.name = form.category_name.data
+        db.session.commit()
+
+        flash(gettext('flash.success.category.edited', category_name=category.name), 'success')
+        return redirect(url_for('item.categories'))
+
+    elif request.method == 'GET':
+        form.category_name.data = category.name
+
+    return render_template('category/edit.html', title=f'{category.name} ({gettext("ui.common.edit")})', form=form)
+
+
+@item_blueprint.route('/locations/<int:location_id>/edit', methods=['GET', 'POST'])
+@login_required
+def edit_location(location_id):
+    location = ItemLocation.query.get_or_404(location_id)
+
+    form = ItemLocationForm()
+    form.location_id = location_id
+
+    if form.validate_on_submit():
+        location.name = form.location_name.data
+        db.session.commit()
+
+        flash(gettext('flash.success.location.edited', location_name=location.name), 'success')
+        return redirect(url_for('item.locations'))
+
+    elif request.method == 'GET':
+        form.location_name.data = location.name
+
+    return render_template('location/edit.html', title=f'{location.name} ({gettext("ui.common.edit")})', form=form)
+
+
+@item_blueprint.route('/locations', methods=['GET', 'POST'])
+@login_required
+def locations():
+    new_location_form = ItemLocationForm()
+    if 'location_name' in request.form:
+        if new_location_form.validate_on_submit():
+            item_location = ItemLocation(name=new_location_form.location_name.data)
+            db.session.add(item_location)
+            db.session.commit()
+
+            flash(gettext('flash.success.item_location.created', location_name=item_location.name), 'success')
+            return redirect(url_for('item.locations'))
+
+    page = request.args.get('page', 1, type=int)
+    pagination = ItemLocation.query.order_by(ItemLocation.name.collate('NOCASE').asc()).paginate(page=page, per_page=10)
+
+    return render_template('item/locations.html',
+                            title=gettext('page.item_locations.title'),
+                            sidebar=gettext('ui.common.menu'),
+                            pagination=pagination,
+                            new_location_form=new_location_form)
+
+
 @item_blueprint.route('/items', methods=['GET', 'POST'])
 @login_required
 def overview():
-    new_category_form = NewItemCategoryForm()
-    new_location_form = NewItemLocationForm()
+    new_category_form = ItemCategoryForm()
+    new_location_form = ItemLocationForm()
 
     if 'category_name' in request.form:
         if new_category_form.validate_on_submit():

@@ -9,6 +9,11 @@
                 <h2><a class="article-title" href="{{ url_for('item.overview', filter_category=category.id) }}">{{ category.name }}</a></h2>
 
                 <div>
+                    <a class="btn btn-secondary btn-sm" href="{{ url_for('item.edit_category', category_id=category.id) }}">
+                        <span class="material-icons">edit</span>
+                        {{ _('ui.common.edit') }}
+                    </a>
+
                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-category-modal{{ category.id }}">
                         <span class="material-icons">delete</span>
                         {{ _('ui.common.delete') }}

@@ -23,7 +23,7 @@ class ItemForm(FlaskForm):
 
     def validate_name(self, name: StringField) -> None:
         item = Item.query.filter_by(name=name.data).first()
-        if item and item.id != self.item_id:
+        if item and( item.id != self.item_id):
             raise ValidationError(lazy_gettext('validation_error.item.name_already_taken'))
 
     def validate_count(self, count: IntegerField) -> None:
@@ -32,21 +32,27 @@ class ItemForm(FlaskForm):
                 raise ValidationError(lazy_gettext('validation_error.item.count_min_zero'))
 
 
-class NewItemCategoryForm(FlaskForm):
+class ItemCategoryForm(FlaskForm):
     category_name = StringField(lazy_gettext('ui.common.name'), validators=[DataRequired(), Length(2, 60)])
     submit = SubmitField(lazy_gettext('ui.common.save'))
 
+    # set if form is used for category editing
+    category_id = None
+
     def validate_category_name(self, category_name: StringField) -> None:
         category = ItemCategory.query.filter_by(name=category_name.data).first()
-        if category:
+        if category and (category.id != self.category_id):
             raise ValidationError(lazy_gettext('validation_error.item_category.name_already_taken'))
 
 
-class NewItemLocationForm(FlaskForm):
+class ItemLocationForm(FlaskForm):
     location_name = StringField(lazy_gettext('ui.common.name'), validators=[DataRequired(), Length(2, 60)])
     submit = SubmitField(lazy_gettext('ui.common.save'))
 
+    # set if form is used for location editing
+    location_id = None
+
     def validate_location_name(self, location_name: StringField) -> None:
         location = ItemLocation.query.filter_by(name=location_name.data).first()
-        if location:
+        if location and (location.id != self.location_id):
             raise ValidationError(lazy_gettext('validation_error.item_location.name_already_taken'))
