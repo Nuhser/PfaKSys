@@ -75,7 +75,9 @@
         <span class="material-icons">place</span>
         {{ _('ui.item.new_location') }}
     </button>
-    
+{% endblock %}
+
+{% block modals %}
     {% include 'item/modals/new_category_modal.html' %}
     {% include 'item/modals/new_location_modal.html' %}
 {% endblock %}
