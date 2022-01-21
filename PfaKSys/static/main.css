@@ -67,6 +67,15 @@ a.article-title:hover {
     margin-bottom: 20px;
 }
 
+.pfaksys-link {
+    color: #444444;
+}
+
+a.pfaksys-link:hover {
+    color: #428bca;
+    text-decoration: none;
+}
+
 .material-icons {
     display: inline-flex;
     vertical-align: top;
