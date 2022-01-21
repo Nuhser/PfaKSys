@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-21 08:49+0100\n"
+"POT-Creation-Date: 2022-01-21 09:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -262,9 +262,9 @@ msgstr ""
 #: PfaKSys/templates/item/categories.html:14
 #: PfaKSys/templates/item/details.html:21
 #: PfaKSys/templates/item/locations.html:14
-#: PfaKSys/templates/item/locations.html:32
 #: PfaKSys/templates/item/modals/delete_category_modal.html:34
 #: PfaKSys/templates/item/modals/delete_item_modal.html:12
+#: PfaKSys/templates/item/modals/delete_location_modal.html:34
 msgid "ui.common.delete"
 msgstr ""
 
@@ -286,19 +286,15 @@ msgid "ui.common.generel"
 msgstr ""
 
 #: PfaKSys/templates/item/edit.html:178
-#: PfaKSys/templates/item/locations.html:35
 #: PfaKSys/templates/item/modals/delete_category_modal.html:37
 #: PfaKSys/templates/item/modals/delete_item_modal.html:15
+#: PfaKSys/templates/item/modals/delete_location_modal.html:37
 #: PfaKSys/templates/item/modals/new_category_modal.html:33
 #: PfaKSys/templates/item/modals/new_location_modal.html:33
 msgid "ui.common.cancel"
 msgstr ""
 
-#: PfaKSys/templates/item/locations.html:25
-msgid "modal.location_delete.title"
-msgstr ""
-
-#: PfaKSys/templates/item/locations.html:74
+#: PfaKSys/templates/item/locations.html:56
 #: PfaKSys/templates/item/overview.html:74
 msgid "ui.item.new_location"
 msgstr ""
@@ -318,6 +314,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: PfaKSys/templates/item/modals/delete_category_modal.html:15
+#: PfaKSys/templates/item/modals/delete_location_modal.html:15
 msgid "ui.item.show_item"
 msgid_plural "ui.item.show_items"
 msgstr[0] ""
@@ -326,6 +323,16 @@ msgstr[1] ""
 #: PfaKSys/templates/item/modals/delete_item_modal.html:5
 msgid "modal.item_delete.title"
 msgstr ""
+
+#: PfaKSys/templates/item/modals/delete_location_modal.html:5
+msgid "modal.location_delete.title"
+msgstr ""
+
+#: PfaKSys/templates/item/modals/delete_location_modal.html:12
+msgid "modal.delete_location.warning_singular"
+msgid_plural "modal.delete_location.warning_plural"
+msgstr[0] ""
+msgstr[1] ""
 
 #: PfaKSys/templates/item/modals/new_category_modal.html:5
 msgid "modal.item_new_category.title"

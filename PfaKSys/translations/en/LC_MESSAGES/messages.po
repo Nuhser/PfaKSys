@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-21 08:49+0100\n"
+"POT-Creation-Date: 2022-01-21 09:24+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -263,9 +263,9 @@ msgstr "We're experiencing some trouble on our end. Please try again later."
 #: PfaKSys/templates/item/categories.html:14
 #: PfaKSys/templates/item/details.html:21
 #: PfaKSys/templates/item/locations.html:14
-#: PfaKSys/templates/item/locations.html:32
 #: PfaKSys/templates/item/modals/delete_category_modal.html:34
 #: PfaKSys/templates/item/modals/delete_item_modal.html:12
+#: PfaKSys/templates/item/modals/delete_location_modal.html:34
 msgid "ui.common.delete"
 msgstr "Delete"
 
@@ -287,19 +287,15 @@ msgid "ui.common.generel"
 msgstr "Generel"
 
 #: PfaKSys/templates/item/edit.html:178
-#: PfaKSys/templates/item/locations.html:35
 #: PfaKSys/templates/item/modals/delete_category_modal.html:37
 #: PfaKSys/templates/item/modals/delete_item_modal.html:15
+#: PfaKSys/templates/item/modals/delete_location_modal.html:37
 #: PfaKSys/templates/item/modals/new_category_modal.html:33
 #: PfaKSys/templates/item/modals/new_location_modal.html:33
 msgid "ui.common.cancel"
 msgstr "Cancel"
 
-#: PfaKSys/templates/item/locations.html:25
-msgid "modal.location_delete.title"
-msgstr "Delete location \"%(location_name)s\"?"
-
-#: PfaKSys/templates/item/locations.html:74
+#: PfaKSys/templates/item/locations.html:56
 #: PfaKSys/templates/item/overview.html:74
 msgid "ui.item.new_location"
 msgstr "Create Storage Location"
@@ -316,13 +312,14 @@ msgstr "Delete category \"%(category_name)s\"?"
 msgid "modal.delete_category.warning_singular"
 msgid_plural "modal.delete_category.warning_plural"
 msgstr[0] ""
-"This category is currently used by <b>%(num)s</b> item. This "
-"item would have no category after deletion."
+"This category is currently used by <b>%(num)s</b> item. This item would "
+"have no category after deletion."
 msgstr[1] ""
-"This category is currently used by <b>%(num)s</b> items. This "
-"items would have no category after deletion."
+"This category is currently used by <b>%(num)s</b> items. This items would"
+" have no category after deletion."
 
 #: PfaKSys/templates/item/modals/delete_category_modal.html:15
+#: PfaKSys/templates/item/modals/delete_location_modal.html:15
 msgid "ui.item.show_item"
 msgid_plural "ui.item.show_items"
 msgstr[0] "Show items..."
@@ -331,6 +328,20 @@ msgstr[1] "Show item..."
 #: PfaKSys/templates/item/modals/delete_item_modal.html:5
 msgid "modal.item_delete.title"
 msgstr "Delete item \"%(item_name)s\"?"
+
+#: PfaKSys/templates/item/modals/delete_location_modal.html:5
+msgid "modal.location_delete.title"
+msgstr "Delete location \"%(location_name)s\"?"
+
+#: PfaKSys/templates/item/modals/delete_location_modal.html:12
+msgid "modal.delete_location.warning_singular"
+msgid_plural "modal.delete_location.warning_plural"
+msgstr[0] ""
+"This storage location is currently used by <b>%(num)s</b> item. This item would "
+"have no storage location after deletion."
+msgstr[1] ""
+"This storage location is currently used by <b>%(num)s</b> items. This items would"
+" have no storage location after deletion."
 
 #: PfaKSys/templates/item/modals/new_category_modal.html:5
 msgid "modal.item_new_category.title"
