@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-21 10:12+0100\n"
+"POT-Creation-Date: 2022-01-21 19:52+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -43,12 +43,12 @@ msgid "ui.item.has_count"
 msgstr "Hat Bestand"
 
 #: PfaKSys/item/forms.py:13 PfaKSys/templates/item/details.html:35
-#: PfaKSys/templates/item/edit.html:59 PfaKSys/templates/item/overview.html:11
+#: PfaKSys/templates/item/edit.html:59 PfaKSys/templates/item/overview.html:13
 msgid "ui.common.count"
 msgstr "Anzahl"
 
 #: PfaKSys/item/forms.py:14 PfaKSys/templates/item/details.html:57
-#: PfaKSys/templates/item/edit.html:80 PfaKSys/templates/item/overview.html:21
+#: PfaKSys/templates/item/edit.html:80 PfaKSys/templates/item/overview.html:23
 msgid "ui.common.condition"
 msgstr "Zustand"
 
@@ -92,6 +92,10 @@ msgstr "Dieser Kategoriename existiert bereits. Bitte wähle einen anderen."
 msgid "validation_error.item_location.name_already_taken"
 msgstr "Dieser Lagername existiert bereits. Bitte wähle einen anderen."
 
+#: PfaKSys/item/forms.py:62
+msgid "ui.common.search"
+msgstr "Suchen"
+
 #: PfaKSys/item/item_condition.py:7
 msgid "item.item_condition.unknown"
 msgstr "Unbekannt"
@@ -124,7 +128,7 @@ msgstr "Unhygienisch"
 msgid "item.item_condition.other"
 msgstr "Sonstiges"
 
-#: PfaKSys/item/routes.py:25 PfaKSys/item/routes.py:199
+#: PfaKSys/item/routes.py:25 PfaKSys/item/routes.py:242
 msgid "flash.success.item_category.created"
 msgstr "Die Materialkategorie \"%(category_name)s\" wurde angelegt!"
 
@@ -133,7 +137,7 @@ msgid "page.item_categories.title"
 msgstr "Alle Kategorien"
 
 #: PfaKSys/item/routes.py:33 PfaKSys/item/routes.py:182
-#: PfaKSys/item/routes.py:227
+#: PfaKSys/item/routes.py:274
 msgid "ui.common.menu"
 msgstr "Menu"
 
@@ -161,7 +165,7 @@ msgstr "Die Kategorie \"%(category_name)s\" wurde bearbeitet!"
 msgid "flash.success.location.edited"
 msgstr "Der Lagerort \"%(location_name)s\" wurde bearbeitet!"
 
-#: PfaKSys/item/routes.py:174 PfaKSys/item/routes.py:208
+#: PfaKSys/item/routes.py:174 PfaKSys/item/routes.py:251
 msgid "flash.success.item_location.created"
 msgstr "Der Lagerort \"%(location_name)s\" wurde angelegt!"
 
@@ -169,17 +173,17 @@ msgstr "Der Lagerort \"%(location_name)s\" wurde angelegt!"
 msgid "page.item_locations.title"
 msgstr "Alle Lagerorte"
 
-#: PfaKSys/item/routes.py:226
-msgid "page.item_overview.title"
-msgstr "Materialübersicht"
-
-#: PfaKSys/item/routes.py:253
+#: PfaKSys/item/routes.py:207
 msgid "flash.success.item.created"
 msgstr "Das Material \"%(item_name)s\" wurde angelegt!"
 
-#: PfaKSys/item/routes.py:256 PfaKSys/templates/item/new.html:9
+#: PfaKSys/item/routes.py:210 PfaKSys/templates/item/new.html:9
 msgid "page.item_new.title"
 msgstr "Neues Material"
+
+#: PfaKSys/item/routes.py:273
+msgid "page.item_overview.title"
+msgstr "Materialübersicht"
 
 #: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:49
 msgid "ui.common.about"
@@ -296,7 +300,7 @@ msgid "ui.common.delete"
 msgstr "Löschen"
 
 #: PfaKSys/templates/item/categories.html:61
-#: PfaKSys/templates/item/overview.html:69
+#: PfaKSys/templates/item/overview.html:71
 msgid "ui.item.new_category"
 msgstr "Kategorie anlegen"
 
@@ -309,11 +313,11 @@ msgid "ui.common.generel"
 msgstr "Anzahl"
 
 #: PfaKSys/templates/item/locations.html:61
-#: PfaKSys/templates/item/overview.html:74
+#: PfaKSys/templates/item/overview.html:76
 msgid "ui.item.new_location"
 msgstr "Lagerort anlegen"
 
-#: PfaKSys/templates/item/overview.html:63
+#: PfaKSys/templates/item/overview.html:65
 msgid "ui.item.new"
 msgstr "Material anlegen"
 

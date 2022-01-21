@@ -6,13 +6,13 @@
             <div class="input-group-text material-icons">search</div>
         </div>
 
-        {{ search_item_form.search_name(class="form-control flex-fill", placeholder="Materialname...") }}
+        {{ search_item_form.search_name(class="form-control flex-fill", placeholder={{ _('ui.item.name_search_placeholder') }}) }}
 
         <div class="btn-group input-group-append" role="group">
             <div class="dropdown">
                 <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" >
                     <span class="material-icons">filter_alt</span>
-                    Filter
+                    {{ _('ui.common.filter') }}
                 </button>
 
                 <div class="dropdown-menu dropdown-menu-right">
