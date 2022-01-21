@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-21 08:33+0100\n"
+"POT-Creation-Date: 2022-01-21 08:49+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -264,7 +264,7 @@ msgstr "We're experiencing some trouble on our end. Please try again later."
 #: PfaKSys/templates/item/details.html:21
 #: PfaKSys/templates/item/locations.html:14
 #: PfaKSys/templates/item/locations.html:32
-#: PfaKSys/templates/item/modals/delete_category_modal.html:33
+#: PfaKSys/templates/item/modals/delete_category_modal.html:34
 #: PfaKSys/templates/item/modals/delete_item_modal.html:12
 msgid "ui.common.delete"
 msgstr "Delete"
@@ -288,7 +288,7 @@ msgstr "Generel"
 
 #: PfaKSys/templates/item/edit.html:178
 #: PfaKSys/templates/item/locations.html:35
-#: PfaKSys/templates/item/modals/delete_category_modal.html:36
+#: PfaKSys/templates/item/modals/delete_category_modal.html:37
 #: PfaKSys/templates/item/modals/delete_item_modal.html:15
 #: PfaKSys/templates/item/modals/new_category_modal.html:33
 #: PfaKSys/templates/item/modals/new_location_modal.html:33
@@ -313,12 +313,20 @@ msgid "modal.category_delete.title"
 msgstr "Delete category \"%(category_name)s\"?"
 
 #: PfaKSys/templates/item/modals/delete_category_modal.html:12
-msgid "modal.delete_category.warning"
-msgstr "This category is currently used by <b>%(item_count)d</b> items. This items would have no category after deletion."
+msgid "modal.delete_category.warning_singular"
+msgid_plural "modal.delete_category.warning_plural"
+msgstr[0] ""
+"This category is currently used by <b>%(num)s</b> item. This "
+"item would have no category after deletion."
+msgstr[1] ""
+"This category is currently used by <b>%(num)s</b> items. This "
+"items would have no category after deletion."
 
-#: PfaKSys/templates/item/modals/delete_category_modal.html:16
-msgid "ui.item.show_items"
-msgstr "Show items..."
+#: PfaKSys/templates/item/modals/delete_category_modal.html:15
+msgid "ui.item.show_item"
+msgid_plural "ui.item.show_items"
+msgstr[0] "Show items..."
+msgstr[1] "Show item..."
 
 #: PfaKSys/templates/item/modals/delete_item_modal.html:5
 msgid "modal.item_delete.title"

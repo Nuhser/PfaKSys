@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-21 08:33+0100\n"
+"POT-Creation-Date: 2022-01-21 08:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -263,7 +263,7 @@ msgstr ""
 #: PfaKSys/templates/item/details.html:21
 #: PfaKSys/templates/item/locations.html:14
 #: PfaKSys/templates/item/locations.html:32
-#: PfaKSys/templates/item/modals/delete_category_modal.html:33
+#: PfaKSys/templates/item/modals/delete_category_modal.html:34
 #: PfaKSys/templates/item/modals/delete_item_modal.html:12
 msgid "ui.common.delete"
 msgstr ""
@@ -287,7 +287,7 @@ msgstr ""
 
 #: PfaKSys/templates/item/edit.html:178
 #: PfaKSys/templates/item/locations.html:35
-#: PfaKSys/templates/item/modals/delete_category_modal.html:36
+#: PfaKSys/templates/item/modals/delete_category_modal.html:37
 #: PfaKSys/templates/item/modals/delete_item_modal.html:15
 #: PfaKSys/templates/item/modals/new_category_modal.html:33
 #: PfaKSys/templates/item/modals/new_location_modal.html:33
@@ -312,12 +312,16 @@ msgid "modal.category_delete.title"
 msgstr ""
 
 #: PfaKSys/templates/item/modals/delete_category_modal.html:12
-msgid "modal.delete_category.warning"
-msgstr ""
+msgid "modal.delete_category.warning_singular"
+msgid_plural "modal.delete_category.warning_plural"
+msgstr[0] ""
+msgstr[1] ""
 
-#: PfaKSys/templates/item/modals/delete_category_modal.html:16
-msgid "ui.item.show_items"
-msgstr ""
+#: PfaKSys/templates/item/modals/delete_category_modal.html:15
+msgid "ui.item.show_item"
+msgid_plural "ui.item.show_items"
+msgstr[0] ""
+msgstr[1] ""
 
 #: PfaKSys/templates/item/modals/delete_item_modal.html:5
 msgid "modal.item_delete.title"
