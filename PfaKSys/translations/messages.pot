@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-21 19:52+0100\n"
+"POT-Creation-Date: 2022-01-21 19:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,17 +47,21 @@ msgid "ui.common.count"
 msgstr ""
 
 #: PfaKSys/item/forms.py:14 PfaKSys/templates/item/details.html:57
-#: PfaKSys/templates/item/edit.html:80 PfaKSys/templates/item/overview.html:23
+#: PfaKSys/templates/item/edit.html:80
+#: PfaKSys/templates/item/menus/overview_search_bar.html:22
+#: PfaKSys/templates/item/overview.html:23
 msgid "ui.common.condition"
 msgstr ""
 
 #: PfaKSys/item/forms.py:15 PfaKSys/templates/item/details.html:46
 #: PfaKSys/templates/item/edit.html:103
+#: PfaKSys/templates/item/menus/overview_search_bar.html:43
 msgid "ui.item.category"
 msgstr ""
 
 #: PfaKSys/item/forms.py:16 PfaKSys/templates/item/details.html:64
 #: PfaKSys/templates/item/edit.html:124
+#: PfaKSys/templates/item/menus/overview_search_bar.html:64
 msgid "ui.item.location"
 msgstr ""
 
@@ -316,6 +320,18 @@ msgstr ""
 
 #: PfaKSys/templates/item/overview.html:65
 msgid "ui.item.new"
+msgstr ""
+
+#: PfaKSys/templates/item/menus/overview_search_bar.html:9
+msgid "ui.item.name_search_placeholder"
+msgstr ""
+
+#: PfaKSys/templates/item/menus/overview_search_bar.html:15
+msgid "ui.common.filter"
+msgstr ""
+
+#: PfaKSys/templates/item/menus/overview_search_bar.html:86
+msgid "ui.common.clear_filter"
 msgstr ""
 
 #: PfaKSys/templates/item/modals/delete_category_modal.html:5
