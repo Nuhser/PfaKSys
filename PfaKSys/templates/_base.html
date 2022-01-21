@@ -66,6 +66,7 @@
 
         <main role="main" class="container">
             <div class="row">
+                <!-- Main Content -->
                 <div {% if sidebar %}class="col-md-8"{% else %}class="col-md-12"{% endif %}>
                     {% with messages = get_flashed_messages(with_categories=true) %}
                         {% if messages %}
@@ -80,10 +81,10 @@
                     {% block content %}{% endblock %}
                 </div>
 
-                <!-- Side Bar (needs translation) -->
+                <!-- Side Bar -->
                 {% if sidebar %}
-                    <div class="col-md-4">
-                        <div class="content-section">
+                    <div class="col-md-4 sidebar">
+                        <div class="content-section sticky-top sticky-offset">
                             <h3>{{ sidebar }}</h3>
                             <ul class="list-group mt-3">
                                 {% block sidebar %}{% endblock %}

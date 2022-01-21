@@ -1,0 +1,94 @@
+<form action="" method="POST">
+    {{ search_item_form.hidden_tag() }}
+
+    <div class="input-group mb-4 sticky-top sticky-offset">
+        <div class="input-group-prepend">
+            <div class="input-group-text material-icons">search</div>
+        </div>
+
+        {{ search_item_form.search_name(class="form-control flex-fill", placeholder="Materialname...") }}
+
+        <div class="btn-group input-group-append" role="group">
+            <div class="dropdown">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" >
+                    <span class="material-icons">filter_alt</span>
+                    Filter
+                </button>
+
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropright">
+                        <button type="button" class="dropdown-item dropdown-toggle" data-toggle="dropdown">
+                            <span class="material-icons">fact_check</span>
+                            {{ _('ui.common.condition') }}
+                        </button>
+
+                        <div class="dropdown-menu">
+                            {% for condition in conditions %}
+                                {% if condition.name in filter_conditions %}
+                                    <a class="dropdown-item dropdown-active" href="{{ url_for('item.overview', name=filter_name, conditions=filter_conditions[: filter_conditions.index(condition.name)] + filter_conditions[filter_conditions.index(condition.name)+1 :], categories=filter_categories, locations=filter_locations) }}">
+                                        {{ condition.value }}
+                                    </a>
+                                {% else %}
+                                    <a class="dropdown-item" href="{{ url_for('item.overview', name=filter_name, conditions=filter_conditions+[condition.name], categories=filter_categories, locations=filter_locations) }}">
+                                        {{ condition.value }}
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="dropright">
+                        <button type="button" class="dropdown-item dropdown-toggle" data-toggle="dropdown">
+                            <span class="material-icons">sell</span>
+                            {{ _('ui.item.category') }}
+                        </button>
+
+                        <div class="dropdown-menu">
+                            {% for category in categories %}
+                                {% if category.id in filter_categories %}
+                                    <a class="dropdown-item dropdown-active" href="{{ url_for('item.overview', name=filter_name, conditions=filter_conditions, categories=filter_categories[: filter_categories.index(category.id)] + filter_categories[filter_categories.index(category.id)+1 :], locations=filter_locations) }}">
+                                        {{ category.name }}
+                                    </a>
+                                {% else %}
+                                    <a class="dropdown-item" href="{{ url_for('item.overview', name=filter_name, conditions=filter_conditions, categories=filter_categories+[category.id], locations=filter_locations) }}">
+                                        {{ category.name }}
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="dropright">
+                        <button type="button" class="dropdown-item dropdown-toggle" data-toggle="dropdown">
+                            <span class="material-icons">place</span>
+                            {{ _('ui.item.location') }}
+                        </button>
+
+                        <div class="dropdown-menu">
+                            {% for location in locations %}
+                                {% if location.id in filter_locations %}
+                                    <a class="dropdown-item dropdown-active" href="{{ url_for('item.overview', name=filter_name, conditions=filter_conditions, categories=filter_categories, locations=filter_locations[: filter_locations.index(location.id)] + filter_locations[filter_locations.index(location.id)+1 :]) }}">
+                                        {{ location.name }}
+                                    </a>
+                                {% else %}
+                                    <a class="dropdown-item" href="{{ url_for('item.overview', name=filter_name, conditions=filter_conditions, categories=filter_categories, locations=filter_locations+[location.id]) }}">
+                                        {{ location.name }}
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="dropdown-divider"></div>
+
+                    <a class="dropdown-item dropdown-danger" href="{{ url_for('item.overview', name=filter_name) }}">
+                        <span class="material-icons">delete</span>
+                        {{ _('ui.common.clear_filter') }}
+                    </a>
+                </div>
+            </div>
+
+            {{ search_item_form.submit(class="btn btn-primary") }}
+        </div>
+    </div>
+</form>

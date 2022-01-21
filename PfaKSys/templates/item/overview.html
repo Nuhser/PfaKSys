@@ -1,6 +1,8 @@
 {% extends '_base.html' %}
 
 {% block content %}
+    {% include 'item/menus/overview_search_bar.html' %}
+
     {% for item in pagination.items %}
         <article class="media content-section">
             <img class="rounded article-img" src="{{ url_for('static', filename='item_images/' + item.image_file) }}">
@@ -79,6 +81,23 @@
 {% endblock %}
 
 {% block scripts %}
+    <!-- Filter Dropdown Script -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.dropright button').on("click", function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+
+                if (!$(this).next('div').hasClass('show')) {
+                    $(this).next('div').addClass('show');
+                }
+                else {
+                    $(this).next('div').removeClass('show');
+                }
+            });
+        });
+    </script>
+
     <!-- Modal Scripts -->
     {% if new_category_form.category_name.errors %}
         <script type="text/javascript">

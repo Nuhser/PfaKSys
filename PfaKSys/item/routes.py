@@ -4,7 +4,7 @@ from flask_babel import gettext
 from flask_login import login_required
 
 from PfaKSys import db
-from PfaKSys.item.forms import ItemForm, ItemCategoryForm, ItemLocationForm
+from PfaKSys.item.forms import ItemForm, ItemCategoryForm, ItemLocationForm, SearchItemForm
 from PfaKSys.item.item_condition import ItemCondition
 from PfaKSys.models import Item, ItemCategory, ItemLocation
 
@@ -184,53 +184,6 @@ def locations():
                             new_location_form=new_location_form)
 
 
-@item_blueprint.route('/items', methods=['GET', 'POST'])
-@login_required
-def overview():
-    new_category_form = ItemCategoryForm()
-    new_location_form = ItemLocationForm()
-
-    if 'category_name' in request.form:
-        if new_category_form.validate_on_submit():
-            item_category = ItemCategory(name=new_category_form.category_name.data)
-            db.session.add(item_category)
-            db.session.commit()
-
-            flash(gettext('flash.success.item_category.created', category_name=item_category.name), 'success')
-            return redirect(url_for('item.overview'))
-
-    elif 'location_name' in request.form:
-        if new_location_form.validate_on_submit():
-            item_location = ItemLocation(name=new_location_form.location_name.data)
-            db.session.add(item_location)
-            db.session.commit()
-
-            flash(gettext('flash.success.item_location.created', location_name=item_location.name), 'success')
-            return redirect(url_for('item.overview'))
-        
-    page = request.args.get('page', 1, type=int)
-    filter_categories = request.args.getlist('categories', type=int)
-    filter_locations = request.args.getlist('locations', type=int)
-
-    pagination = Item.query
-
-    if (filter_categories != None) and (len(filter_categories) > 0):
-        pagination = pagination.filter(Item.category_id.in_(filter_categories))
-
-    if (filter_locations != None) and (len(filter_locations) > 0):
-        pagination = pagination.filter(Item.location_id.in_(filter_locations))
-
-    pagination = pagination.order_by(Item.name.collate('NOCASE').asc()).paginate(page=page, per_page=10)
-
-    return render_template('item/overview.html',
-                            title=gettext('page.item_overview.title'),
-                            sidebar=gettext('ui.common.menu'),
-                            filter_categories=filter_categories,
-                            pagination=pagination,
-                            new_category_form=new_category_form,
-                            new_location_form=new_location_form)
-
-
 @item_blueprint.route('/items/new', methods=['GET', 'POST'])
 @login_required
 def new():
@@ -255,3 +208,78 @@ def new():
         return redirect(url_for('item.details', item_id=item.id))
 
     return render_template('item/new.html', title=gettext('page.item_new.title'), form=form)
+
+
+@item_blueprint.route('/items', methods=['GET', 'POST'])
+@login_required
+def overview():
+    conditions = list(ItemCondition)
+    categories = ItemCategory.query.order_by(ItemCategory.name.collate('NOCASE').asc()).all()
+    locations = ItemLocation.query.order_by(ItemLocation.name.collate('NOCASE').asc()).all()
+
+    page = request.args.get('page', 1, type=int)
+    filter_name = request.args.get('name', type=str)
+    filter_conditions = request.args.getlist('conditions', type=str)
+    filter_categories = request.args.getlist('categories', type=int)
+    filter_locations = request.args.getlist('locations', type=int)
+
+    search_item_form = SearchItemForm()
+    new_category_form = ItemCategoryForm()
+    new_location_form = ItemLocationForm()
+
+    if 'search_name' in request.form:
+        if search_item_form.validate_on_submit():
+            search_name = search_item_form.search_name.data if (search_item_form.search_name.data != "") else None
+
+            return redirect(url_for('item.overview', name=search_name, conditions=filter_conditions, categories=filter_categories, locations=filter_locations))
+
+    if 'category_name' in request.form:
+        if new_category_form.validate_on_submit():
+            item_category = ItemCategory(name=new_category_form.category_name.data)
+            db.session.add(item_category)
+            db.session.commit()
+
+            flash(gettext('flash.success.item_category.created', category_name=item_category.name), 'success')
+            return redirect(url_for('item.overview'))
+
+    elif 'location_name' in request.form:
+        if new_location_form.validate_on_submit():
+            item_location = ItemLocation(name=new_location_form.location_name.data)
+            db.session.add(item_location)
+            db.session.commit()
+
+            flash(gettext('flash.success.item_location.created', location_name=item_location.name), 'success')
+            return redirect(url_for('item.overview'))
+
+    pagination = Item.query
+
+    if (filter_name != None):
+        pagination = pagination.filter(Item.name.contains(filter_name))
+
+    if (filter_conditions != None) and (len(filter_conditions) > 0):
+        pagination = pagination.filter(Item.condition.in_(filter_conditions))
+
+    if (filter_categories != None) and (len(filter_categories) > 0):
+        pagination = pagination.filter(Item.category_id.in_(filter_categories))
+
+    if (filter_locations != None) and (len(filter_locations) > 0):
+        pagination = pagination.filter(Item.location_id.in_(filter_locations))
+
+    pagination = pagination.order_by(Item.name.collate('NOCASE').asc()).paginate(page=page, per_page=10)
+
+    search_item_form.search_name.data = filter_name
+
+    return render_template('item/overview.html',
+                            title=gettext('page.item_overview.title'),
+                            sidebar=gettext('ui.common.menu'),
+                            pagination=pagination,
+                            conditions=conditions,
+                            categories=categories,
+                            locations=locations,
+                            filter_name=filter_name,
+                            filter_conditions=filter_conditions,
+                            filter_categories=filter_categories,
+                            filter_locations=filter_locations,
+                            search_item_form=search_item_form,
+                            new_category_form=new_category_form,
+                            new_location_form=new_location_form)

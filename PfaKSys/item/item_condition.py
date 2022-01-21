@@ -13,6 +13,10 @@ class ItemCondition(Enum):
     unhygienic = lazy_gettext('item.item_condition.unhygienic')
     other = lazy_gettext('item.item_condition.other')
 
+    @classmethod
+    def __dir__(cls) -> list:
+        return list(condition for condition in cls)
+
     def get_condition_color(self) -> str:
         match self:
             case ItemCondition.unknown:

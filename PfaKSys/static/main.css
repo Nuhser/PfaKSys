@@ -67,14 +67,30 @@ a.article-title:hover {
     margin-bottom: 20px;
 }
 
-.pfaksys-link {
-    color: #444444;
+.dropdown {
+    z-index: 2;
 }
 
-a.pfaksys-link:hover {
-    color: #428bca;
-    text-decoration: none;
+.dropdown-active {
+    background: #428bca;
+    color: white;
 }
+
+.dropdown-danger {
+    color: red;
+}
+
+.dropright {
+    position: relative;
+}
+
+.dropright .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+
 
 .material-icons {
     display: inline-flex;
@@ -101,6 +117,19 @@ a.pfaksys-link:hover {
     vertical-align: top;
 }
 
+.pfaksys-link {
+    color: #444444;
+}
+
+a.pfaksys-link:hover {
+    color: #428bca;
+    text-decoration: none;
+}
+
+.sidebar {
+    z-index: 1;
+}
+
 .site-header .navbar-brand {
     color: #242424;
     font-weight: bold;
@@ -116,4 +145,8 @@ a.pfaksys-link:hover {
 
 .site-header .navbar-nav .nav-link.active {
     font-weight: 500;
+}
+
+.sticky-offset {
+    top: 57px
 }

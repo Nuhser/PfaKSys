@@ -56,3 +56,7 @@ class ItemLocationForm(FlaskForm):
         location = ItemLocation.query.filter_by(name=location_name.data).first()
         if location and (location.id != self.location_id):
             raise ValidationError(lazy_gettext('validation_error.item_location.name_already_taken'))
+
+class SearchItemForm(FlaskForm):
+    search_name = StringField()
+    submit = SubmitField(lazy_gettext('ui.common.search'))
