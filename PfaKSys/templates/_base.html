@@ -45,8 +45,6 @@
 
                                 <a class="nav-item nav-link" href="{{ url_for('item.locations') }}" id="nav-locations"><span class="material-icons">place</span> {{ _('ui.item.locations') }}</a>
                             {% endif %}
-                            
-                            <a class="nav-item nav-link" href="{{ url_for('main.about') }}" id="nav-about"><span class="material-icons">info</span> {{ _('ui.common.about') }}</a>
                         </div>
 
                         <!-- Navbar Right Side -->
@@ -95,8 +93,13 @@
             </div>
         </main>
 
-        <footer class="d-flex justify-content-around align-items-center">
-            <div><b>PfaKSys v0.0.0</b></div>
+        <footer class="align-items-center">
+            <div class="d-flex justify-content-around">
+                <div><b>PfaKSys v0.0.0</b></div>
+            </div>
+            <div class="d-flex justify-content-around">
+                <div><a class="nav-item nav-link pfaksys-link" href="{{ url_for('main.about') }}" id="nav-about">{{ _('ui.common.about') }}</a></div>
+            </div>
         </footer>
 
         <!-- Optional JavaScript -->
