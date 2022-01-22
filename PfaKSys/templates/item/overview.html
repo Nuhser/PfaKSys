@@ -3,6 +3,8 @@
 {% block content %}
     {% include 'item/menus/overview_search_bar.html' %}
 
+    <h4 class="mb-2">{{ _('page.overview.title') }}: {{ pagination.total }}</h3>
+
     {% for item in pagination.items %}
         <article class="media content-section">
             <img class="rounded article-img" src="{{ url_for('static', filename='item_images/' + item.image_files.split(';')[0]) }}">
