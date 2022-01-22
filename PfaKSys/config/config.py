@@ -16,6 +16,7 @@ class Config():
         'de': 'Deutsch',
         'en': 'English'
     }
+    LATEST_RELEASE = '0.1.0'
     MAIL_PASSWORD = os.environ.get('PFAKSYS_EMAIL_PASSWORD')
     MAIL_PORT = 587
     MAIL_SERVER = 'smtp.ionos.de'
