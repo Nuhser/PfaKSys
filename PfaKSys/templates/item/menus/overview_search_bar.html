@@ -22,7 +22,7 @@
                             {{ _('ui.common.condition') }}
                         </button>
 
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu" id="condition-dropright">
                             {% for condition in conditions %}
                                 {% if condition.name in filter_conditions %}
                                     <a class="dropdown-item dropdown-active" href="{{ url_for('item.overview', name=filter_name, conditions=filter_conditions[: filter_conditions.index(condition.name)] + filter_conditions[filter_conditions.index(condition.name)+1 :], categories=filter_categories, locations=filter_locations) }}">
@@ -43,7 +43,7 @@
                             {{ _('ui.item.category') }}
                         </button>
 
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu" id="category-dropright">
                             {% for category in categories %}
                                 {% if category.id in filter_categories %}
                                     <a class="dropdown-item dropdown-active" href="{{ url_for('item.overview', name=filter_name, conditions=filter_conditions, categories=filter_categories[: filter_categories.index(category.id)] + filter_categories[filter_categories.index(category.id)+1 :], locations=filter_locations) }}">
@@ -64,7 +64,7 @@
                             {{ _('ui.item.location') }}
                         </button>
 
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu" id="location-dropright">
                             {% for location in locations %}
                                 {% if location.id in filter_locations %}
                                     <a class="dropdown-item dropdown-active" href="{{ url_for('item.overview', name=filter_name, conditions=filter_conditions, categories=filter_categories, locations=filter_locations[: filter_locations.index(location.id)] + filter_locations[filter_locations.index(location.id)+1 :]) }}">
