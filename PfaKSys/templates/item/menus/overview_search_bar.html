@@ -22,7 +22,7 @@
                             {{ _('ui.common.condition') }}
                         </button>
 
-                        <div class="dropdown-menu" id="condition">
+                        <div class="dropdown-menu" id="condition-dropright">
                             {% for condition in conditions %}
                                 {% if condition.name in filter_conditions %}
                                     <a class="dropdown-item dropdown-active" href="{{ url_for('item.overview', name=filter_name, conditions=filter_conditions[: filter_conditions.index(condition.name)] + filter_conditions[filter_conditions.index(condition.name)+1 :], categories=filter_categories, locations=filter_locations) }}">
