@@ -13,7 +13,7 @@
                     </ol>
                 {% endif %}
 
-                <div class="carousel-inner">
+                <div class="carousel-inner" data-toggle="modal" data-target="#delete-item-modal">
                     <div class="carousel-item active">
                         <img class="d-block w-100" src="{{ url_for('static', filename='item_images/' + item_images[0]) }}" alt="{{ item_images[0] }}">
                     </div>
