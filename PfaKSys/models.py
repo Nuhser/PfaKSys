@@ -22,7 +22,7 @@ class Item(db.Model):
     date_checked = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     description = db.Column(db.Text)
     comment = db.Column(db.Text)
-    image_file = db.Column(db.String(20), nullable=False, default='default.png')
+    image_files = db.Column(db.String, nullable=False, default='default.png')
     category_id = db.Column(db.Integer, db.ForeignKey('item_category.id'))
     category = db.relationship('ItemCategory', back_populates='items')
     location_id = db.Column(db.Integer, db.ForeignKey('item_location.id'))

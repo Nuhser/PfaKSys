@@ -72,7 +72,9 @@ def delete_location(location_id):
 @login_required
 def details(item_id):
     item = Item.query.get_or_404(item_id)
-    return render_template('item/details.html', title=item.name, item=item)
+    item_images = item.image_files.split(';')
+
+    return render_template('item/details.html', title=item.name, item=item, item_images=item_images)
 
 
 @item_blueprint.route('/items/<int:item_id>/edit', methods=['GET', 'POST'])
