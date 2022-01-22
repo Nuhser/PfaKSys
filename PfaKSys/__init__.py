@@ -5,6 +5,7 @@ from flask_babel import Babel
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
 from PfaKSys.config.config import Config, init_logging
@@ -18,6 +19,7 @@ bcrypt = Bcrypt()
 db = SQLAlchemy()
 login_manager = LoginManager()
 mail = Mail()
+migrate = Migrate()
 
 # configure login manager
 login_manager.login_view = 'user.login'
@@ -44,6 +46,7 @@ def create_app(config=Config):
     db.init_app(app)
     login_manager.init_app(app)
     mail.init_app(app)
+    migrate.init_app(app, db)
 
     # create database and basic groups if not existing
     if not os.path.isfile(os.path.join(app.root_path, 'db.sqlite')):
