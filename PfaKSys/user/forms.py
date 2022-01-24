@@ -1,3 +1,4 @@
+from flask import current_app
 from flask_babel import lazy_gettext
 from flask_login import current_user
 from flask_wtf import FlaskForm
@@ -76,7 +77,7 @@ class UpdateAccountForm(FlaskForm):
     username = StringField(lazy_gettext('ui.common.username'), validators=[DataRequired(), Length(2, 20)])
     full_name = StringField(lazy_gettext('ui.common.full_name'), validators=[DataRequired(), Length(2, 120)])
     email = StringField(lazy_gettext('ui.common.email'), validators=[DataRequired(), Email()])
-    picture = FileField(lazy_gettext('ui.account.profile_picture'), validators=[FileAllowed(['jpg', 'png'])])
+    picture = FileField(lazy_gettext('ui.account.profile_picture'), validators=[FileAllowed(current_app.config['ALLOWED_IMAGE_TYPES'])])
 
     submit = SubmitField(lazy_gettext('ui.common.update'))
 

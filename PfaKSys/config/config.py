@@ -10,6 +10,7 @@ class Config():
     It should be used with `app.config.from_object()`.
     """
 
+    ALLOWED_IMAGE_TYPES = ['jpg', 'jpeg', 'png', 'gif']
     BABEL_DEFAULT_LOCALE = 'de'
     DEBUG_MODE = True
     LANGUAGES = {
