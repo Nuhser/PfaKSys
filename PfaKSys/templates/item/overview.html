@@ -94,11 +94,11 @@
                 e.stopPropagation();
                 e.preventDefault();
 
-                $("#condition-dropright").removeClass('show');
-                $("#category-dropright").removeClass('show');
-                $("#location-dropright").removeClass('show');
-
                 if (!$(this).next('div').hasClass('show')) {
+                    $("#condition-dropright").removeClass('show');
+                    $("#category-dropright").removeClass('show');
+                    $("#location-dropright").removeClass('show');
+
                     $(this).next('div').addClass('show');
                 }
                 else {
