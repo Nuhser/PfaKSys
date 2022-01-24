@@ -61,7 +61,7 @@ def create_app(config=Config):
 
     # create database and basic groups if not existing
     if not os.path.isfile(os.path.join(app.root_path, 'db.sqlite')):
-        from PfaKSys.models import Item, ItemCategory, ItemLocation, User, UserGroup
+        from PfaKSys.models import Item, ItemCategory, ItemLocation, User, UserGroup, UserSettings
         with app.app_context():
             db.create_all()
             db.session.add(UserGroup(name='default'))
