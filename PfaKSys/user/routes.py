@@ -82,6 +82,25 @@ def logout():
     return redirect(url_for('main.home'))
 
 
+@user_blueprint.route('/modify_item_filters')
+def modify_item_filters():
+    filter_name = request.args.get('name', type=str)
+    filter_conditions = request.args.getlist('conditions', type=str)
+    filter_categories = request.args.getlist('categories', type=int)
+    filter_locations = request.args.getlist('locations', type=int)
+
+    # save current item filters
+    current_user.settings.item_filters = {
+        'name': filter_name,
+        'conditions': filter_conditions,
+        'categories': filter_categories,
+        'locations': filter_locations
+    }
+    db.session.commit()
+
+    return redirect(url_for('item.overview'))
+
+
 @user_blueprint.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:

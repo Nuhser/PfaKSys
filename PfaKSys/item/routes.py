@@ -1,12 +1,12 @@
 from datetime import datetime
 from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_babel import gettext
-from flask_login import login_required
+from flask_login import current_user, login_required
 
 from PfaKSys import db
 from PfaKSys.item.forms import ItemForm, ItemCategoryForm, ItemLocationForm, SearchItemForm
 from PfaKSys.item.item_condition import ItemCondition
-from PfaKSys.models import Item, ItemCategory, ItemLocation
+from PfaKSys.models import Item, ItemCategory, ItemLocation, UserSettings
 
 
 item_blueprint = Blueprint('item', __name__)
@@ -220,10 +220,12 @@ def overview():
     locations = ItemLocation.query.order_by(ItemLocation.name.collate('NOCASE').asc()).all()
 
     page = request.args.get('page', 1, type=int)
-    filter_name = request.args.get('name', type=str)
-    filter_conditions = request.args.getlist('conditions', type=str)
-    filter_categories = request.args.getlist('categories', type=int)
-    filter_locations = request.args.getlist('locations', type=int)
+
+    # load users item filters
+    filter_name = current_user.settings.item_filters['name']
+    filter_conditions = current_user.settings.item_filters['conditions']
+    filter_categories = current_user.settings.item_filters['categories']
+    filter_locations = current_user.settings.item_filters['locations']
 
     search_item_form = SearchItemForm()
     new_category_form = ItemCategoryForm()
@@ -233,7 +235,8 @@ def overview():
         if search_item_form.validate_on_submit():
             search_name = search_item_form.search_name.data if (search_item_form.search_name.data != "") else None
 
-            return redirect(url_for('item.overview', name=search_name, conditions=filter_conditions, categories=filter_categories, locations=filter_locations))
+            # return redirect(url_for('item.overview', name=search_name, conditions=filter_conditions, categories=filter_categories, locations=filter_locations))
+            return redirect(url_for('user.modify_item_filters', name=search_name, conditions=filter_conditions, categories=filter_categories, locations=filter_locations))
 
     if 'category_name' in request.form:
         if new_category_form.validate_on_submit():

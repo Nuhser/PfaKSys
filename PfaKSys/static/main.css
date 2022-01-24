@@ -93,6 +93,11 @@ a.article-title:hover {
     color: white;
 }
 
+.dropdown-active:hover {
+    background: lightgrey;
+    color: black;
+}
+
 .dropdown-danger {
     color: red;
 }
