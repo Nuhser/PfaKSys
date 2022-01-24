@@ -13,6 +13,15 @@ user_group_association_table = db.Table('user_group_association', db.Model.metad
 )
 
 
+# class Borrow(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     date_from = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+#     date_to = db.Column(db.DateTime)
+#     borrower_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+#     borrower = db.relationship('User', backref='borrows')
+    
+
+
 class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), unique=True, nullable=False)
@@ -57,6 +66,8 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(120), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
+    setting_id = db.Column(db.Integer, db.ForeignKey('user_settings.id'))
+    settings = db.relationship('UserSettings', backref='user')
     groups = db.relationship('UserGroup', secondary=user_group_association_table, backref='users')
 
     def __repr__(self) -> str:
@@ -85,6 +96,18 @@ class UserGroup(db.Model):
         return f"UserGroup('{self.name}')"
 
 
+class UserSettings(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    language = db.Column(db.String(2), default='de')
+    item_filters = db.Column(db.JSON)
+
+
 @login_manager.user_loader
 def load_user(user_id: int) -> User:
-    return User.query.get(user_id)
+    user = User.query.get(user_id)
+
+    if user != None and user.setting_id == None:
+        user.settings = UserSettings()
+        db.session.commit()
+
+    return user
