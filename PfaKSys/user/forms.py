@@ -77,7 +77,7 @@ class UpdateAccountForm(FlaskForm):
     username = StringField(lazy_gettext('ui.common.username'), validators=[DataRequired(), Length(2, 20)])
     full_name = StringField(lazy_gettext('ui.common.full_name'), validators=[DataRequired(), Length(2, 120)])
     email = StringField(lazy_gettext('ui.common.email'), validators=[DataRequired(), Email()])
-    picture = FileField(lazy_gettext('ui.account.profile_picture'), validators=[FileAllowed(current_app.config['ALLOWED_IMAGE_TYPES'])])
+    picture = FileField(lazy_gettext('ui.account.profile_picture'), validators=[FileAllowed(['jpg', 'jpeg', 'png', 'gif'])])
 
     submit = SubmitField(lazy_gettext('ui.common.update'))
 
