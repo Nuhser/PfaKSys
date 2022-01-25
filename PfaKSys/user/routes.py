@@ -5,8 +5,8 @@ from flask_babel import gettext
 from flask_login import current_user, login_required, login_user, logout_user
 
 from PfaKSys import bcrypt, db
-from PfaKSys.models import User, UserGroup
-from PfaKSys.user.forms import LoginForm, RegistrationForm, RequestResetForm, ResetPasswordForm, UpdateAccountForm
+from PfaKSys.models import User, UserSettings
+from PfaKSys.user.forms import LoginForm, RegistrationForm, RequestResetForm, ResetPasswordForm, UpdateAccountForm, UserSettingsForm
 from PfaKSys.user.utils import generate_and_save_gravatar, save_picture, send_reset_email
 
 
@@ -111,10 +111,11 @@ def register():
     if form.validate_on_submit():
         image_file = generate_and_save_gravatar(form.email.data)
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        default_usergroup = UserGroup.query.get(1)
         
-        user = User(username=form.username.data, full_name=form.full_name.data, email=form.email.data, password=hashed_password, image_file=image_file, groups=[default_usergroup])
+        user = User(username=form.username.data, full_name=form.full_name.data, email=form.email.data, password=hashed_password, image_file=image_file)
         db.session.add(user)
+        user_settings = UserSettings(language=request.accept_languages.best_match(current_app.config['LANGUAGES'].keys()))
+        user.settings = user_settings
         db.session.commit()
 
         current_app.logger.info(f'New user {user.username} was created successfully.')

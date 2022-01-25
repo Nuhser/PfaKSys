@@ -281,10 +281,10 @@ def overview():
     page = request.args.get('page', 1, type=int)
 
     # load users item filters
-    filter_name = current_user.settings.item_filters['name']
-    filter_conditions = current_user.settings.item_filters['conditions']
-    filter_categories = current_user.settings.item_filters['categories']
-    filter_locations = current_user.settings.item_filters['locations']
+    filter_name = current_user.settings.item_filters['name'] if ('name' in current_user.settings.item_filters) else None
+    filter_conditions = current_user.settings.item_filters['conditions'] if ('conditions' in current_user.settings.item_filters) else []
+    filter_categories = current_user.settings.item_filters['categories'] if ('categories' in current_user.settings.item_filters) else []
+    filter_locations = current_user.settings.item_filters['locations'] if ('locations' in current_user.settings.item_filters) else []
 
     search_item_form = SearchItemForm()
     new_category_form = ItemCategoryForm()

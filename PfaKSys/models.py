@@ -1,6 +1,6 @@
 from datetime import datetime
 from itsdangerous.jws import TimedJSONWebSignatureSerializer
-from flask import current_app
+from flask import current_app, request
 from flask_login import UserMixin
 
 from PfaKSys import db, login_manager
@@ -99,7 +99,7 @@ class UserGroup(db.Model):
 class UserSettings(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     language = db.Column(db.String(2), default='de')
-    item_filters = db.Column(db.JSON)
+    item_filters = db.Column(db.JSON, default={})
 
 
 @login_manager.user_loader
@@ -107,7 +107,9 @@ def load_user(user_id: int) -> User:
     user = User.query.get(user_id)
 
     if user != None and user.setting_id == None:
-        user.settings = UserSettings()
+        user.settings = UserSettings(
+                            language=request.accept_languages.best_match(current_app.config['LANGUAGES'].keys()),
+                            item_filters={})
         db.session.commit()
 
     return user
