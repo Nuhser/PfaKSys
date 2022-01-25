@@ -1,0 +1,61 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <h1 class="mb-3">{{ _('page.user_settings.title') }}</h1>
+
+    <form class="content-section" action="" method="POST">
+        {{ form.hidden_tag() }}
+
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs mb-3">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#tab-generel">
+                    {{ _('ui.common.generel') }}
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-2">
+                    Tab 2
+                </a>
+            </li>
+        </ul>
+
+        <!-- Tab Contents -->
+        <div class="tab-content mb-4">
+            <!-- Generel Settings -->
+            <div class="tab-pane active" id="tab-generel">
+                <div class="form-group">
+                    {{ form.language.label(class="form-control-label") }}
+
+                    {% if form.language.errors %}
+                        {{ form.language(class="form-control is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.language.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.language(class="form-control") }}
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Other Settings -->
+            <div class="tab-pane" id="tab-2">
+                Tab 2 content
+            </div>
+        </div>
+
+        <div class="border-top form-group">
+            {{ form.submit(class="btn btn-success mt-2") }}
+
+            <a class="btn btn-secondary mt-2" href="{{ url_for('main.home') }}">
+                {{ _('ui.common.cancel') }}
+            </a>
+        </div>
+    </form>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

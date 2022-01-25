@@ -3,7 +3,7 @@ from flask_babel import lazy_gettext
 from flask_login import current_user
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed, FileField
-from wtforms import BooleanField, PasswordField, StringField, SubmitField
+from wtforms import BooleanField, PasswordField, SelectField, StringField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 
 from PfaKSys.models import User
@@ -92,3 +92,10 @@ class UpdateAccountForm(FlaskForm):
             user = User.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError(lazy_gettext('validation_error.email_already_exists'))
+
+
+class UserSettingsForm(FlaskForm):
+    # generel
+    language = SelectField(lazy_gettext('ui.common.language'), validators=[DataRequired()])
+
+    submit = SubmitField(lazy_gettext('ui.common.save'))

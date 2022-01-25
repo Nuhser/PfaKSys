@@ -166,3 +166,25 @@ def reset_password(token: str):
         return redirect(url_for('user.login'))
 
     return render_template('user/reset_password.html', title=gettext('page.reset_password.title'), form=form)
+
+
+@user_blueprint.route('/settings', methods=['GET', 'POST'])
+@login_required
+def settings():
+    # initialize form
+    form = UserSettingsForm()
+    form.language.choices = [(key, value) for key, value in current_app.config['LANGUAGES'].items()]
+
+    # validate submitted form
+    if form.validate_on_submit():
+        current_user.settings.language = form.language.data
+        db.session.commit()
+
+        flash(gettext('flash.success.user_settings_saved'), 'success')
+        return redirect(url_for('user.settings'))
+
+    # fill form with current values if settings are opened
+    elif request.method == 'GET':
+        form.language.data = current_user.settings.language
+
+    return render_template('user/settings.html', title=gettext('page.user_settings.title'), form=form)
