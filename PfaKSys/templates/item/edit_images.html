@@ -60,3 +60,12 @@
         </div>
     </div>
 {% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $(window).on('load', function(){
+            $(".nav").find(".active").removeClass("active");
+            $("#nav-material").addClass("active");
+        });
+    </script>
+{% endblock %}
