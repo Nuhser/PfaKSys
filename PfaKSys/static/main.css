@@ -126,6 +126,16 @@ a.article-title:hover {
     margin-top: -1px;
 }
 
+.item-img-carousel .carousel-indicators {
+    bottom: -10px;
+}
+
+.item-img-carousel .carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+
 .material-icons {
     display: inline-flex;
     vertical-align: top;
