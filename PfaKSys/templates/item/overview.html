@@ -3,6 +3,46 @@
 {% block content %}
     {% include 'item/menus/overview_search_bar.html' %}
 
+    <h6 class="mt-2">
+        {% if filter_conditions != [] %}
+            {{ _('ui.common.condition') }}:
+
+            {% for condition in conditions %}
+                {% if condition.name in filter_conditions %}
+                    <a class="badge badge-pill badge-warning" href="{{ url_for('user.modify_item_filters', name=filter_name, conditions=filter_conditions[: filter_conditions.index(condition.name)] + filter_conditions[filter_conditions.index(condition.name)+1 :], categories=filter_categories, locations=filter_locations) }}">
+                        {{ condition.value }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </h6>
+    <h6>
+        {% if filter_categories != [] %}
+            {{ _('ui.item.category') }}:
+
+            {% for category in categories %}
+                {% if category.id in filter_categories %}
+                    <a class="badge badge-pill badge-warning" href="{{ url_for('user.modify_item_filters', name=filter_name, conditions=filter_conditions, categories=filter_categories[: filter_categories.index(category.id)] + filter_categories[filter_categories.index(category.id)+1 :], locations=filter_locations) }}">
+                        {{ category.name }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </h6>
+    <h6 class="mb-4">
+        {% if filter_locations != [] %}
+            {{ _('ui.item.location') }}:
+
+            {% for location in locations %}
+                {% if location.id in filter_locations %}
+                    <a class="badge badge-pill badge-warning" href="{{ url_for('user.modify_item_filters', name=filter_name, conditions=filter_conditions, categories=filter_categories, locations=filter_locations[: filter_locations.index(location.id)] + filter_locations[filter_locations.index(location.id)+1 :]) }}">
+                        {{ location.name }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </h6>
+
     <h4 class="mb-2">{{ _('page.overview.title') }}: {{ pagination.total }}</h3>
 
     {% for item in pagination.items %}
