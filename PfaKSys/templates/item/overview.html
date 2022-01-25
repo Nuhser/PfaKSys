@@ -7,7 +7,10 @@
 
     {% for item in pagination.items %}
         <article class="media content-section">
-            <img class="rounded article-img" src="{{ url_for('static', filename='item_images/' + item.image_files.split(';')[0]) }}">
+            {% set image = item.image_files.split(';')[0] %}
+            
+            <img class="rounded article-img" src="{{ url_for('static', filename='item_images/' + item.image_files.split(';')[0]) }}" data-toggle="modal" data-target="#show-item-image-modal{{ image }}">
+            {% include 'item/modals/show_item_image_modal.html' %}
 
             <div class="media-body">
                 <h2><a class="article-title" href="{{ url_for('item.details', item_id=item.id) }}">{{ item.name }}</a></h2>
