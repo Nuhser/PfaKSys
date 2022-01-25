@@ -3,36 +3,47 @@
 {% block content %}
     <div class="content-section">
         <div class="media mb-5">
-            <div id="item-image-carousel" class="rounded border border-secondary carousel slide article-img-lg" data-interval=false>
-                {% if (item_images | length) > 1 %}
-                    <ol class="carousel-indicators">
-                            <li data-target="#item-image-carousel" data-slide-to="0" class="active"></li>
-                        {% for idx in range(1, (item_images | length)) %}
-                            <li data-target="#item-image-carousel" data-slide-to="{{ idx }}"></li>
-                        {% endfor %}
-                    </ol>
-                {% endif %}
+            <div>
+                <div id="item-image-carousel" class="carousel slide" data-interval=false>
+                    {% if (item_images | length) > 1 %}
+                        <ol class="carousel-indicators" >
+                                <li data-target="#item-image-carousel" data-slide-to="0" class="active"></li>
+                            {% for idx in range(1, (item_images | length)) %}
+                                <li data-target="#item-image-carousel" data-slide-to="{{ idx }}"></li>
+                            {% endfor %}
+                        </ol>
+                    {% endif %}
 
-                <div class="carousel-inner" data-toggle="modal" data-target="#delete-item-modal">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{ url_for('static', filename='item_images/' + item_images[0]) }}" alt="{{ item_images[0] }}">
-                    </div>
-                    {% for item_image in item_images[1 :] %}
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{ url_for('static', filename='item_images/' + item_image) }}" alt="{{ item_image }}">
+                    <div class="carousel-inner">
+                        {% set image = item_images[0] %}
+                        <div class="carousel-item active" data-toggle="modal" data-target="#show-item-image-modal{{ image }}">
+                            <img class="d-block rounded article-img-lg" src="{{ url_for('static', filename='item_images/' + item_images[0]) }}" alt="{{ item_images[0] }}">
                         </div>
-                    {% endfor %}
+                        {% include 'item/modals/show_item_image_modal.html' %}
+
+                        {% for image in item_images[1 :] %}
+                            <div class="carousel-item" data-toggle="modal" data-target="#show-item-image-modal{{ image }}">
+                                <img class="d-block rounded article-img-lg" src="{{ url_for('static', filename='item_images/' + image) }}" alt="{{ image }}">
+                            </div>
+                            {% include 'item/modals/show_item_image_modal.html' %}
+                        {% endfor %}
+                    </div>
+
+                    {% if (item_images | length) > 1 %}
+                        <a class="carousel-control-prev" href="#item-image-carousel" role="button" data-slide="prev">
+                            <span class="material-icons" style="color: grey;">navigate_before</span>
+                        </a>
+
+                        <a class="carousel-control-next" href="#item-image-carousel" role="button" data-slide="next">
+                            <span class="material-icons" style="color: grey;">navigate_next</span>
+                        </a>
+                    {% endif %}
                 </div>
 
-                {% if (item_images | length) > 1 %}
-                    <a class="carousel-control-prev" href="#item-image-carousel" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </a>
-
-                    <a class="carousel-control-next" href="#item-image-carousel" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </a>
-                {% endif %}
+                <a class="btn btn-outline-secondary btn-sm mt-2" href="{{ url_for('item.edit_images', item_id=item.id) }}" role="button">
+                    <span class="material-icons">photo_library</span>
+                    {{ _('ui.item.edit_images')}}
+                </a>
             </div>
 
             <div class="media-body">

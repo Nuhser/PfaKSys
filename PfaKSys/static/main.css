@@ -35,21 +35,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .article-img {
-    height: 65px;
-    width: 65px;
+    max-height: 65px;
+    max-width: 65px;
     margin-right: 16px;
 }
 
 .article-img-md {
-    height: 125px;
-    width: 125px;
+    max-height: 125px;
+    max-width: 125px;
     margin-right: 16px;
 }
 
 .article-img-lg {
-    height: 200px;
-    width: 200px;
-    margin-right: 16px;
+    max-height: 200px;
+    max-width: 190px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.article-img-huge {
+    max-height: 580px;
+    max-width: 850px;
+    margin: auto;
 }
 
 .article-metadata {

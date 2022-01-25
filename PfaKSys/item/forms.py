@@ -1,5 +1,6 @@
 from flask_babel import lazy_gettext
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileAllowed, FileField, FileRequired
 from wtforms import BooleanField, IntegerField, SelectField, StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Length, ValidationError
 
@@ -43,6 +44,11 @@ class ItemCategoryForm(FlaskForm):
         category = ItemCategory.query.filter_by(name=category_name.data).first()
         if category and (category.id != self.category_id):
             raise ValidationError(lazy_gettext('validation_error.item_category.name_already_taken'))
+
+
+class ItemImageForm(FlaskForm):
+    image = FileField(lazy_gettext('ui.item.item_image'), validators=[DataRequired(), FileAllowed(['jpg', 'jpeg', 'png', 'gif']), FileRequired()])
+    submit = SubmitField(lazy_gettext('ui.item.add_image'))
 
 
 class ItemLocationForm(FlaskForm):

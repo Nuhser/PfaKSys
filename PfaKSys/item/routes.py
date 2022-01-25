@@ -1,12 +1,15 @@
+import os
+
 from datetime import datetime
-from flask import Blueprint, flash, redirect, render_template, request, url_for
+from flask import Blueprint, current_app, flash, redirect, render_template, request, url_for
 from flask_babel import gettext
 from flask_login import current_user, login_required
 
 from PfaKSys import db
-from PfaKSys.item.forms import ItemForm, ItemCategoryForm, ItemLocationForm, SearchItemForm
+from PfaKSys.item.forms import ItemForm, ItemCategoryForm, ItemImageForm, ItemLocationForm, SearchItemForm
 from PfaKSys.item.item_condition import ItemCondition
-from PfaKSys.models import Item, ItemCategory, ItemLocation, UserSettings
+from PfaKSys.item.utils import save_picture
+from PfaKSys.models import Item, ItemCategory, ItemLocation
 
 
 item_blueprint = Blueprint('item', __name__)
@@ -39,6 +42,13 @@ def categories():
 @login_required
 def delete(item_id):
     item = Item.query.get_or_404(item_id)
+
+    for image in item.image_files.split(';'):
+        if image != 'default.png':
+            image_path = os.path.join(current_app.root_path, 'static/item_images', image)
+            if os.path.exists(image_path):
+                os.remove(image_path)
+
     db.session.delete(item)
     db.session.commit()
 
@@ -55,6 +65,32 @@ def delete_category(category_id):
 
     flash(gettext('flash.success.category.deleted', category_name=category.name), 'success')
     return redirect(url_for('item.categories'))
+
+
+@item_blueprint.route('/items/<int:item_id>/edit_images/delete', methods=['POST'])
+@login_required
+def delete_image(item_id):
+    item = Item.query.get_or_404(item_id)
+
+    image_name = request.args.get('image', '', type=str)
+
+    if (image_name != 'default.png') and (image_name != ''):
+        images = item.image_files.split(';')
+        images.remove(image_name)
+
+        if images == []:
+            images.append('default.png')
+
+        item.image_files = ';'.join(images)
+
+        db.session.commit()
+
+        image_path = os.path.join(current_app.root_path, 'static/item_images', image_name)
+        if os.path.exists(image_path):
+            os.remove(image_path)
+            flash(gettext('flash.success.image_deleted', image_name=image_name), 'success')
+
+    return redirect(url_for('item.edit_images', item_id=item.id))
 
 
 @item_blueprint.route('/locations/<int:location_id>/delete', methods=['POST'])
@@ -140,6 +176,29 @@ def edit_category(category_id):
         form.category_name.data = category.name
 
     return render_template('category/edit.html', title=f'{category.name} ({gettext("ui.common.edit")})', form=form)
+
+
+@item_blueprint.route('/items/<int:item_id>/edit_images', methods=['GET', 'POST'])
+@login_required
+def edit_images(item_id):
+    item = Item.query.get_or_404(item_id)
+
+    form = ItemImageForm()
+
+    if form.validate_on_submit():
+        image_name = save_picture(form.image.data)
+
+        if item.image_files == 'default.png':
+            item.image_files = image_name
+        else:
+            item.image_files += ';' + image_name
+
+        db.session.commit()
+
+        flash(gettext('flash.success.item.image_added', image_name=image_name), 'success')
+        return redirect(url_for('item.edit_images', item_id=item.id))
+
+    return render_template('item/edit_images.html', title=f'{item.name} - ' + gettext("ui.common.images"), item=item, form=form)
 
 
 @item_blueprint.route('/locations/<int:location_id>/edit', methods=['GET', 'POST'])

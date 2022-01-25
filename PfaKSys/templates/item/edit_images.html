@@ -1,0 +1,62 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <div class="content-section">
+        <div class="media mb-5">
+            <div class="media-body">
+                <h2 class="article-title">{{ title }}</h2>
+
+                <table class="table table-striped mt-5">
+                    {% for image in item.image_files.split(';') %}
+                        <tr>
+                            <td class="col-sm-1">
+                                {% if image != 'default.png' %}
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-item-image-modal{{ image }}">
+                                        <span class="material-icons">delete</span>
+                                    </button>
+                                {% else %}
+                                <button type="button" class="btn btn-danger" disabled>
+                                    <span class="material-icons">delete</span>
+                                </button>
+                                {% endif %}
+                            </td>
+
+                            <td class="col-sm-3">
+                                <img class="article-img-lg" src="{{ url_for('static', filename='item_images/' + image) }}" data-toggle="modal" data-target="#show-item-image-modal{{ image }}">
+                            </td>
+
+                            <td class="col-sm-8">{{ image }}</td>
+                        </tr>
+
+                        {% include "item/modals/show_item_image_modal.html" %}
+                        {% include "item/modals/delete_item_image_modal.html" %}
+                    {% endfor %}
+                </table>
+
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {{ form.hidden_tag() }}
+                    
+                    <div class="form-group">
+                        {{ form.image(class="form-control-file mt-2") }}
+
+                        {% if form.image.errors %}
+                            {% for error in form.image.errors %}
+                                <span class="text-danger">{{ error }}</span><br/>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.submit(class="btn btn-success mt-1") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="border-top form-group">
+            <a class="btn btn-primary mt-2" href="{{ url_for('item.details', item_id=item.id) }}">
+                {{ _('ui.common.back') }}
+            </a>
+        </div>
+    </div>
+{% endblock %}

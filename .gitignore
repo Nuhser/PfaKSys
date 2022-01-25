@@ -2,6 +2,7 @@
 
 .vscode*
 PfaKSys/logs*
+PfaKSys/static/item_images/*
 PfaKSys/static/profile_pics/*
 
 *.code-workspace
@@ -10,3 +11,4 @@ PfaKSys/static/profile_pics/*
 db.sqlite
 
 !PfaKSys/static/profile_pics/default.jpg
+!PfaKSys/static/item_images/default.png
