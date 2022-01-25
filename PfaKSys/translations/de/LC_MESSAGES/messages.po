@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-25 12:48+0100\n"
+"POT-Creation-Date: 2022-01-25 16:16+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -80,6 +80,7 @@ msgid "ui.common.comment"
 msgstr "Kommentar"
 
 #: PfaKSys/item/forms.py:20 PfaKSys/item/forms.py:38 PfaKSys/item/forms.py:56
+#: PfaKSys/user/forms.py:101
 msgid "ui.common.save"
 msgstr "Speichern"
 
@@ -263,7 +264,7 @@ msgid "ui.common.login"
 msgstr "Anmelden"
 
 #: PfaKSys/templates/_base.html:85 PfaKSys/user/forms.py:28
-#: PfaKSys/user/routes.py:124
+#: PfaKSys/user/routes.py:125
 msgid "ui.common.sign_up"
 msgstr "Registrieren"
 
@@ -283,6 +284,7 @@ msgstr ""
 #: PfaKSys/templates/item/modals/new_category_modal.html:33
 #: PfaKSys/templates/item/modals/new_location_modal.html:33
 #: PfaKSys/templates/location/edit.html:29
+#: PfaKSys/templates/user/settings.html:54
 msgid "ui.common.cancel"
 msgstr "Abbrechen"
 
@@ -350,6 +352,7 @@ msgid "ui.common.as_of"
 msgstr "Stand vom"
 
 #: PfaKSys/templates/item/details.html:72 PfaKSys/templates/item/edit.html:28
+#: PfaKSys/templates/user/settings.html:13
 msgid "ui.common.generel"
 msgstr "Allgemein"
 
@@ -462,10 +465,14 @@ msgid "ui.register.login"
 msgstr "Melde dich hier an."
 
 #: PfaKSys/templates/user/request_reset.html:9
-#: PfaKSys/templates/user/reset_password.html:9 PfaKSys/user/routes.py:142
-#: PfaKSys/user/routes.py:167
+#: PfaKSys/templates/user/reset_password.html:9 PfaKSys/user/routes.py:143
+#: PfaKSys/user/routes.py:168
 msgid "page.reset_password.title"
 msgstr "Passwort Zurücksetzen"
+
+#: PfaKSys/templates/user/settings.html:4 PfaKSys/user/routes.py:190
+msgid "page.user_settings.title"
+msgstr "Benutzereinstellungen"
 
 #: PfaKSys/user/forms.py:13 PfaKSys/user/forms.py:22 PfaKSys/user/forms.py:77
 msgid "ui.common.username"
@@ -523,6 +530,10 @@ msgstr "Passwort Zurücksetzen"
 msgid "ui.common.update"
 msgstr "Aktualisieren"
 
+#: PfaKSys/user/forms.py:99
+msgid "ui.common.language"
+msgstr "Sprache"
+
 #: PfaKSys/user/routes.py:40
 msgid "flash.success.account_update"
 msgstr "Die Änderungen an deinem Profil wurde gespeichert."
@@ -537,26 +548,30 @@ msgstr ""
 msgid "flash.success.logout"
 msgstr "Du hast dich erfolgreich abgemeldet."
 
-#: PfaKSys/user/routes.py:121
+#: PfaKSys/user/routes.py:122
 msgid "flash.success.account_created"
 msgstr "Dein Profil wurde angelegt! Du kannst dich jetzt anmelden."
 
-#: PfaKSys/user/routes.py:139
+#: PfaKSys/user/routes.py:140
 msgid "flash.info.reset_email_send"
 msgstr ""
 "Eine Email mit Anweisungen zum Zurücksetzen deines Passwortes wurde "
 "versendet.\n"
 "(Solltest du die Email nicht sehen, sie auch mal im Spam-Ordner nach.)"
 
-#: PfaKSys/user/routes.py:153
+#: PfaKSys/user/routes.py:154
 msgid "flash.warning.reset_token_expired_or_invalid"
 msgstr "Dieser Link ist entweder ungültig oder bereits abgelaufen."
 
-#: PfaKSys/user/routes.py:164
+#: PfaKSys/user/routes.py:165
 msgid "flash.success.password_reset"
 msgstr ""
 "Dein Passowort wurde erfolgreich zurückgesetzt! Du kannst dich jetzt "
 "anmelden."
+
+#: PfaKSys/user/routes.py:183
+msgid "flash.success.user_settings_saved"
+msgstr "Deine Einstellungen wurden gespeichert."
 
 #: PfaKSys/user/utils.py:43
 msgid "mail.reset_password.subject"
