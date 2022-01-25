@@ -6,7 +6,7 @@
             {{ form.hidden_tag() }}
 
             <div class="media mb-5">
-                <img class="rounded border border-secondary article-img-md" src="{{ url_for('static', filename='item_images/' + item.image_files.split(';')[0]) }}">
+                <img class="rounded article-img-md" src="{{ url_for('static', filename='item_images/' + item.image_files.split(';')[0]) }}">
 
                 <div class="media-body">
                     <h2 class="article-title">
