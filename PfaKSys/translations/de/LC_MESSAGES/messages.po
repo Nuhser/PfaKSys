@@ -351,7 +351,7 @@ msgstr "Stand vom"
 
 #: PfaKSys/templates/item/details.html:72 PfaKSys/templates/item/edit.html:28
 msgid "ui.common.generel"
-msgstr "Anzahl"
+msgstr "Allgemein"
 
 #: PfaKSys/templates/item/edit_images.html:58
 msgid "ui.common.back"
