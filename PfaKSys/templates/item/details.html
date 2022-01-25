@@ -97,7 +97,7 @@
                 <div>
                     <b>{{ _('ui.common.condition') }}:</b> 
                     <span class="rounded" style="padding-top: 1px; padding-bottom: 2px; padding-left: 3px; padding-right: 3px; {{ item.condition.get_condition_color() }}">
-                        {{ _(item.condition.value) }}
+                        <a class="pfaksys-link" href="{{ url_for('user.modify_item_filters', conditions=item.condition.name) }}">{{ _(item.condition.value) }}</a>
                     </span>
 
                     <br><br>

@@ -152,7 +152,7 @@ a.article-title:hover {
 }
 
 .pfaksys-link {
-    color: #444444;
+    color: inherit;
 }
 
 a.pfaksys-link:hover {
