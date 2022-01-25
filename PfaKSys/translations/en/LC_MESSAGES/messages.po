@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-24 20:06+0100\n"
+"POT-Creation-Date: 2022-01-25 12:48+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -34,77 +34,80 @@ msgstr "Error 405"
 msgid "page.error_500.title"
 msgstr "Error 500"
 
-#: PfaKSys/item/forms.py:13 PfaKSys/item/forms.py:38 PfaKSys/item/forms.py:56
+#: PfaKSys/item/forms.py:12 PfaKSys/item/forms.py:37 PfaKSys/item/forms.py:55
 msgid "ui.common.name"
 msgstr "Name"
 
-#: PfaKSys/item/forms.py:14 PfaKSys/templates/item/edit.html:34
+#: PfaKSys/item/forms.py:13 PfaKSys/templates/item/edit.html:34
 msgid "ui.item.has_count"
-msgstr "Has Quantity"
+msgstr "Quantity Known"
 
-#: PfaKSys/item/forms.py:15 PfaKSys/templates/item/details.html:70
-#: PfaKSys/templates/item/edit.html:59 PfaKSys/templates/item/overview.html:16
+#: PfaKSys/item/forms.py:14 PfaKSys/templates/item/details.html:76
+#: PfaKSys/templates/item/edit.html:59 PfaKSys/templates/item/overview.html:59
 msgid "ui.common.count"
 msgstr "Quantity"
 
-#: PfaKSys/item/forms.py:16 PfaKSys/templates/item/details.html:92
+#: PfaKSys/item/forms.py:15 PfaKSys/templates/item/details.html:98
 #: PfaKSys/templates/item/edit.html:80
 #: PfaKSys/templates/item/menus/overview_search_bar.html:22
-#: PfaKSys/templates/item/overview.html:26
+#: PfaKSys/templates/item/overview.html:8
+#: PfaKSys/templates/item/overview.html:69
 msgid "ui.common.condition"
 msgstr "Condition"
 
-#: PfaKSys/item/forms.py:17 PfaKSys/templates/item/details.html:81
+#: PfaKSys/item/forms.py:16 PfaKSys/templates/item/details.html:87
 #: PfaKSys/templates/item/edit.html:103
 #: PfaKSys/templates/item/menus/overview_search_bar.html:43
+#: PfaKSys/templates/item/overview.html:21
 msgid "ui.item.category"
 msgstr "Category"
 
-#: PfaKSys/item/forms.py:18 PfaKSys/templates/item/details.html:99
+#: PfaKSys/item/forms.py:17 PfaKSys/templates/item/details.html:105
 #: PfaKSys/templates/item/edit.html:124
 #: PfaKSys/templates/item/menus/overview_search_bar.html:64
+#: PfaKSys/templates/item/overview.html:34
 msgid "ui.item.location"
 msgstr "Storage Location"
 
-#: PfaKSys/item/forms.py:19 PfaKSys/templates/item/details.html:112
+#: PfaKSys/item/forms.py:18 PfaKSys/templates/item/details.html:118
 #: PfaKSys/templates/item/edit.html:145
 msgid "ui.common.description"
 msgstr "Description"
 
-#: PfaKSys/item/forms.py:20 PfaKSys/templates/item/details.html:120
+#: PfaKSys/item/forms.py:19 PfaKSys/templates/item/details.html:126
 #: PfaKSys/templates/item/edit.html:160
 msgid "ui.common.comment"
 msgstr "Comment"
 
-#: PfaKSys/item/forms.py:21 PfaKSys/item/forms.py:39 PfaKSys/item/forms.py:57
+#: PfaKSys/item/forms.py:20 PfaKSys/item/forms.py:38 PfaKSys/item/forms.py:56
 msgid "ui.common.save"
 msgstr "Save"
 
-#: PfaKSys/item/forms.py:29
+#: PfaKSys/item/forms.py:28
 msgid "validation_error.item.name_already_taken"
 msgstr "This item name already used. Please choose a different one."
 
-#: PfaKSys/item/forms.py:34
+#: PfaKSys/item/forms.py:33
 msgid "validation_error.item.count_min_zero"
 msgstr "The quantity needs to be at least zero."
 
-#: PfaKSys/item/forms.py:47
+#: PfaKSys/item/forms.py:46
 msgid "validation_error.item_category.name_already_taken"
 msgstr "This category name already used. Please choose a different one."
 
-#: PfaKSys/item/forms.py:51
+#: PfaKSys/item/forms.py:50
 msgid "ui.item.item_image"
 msgstr "Item Image"
 
-#: PfaKSys/item/forms.py:52
+#: PfaKSys/item/forms.py:51
 msgid "ui.item.add_image"
 msgstr "Add Item Image"
 
-#: PfaKSys/item/forms.py:65
+#: PfaKSys/item/forms.py:64
 msgid "validation_error.item_location.name_already_taken"
 msgstr "This location name already used. Please choose a different one."
 
-#: PfaKSys/item/forms.py:69
+#: PfaKSys/item/forms.py:68
 msgid "ui.common.search"
 msgstr "Search"
 
@@ -140,7 +143,7 @@ msgstr "Unhygenic"
 msgid "item.item_condition.other"
 msgstr "Other"
 
-#: PfaKSys/item/routes.py:28 PfaKSys/item/routes.py:299
+#: PfaKSys/item/routes.py:28 PfaKSys/item/routes.py:306
 msgid "flash.success.item_category.created"
 msgstr "The category \"%(category_name)s\" has been created!"
 
@@ -148,68 +151,68 @@ msgstr "The category \"%(category_name)s\" has been created!"
 msgid "page.item_categories.title"
 msgstr "All Categories"
 
-#: PfaKSys/item/routes.py:36 PfaKSys/item/routes.py:236
-#: PfaKSys/item/routes.py:331
+#: PfaKSys/item/routes.py:36 PfaKSys/item/routes.py:243
+#: PfaKSys/item/routes.py:338
 msgid "ui.common.menu"
 msgstr "Menu"
 
-#: PfaKSys/item/routes.py:48
+#: PfaKSys/item/routes.py:55
 msgid "flash.success.item.deleted"
 msgstr "The item \"%(item_name)s\" has been deleted!"
 
-#: PfaKSys/item/routes.py:59
+#: PfaKSys/item/routes.py:66
 msgid "flash.success.category.deleted"
 msgstr "The category \"%(category_name)s\" has been deleted!"
 
-#: PfaKSys/item/routes.py:84
+#: PfaKSys/item/routes.py:91
 msgid "flash.success.image_deleted"
 msgstr "The image \"%(image_name)s\" has been deleted!"
 
-#: PfaKSys/item/routes.py:96
+#: PfaKSys/item/routes.py:103
 msgid "flash.success.location.deleted"
 msgstr "The storage location \"%(location_name)s\" has been deleted!"
 
-#: PfaKSys/item/routes.py:137
+#: PfaKSys/item/routes.py:144
 msgid "flash.success.item.edited"
 msgstr "The item \"%(item_name)s\" has been edited!"
 
-#: PfaKSys/item/routes.py:165
+#: PfaKSys/item/routes.py:172
 msgid "flash.success.category.edited"
 msgstr "The category \"%(category_name)s\" has been edited!"
 
-#: PfaKSys/item/routes.py:191
+#: PfaKSys/item/routes.py:198
 msgid "flash.success.item.image_added"
 msgstr "The image \"%(image_name)s\" has been created!"
 
-#: PfaKSys/item/routes.py:194
+#: PfaKSys/item/routes.py:201
 msgid "ui.common.images"
 msgstr "Images"
 
-#: PfaKSys/item/routes.py:209
+#: PfaKSys/item/routes.py:216
 msgid "flash.success.location.edited"
 msgstr "The storage location \"%(location_name)s\" has been edited!"
 
-#: PfaKSys/item/routes.py:228 PfaKSys/item/routes.py:308
+#: PfaKSys/item/routes.py:235 PfaKSys/item/routes.py:315
 msgid "flash.success.item_location.created"
 msgstr "The storage location \"%(location_name)s\" has been created!"
 
-#: PfaKSys/item/routes.py:235 PfaKSys/templates/item/locations.html:4
+#: PfaKSys/item/routes.py:242 PfaKSys/templates/item/locations.html:4
 msgid "page.item_locations.title"
 msgstr "All Storage Locations"
 
-#: PfaKSys/item/routes.py:261
+#: PfaKSys/item/routes.py:268
 msgid "flash.success.item.created"
 msgstr "The item \"%(item_name)s\" has been created!"
 
-#: PfaKSys/item/routes.py:264 PfaKSys/templates/item/new.html:9
+#: PfaKSys/item/routes.py:271 PfaKSys/templates/item/new.html:9
 msgid "page.item_new.title"
 msgstr "New Item"
 
-#: PfaKSys/item/routes.py:330
+#: PfaKSys/item/routes.py:337
 msgid "page.item_overview.title"
 msgstr "Item Overview"
 
-#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:101
+#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:129
 msgid "ui.common.about"
 msgstr "About"
 
@@ -238,20 +241,28 @@ msgstr "Categories"
 msgid "ui.item.locations"
 msgstr "Storage Locations"
 
-#: PfaKSys/templates/_base.html:53 PfaKSys/user/routes.py:48
+#: PfaKSys/templates/_base.html:59
+msgid "ui.common.user_settings"
+msgstr "User Settings"
+
+#: PfaKSys/templates/_base.html:65 PfaKSys/user/forms.py:80
+msgid "ui.account.profile_picture"
+msgstr "Profile Picture"
+
+#: PfaKSys/templates/_base.html:71 PfaKSys/user/routes.py:48
 msgid "ui.common.account"
 msgstr "Account"
 
-#: PfaKSys/templates/_base.html:54
+#: PfaKSys/templates/_base.html:78
 msgid "ui.common.logout"
 msgstr "Logout"
 
-#: PfaKSys/templates/_base.html:56 PfaKSys/templates/user/login.html:9
+#: PfaKSys/templates/_base.html:83 PfaKSys/templates/user/login.html:9
 #: PfaKSys/user/forms.py:18 PfaKSys/user/routes.py:71
 msgid "ui.common.login"
 msgstr "Login"
 
-#: PfaKSys/templates/_base.html:57 PfaKSys/user/forms.py:28
+#: PfaKSys/templates/_base.html:85 PfaKSys/user/forms.py:28
 #: PfaKSys/user/routes.py:124
 msgid "ui.common.sign_up"
 msgstr "Sign Up"
@@ -308,13 +319,13 @@ msgid "page.error_500.explanation"
 msgstr "We're experiencing some trouble on our end. Please try again later."
 
 #: PfaKSys/templates/item/categories.html:14
-#: PfaKSys/templates/item/details.html:52
+#: PfaKSys/templates/item/details.html:58
 #: PfaKSys/templates/item/locations.html:14
 msgid "ui.common.edit"
 msgstr "Edit"
 
 #: PfaKSys/templates/item/categories.html:19
-#: PfaKSys/templates/item/details.html:56
+#: PfaKSys/templates/item/details.html:62
 #: PfaKSys/templates/item/locations.html:19
 #: PfaKSys/templates/item/modals/delete_category_modal.html:34
 #: PfaKSys/templates/item/modals/delete_item_image_modal.html:12
@@ -324,36 +335,36 @@ msgid "ui.common.delete"
 msgstr "Delete"
 
 #: PfaKSys/templates/item/categories.html:61
-#: PfaKSys/templates/item/overview.html:75
+#: PfaKSys/templates/item/overview.html:118
 msgid "ui.item.new_category"
 msgstr "Create Category"
 
-#: PfaKSys/templates/item/details.html:39
+#: PfaKSys/templates/item/details.html:45
 msgid "ui.item.edit_images"
 msgstr "Edit Item Images"
 
-#: PfaKSys/templates/item/details.html:46
+#: PfaKSys/templates/item/details.html:52
 msgid "ui.common.as_of"
 msgstr "As of"
 
-#: PfaKSys/templates/item/details.html:66 PfaKSys/templates/item/edit.html:28
+#: PfaKSys/templates/item/details.html:72 PfaKSys/templates/item/edit.html:28
 msgid "ui.common.generel"
 msgstr "Generel"
 
-#: PfaKSys/templates/item/edit_images.html:57
+#: PfaKSys/templates/item/edit_images.html:58
 msgid "ui.common.back"
 msgstr "Back"
 
 #: PfaKSys/templates/item/locations.html:61
-#: PfaKSys/templates/item/overview.html:80
+#: PfaKSys/templates/item/overview.html:123
 msgid "ui.item.new_location"
 msgstr "Create Storage Location"
 
-#: PfaKSys/templates/item/overview.html:6
+#: PfaKSys/templates/item/overview.html:46
 msgid "page.overview.title"
 msgstr "Number of items"
 
-#: PfaKSys/templates/item/overview.html:69
+#: PfaKSys/templates/item/overview.html:112
 msgid "ui.item.new"
 msgstr "Create Item"
 
@@ -505,10 +516,6 @@ msgstr ""
 #: PfaKSys/user/forms.py:64
 msgid "ui.password_reset.reset"
 msgstr "Reset Password"
-
-#: PfaKSys/user/forms.py:80
-msgid "ui.account.profile_picture"
-msgstr "Profile Picture"
 
 #: PfaKSys/user/forms.py:82
 msgid "ui.common.update"
