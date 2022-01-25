@@ -3,7 +3,7 @@ import os
 from flask import current_app, Flask, request
 from flask_babel import Babel
 from flask_bcrypt import Bcrypt
-from flask_login import LoginManager
+from flask_login import current_user, LoginManager
 from flask_mail import Mail
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
@@ -40,7 +40,11 @@ login_manager.login_message_category = 'info'
 # define babel locale selector
 @babel.localeselector
 def get_locale():
-    return request.accept_languages.best_match(current_app.config['LANGUAGES'].keys())
+    if current_user.is_authenticated:
+        return current_user.settings.language
+
+    else:
+        return request.accept_languages.best_match(current_app.config['LANGUAGES'].keys())
 
 
 def create_app(config=Config):
