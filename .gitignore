@@ -7,7 +7,7 @@ PfaKSys/static/profile_pics/*
 
 *.code-workspace
 
-.babel_commands.txt
+.commands.txt
 db.sqlite
 
 !PfaKSys/static/profile_pics/default.jpg
