@@ -97,6 +97,23 @@
                                     </div>
                                 </div>
                             {% else %}
+                                <div class="dropdown">
+                                    <a class="nav-item nav-link dropdown-toggle" href="#" role="button" id="nav-question" data-toggle="dropdown">
+                                        <span class="material-icons">help</span>
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="https://github.com/Nuhser/PfaKSys/wiki">
+                                            <span class="material-icons">help</span>
+                                            {{ _('ui.common.wiki') }}
+                                        </a>
+                                        <a class="dropdown-item" href="https://github.com/Nuhser/PfaKSys/discussions">
+                                            <span class="material-icons">question_answer</span>
+                                            {{ _('ui.common.forum') }}
+                                        </a>
+                                    </div>
+                                </div>
+
                                 <a class="nav-item nav-link" href="{{ url_for('user.login') }}" id="nav-login"><span class="material-icons">login</span> {{ _('ui.common.login') }}</a>
 
                                 <a class="nav-item nav-link" href="{{ url_for('user.register') }}" id="nav-register"><span class="material-icons">person_add</span> {{ _('ui.common.sign_up') }}</a>
