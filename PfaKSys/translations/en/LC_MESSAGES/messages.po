@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-26 11:52+0100\n"
+"POT-Creation-Date: 2022-01-26 13:39+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -213,7 +213,7 @@ msgstr "New Item"
 msgid "page.item_overview.title"
 msgstr "Item Overview"
 
-#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:146
+#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:163
 msgid "ui.common.about"
 msgstr "About"
 
@@ -242,11 +242,11 @@ msgstr "Categories"
 msgid "ui.item.locations"
 msgstr "Storage Locations"
 
-#: PfaKSys/templates/_base.html:61
+#: PfaKSys/templates/_base.html:61 PfaKSys/templates/_base.html:108
 msgid "ui.common.wiki"
 msgstr "Documentation"
 
-#: PfaKSys/templates/_base.html:65
+#: PfaKSys/templates/_base.html:65 PfaKSys/templates/_base.html:112
 msgid "ui.common.forum"
 msgstr "Forum"
 
@@ -266,13 +266,13 @@ msgstr "Account"
 msgid "ui.common.logout"
 msgstr "Logout"
 
-#: PfaKSys/templates/_base.html:100 PfaKSys/templates/user/login.html:9
-#: PfaKSys/user/forms.py:18 PfaKSys/user/routes.py:71
+#: PfaKSys/templates/_base.html:117 PfaKSys/templates/user/login.html:9
+#: PfaKSys/user/forms.py:18 PfaKSys/user/routes.py:93
 msgid "ui.common.login"
 msgstr "Login"
 
-#: PfaKSys/templates/_base.html:102 PfaKSys/user/forms.py:28
-#: PfaKSys/user/routes.py:125
+#: PfaKSys/templates/_base.html:119 PfaKSys/user/forms.py:28
+#: PfaKSys/user/routes.py:147
 msgid "ui.common.sign_up"
 msgstr "Sign Up"
 
@@ -292,7 +292,9 @@ msgstr ""
 #: PfaKSys/templates/item/modals/new_category_modal.html:33
 #: PfaKSys/templates/item/modals/new_location_modal.html:33
 #: PfaKSys/templates/location/edit.html:29
-#: PfaKSys/templates/user/settings.html:54
+#: PfaKSys/templates/user/modals/delete_user_account_modal.html:15
+#: PfaKSys/templates/user/modals/delete_user_account_modal2.html:15
+#: PfaKSys/templates/user/settings.html:60
 msgid "ui.common.cancel"
 msgstr "Cancel"
 
@@ -341,6 +343,7 @@ msgstr "Edit"
 #: PfaKSys/templates/item/modals/delete_item_image_modal.html:12
 #: PfaKSys/templates/item/modals/delete_item_modal.html:12
 #: PfaKSys/templates/item/modals/delete_location_modal.html:34
+#: PfaKSys/templates/user/modals/delete_user_account_modal.html:12
 msgid "ui.common.delete"
 msgstr "Delete"
 
@@ -358,7 +361,7 @@ msgid "ui.common.as_of"
 msgstr "As of"
 
 #: PfaKSys/templates/item/details.html:72 PfaKSys/templates/item/edit.html:28
-#: PfaKSys/templates/user/settings.html:13
+#: PfaKSys/templates/user/settings.html:14
 msgid "ui.common.generel"
 msgstr "Generel"
 
@@ -471,14 +474,38 @@ msgid "ui.register.login"
 msgstr "Sign in here."
 
 #: PfaKSys/templates/user/request_reset.html:9
-#: PfaKSys/templates/user/reset_password.html:9 PfaKSys/user/routes.py:143
-#: PfaKSys/user/routes.py:168
+#: PfaKSys/templates/user/reset_password.html:9 PfaKSys/user/routes.py:165
+#: PfaKSys/user/routes.py:190
 msgid "page.reset_password.title"
 msgstr "Reset Password"
 
-#: PfaKSys/templates/user/settings.html:4 PfaKSys/user/routes.py:190
+#: PfaKSys/templates/user/settings.html:4 PfaKSys/user/routes.py:212
 msgid "page.user_settings.title"
 msgstr "User Settings"
+
+#: PfaKSys/templates/user/settings.html:20
+msgid "ui.common.other"
+msgstr "Other"
+
+#: PfaKSys/templates/user/settings.html:30
+msgid "page.common.generel_settings"
+msgstr "Generel Settings"
+
+#: PfaKSys/templates/user/settings.html:67
+msgid "ui.user_settings.delete_account"
+msgstr "Delete Account"
+
+#: PfaKSys/templates/user/modals/delete_user_account_modal.html:5
+msgid "modal.user_account_delete.title"
+msgstr "Delete user account?"
+
+#: PfaKSys/templates/user/modals/delete_user_account_modal2.html:5
+msgid "modal.user_account_delete2.title"
+msgstr "Really delete user account?"
+
+#: PfaKSys/templates/user/modals/delete_user_account_modal2.html:12
+msgid "ui.user_settings.final_delete"
+msgstr "Really Delete"
 
 #: PfaKSys/user/forms.py:13 PfaKSys/user/forms.py:22 PfaKSys/user/forms.py:77
 msgid "ui.common.username"
@@ -545,32 +572,36 @@ msgid "flash.success.account_update"
 msgstr "Your account has been updated."
 
 #: PfaKSys/user/routes.py:69
+msgid "flash.success.delete_account"
+msgstr "You have successfully deleted your account."
+
+#: PfaKSys/user/routes.py:91
 msgid "flash.danger.login_failed"
 msgstr "Login unsuccessful. Please check username or password!"
 
-#: PfaKSys/user/routes.py:81
+#: PfaKSys/user/routes.py:103
 msgid "flash.success.logout"
 msgstr "You have successfully logged out."
 
-#: PfaKSys/user/routes.py:122
+#: PfaKSys/user/routes.py:144
 msgid "flash.success.account_created"
 msgstr "Your account has been created! You are now able to log in."
 
-#: PfaKSys/user/routes.py:140
+#: PfaKSys/user/routes.py:162
 msgid "flash.info.reset_email_send"
 msgstr ""
 "An email has been send with instructions to reset your password.\n"
 "(Check your spam folder if the email doesn't appear.)"
 
-#: PfaKSys/user/routes.py:154
+#: PfaKSys/user/routes.py:176
 msgid "flash.warning.reset_token_expired_or_invalid"
 msgstr "This link is either invalid or has expired."
 
-#: PfaKSys/user/routes.py:165
+#: PfaKSys/user/routes.py:187
 msgid "flash.success.password_reset"
 msgstr "Your password has been updated! You are now able to log in."
 
-#: PfaKSys/user/routes.py:183
+#: PfaKSys/user/routes.py:205
 msgid "flash.success.user_settings_saved"
 msgstr "Your settings have been saved."
 

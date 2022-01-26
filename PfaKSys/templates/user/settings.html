@@ -3,71 +3,74 @@
 {% block content %}
     <h1 class="mb-3">{{ _('page.user_settings.title') }}</h1>
 
-    <form class="content-section" action="" method="POST">
-        {{ form.hidden_tag() }}
+    <div class="content-section">
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
 
-        <!-- Tab Navigation -->
-        <ul class="nav nav-tabs mb-3">
-            <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#tab-generel">
-                    {{ _('ui.common.generel') }}
-                </a>
-            </li>
+            <!-- Tab Navigation -->
+            <ul class="nav nav-tabs mb-3">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#tab-generel">
+                        {{ _('ui.common.generel') }}
+                    </a>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tab-other">
-                    {{ _('ui.common.other') }}
-                </a>
-            </li>
-        </ul>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#tab-other">
+                        {{ _('ui.common.other') }}
+                    </a>
+                </li>
+            </ul>
 
-        <!-- Tab Contents -->
-        <div class="tab-content mb-4">
-            <!-- Generel Settings -->
-            <div class="tab-pane active" id="tab-generel">
-                <fieldset class="mb-4">
-                    <legend class="border-bottom mb-3">{{ _('page.common.generel_settings') }}</legend>
+            <!-- Tab Contents -->
+            <div class="tab-content mb-4">
+                <!-- Generel Settings -->
+                <div class="tab-pane active" id="tab-generel">
+                    <fieldset class="mb-4">
+                        <legend class="border-bottom mb-3">{{ _('page.common.generel_settings') }}</legend>
 
-                    <div class="form-group">
-                        {{ form.language.label(class="form-control-label") }}
-    
-                        {% if form.language.errors %}
-                            {{ form.language(class="form-control is-invalid")}}
-                            <div class="invalid-feedback">
-                                {% for error in form.language.errors %}
-                                    <span>{{ error }}</span>
-                                {% endfor %}
-                            </div>
-                        {% else %}
-                            {{ form.language(class="form-control") }}
-                        {% endif %}
-                    </div>
-                </fieldset>
+                        <div class="form-group">
+                            {{ form.language.label(class="form-control-label") }}
+        
+                            {% if form.language.errors %}
+                                {{ form.language(class="form-control is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.language.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.language(class="form-control") }}
+                            {% endif %}
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!-- Other Settings -->
+                <div class="tab-pane" id="tab-other">
+                    <fieldset class="mb-4">
+                    </fieldset>
+                </div>
             </div>
 
-            <!-- Other Settings -->
-            <div class="tab-pane" id="tab-other">
-                <fieldset class="mb-4">
-                    <legend class="border-bottom mb-3">{{ _('page.user_settings.danger_zone') }}</legend>
+            <div class="border-top form-group">
+                {{ form.submit(class="btn btn-success mt-2") }}
 
-                    <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#delete-user-account-modal">
-                        <span class="material-icons">delete</span>
-                        {{ _('ui.user_settings.delete_account') }}
-                    </button>
-
-                    {% include 'user/modals/delete_user_account_modal.html' %}
-                </fieldset>
+                <a class="btn btn-secondary mt-2" href="{{ url_for('main.home') }}">
+                    {{ _('ui.common.cancel') }}
+                </a>
             </div>
-        </div>
+        </form>
 
-        <div class="border-top form-group">
-            {{ form.submit(class="btn btn-success mt-2") }}
+        <button type="button" class="btn btn-outline-danger float-right" style="margin-top: -55px;" data-toggle="modal" data-target="#delete-user-account-modal">
+            <span class="material-icons">delete</span>
+            {{ _('ui.user_settings.delete_account') }}
+        </button>
+    </div>
+{% endblock %}
 
-            <a class="btn btn-secondary mt-2" href="{{ url_for('main.home') }}">
-                {{ _('ui.common.cancel') }}
-            </a>
-        </div>
-    </form>
+{% block modals %}
+    {% include 'user/modals/delete_user_account_modal.html' %}
 {% endblock %}
 
 {% block scripts %}

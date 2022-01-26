@@ -24,7 +24,7 @@ def account():
 
         if form.picture.data:
             old_image_path = os.path.join(current_app.root_path, 'static/profile_pics', current_user.image_file)
-            if (current_user.image_file != 'default.jpg') and os.path.exists(old_image_path):
+            if (current_user.image_file != 'default.jpg') and os.path.isfile(old_image_path):
                 os.remove(old_image_path)
 
             current_user.image_file =  save_picture(form.picture.data)
@@ -46,6 +46,28 @@ def account():
         form.email.data = current_user.email
 
     return render_template('user/account.html', title=gettext('ui.common.account'), image_file=image_file, form=form)
+
+
+@user_blueprint.route('/delete_account', methods=['POST'])
+@login_required
+def delete_account():
+    user = User.query.get(current_user.id)
+    logout_user()
+
+    # delete profile picture
+    if( user.image_file != 'default.jpg'):
+        image_path = os.path.join(current_app.root_path, 'static/profile_pics', user.image_file)
+        if os.path.isfile(image_path):
+            os.remove(image_path)
+
+    # delete user and settings
+    db.session.delete(user.settings)
+    db.session.delete(user)
+    db.session.commit()
+
+    current_app.logger.warning(f'{user.username} deleted their account.')
+    flash(gettext('flash.success.delete_account'), 'success')
+    return redirect(url_for('main.home'))
 
 
 @user_blueprint.route('/login', methods=['GET', 'POST'])
