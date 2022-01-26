@@ -73,6 +73,9 @@ class User(db.Model, UserMixin):
     def __repr__(self) -> str:
         return f"User('{self.username}, '{self.full_name}', '{self.email}', Groups: '{self.groups}', '{self.image_file}')"
 
+    def is_admin(self) -> bool:
+        return self.groups.contains(UserGroup.query.filter_by(name='admin').first())
+
     def get_reset_token(self, expire_sec: int=1800) -> str:
         serializer = TimedJSONWebSignatureSerializer(current_app.config['SECRET_KEY'], expire_sec)
         return serializer.dumps({'user_id': self.id}).decode('utf-8')
