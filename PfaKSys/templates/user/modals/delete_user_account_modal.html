@@ -1,0 +1,21 @@
+<div class="modal fade" id="delete-user-account-modal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ _('modal.user_account_delete.title') }}</h5>
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#delete-user-account-modal2">
+                    {{ _('ui.common.delete') }}
+                </button>
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('ui.common.cancel') }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'user/modals/delete_user_account_modal2.html' %}

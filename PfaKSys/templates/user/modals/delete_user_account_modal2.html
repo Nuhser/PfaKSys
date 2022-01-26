@@ -1,0 +1,19 @@
+<div class="modal fade" id="delete-user-account-modal2" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ _('modal.user_account_delete2.title') }}</h5>
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-footer">
+                <form action="{{ url_for('user/delete_account', user_id=current_user.id) }}" method='POST'>
+                    <input class="btn btn-danger" type="submit" value="{{ _('ui.user_settings.final_delete') }}">
+                </form>
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('ui.common.cancel') }}</button>
+            </div>
+        </div>
+    </div>
+</div>

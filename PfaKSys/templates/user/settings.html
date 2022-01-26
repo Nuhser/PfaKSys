@@ -15,8 +15,8 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tab-2">
-                    Tab 2
+                <a class="nav-link" data-toggle="tab" href="#tab-other">
+                    {{ _('ui.common.other') }}
                 </a>
             </li>
         </ul>
@@ -25,25 +25,38 @@
         <div class="tab-content mb-4">
             <!-- Generel Settings -->
             <div class="tab-pane active" id="tab-generel">
-                <div class="form-group">
-                    {{ form.language.label(class="form-control-label") }}
+                <fieldset class="mb-4">
+                    <legend class="border-bottom mb-3">{{ _('page.common.generel_settings') }}</legend>
 
-                    {% if form.language.errors %}
-                        {{ form.language(class="form-control is-invalid")}}
-                        <div class="invalid-feedback">
-                            {% for error in form.language.errors %}
-                                <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.language(class="form-control") }}
-                    {% endif %}
-                </div>
+                    <div class="form-group">
+                        {{ form.language.label(class="form-control-label") }}
+    
+                        {% if form.language.errors %}
+                            {{ form.language(class="form-control is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.language.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.language(class="form-control") }}
+                        {% endif %}
+                    </div>
+                </fieldset>
             </div>
 
             <!-- Other Settings -->
-            <div class="tab-pane" id="tab-2">
-                Tab 2 content
+            <div class="tab-pane" id="tab-other">
+                <fieldset class="mb-4">
+                    <legend class="border-bottom mb-3">{{ _('page.user_settings.danger_zone') }}</legend>
+
+                    <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#delete-user-account-modal">
+                        <span class="material-icons">delete</span>
+                        {{ _('ui.user_settings.delete_account') }}
+                    </button>
+
+                    {% include 'user/modals/delete_user_account_modal.html' %}
+                </fieldset>
             </div>
         </div>
 
