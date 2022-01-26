@@ -68,7 +68,10 @@ def create_app(config=Config):
         from PfaKSys.models import Item, ItemCategory, ItemLocation, User, UserGroup, UserSettings
         with app.app_context():
             db.create_all()
-            db.session.add(UserGroup(name='admin'))
+
+            if UserGroup.query.filter_by(name='admin').first() == None:
+                db.session.add(UserGroup(name='admin'))
+
             db.session.commit()
 
     # import and register blueprints
