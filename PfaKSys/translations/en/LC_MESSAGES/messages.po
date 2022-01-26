@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-25 16:16+0100\n"
+"POT-Creation-Date: 2022-01-26 11:52+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -213,7 +213,7 @@ msgstr "New Item"
 msgid "page.item_overview.title"
 msgstr "Item Overview"
 
-#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:129
+#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:146
 msgid "ui.common.about"
 msgstr "About"
 
@@ -242,28 +242,36 @@ msgstr "Categories"
 msgid "ui.item.locations"
 msgstr "Storage Locations"
 
-#: PfaKSys/templates/_base.html:59
+#: PfaKSys/templates/_base.html:61
+msgid "ui.common.wiki"
+msgstr "Documentation"
+
+#: PfaKSys/templates/_base.html:65
+msgid "ui.common.forum"
+msgstr "Forum"
+
+#: PfaKSys/templates/_base.html:76
 msgid "ui.common.user_settings"
 msgstr "User Settings"
 
-#: PfaKSys/templates/_base.html:65 PfaKSys/user/forms.py:80
+#: PfaKSys/templates/_base.html:82 PfaKSys/user/forms.py:80
 msgid "ui.account.profile_picture"
 msgstr "Profile Picture"
 
-#: PfaKSys/templates/_base.html:71 PfaKSys/user/routes.py:48
+#: PfaKSys/templates/_base.html:88 PfaKSys/user/routes.py:48
 msgid "ui.common.account"
 msgstr "Account"
 
-#: PfaKSys/templates/_base.html:78
+#: PfaKSys/templates/_base.html:95
 msgid "ui.common.logout"
 msgstr "Logout"
 
-#: PfaKSys/templates/_base.html:83 PfaKSys/templates/user/login.html:9
+#: PfaKSys/templates/_base.html:100 PfaKSys/templates/user/login.html:9
 #: PfaKSys/user/forms.py:18 PfaKSys/user/routes.py:71
 msgid "ui.common.login"
 msgstr "Login"
 
-#: PfaKSys/templates/_base.html:85 PfaKSys/user/forms.py:28
+#: PfaKSys/templates/_base.html:102 PfaKSys/user/forms.py:28
 #: PfaKSys/user/routes.py:125
 msgid "ui.common.sign_up"
 msgstr "Sign Up"

@@ -51,6 +51,23 @@
                         <div class="navbar-nav">
                             {% if current_user.is_authenticated %}
                                 <div class="dropdown">
+                                    <a class="nav-item nav-link dropdown-toggle" href="#" role="button" id="nav-question" data-toggle="dropdown">
+                                        <span class="material-icons">help</span>
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="https://github.com/Nuhser/PfaKSys/wiki">
+                                            <span class="material-icons">help</span>
+                                            {{ _('ui.common.wiki') }}
+                                        </a>
+                                        <a class="dropdown-item" href="https://github.com/Nuhser/PfaKSys/discussions">
+                                            <span class="material-icons">question_answer</span>
+                                            {{ _('ui.common.forum') }}
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="dropdown">
                                     <a class="nav-item nav-link dropdown-toggle" href="#" role="button" id="nav-settings" data-toggle="dropdown">
                                         <span class="material-icons">settings</span>
                                     </a>
@@ -78,7 +95,7 @@
                                             {{ _('ui.common.logout') }}
                                         </a>
                                     </div>
-                                </div>                                
+                                </div>
                             {% else %}
                                 <a class="nav-item nav-link" href="{{ url_for('user.login') }}" id="nav-login"><span class="material-icons">login</span> {{ _('ui.common.login') }}</a>
 
