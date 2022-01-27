@@ -73,7 +73,17 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="{{url_for('user.settings') }}">{{ _('ui.common.user_settings') }}</a>
+                                        <a class="dropdown-item" href="{{url_for('user.settings') }}">
+                                            <span class="material-icons">manage_accounts</span>
+                                            {{ _('ui.common.user_settings') }}
+                                        </a>
+
+                                        {% if current_user.is_admin() %}
+                                            <a class="dropdown-item" href="{{ url_for('main.settings') }}">
+                                                <span class="material-icons">settings_applications</span>
+                                                {{ _('ui.common.system_settings') }}
+                                            </a>
+                                        {% endif %}
                                     </div>
                                 </div>
 
