@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <h1 class="mb-3">{{ _('page.system_settings.title') }}</h1>
+
+    <div class="content-section">
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+
+            
+
+            <div class="border-top form-group">
+                {{ form.submit(class="btn btn-success mt-2") }}
+
+                <a class="btn btn-secondary mt-2" href="{{ url_for('main.home') }}">
+                    {{ _('ui.common.cancel') }}
+                </a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block modals %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
