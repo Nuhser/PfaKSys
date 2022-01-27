@@ -198,7 +198,7 @@ def reset_password(token: str):
     return render_template('user/reset_password.html', title=gettext('page.reset_password.title'), form=form)
 
 
-@user_blueprint.route('/settings', methods=['GET', 'POST'])
+@user_blueprint.route('/user_settings', methods=['GET', 'POST'])
 @login_required
 def settings():
     # initialize form
