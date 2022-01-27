@@ -59,6 +59,12 @@ class ItemLocation(db.Model):
         return f"ItemLocation('{self.name}')"
 
 
+class SystemSettings(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    mail = db.Column(db.JSON, nullable=False, default={'MAIL_SERVER': None, 'MAIL_PORT': 587, 'MAIL_USE_TLS': True})
+    calendar = db.Column(db.JSON, nullable=False, default={'CALENDAR_LINK': None, 'CALENDAR_CATEGORIES': [], 'CALENDAR_SYNC_INTERVALL': 5})
+
+
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), unique=True, nullable=False)

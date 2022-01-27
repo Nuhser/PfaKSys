@@ -3,6 +3,15 @@ import os
 from logging.config import dictConfig
 
 
+SQL_CONVENTIONS = {
+    "ix": 'ix_%(column_0_label)s',
+    "uq": "uq_%(table_name)s_%(column_0_name)s",
+    "ck": "ck_%(table_name)s_%(constraint_name)s",
+    "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
+    "pk": "pk_%(table_name)s"
+}
+
+
 class Config():
     """
     This class contains the standard configuration for a PfaKSys-app.
@@ -11,23 +20,21 @@ class Config():
     """
 
     ALLOWED_IMAGE_TYPES = ['jpg', 'jpeg', 'png', 'gif']
-    BABEL_DEFAULT_LOCALE = 'de'
+    BABEL_DEFAULT_LOCALE = 'en'
     DEBUG_MODE = True
     LANGUAGES = {
         'de': 'Deutsch',
         'en': 'English'
     }
-    LATEST_RELEASE = '0.1.0'
-    MAIL_PASSWORD = os.environ.get('PFAKSYS_EMAIL_PASSWORD')
-    MAIL_PORT = 587
-    MAIL_SERVER = 'smtp.ionos.de'
-    MAIL_USE_TLS = True
-    MAIL_USERNAME = os.environ.get('PFAKSYS_EMAIL_USER')
     NAMESPACE = 'PfaKSys'
     PORT = 5000
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    # values from environment variables
+    MAIL_PASSWORD = os.environ.get('PFAKSYS_EMAIL_PASSWORD')
+    MAIL_USERNAME = os.environ.get('PFAKSYS_EMAIL_USER')
     SECRET_KEY = os.environ.get('PFAKSYS_SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = os.environ.get('PFAKSYS_SQLALCHEMY_DATABASE_URI')
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 def init_logging() -> None:

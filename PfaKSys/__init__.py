@@ -9,25 +9,15 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 
-from PfaKSys.config.config import Config, init_logging
+from PfaKSys.config.config import Config, init_logging, SQL_CONVENTIONS
 
 
 init_logging()
 
-# set SQL naming conventions
-convention = {
-    "ix": 'ix_%(column_0_label)s',
-    "uq": "uq_%(table_name)s_%(column_0_name)s",
-    "ck": "ck_%(table_name)s_%(constraint_name)s",
-    "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
-    "pk": "pk_%(table_name)s"
-}
-metadata = MetaData(naming_convention=convention)
-
 # initialize flask extensions
 babel = Babel()
 bcrypt = Bcrypt()
-db = SQLAlchemy(metadata=metadata)
+db = SQLAlchemy(metadata=MetaData(naming_convention=SQL_CONVENTIONS))
 login_manager = LoginManager()
 mail = Mail()
 migrate = Migrate()
@@ -44,14 +34,13 @@ def get_locale():
         return current_user.settings.language
 
     else:
-        return request.accept_languages.best_match(current_app.config['LANGUAGES'].keys())
+        return request.accept_languages.best_match(current_app.config['LANGUAGES'].keys(), default=Config.BABEL_DEFAULT_LOCALE)
 
 
 def create_app(config=Config):
     # create flask app
     app = Flask(__name__)
     app.config.from_object(config)
-    app.config.from_json(os.path.join(app.root_path, 'config/ini.json'))
 
     app.logger.info('PfaKSys app created. Server is beeing started...')
 
@@ -63,16 +52,28 @@ def create_app(config=Config):
     mail.init_app(app)
     migrate.init_app(app, db)
 
-    # create database and basic groups if not existing
+    # create database if not existing
     if not os.path.isfile(os.path.join(app.root_path, 'db.sqlite')):
-        from PfaKSys.models import Item, ItemCategory, ItemLocation, User, UserGroup, UserSettings
+        from PfaKSys.models import Item, ItemCategory, ItemLocation, SystemSettings, User, UserGroup, UserSettings
         with app.app_context():
             db.create_all()
-
-            if UserGroup.query.filter_by(name='admin').first() == None:
-                db.session.add(UserGroup(name='admin'))
-
             db.session.commit()
+
+    from PfaKSys.models import SystemSettings, UserGroup
+    with app.app_context():
+        # create missing entries
+        if len(SystemSettings.query.all()) == 0:
+            db.session.add(SystemSettings())
+
+        if UserGroup.query.filter_by(name='admin').first() == None:
+            db.session.add(UserGroup(name='admin'))
+
+        db.session.commit()
+
+        # read config from system settings
+        system_settings = SystemSettings.query.first()
+        app.config.from_object(system_settings.mail)
+        app.config.from_object(system_settings.calendar)
 
     # import and register blueprints
     from PfaKSys.error.handlers import error_blueprint
