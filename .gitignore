@@ -6,7 +6,9 @@ PfaKSys/static/item_images/*
 PfaKSys/static/profile_pics/*
 
 *.code-workspace
+*.ics
 
+.calendar_test.py
 .commands.txt
 db.sqlite
 
