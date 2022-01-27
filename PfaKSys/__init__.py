@@ -72,8 +72,11 @@ def create_app(config=Config):
 
         # read config from system settings
         system_settings = SystemSettings.query.first()
-        app.config.from_object(system_settings.mail)
-        app.config.from_object(system_settings.calendar)
+
+        for key in system_settings.mail:
+            app.config[key] = system_settings.mail[key]
+        for key in system_settings.calendar:
+            app.config[key] = system_settings.calendar[key]
 
     # import and register blueprints
     from PfaKSys.error.handlers import error_blueprint

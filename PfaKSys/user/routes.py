@@ -1,6 +1,6 @@
 import os
 
-from flask import Blueprint, current_app, flash, redirect, render_template, request, url_for
+from flask import abort, Blueprint, current_app, flash, redirect, render_template, request, url_for
 from flask_babel import gettext
 from flask_login import current_user, login_required, login_user, logout_user
 
@@ -164,7 +164,12 @@ def request_reset():
 
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
-        send_reset_email(user)
+
+        try:
+            send_reset_email(user)
+        except ConnectionRefusedError:
+            current_app.logger.exception(f'The connection to \'{current_app.config["MAIL_SERVER"]}\' got refused while {user.username} tried to reset their password.')
+            abort(500)
 
         current_app.logger.info(f'{user.username} has requested an email to reset their password.')
         flash(gettext('flash.info.reset_email_send'), 'info')

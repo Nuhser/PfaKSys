@@ -31,8 +31,8 @@ class Config():
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # values from environment variables
-    MAIL_PASSWORD = os.environ.get('PFAKSYS_EMAIL_PASSWORD')
-    MAIL_USERNAME = os.environ.get('PFAKSYS_EMAIL_USER')
+    MAIL_PASSWORD = os.environ.get('PFAKSYS_MAIL_PASSWORD')
+    MAIL_USERNAME = os.environ.get('PFAKSYS_MAIL_USERNAME')
     SECRET_KEY = os.environ.get('PFAKSYS_SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = os.environ.get('PFAKSYS_SQLALCHEMY_DATABASE_URI')
 

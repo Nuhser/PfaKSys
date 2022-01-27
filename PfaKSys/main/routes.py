@@ -1,8 +1,9 @@
-from flask import Blueprint, abort, redirect, render_template, url_for
+from flask import abort, Blueprint, current_app, flash, redirect, render_template, request, url_for
 from flask_babel import gettext
 from flask_login import current_user, login_required
 
-from PfaKSys.main.forms import SettingsForm
+from PfaKSys.main.forms import MailSettingsForm
+from PfaKSys.main.utils import save_mail_settings
 
 
 main_blueprint = Blueprint('main', __name__)
@@ -25,9 +26,18 @@ def settings():
     if not current_user.is_admin():
         abort(403)
 
-    form = SettingsForm()
+    mail_form = MailSettingsForm()
 
-    if form.validate_on_submit():
-        redirect(url_for('main.settings'))
+    if 'use_tls' in request.form:
+        if mail_form.validate_on_submit():
+            save_mail_settings(mail_form)
 
-    return render_template('main/settings.html', title=gettext('page.system_settings.title'), form=form)
+            flash(gettext('flash.success.system_settings.mail_saved'), 'success')
+            redirect(url_for('main.settings'))
+
+    elif request.method == 'GET':
+        mail_form.server.data = current_app.config['MAIL_SERVER']
+        mail_form.port.data = current_app.config['MAIL_PORT']
+        mail_form.use_tls.data = current_app.config['MAIL_USE_TLS']
+
+    return render_template('main/settings.html', title=gettext('page.system_settings.title'), mail_form=mail_form)

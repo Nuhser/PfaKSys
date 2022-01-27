@@ -4,19 +4,79 @@
     <h1 class="mb-3">{{ _('page.system_settings.title') }}</h1>
 
     <div class="content-section">
-        <form action="" method="POST">
-            {{ form.hidden_tag() }}
-
-            
-
-            <div class="border-top form-group">
-                {{ form.submit(class="btn btn-success mt-2") }}
-
-                <a class="btn btn-secondary mt-2" href="{{ url_for('main.home') }}">
-                    {{ _('ui.common.cancel') }}
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs mb-3">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#tab-mail">
+                    {{ _('page.system_settings.mail') }}
                 </a>
-            </div>
-        </form>
+            </li>
+        </ul>
+
+        <!-- Tab Contents -->
+        <div class="tab-content">
+            <!-- Mail Settings -->
+            <form class="tab-pane active" id="tab-mail"  action="" method="POST">
+                {{ mail_form.hidden_tag() }}
+
+                <div class="form-group">
+                    {{ mail_form.server.label(class="form-control-label") }}
+
+                    {% if mail_form.server.errors %}
+                        {{ mail_form.server(class="form-control is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in mail_form.server.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ mail_form.server(class="form-control") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ mail_form.port.label(class="form-control-label") }}
+
+                    {% if mail_form.port.errors %}
+                        {{ mail_form.port(class="form-control is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in mail_form.port.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ mail_form.port(class="form-control") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group row">
+                    {{ mail_form.use_tls.label(class="col-sm-3") }}
+
+                    <div class="col-sm-9">
+                        <div class="form-check">
+                            {% if mail_form.use_tls.errors %}
+                                {{ mail_form.use_tls(class="form-check-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in mail_form.use_tls.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ mail_form.use_tls(class="form-check-input") }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning" role="alert">
+                    {{ _('page.system_settings.mail_credentials_info') }}
+                </div>
+
+                <div class="border-top form-group mt-4">
+                    {{ mail_form.submit(class="btn btn-success mt-2") }}
+                </div>
+            </form>
+        </div>
     </div>
 {% endblock %}
 
