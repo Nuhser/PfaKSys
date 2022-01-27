@@ -1,4 +1,3 @@
-from flask import current_app
 from flask_babel import lazy_gettext
 from flask_login import current_user
 from flask_wtf import FlaskForm
