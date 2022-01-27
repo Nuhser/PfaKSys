@@ -95,7 +95,7 @@ class UpdateAccountForm(FlaskForm):
 
 
 class UserSettingsForm(FlaskForm):
-    # generel
+    # general
     language = SelectField(lazy_gettext('ui.common.language'), validators=[DataRequired()])
 
     submit = SubmitField(lazy_gettext('ui.common.save'))
