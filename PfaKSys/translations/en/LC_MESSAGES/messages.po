@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-27 08:54+0100\n"
+"POT-Creation-Date: 2022-01-27 16:23+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -80,7 +80,7 @@ msgid "ui.common.comment"
 msgstr "Comment"
 
 #: PfaKSys/item/forms.py:20 PfaKSys/item/forms.py:38 PfaKSys/item/forms.py:56
-#: PfaKSys/main/forms.py:11 PfaKSys/user/forms.py:101
+#: PfaKSys/main/forms.py:12 PfaKSys/user/forms.py:100
 msgid "ui.common.save"
 msgstr "Save"
 
@@ -213,19 +213,31 @@ msgstr "New Item"
 msgid "page.item_overview.title"
 msgstr "Item Overview"
 
-#: PfaKSys/main/forms.py:9 PfaKSys/user/forms.py:99
-msgid "ui.common.language"
-msgstr "Language"
+#: PfaKSys/main/forms.py:8
+msgid "ui.system_settings.mail_server"
+msgstr "Outbox Server"
 
-#: PfaKSys/main/routes.py:13 PfaKSys/templates/_base.html:173
+#: PfaKSys/main/forms.py:9
+msgid "ui.system_settings.mail_port"
+msgstr "Server Port"
+
+#: PfaKSys/main/forms.py:10
+msgid "ui.system_settings.mail_use_tls"
+msgstr "Use TLS-Connection"
+
+#: PfaKSys/main/routes.py:14 PfaKSys/templates/_base.html:173
 msgid "ui.common.about"
 msgstr "About"
 
-#: PfaKSys/main/routes.py:19 PfaKSys/templates/main/home.html:4
+#: PfaKSys/main/routes.py:20 PfaKSys/templates/main/home.html:4
 msgid "page.home.title"
 msgstr "Home"
 
-#: PfaKSys/main/routes.py:33 PfaKSys/templates/main/settings.html:4
+#: PfaKSys/main/routes.py:35
+msgid "flash.success.system_settings.mail_saved"
+msgstr "Your mail settings have been saved."
+
+#: PfaKSys/main/routes.py:43 PfaKSys/templates/main/settings.html:4
 msgid "page.system_settings.title"
 msgstr "System Settings"
 
@@ -266,7 +278,7 @@ msgstr "User Settings"
 msgid "ui.common.system_settings"
 msgstr "System Settings"
 
-#: PfaKSys/templates/_base.html:92 PfaKSys/user/forms.py:80
+#: PfaKSys/templates/_base.html:92 PfaKSys/user/forms.py:79
 msgid "ui.account.profile_picture"
 msgstr "Profile Picture"
 
@@ -279,11 +291,11 @@ msgid "ui.common.logout"
 msgstr "Logout"
 
 #: PfaKSys/templates/_base.html:127 PfaKSys/templates/user/login.html:9
-#: PfaKSys/user/forms.py:18 PfaKSys/user/routes.py:93
+#: PfaKSys/user/forms.py:17 PfaKSys/user/routes.py:93
 msgid "ui.common.login"
 msgstr "Login"
 
-#: PfaKSys/templates/_base.html:129 PfaKSys/user/forms.py:28
+#: PfaKSys/templates/_base.html:129 PfaKSys/user/forms.py:27
 #: PfaKSys/user/routes.py:155
 msgid "ui.common.sign_up"
 msgstr "Sign Up"
@@ -296,10 +308,9 @@ msgstr "Sign Up"
 #: PfaKSys/templates/item/modals/new_category_modal.html:33
 #: PfaKSys/templates/item/modals/new_location_modal.html:33
 #: PfaKSys/templates/location/edit.html:29
-#: PfaKSys/templates/main/settings.html:16
 #: PfaKSys/templates/user/modals/delete_user_account_modal.html:15
 #: PfaKSys/templates/user/modals/delete_user_account_modal2.html:15
-#: PfaKSys/templates/user/settings.html:60
+#: PfaKSys/templates/user/settings.html:61
 msgid "ui.common.cancel"
 msgstr "Cancel"
 
@@ -458,6 +469,14 @@ msgstr "About Page"
 msgid "page.about.body"
 msgstr ""
 
+#: PfaKSys/templates/main/settings.html:11
+msgid "page.system_settings.mail"
+msgstr "Mail Settings"
+
+#: PfaKSys/templates/main/settings.html:72
+msgid "page.system_settings.mail_credentials_info"
+msgstr "<h4 class='alert-heading'>Warning!</h4><p>For security reasons username and password for the email connection are saved in environment variables. You can learn more about how to set this up <a target='_blank' href='https://github.com/Nuhser/PfaKSys/wiki' class='alert-link'>here</a>.</p>"
+
 #: PfaKSys/templates/user/account.html:18
 msgid "page.account.title"
 msgstr "Account Informations"
@@ -487,12 +506,12 @@ msgid "ui.register.login"
 msgstr "Sign in here."
 
 #: PfaKSys/templates/user/request_reset.html:9
-#: PfaKSys/templates/user/reset_password.html:9 PfaKSys/user/routes.py:173
-#: PfaKSys/user/routes.py:198
+#: PfaKSys/templates/user/reset_password.html:9 PfaKSys/user/routes.py:184
+#: PfaKSys/user/routes.py:209
 msgid "page.reset_password.title"
 msgstr "Reset Password"
 
-#: PfaKSys/templates/user/settings.html:4 PfaKSys/user/routes.py:220
+#: PfaKSys/templates/user/settings.html:4 PfaKSys/user/routes.py:231
 msgid "page.user_settings.title"
 msgstr "User Settings"
 
@@ -504,7 +523,7 @@ msgstr "Other"
 msgid "page.common.general_settings"
 msgstr "General Settings"
 
-#: PfaKSys/templates/user/settings.html:67
+#: PfaKSys/templates/user/settings.html:68
 msgid "ui.user_settings.delete_account"
 msgstr "Delete Account"
 
@@ -520,61 +539,65 @@ msgstr "Really delete user account?"
 msgid "ui.user_settings.final_delete"
 msgstr "Really Delete"
 
-#: PfaKSys/user/forms.py:13 PfaKSys/user/forms.py:22 PfaKSys/user/forms.py:77
+#: PfaKSys/user/forms.py:12 PfaKSys/user/forms.py:21 PfaKSys/user/forms.py:76
 msgid "ui.common.username"
 msgstr "Username"
 
-#: PfaKSys/user/forms.py:14 PfaKSys/user/forms.py:25 PfaKSys/user/forms.py:61
+#: PfaKSys/user/forms.py:13 PfaKSys/user/forms.py:24 PfaKSys/user/forms.py:60
 msgid "ui.common.password"
 msgstr "Password"
 
-#: PfaKSys/user/forms.py:16
+#: PfaKSys/user/forms.py:15
 msgid "ui.login.remember_me"
 msgstr "Remember me"
 
-#: PfaKSys/user/forms.py:23 PfaKSys/user/forms.py:78
+#: PfaKSys/user/forms.py:22 PfaKSys/user/forms.py:77
 msgid "ui.common.full_name"
 msgstr "Full Name"
 
-#: PfaKSys/user/forms.py:24 PfaKSys/user/forms.py:51 PfaKSys/user/forms.py:79
+#: PfaKSys/user/forms.py:23 PfaKSys/user/forms.py:50 PfaKSys/user/forms.py:78
 msgid "ui.common.email"
 msgstr "Email-Address"
 
-#: PfaKSys/user/forms.py:26 PfaKSys/user/forms.py:62
+#: PfaKSys/user/forms.py:25 PfaKSys/user/forms.py:61
 msgid "ui.common.confirm_password"
 msgstr "Confirm password"
 
-#: PfaKSys/user/forms.py:33 PfaKSys/user/forms.py:88
+#: PfaKSys/user/forms.py:32 PfaKSys/user/forms.py:87
 msgid "validation_error.username_already_taken"
 msgstr "This username already taken. Please choose a different one."
 
-#: PfaKSys/user/forms.py:38 PfaKSys/user/forms.py:94
+#: PfaKSys/user/forms.py:37 PfaKSys/user/forms.py:93
 msgid "validation_error.email_already_exists"
 msgstr "This email-address is used by another user. Please choose a different one."
 
-#: PfaKSys/user/forms.py:47 PfaKSys/user/forms.py:73
+#: PfaKSys/user/forms.py:46 PfaKSys/user/forms.py:72
 msgid "validation_error.password_not_valid"
 msgstr ""
 "Your password must be between 8 and 32 characters long and contain at "
 "least one uppercase and one lowercase letter and one number."
 
-#: PfaKSys/user/forms.py:52
+#: PfaKSys/user/forms.py:51
 msgid "ui.password_reset.request"
 msgstr "Send Reset Mail"
 
-#: PfaKSys/user/forms.py:57
+#: PfaKSys/user/forms.py:56
 msgid "validation_error.email_does_not_exist"
 msgstr ""
 "This email-address does not belong to any user. Please choose a different"
 " one."
 
-#: PfaKSys/user/forms.py:64
+#: PfaKSys/user/forms.py:63
 msgid "ui.password_reset.reset"
 msgstr "Reset Password"
 
-#: PfaKSys/user/forms.py:82
+#: PfaKSys/user/forms.py:81
 msgid "ui.common.update"
 msgstr "Update"
+
+#: PfaKSys/user/forms.py:98
+msgid "ui.common.language"
+msgstr "Language"
 
 #: PfaKSys/user/routes.py:40
 msgid "flash.success.account_update"
@@ -596,21 +619,21 @@ msgstr "You have successfully logged out."
 msgid "flash.success.account_created"
 msgstr "Your account has been created! You are now able to log in."
 
-#: PfaKSys/user/routes.py:170
+#: PfaKSys/user/routes.py:181
 msgid "flash.info.reset_email_send"
 msgstr ""
 "An email has been send with instructions to reset your password.\n"
 "(Check your spam folder if the email doesn't appear.)"
 
-#: PfaKSys/user/routes.py:184
+#: PfaKSys/user/routes.py:195
 msgid "flash.warning.reset_token_expired_or_invalid"
 msgstr "This link is either invalid or has expired."
 
-#: PfaKSys/user/routes.py:195
+#: PfaKSys/user/routes.py:206
 msgid "flash.success.password_reset"
 msgstr "Your password has been updated! You are now able to log in."
 
-#: PfaKSys/user/routes.py:213
+#: PfaKSys/user/routes.py:224
 msgid "flash.success.user_settings_saved"
 msgstr "Your settings have been saved."
 
