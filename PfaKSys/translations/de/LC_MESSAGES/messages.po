@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-27 16:23+0100\n"
+"POT-Creation-Date: 2022-01-28 08:23+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -80,7 +80,7 @@ msgid "ui.common.comment"
 msgstr "Kommentar"
 
 #: PfaKSys/item/forms.py:20 PfaKSys/item/forms.py:38 PfaKSys/item/forms.py:56
-#: PfaKSys/main/forms.py:12 PfaKSys/user/forms.py:100
+#: PfaKSys/main/forms.py:13 PfaKSys/user/forms.py:100
 msgid "ui.common.save"
 msgstr "Speichern"
 
@@ -225,7 +225,11 @@ msgstr "Server-Port"
 msgid "ui.system_settings.mail_use_tls"
 msgstr "Benutze TLS-Verbindung"
 
-#: PfaKSys/main/routes.py:14 PfaKSys/templates/_base.html:173
+#: PfaKSys/main/forms.py:11
+msgid "ui.system_settings.mail_sender"
+msgstr "Mailsender-Adresse"
+
+#: PfaKSys/main/routes.py:14 PfaKSys/templates/_base.html:175
 msgid "ui.common.about"
 msgstr "Info"
 
@@ -237,7 +241,7 @@ msgstr "Startseite"
 msgid "flash.success.system_settings.mail_saved"
 msgstr "Deine Email-Einstellungen wurden gespeichert."
 
-#: PfaKSys/main/routes.py:43 PfaKSys/templates/main/settings.html:4
+#: PfaKSys/main/routes.py:44 PfaKSys/templates/main/settings.html:4
 msgid "page.system_settings.title"
 msgstr "Systemeinstellungen"
 
@@ -262,11 +266,11 @@ msgstr "Kategorien"
 msgid "ui.item.locations"
 msgstr "Lagerorte"
 
-#: PfaKSys/templates/_base.html:61 PfaKSys/templates/_base.html:118
+#: PfaKSys/templates/_base.html:61 PfaKSys/templates/_base.html:120
 msgid "ui.common.wiki"
 msgstr "Dokumentation"
 
-#: PfaKSys/templates/_base.html:65 PfaKSys/templates/_base.html:122
+#: PfaKSys/templates/_base.html:65 PfaKSys/templates/_base.html:124
 msgid "ui.common.forum"
 msgstr "Forum"
 
@@ -274,28 +278,28 @@ msgstr "Forum"
 msgid "ui.common.user_settings"
 msgstr "Benutzereinstellungen"
 
-#: PfaKSys/templates/_base.html:84
+#: PfaKSys/templates/_base.html:86
 msgid "ui.common.system_settings"
 msgstr "Systemeinstellungen"
 
-#: PfaKSys/templates/_base.html:92 PfaKSys/user/forms.py:79
+#: PfaKSys/templates/_base.html:94 PfaKSys/user/forms.py:79
 msgid "ui.account.profile_picture"
 msgstr "Profilbild"
 
-#: PfaKSys/templates/_base.html:98 PfaKSys/user/routes.py:48
+#: PfaKSys/templates/_base.html:100 PfaKSys/user/routes.py:48
 msgid "ui.common.account"
 msgstr "Profil"
 
-#: PfaKSys/templates/_base.html:105
+#: PfaKSys/templates/_base.html:107
 msgid "ui.common.logout"
 msgstr "Abmelden"
 
-#: PfaKSys/templates/_base.html:127 PfaKSys/templates/user/login.html:9
+#: PfaKSys/templates/_base.html:129 PfaKSys/templates/user/login.html:9
 #: PfaKSys/user/forms.py:17 PfaKSys/user/routes.py:93
 msgid "ui.common.login"
 msgstr "Anmelden"
 
-#: PfaKSys/templates/_base.html:129 PfaKSys/user/forms.py:27
+#: PfaKSys/templates/_base.html:131 PfaKSys/user/forms.py:27
 #: PfaKSys/user/routes.py:155
 msgid "ui.common.sign_up"
 msgstr "Registrieren"
@@ -475,9 +479,14 @@ msgstr ""
 msgid "page.system_settings.mail"
 msgstr "Email"
 
-#: PfaKSys/templates/main/settings.html:72
+#: PfaKSys/templates/main/settings.html:87
 msgid "page.system_settings.mail_credentials_info"
-msgstr "<h4 class='alert-heading'>Achtung!</h4><p>Benutzername und Passwort für den Email-Zugang werden aus Sicherheitsgründen als Umgebungsvariablen gespeichert. Wie du diese einrichtest, kannst du <a target='_blank' href='https://github.com/Nuhser/PfaKSys/wiki' class='alert-link'>hier</a> nachlesen.</p>"
+msgstr ""
+"<h4 class='alert-heading'>Achtung!</h4><p>Benutzername und Passwort für "
+"den Email-Zugang werden aus Sicherheitsgründen als Umgebungsvariablen "
+"gespeichert. Wie du diese einrichtest, kannst du <a target='_blank' "
+"href='https://github.com/Nuhser/PfaKSys/wiki' class='alert-link'>hier</a>"
+" nachlesen.</p>"
 
 #: PfaKSys/templates/user/account.html:18
 msgid "page.account.title"
@@ -508,12 +517,12 @@ msgid "ui.register.login"
 msgstr "Melde dich hier an."
 
 #: PfaKSys/templates/user/request_reset.html:9
-#: PfaKSys/templates/user/reset_password.html:9 PfaKSys/user/routes.py:184
-#: PfaKSys/user/routes.py:209
+#: PfaKSys/templates/user/reset_password.html:9 PfaKSys/user/routes.py:178
+#: PfaKSys/user/routes.py:203
 msgid "page.reset_password.title"
 msgstr "Passwort Zurücksetzen"
 
-#: PfaKSys/templates/user/settings.html:4 PfaKSys/user/routes.py:231
+#: PfaKSys/templates/user/settings.html:4 PfaKSys/user/routes.py:225
 msgid "page.user_settings.title"
 msgstr "Benutzereinstellungen"
 
@@ -623,24 +632,24 @@ msgstr "Du hast dich erfolgreich abgemeldet."
 msgid "flash.success.account_created"
 msgstr "Dein Profil wurde angelegt! Du kannst dich jetzt anmelden."
 
-#: PfaKSys/user/routes.py:181
+#: PfaKSys/user/routes.py:175
 msgid "flash.info.reset_email_send"
 msgstr ""
 "Eine Email mit Anweisungen zum Zurücksetzen deines Passwortes wurde "
 "versendet.\n"
 "(Solltest du die Email nicht sehen, sie auch mal im Spam-Ordner nach.)"
 
-#: PfaKSys/user/routes.py:195
+#: PfaKSys/user/routes.py:189
 msgid "flash.warning.reset_token_expired_or_invalid"
 msgstr "Dieser Link ist entweder ungültig oder bereits abgelaufen."
 
-#: PfaKSys/user/routes.py:206
+#: PfaKSys/user/routes.py:200
 msgid "flash.success.password_reset"
 msgstr ""
 "Dein Passowort wurde erfolgreich zurückgesetzt! Du kannst dich jetzt "
 "anmelden."
 
-#: PfaKSys/user/routes.py:224
+#: PfaKSys/user/routes.py:218
 msgid "flash.success.user_settings_saved"
 msgstr "Deine Einstellungen wurden gespeichert."
 
@@ -648,7 +657,7 @@ msgstr "Deine Einstellungen wurden gespeichert."
 msgid "mail.reset_password.subject"
 msgstr "Zurücksetzen deines PfaKSys-Passworts"
 
-#: PfaKSys/user/utils.py:44
+#: PfaKSys/user/utils.py:48
 msgid "mail.reset_password.body"
 msgstr ""
 "Um dein Passwort zurückzusetzen, klicke auf folgenden Link:\n"
