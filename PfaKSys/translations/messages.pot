@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-28 08:50+0100\n"
+"POT-Creation-Date: 2022-01-28 16:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,64 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
+
+#: PfaKSys/admin/forms.py:8
+msgid "ui.system_settings.mail_server"
+msgstr ""
+
+#: PfaKSys/admin/forms.py:9
+msgid "ui.system_settings.mail_port"
+msgstr ""
+
+#: PfaKSys/admin/forms.py:10
+msgid "ui.system_settings.mail_use_tls"
+msgstr ""
+
+#: PfaKSys/admin/forms.py:11
+msgid "ui.system_settings.mail_sender"
+msgstr ""
+
+#: PfaKSys/admin/forms.py:13 PfaKSys/item/forms.py:20 PfaKSys/item/forms.py:38
+#: PfaKSys/item/forms.py:56 PfaKSys/user/forms.py:100
+msgid "ui.common.save"
+msgstr ""
+
+#: PfaKSys/admin/forms.py:17 PfaKSys/templates/admin/user_management.html:46
+#: PfaKSys/user/forms.py:12 PfaKSys/user/forms.py:21 PfaKSys/user/forms.py:76
+msgid "ui.common.username"
+msgstr ""
+
+#: PfaKSys/admin/forms.py:18 PfaKSys/admin/forms.py:23 PfaKSys/item/forms.py:68
+msgid "ui.common.search"
+msgstr ""
+
+#: PfaKSys/admin/forms.py:22
+msgid "ui.admin.group_name"
+msgstr ""
+
+#: PfaKSys/admin/routes.py:37
+msgid "flash.success.admin.account_deleted"
+msgstr ""
+
+#: PfaKSys/admin/routes.py:50
+msgid "flash.warning.admin.cant_delete_admin_group"
+msgstr ""
+
+#: PfaKSys/admin/routes.py:57
+msgid "flash.success.admin.user_group_deleted"
+msgstr ""
+
+#: PfaKSys/admin/routes.py:73
+msgid "flash.success.system_settings.mail_saved"
+msgstr ""
+
+#: PfaKSys/admin/routes.py:82 PfaKSys/templates/admin/settings.html:4
+msgid "page.system_settings.title"
+msgstr ""
+
+#: PfaKSys/admin/routes.py:119 PfaKSys/templates/admin/user_management.html:4
+msgid "page.user_management.title"
+msgstr ""
 
 #: PfaKSys/error/handlers.py:10
 msgid "page.error_403.title"
@@ -34,6 +92,7 @@ msgid "page.error_500.title"
 msgstr ""
 
 #: PfaKSys/item/forms.py:12 PfaKSys/item/forms.py:37 PfaKSys/item/forms.py:55
+#: PfaKSys/templates/admin/user_management.html:106
 msgid "ui.common.name"
 msgstr ""
 
@@ -78,11 +137,6 @@ msgstr ""
 msgid "ui.common.comment"
 msgstr ""
 
-#: PfaKSys/item/forms.py:20 PfaKSys/item/forms.py:38 PfaKSys/item/forms.py:56
-#: PfaKSys/main/forms.py:13 PfaKSys/user/forms.py:100
-msgid "ui.common.save"
-msgstr ""
-
 #: PfaKSys/item/forms.py:28
 msgid "validation_error.item.name_already_taken"
 msgstr ""
@@ -105,10 +159,6 @@ msgstr ""
 
 #: PfaKSys/item/forms.py:64
 msgid "validation_error.item_location.name_already_taken"
-msgstr ""
-
-#: PfaKSys/item/forms.py:68
-msgid "ui.common.search"
 msgstr ""
 
 #: PfaKSys/item/item_condition.py:7
@@ -212,36 +262,12 @@ msgstr ""
 msgid "page.item_overview.title"
 msgstr ""
 
-#: PfaKSys/main/forms.py:8
-msgid "ui.system_settings.mail_server"
-msgstr ""
-
-#: PfaKSys/main/forms.py:9
-msgid "ui.system_settings.mail_port"
-msgstr ""
-
-#: PfaKSys/main/forms.py:10
-msgid "ui.system_settings.mail_use_tls"
-msgstr ""
-
-#: PfaKSys/main/forms.py:11
-msgid "ui.system_settings.mail_sender"
-msgstr ""
-
-#: PfaKSys/main/routes.py:14 PfaKSys/templates/_base.html:175
+#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:180
 msgid "ui.common.about"
 msgstr ""
 
-#: PfaKSys/main/routes.py:20 PfaKSys/templates/main/home.html:4
+#: PfaKSys/main/routes.py:16 PfaKSys/templates/main/home.html:4
 msgid "page.home.title"
-msgstr ""
-
-#: PfaKSys/main/routes.py:35
-msgid "flash.success.system_settings.mail_saved"
-msgstr ""
-
-#: PfaKSys/main/routes.py:44 PfaKSys/templates/main/settings.html:4
-msgid "page.system_settings.title"
 msgstr ""
 
 #: PfaKSys/templates/_base.html:21 PfaKSys/templates/_base.html:23
@@ -265,11 +291,11 @@ msgstr ""
 msgid "ui.item.locations"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:61 PfaKSys/templates/_base.html:120
+#: PfaKSys/templates/_base.html:61 PfaKSys/templates/_base.html:125
 msgid "ui.common.wiki"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:65 PfaKSys/templates/_base.html:124
+#: PfaKSys/templates/_base.html:65 PfaKSys/templates/_base.html:129
 msgid "ui.common.forum"
 msgstr ""
 
@@ -281,28 +307,101 @@ msgstr ""
 msgid "ui.common.system_settings"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:94 PfaKSys/user/forms.py:79
+#: PfaKSys/templates/_base.html:91
+msgid "ui.common.user_management"
+msgstr ""
+
+#: PfaKSys/templates/_base.html:99
+#: PfaKSys/templates/admin/user_management.html:45
+#: PfaKSys/templates/admin/user_management.html:70 PfaKSys/user/forms.py:79
 msgid "ui.account.profile_picture"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:100 PfaKSys/user/routes.py:48
+#: PfaKSys/templates/_base.html:105 PfaKSys/user/routes.py:48
 msgid "ui.common.account"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:107
+#: PfaKSys/templates/_base.html:112
 msgid "ui.common.logout"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:129 PfaKSys/templates/user/login.html:9
+#: PfaKSys/templates/_base.html:134 PfaKSys/templates/user/login.html:9
 #: PfaKSys/user/forms.py:17 PfaKSys/user/routes.py:93
 msgid "ui.common.login"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:131 PfaKSys/user/forms.py:27
+#: PfaKSys/templates/_base.html:136 PfaKSys/user/forms.py:27
 #: PfaKSys/user/routes.py:155
 msgid "ui.common.sign_up"
 msgstr ""
 
+#: PfaKSys/templates/admin/settings.html:11
+msgid "page.system_settings.mail"
+msgstr ""
+
+#: PfaKSys/templates/admin/settings.html:74
+msgid "ui.common.help"
+msgstr ""
+
+#: PfaKSys/templates/admin/settings.html:74
+msgid "page.system_settings.mail_sender_help"
+msgstr ""
+
+#: PfaKSys/templates/admin/settings.html:91
+msgid "page.system_settings.mail_credentials_info"
+msgstr ""
+
+#: PfaKSys/templates/admin/user_management.html:11
+#: PfaKSys/templates/admin/user_management.html:107
+msgid "ui.common.users"
+msgstr ""
+
+#: PfaKSys/templates/admin/user_management.html:16
+#: PfaKSys/templates/admin/user_management.html:49
+msgid "ui.common.user_groups"
+msgstr ""
+
+#: PfaKSys/templates/admin/user_management.html:33
+msgid "ui.common.username_search_placeholder"
+msgstr ""
+
+#: PfaKSys/templates/admin/user_management.html:47 PfaKSys/user/forms.py:22
+#: PfaKSys/user/forms.py:77
+msgid "ui.common.full_name"
+msgstr ""
+
+#: PfaKSys/templates/admin/user_management.html:48 PfaKSys/user/forms.py:23
+#: PfaKSys/user/forms.py:50 PfaKSys/user/forms.py:78
+msgid "ui.common.email"
+msgstr ""
+
+#: PfaKSys/templates/admin/user_management.html:94
+msgid "ui.common.group_name_search_placeholder"
+msgstr ""
+
+#: PfaKSys/templates/admin/user_management.html:136
+msgid "ui.admin.new_user_group"
+msgstr ""
+
+#: PfaKSys/templates/admin/modals/delete_user_account_modal.html:5
+msgid "modal.user_account_delete_admin.title"
+msgstr ""
+
+#: PfaKSys/templates/admin/modals/delete_user_account_modal.html:12
+#: PfaKSys/templates/admin/modals/delete_user_group_modal.html:12
+#: PfaKSys/templates/item/categories.html:19
+#: PfaKSys/templates/item/details.html:62
+#: PfaKSys/templates/item/locations.html:19
+#: PfaKSys/templates/item/modals/delete_category_modal.html:34
+#: PfaKSys/templates/item/modals/delete_item_image_modal.html:12
+#: PfaKSys/templates/item/modals/delete_item_modal.html:12
+#: PfaKSys/templates/item/modals/delete_location_modal.html:34
+#: PfaKSys/templates/user/modals/delete_user_account_modal.html:12
+msgid "ui.common.delete"
+msgstr ""
+
+#: PfaKSys/templates/admin/modals/delete_user_account_modal.html:15
+#: PfaKSys/templates/admin/modals/delete_user_group_modal.html:15
 #: PfaKSys/templates/category/edit.html:29 PfaKSys/templates/item/edit.html:178
 #: PfaKSys/templates/item/modals/delete_category_modal.html:37
 #: PfaKSys/templates/item/modals/delete_item_image_modal.html:15
@@ -315,6 +414,10 @@ msgstr ""
 #: PfaKSys/templates/user/modals/delete_user_account_modal2.html:15
 #: PfaKSys/templates/user/settings.html:61
 msgid "ui.common.cancel"
+msgstr ""
+
+#: PfaKSys/templates/admin/modals/delete_user_group_modal.html:5
+msgid "modal.user_group_delete_admin.title"
 msgstr ""
 
 #: PfaKSys/templates/errors/403.html:5
@@ -353,17 +456,6 @@ msgstr ""
 #: PfaKSys/templates/item/details.html:58
 #: PfaKSys/templates/item/locations.html:14
 msgid "ui.common.edit"
-msgstr ""
-
-#: PfaKSys/templates/item/categories.html:19
-#: PfaKSys/templates/item/details.html:62
-#: PfaKSys/templates/item/locations.html:19
-#: PfaKSys/templates/item/modals/delete_category_modal.html:34
-#: PfaKSys/templates/item/modals/delete_item_image_modal.html:12
-#: PfaKSys/templates/item/modals/delete_item_modal.html:12
-#: PfaKSys/templates/item/modals/delete_location_modal.html:34
-#: PfaKSys/templates/user/modals/delete_user_account_modal.html:12
-msgid "ui.common.delete"
 msgstr ""
 
 #: PfaKSys/templates/item/categories.html:61
@@ -464,22 +556,6 @@ msgstr ""
 msgid "page.about.body"
 msgstr ""
 
-#: PfaKSys/templates/main/settings.html:11
-msgid "page.system_settings.mail"
-msgstr ""
-
-#: PfaKSys/templates/main/settings.html:74
-msgid "ui.common.help"
-msgstr ""
-
-#: PfaKSys/templates/main/settings.html:74
-msgid "page.system_settings.mail_sender_help"
-msgstr ""
-
-#: PfaKSys/templates/main/settings.html:91
-msgid "page.system_settings.mail_credentials_info"
-msgstr ""
-
 #: PfaKSys/templates/user/account.html:18
 msgid "page.account.title"
 msgstr ""
@@ -542,24 +618,12 @@ msgstr ""
 msgid "ui.user_settings.final_delete"
 msgstr ""
 
-#: PfaKSys/user/forms.py:12 PfaKSys/user/forms.py:21 PfaKSys/user/forms.py:76
-msgid "ui.common.username"
-msgstr ""
-
 #: PfaKSys/user/forms.py:13 PfaKSys/user/forms.py:24 PfaKSys/user/forms.py:60
 msgid "ui.common.password"
 msgstr ""
 
 #: PfaKSys/user/forms.py:15
 msgid "ui.login.remember_me"
-msgstr ""
-
-#: PfaKSys/user/forms.py:22 PfaKSys/user/forms.py:77
-msgid "ui.common.full_name"
-msgstr ""
-
-#: PfaKSys/user/forms.py:23 PfaKSys/user/forms.py:50 PfaKSys/user/forms.py:78
-msgid "ui.common.email"
 msgstr ""
 
 #: PfaKSys/user/forms.py:25 PfaKSys/user/forms.py:61
