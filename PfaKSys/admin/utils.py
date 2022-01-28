@@ -1,9 +1,7 @@
-import os
-
 from flask import current_app
 
 from PfaKSys import db, mail
-from PfaKSys.main.forms import MailSettingsForm
+from PfaKSys.admin.forms import MailSettingsForm
 from PfaKSys.models import SystemSettings
 
 

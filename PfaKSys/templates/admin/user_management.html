@@ -1,0 +1,106 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <h1 class="mb-3">{{ _('page.user_management.title') }}</h1>
+
+    <div class="content-section">
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs mb-3">
+            <li class="nav-item">
+                <a class="nav-link {% if user_tab_active %}active{% endif %} pfaksys-link" data-toggle="tab" href="#tab-users">
+                    {{ _('ui.common.users') }}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if not user_tab_active %}active{% endif %} pfaksys-link" data-toggle="tab" href="#tab-groups">
+                    {{ _('ui.common.user_groups') }}
+                </a>
+            </li>
+        </ul>
+
+        <!-- Tab Contents -->
+        <div class="tab-content">
+            <!-- User Settings -->
+            <div class="tab-pane {% if user_tab_active %}active{% endif %}" id="tab-users">
+                <table class="table table-striped">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" style="width: 13%;"></th>
+                            <th scope="col">#</th>
+                            <th scope="col">{{ _('ui.account.profile_picture') }}</th>
+                            <th scope="col">{{ _('ui.common.username') }}</th>
+                            <th scope="col">{{ _('ui.common.full_name') }}</th>
+                            <th scope="col">{{ _('ui.common.email') }}</th>
+                            <th scope="col">{{ _('ui.common.user_groups') }}</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for user in users %}
+                            <tr>
+                                <td class="align-middle">
+                                    <a class="btn btn-secondary btn-sm" href="#">
+                                        <span class="material-icons">edit</span>
+                                    </a>
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-item-modal">
+                                        <span class="material-icons">delete</span>
+                                    </button>
+                                </td>
+
+                                <td class="align-middle">{{ user.id }}</td>
+
+                                <td class="align-middle">
+                                    <img class="rounded-circle account-img-sm" src="{{ url_for('static', filename='profile_pics/' + user.image_file) }}" alt="{{ _('ui.account.profile_picture') }}">
+                                </td>
+
+                                <td class="align-middle">{{ user.username }}</td>
+                                <td class="align-middle">{{ user.full_name }}</td>
+                                <td class="align-middle">{{ user.email }}</td>
+                                <td class="align-middle">{{ ((user.groups | list) | sort) | join(', ', attribute='name') }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Group Settings -->
+            <div class="tab-pane {% if not user_tab_active %}active{% endif %}" id="tab-groups">
+                <table class="table table-striped">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" style="width: 13%;"></th>
+                            <th scope="col" style="width: 10%;">#</th>
+                            <th scope="col" style="width: 20%;">{{ _('ui.common.name') }}</th>
+                            <th scope="col" style="width: 57%;">{{ _('ui.common.users') }}</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for group in user_groups %}
+                            <tr>
+                                <td>
+                                    <a class="btn btn-secondary btn-sm" href="#">
+                                        <span class="material-icons">edit</span>
+                                    </a>
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-item-modal">
+                                        <span class="material-icons">delete</span>
+                                    </button>
+                                </td>
+
+                                <td>{{ group.id }}</td>
+                                <td>{{ group.name }}</td>
+                                <td>{{ ((group.users | list) | sort) | join(', ', attribute='username') }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block modals %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
