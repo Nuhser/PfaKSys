@@ -113,7 +113,7 @@
                                 <tr>
                                     <td>
                                         {% if group.name != 'admin' %}
-                                            <a class="btn btn-secondary btn-sm" href="#">
+                                            <a class="btn btn-secondary btn-sm" href="{{ url_for('admin.edit_user_group', group_id=group.id) }}">
                                                 <span class="material-icons">edit</span>
                                             </a>
                                             <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-user-group-modal{{ group.id }}">
@@ -133,7 +133,7 @@
                     </table>
                 </div>
 
-                <a class="btn btn-success mt-3" href="#">{{ _('ui.admin.new_user_group') }}</a>
+                <a class="btn btn-success mt-3" href="{{ url_for('admin.add_user_group') }}">{{ _('ui.admin.new_user_group') }}</a>
             </div>
         </div>
     </div>

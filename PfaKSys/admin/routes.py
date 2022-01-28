@@ -7,13 +7,32 @@ from sqlalchemy import or_
 from wtforms import BooleanField
 
 from PfaKSys import db
-from PfaKSys.admin.forms import edit_account_form_builder, MailSettingsForm, SearchUserForm, SearchUserGroupForm
+from PfaKSys.admin.forms import edit_account_form_builder, MailSettingsForm, SearchUserForm, SearchUserGroupForm, UserGroupForm
 from PfaKSys.admin.utils import save_mail_settings
 from PfaKSys.models import User, UserGroup
 from PfaKSys.user.utils import save_picture
 
 
 admin_blueprint = Blueprint('admin', __name__)
+
+
+@admin_blueprint.route('/admin/add_user_group', methods=['GET', 'POST'])
+@login_required
+def add_user_group():
+    if not current_user.is_admin():
+        abort(403)
+
+    form = UserGroupForm()
+
+    if form.validate_on_submit():
+        group = UserGroup(name=form.name.data)
+        db.session.add(group)
+        db.session.commit()
+
+        flash(gettext('flash.success.admin.user_group_created', group_name=group.name), 'success')
+        return redirect(url_for('admin.user_management'))
+
+    return render_template('admin/user_group.html', title=gettext('page.admin.user_group.title'), form=form)
 
 
 @admin_blueprint.route('/admin/delete_account/<int:user_id>', methods=['POST'])
@@ -110,6 +129,29 @@ def edit_user(user_id):
             form._fields[group_field].data = UserGroup.query.get(int(group_field.removeprefix('group_'))) in user.groups
 
     return render_template('admin/edit_user.html', title=gettext('page.admin.edit_user.title', username=user.username), form=form, user=user, image_file=image_file)
+
+
+@admin_blueprint.route('/admin/edit_user_group/<int:group_id>', methods=['GET', 'POST'])
+@login_required
+def edit_user_group(group_id):
+    if not current_user.is_admin():
+        abort(403)
+
+    group = UserGroup.query.get_or_404(group_id)
+    form = UserGroupForm()
+    form.group = group
+
+    if form.validate_on_submit():
+        group.name = form.name.data
+        db.session.commit()
+
+        flash(gettext('flash.success.admin.user_group_edited', group_name=group.name), 'success')
+        return redirect(url_for('admin.user_management'))
+
+    elif request.method == 'GET':
+        form.name.data = group.name
+
+    return render_template('admin/user_group.html', title=gettext('page.admin.edit_user_group.title', group_name=group.name), form=form)
 
 
 @admin_blueprint.route('/admin/settings', methods=['GET', 'POST'])

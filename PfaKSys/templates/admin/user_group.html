@@ -1,0 +1,36 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <div class="content-section">
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ _('ui.common.general') }}</legend>
+
+                <div class="form-group">
+                    {{ form.name.label(class="form-control-label") }}
+
+                    {% if form.name.errors %}
+                        {{ form.name(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.name(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+
+            <div class="border-top form-group">
+                {{ form.submit(class="btn btn-success mt-2") }}
+
+                <a class="btn btn-secondary mt-2" href="{{ url_for('admin.user_management') }}">
+                    {{ _('ui.common.cancel') }}
+                </a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

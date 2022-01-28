@@ -1,10 +1,10 @@
 from flask_babel import lazy_gettext
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed, FileField
-from wtforms import BooleanField, FieldList, IntegerField, StringField, SubmitField
+from wtforms import BooleanField, IntegerField, StringField, SubmitField
 from wtforms.validators import DataRequired, Email, Length, ValidationError
 
-from PfaKSys.models import User
+from PfaKSys.models import User, UserGroup
 
 
 class EditAccountFormBase(FlaskForm):
@@ -56,3 +56,16 @@ class SearchUserForm(FlaskForm):
 class SearchUserGroupForm(FlaskForm):
     group_name = StringField(lazy_gettext('ui.admin.group_name'))
     submit = SubmitField(lazy_gettext('ui.common.search'))
+
+
+class UserGroupForm(FlaskForm):
+    name = StringField(lazy_gettext('ui.admin.group_name'), validators=[DataRequired(), Length(max=32)])
+    submit = SubmitField(lazy_gettext('ui.common.save'))
+
+    group = None
+
+    def validate_name(self, name: StringField) -> None:
+        if (self.group == None) or (name.data != self.group.name):
+            group = UserGroup.query.filter_by(name=name.data).first()
+            if group:
+                raise ValidationError(lazy_gettext('validation_error.group_name_already_taken'))
