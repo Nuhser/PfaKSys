@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-28 21:21+0100\n"
+"POT-Creation-Date: 2022-01-28 22:19+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -40,8 +40,9 @@ msgstr "Email-Address"
 msgid "ui.account.profile_picture"
 msgstr "Profile Picture"
 
-#: PfaKSys/admin/forms.py:16 PfaKSys/admin/forms.py:48 PfaKSys/item/forms.py:20
-#: PfaKSys/item/forms.py:38 PfaKSys/item/forms.py:56 PfaKSys/user/forms.py:100
+#: PfaKSys/admin/forms.py:16 PfaKSys/admin/forms.py:48
+#: PfaKSys/admin/forms.py:63 PfaKSys/item/forms.py:20 PfaKSys/item/forms.py:38
+#: PfaKSys/item/forms.py:56 PfaKSys/user/forms.py:100
 msgid "ui.common.save"
 msgstr "Save"
 
@@ -73,39 +74,61 @@ msgstr "Mail Sender Address"
 msgid "ui.common.search"
 msgstr "Search"
 
-#: PfaKSys/admin/forms.py:57
+#: PfaKSys/admin/forms.py:57 PfaKSys/admin/forms.py:62
 msgid "ui.admin.group_name"
 msgstr "User Group Name"
 
-#: PfaKSys/admin/routes.py:39
+#: PfaKSys/admin/forms.py:71
+msgid "validation_error.group_name_already_taken"
+msgstr "This user group name already taken. Please choose a different one."
+
+#: PfaKSys/admin/routes.py:32
+msgid "flash.success.admin.user_group_created"
+msgstr "The user group \"%(group_name)s\" was created successfully."
+
+#: PfaKSys/admin/routes.py:35
+msgid "page.admin.user_group.title"
+msgstr "User Group"
+
+#: PfaKSys/admin/routes.py:58
 msgid "flash.success.admin.account_deleted"
 msgstr "The account of \"%(username)s\" was deleted successfully."
 
-#: PfaKSys/admin/routes.py:52
+#: PfaKSys/admin/routes.py:71
 msgid "flash.warning.admin.cant_delete_admin_group"
 msgstr "You can't delete the admin-group!"
 
-#: PfaKSys/admin/routes.py:59
+#: PfaKSys/admin/routes.py:78
 msgid "flash.success.admin.user_group_deleted"
 msgstr "The user group \"%(group_name)s\" was deleted successfully."
 
-#: PfaKSys/admin/routes.py:101
+#: PfaKSys/admin/routes.py:120
 msgid "flash.success.account_update_admin"
-msgstr "The changes to the account of \"%(username)s\" and their user groups were saved."
+msgstr ""
+"The changes to the account of \"%(username)s\" and their user groups were"
+" saved."
 
-#: PfaKSys/admin/routes.py:112
+#: PfaKSys/admin/routes.py:131
 msgid "page.admin.edit_user.title"
 msgstr "User Data of %(username)s"
 
-#: PfaKSys/admin/routes.py:127
+#: PfaKSys/admin/routes.py:148
+msgid "flash.success.admin.user_group_edited"
+msgstr "The user group \"%(group_name)s\" was edited successfully."
+
+#: PfaKSys/admin/routes.py:154
+msgid "page.admin.edit_user_group.title"
+msgstr "User Group %(username)s"
+
+#: PfaKSys/admin/routes.py:169
 msgid "flash.success.system_settings.mail_saved"
 msgstr "Your mail settings have been saved."
 
-#: PfaKSys/admin/routes.py:136 PfaKSys/templates/admin/settings.html:4
+#: PfaKSys/admin/routes.py:178 PfaKSys/templates/admin/settings.html:4
 msgid "page.system_settings.title"
 msgstr "System Settings"
 
-#: PfaKSys/admin/routes.py:173 PfaKSys/templates/admin/user_management.html:4
+#: PfaKSys/admin/routes.py:215 PfaKSys/templates/admin/user_management.html:4
 msgid "page.user_management.title"
 msgstr "User Management"
 
@@ -403,6 +426,29 @@ msgstr ""
 "href='https://github.com/Nuhser/PfaKSys/wiki' class='alert-"
 "link'>here</a>.</p>"
 
+#: PfaKSys/templates/admin/user_group.html:9
+#: PfaKSys/templates/item/details.html:72 PfaKSys/templates/item/edit.html:28
+#: PfaKSys/templates/user/settings.html:14
+msgid "ui.common.general"
+msgstr "General"
+
+#: PfaKSys/templates/admin/modals/delete_user_account_modal.html:15
+#: PfaKSys/templates/admin/modals/delete_user_group_modal.html:15
+#: PfaKSys/templates/admin/user_group.html:31
+#: PfaKSys/templates/category/edit.html:29 PfaKSys/templates/item/edit.html:178
+#: PfaKSys/templates/item/modals/delete_category_modal.html:37
+#: PfaKSys/templates/item/modals/delete_item_image_modal.html:15
+#: PfaKSys/templates/item/modals/delete_item_modal.html:15
+#: PfaKSys/templates/item/modals/delete_location_modal.html:37
+#: PfaKSys/templates/item/modals/new_category_modal.html:33
+#: PfaKSys/templates/item/modals/new_location_modal.html:33
+#: PfaKSys/templates/location/edit.html:29
+#: PfaKSys/templates/user/modals/delete_user_account_modal.html:15
+#: PfaKSys/templates/user/modals/delete_user_account_modal2.html:15
+#: PfaKSys/templates/user/settings.html:61
+msgid "ui.common.cancel"
+msgstr "Cancel"
+
 #: PfaKSys/templates/admin/user_management.html:11
 #: PfaKSys/templates/admin/user_management.html:107
 msgid "ui.common.users"
@@ -436,22 +482,6 @@ msgstr "Delete account of \"%(username)s\"?"
 #: PfaKSys/templates/user/modals/delete_user_account_modal.html:12
 msgid "ui.common.delete"
 msgstr "Delete"
-
-#: PfaKSys/templates/admin/modals/delete_user_account_modal.html:15
-#: PfaKSys/templates/admin/modals/delete_user_group_modal.html:15
-#: PfaKSys/templates/category/edit.html:29 PfaKSys/templates/item/edit.html:178
-#: PfaKSys/templates/item/modals/delete_category_modal.html:37
-#: PfaKSys/templates/item/modals/delete_item_image_modal.html:15
-#: PfaKSys/templates/item/modals/delete_item_modal.html:15
-#: PfaKSys/templates/item/modals/delete_location_modal.html:37
-#: PfaKSys/templates/item/modals/new_category_modal.html:33
-#: PfaKSys/templates/item/modals/new_location_modal.html:33
-#: PfaKSys/templates/location/edit.html:29
-#: PfaKSys/templates/user/modals/delete_user_account_modal.html:15
-#: PfaKSys/templates/user/modals/delete_user_account_modal2.html:15
-#: PfaKSys/templates/user/settings.html:61
-msgid "ui.common.cancel"
-msgstr "Cancel"
 
 #: PfaKSys/templates/admin/modals/delete_user_group_modal.html:5
 msgid "modal.user_group_delete_admin.title"
@@ -507,11 +537,6 @@ msgstr "Edit Item Images"
 #: PfaKSys/templates/item/details.html:52
 msgid "ui.common.as_of"
 msgstr "As of"
-
-#: PfaKSys/templates/item/details.html:72 PfaKSys/templates/item/edit.html:28
-#: PfaKSys/templates/user/settings.html:14
-msgid "ui.common.general"
-msgstr "General"
 
 #: PfaKSys/templates/item/locations.html:61
 #: PfaKSys/templates/item/overview.html:123
