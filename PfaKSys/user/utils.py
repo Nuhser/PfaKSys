@@ -40,6 +40,10 @@ def save_picture(form_picture) -> str:
 def send_reset_email(user: User) -> None:
     token = user.get_reset_token()
 
-    msg = Message(gettext('mail.reset_password.subject'), sender=current_app.config['MAIL_USERNAME'], recipients=[user.email])
+    msg = Message(gettext('mail.reset_password.subject'),
+            sender=current_app.config['MAIL_SENDER'] 
+                    if ('MAIL_SENDER' in current_app.config) and (current_app.config['MAIL_SENDER'] != None)
+                    else current_app.config['MAIL_USERNAME'],
+            recipients=[user.email])
     msg.body = gettext('mail.reset_password.body', link=url_for('user.reset_password', token=token, _external=True))
     mail.send(msg)

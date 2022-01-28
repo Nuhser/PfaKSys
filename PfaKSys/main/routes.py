@@ -36,8 +36,9 @@ def settings():
             redirect(url_for('main.settings'))
 
     elif request.method == 'GET':
-        mail_form.server.data = current_app.config['MAIL_SERVER']
-        mail_form.port.data = current_app.config['MAIL_PORT']
-        mail_form.use_tls.data = current_app.config['MAIL_USE_TLS']
+        mail_form.server.data = current_app.config['MAIL_SERVER'] if 'MAIL_SERVER' in current_app.config else None
+        mail_form.port.data = current_app.config['MAIL_PORT'] if 'MAIL_PORT' in current_app.config else None
+        mail_form.use_tls.data = current_app.config['MAIL_USE_TLS'] if 'MAIL_USE_TLS' in current_app.config else None
+        mail_form.sender.data = current_app.config['MAIL_SENDER'] if 'MAIL_SENDER' in current_app.config else None
 
     return render_template('main/settings.html', title=gettext('page.system_settings.title'), mail_form=mail_form)

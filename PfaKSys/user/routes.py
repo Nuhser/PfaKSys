@@ -167,7 +167,7 @@ def request_reset():
 
         try:
             send_reset_email(user)
-        except ConnectionRefusedError:
+        except Exception:
             current_app.logger.exception(f'The connection to \'{current_app.config["MAIL_SERVER"]}\' got refused while {user.username} tried to reset their password.')
             abort(500)
 
