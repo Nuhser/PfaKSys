@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-28 08:23+0100\n"
+"POT-Creation-Date: 2022-01-28 08:50+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -475,14 +475,25 @@ msgstr ""
 
 #: PfaKSys/templates/main/settings.html:11
 msgid "page.system_settings.mail"
-msgstr "Mail Settings"
+msgstr "Mail"
 
-#: PfaKSys/templates/main/settings.html:87
+#: PfaKSys/templates/main/settings.html:74
+msgid "ui.common.help"
+msgstr "Help"
+
+#: PfaKSys/templates/main/settings.html:74
+msgid "page.system_settings.mail_sender_help"
+msgstr "This is the mail address that will show up as the sender when PfaKSys sends a mail, e.g. if someone resets his password.<br>You could enter something like <i>no-reply@xyz.de</i>."
+
+#: PfaKSys/templates/main/settings.html:91
 msgid "page.system_settings.mail_credentials_info"
 msgstr ""
-"<h4 class='alert-heading'>Warning!</h4><p>For security reasons username "
-"and password for the email connection are saved in environment variables."
-" You can learn more about how to set this up <a target='_blank' "
+"<h4 class='alert-heading'>Warning!</h4><p>For "
+"security reasons username and password "
+"for the email connection are saved "
+"in environment variables. You can learn"
+" more about how to set this up"
+" <a target='_blank' "
 "href='https://github.com/Nuhser/PfaKSys/wiki' class='alert-"
 "link'>here</a>.</p>"
 
@@ -658,4 +669,3 @@ msgstr ""
 "This link is valid for 30 minutes.\n"
 "\n"
 "If you did not make this request then simply ignore this email."
-
