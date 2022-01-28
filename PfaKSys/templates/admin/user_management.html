@@ -73,7 +73,7 @@
                                     <td class="align-middle">{{ user.username }}</td>
                                     <td class="align-middle">{{ user.full_name }}</td>
                                     <td class="align-middle">{{ user.email }}</td>
-                                    <td class="align-middle">{{ ((user.groups | list) | sort) | join(', ', attribute='name') }}</td>
+                                    <td class="align-middle">{{ ((user.groups | list) | sort(attribute='name')) | join(', ', attribute='name') }}</td>
                                 </tr>
                             {% endfor %}
                         </tbody>
@@ -126,7 +126,7 @@
 
                                     <td>{{ group.id }}</td>
                                     <td>{{ group.name }}</td>
-                                    <td>{{ ((group.users | list) | sort) | join(', ', attribute='username') }}</td>
+                                    <td>{{ ((group.users | list) | sort(attribute='username')) | join(', ', attribute='username') }}</td>
                                 </tr>
                             {% endfor %}
                         </tbody>
