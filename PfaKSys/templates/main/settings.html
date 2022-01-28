@@ -71,7 +71,7 @@
                 <div class="form-group">
                     {{ mail_form.sender.label(class="form-control-label") }}
                     
-                    <a tabindex="0" class="pfaksys-link" role="button" data-toggle="popover" data-trigger="focus" data-html=true title="{{ _('ui.common.help') }}" data-content="{{ _('page.system_settings.mail_sender_help') }}">
+                    <a tabindex="0" class="pfaksys-link" data-toggle="popover" data-trigger="hover" data-html=true title="{{ _('ui.common.help') }}" data-content="{{ _('page.system_settings.mail_sender_help') }}">
                         <span class="material-icons">help_outline</span>
                     </a>
 
@@ -107,11 +107,6 @@
         // initialize popovers
         $(function () {
             $('[data-toggle="popover"]').popover()
-        })
-
-        // dismiss popovers when clicking anywhere else
-        $('.popover-dismiss').popover({
-            trigger: 'focus'
         })
     </script>
 {% endblock %}
