@@ -1,0 +1,111 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <div class="content-section">
+        <div class="media">
+            <img class="rounded-circle account-img" src="{{ image_file }}">
+
+            <div class="media-body">
+                <h2 class="account-heading">{{ user.full_name }}</h2>
+                <p class="text-secondary">{{ user.email }}</p>
+            </div>
+        </div>
+        
+        <form action="" method="post" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ _('page.account.title') }}</legend>
+
+                <div class="form-group">
+                    {{ form.username.label(class="form-control-label") }}
+
+                    {% if form.username.errors %}
+                        {{ form.username(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.username(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.full_name.label(class="form-control-label") }}
+
+                    {% if form.full_name.errors %}
+                        {{ form.full_name(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.full_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.full_name(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.picture.label() }}
+                    {{ form.picture(class="form-control-file") }}
+
+                    {% if form.picture.errors %}
+                        {% for error in form.picture.errors %}
+                            <span class="text-danger">{{ error }}</span><br/>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group mt-3">
+                <legend class="border-bottom mb-4">{{ _('ui.common.user_groups') }}</legend>
+
+                {% for field in form._fields %}
+                    {% if field.startswith('group_') %}
+                        <div class="form-group row ml-2">
+                            <div class="col-sm-1">
+                                <div class="form-check">
+                                    {% if form._fields[field].errors %}
+                                        {{ form._fields[field](class="form-check-input is-invalid")}}
+                                        <div class="invalid-feedback">
+                                            {% for error in form._fields[field].errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form._fields[field](class="form-check-input") }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            {{ form._fields[field].label(class="col-sm-11") }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </fieldset>
+
+            <div class="form-group">
+                {{ form.submit(class="btn btn-success") }}
+
+                <a class="btn btn-secondary" href="{{ url_for('admin.user_management') }}">{{ _('ui.common.back') }}</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

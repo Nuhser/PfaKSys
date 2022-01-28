@@ -1,7 +1,42 @@
 from flask_babel import lazy_gettext
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, IntegerField, StringField, SubmitField
-from wtforms.validators import DataRequired
+from flask_wtf.file import FileAllowed, FileField
+from wtforms import BooleanField, FieldList, IntegerField, StringField, SubmitField
+from wtforms.validators import DataRequired, Email, Length, ValidationError
+
+from PfaKSys.models import User
+
+
+class EditAccountFormBase(FlaskForm):
+    username = StringField(lazy_gettext('ui.common.username'), validators=[DataRequired(), Length(2, 20)])
+    full_name = StringField(lazy_gettext('ui.common.full_name'), validators=[DataRequired(), Length(2, 120)])
+    email = StringField(lazy_gettext('ui.common.email'), validators=[DataRequired(), Email()])
+    picture = FileField(lazy_gettext('ui.account.profile_picture'), validators=[FileAllowed(['jpg', 'jpeg', 'png', 'gif'])])
+
+    submit = SubmitField(lazy_gettext('ui.common.save'))
+
+    user = None
+
+    def validate_username(self, username: StringField) -> None:
+        if username.data != self.user.username:
+            user = User.query.filter_by(username=username.data).first()
+            if user:
+                raise ValidationError(lazy_gettext('validation_error.username_already_taken'))
+
+    def validate_email(self, email: StringField) -> None:
+        if email.data != self.user.email:
+            user = User.query.filter_by(email=email.data).first()
+            if user:
+                raise ValidationError(lazy_gettext('validation_error.email_already_exists'))
+
+def edit_account_form_builder(user_groups):
+    class EditAccountForm(EditAccountFormBase):
+        pass
+
+    for user_group in user_groups:
+        setattr(EditAccountForm, f'group_{user_group.id}', BooleanField(label=user_group.name))
+
+    return EditAccountForm()
 
 
 class MailSettingsForm(FlaskForm):

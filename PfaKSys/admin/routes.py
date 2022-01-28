@@ -4,11 +4,13 @@ from flask import abort, Blueprint, current_app, flash, redirect, render_templat
 from flask_babel import gettext
 from flask_login import current_user, login_required
 from sqlalchemy import or_
+from wtforms import BooleanField
 
 from PfaKSys import db
-from PfaKSys.admin.forms import MailSettingsForm, SearchUserForm, SearchUserGroupForm
+from PfaKSys.admin.forms import edit_account_form_builder, MailSettingsForm, SearchUserForm, SearchUserGroupForm
 from PfaKSys.admin.utils import save_mail_settings
 from PfaKSys.models import User, UserGroup
+from PfaKSys.user.utils import save_picture
 
 
 admin_blueprint = Blueprint('admin', __name__)
@@ -56,6 +58,58 @@ def delete_user_group(group_id):
     current_app.logger.warning(f'User group {group.name} was deleted by admin { current_user.username }.')
     flash(gettext('flash.success.admin.user_group_deleted', group_name=group.name), 'success')
     return redirect(url_for('admin.user_management'))
+
+
+@admin_blueprint.route('/admin/edit_user/<int:user_id>', methods=['GET', 'POST'])
+@login_required
+def edit_user(user_id):
+    if not current_user.is_admin():
+        abort(403)
+
+    user = User.query.get_or_404(user_id)
+    image_file = url_for('static', filename=f'profile_pics/{user.image_file}')
+
+    form = edit_account_form_builder(group for group in UserGroup.query.all())
+    form.user = user
+
+    if form.validate_on_submit():
+        old_username = user.username
+
+        if form.picture.data:
+            old_image_path = os.path.join(current_app.root_path, 'static/profile_pics', user.image_file)
+            if (user.image_file != 'default.jpg') and os.path.isfile(old_image_path):
+                os.remove(old_image_path)
+
+            user.image_file = save_picture(form.picture.data)
+
+        user.username = form.username.data
+        user.full_name = form.full_name.data
+        user.email = form.email.data
+
+        user.groups = []
+        for group_field in [key for key in form._fields if key.startswith('group_')]:
+            if form._fields[group_field].data:
+                user.groups.append(UserGroup.query.get(int(group_field.removeprefix('group_'))))
+
+        db.session.commit()
+
+        if old_username != user.username:
+            current_app.logger.info(f'{current_user.username} edited the account/user groups of {old_username} and changed their username to {user.username}.')
+        else:
+            current_app.logger.info(f'{current_user.username} edited the account/user groups of {user.username}.')
+
+        flash(gettext('flash.success.account_update_admin', username=user.username), 'success')
+        return redirect(url_for('admin.user_management'))
+
+    elif request.method == 'GET':
+        form.username.data = user.username
+        form.full_name.data = user.full_name
+        form.email.data = user.email
+
+        for group_field in [key for key in form._fields if key.startswith('group_')]:
+            form._fields[group_field].data = UserGroup.query.get(int(group_field.removeprefix('group_'))) in user.groups
+
+    return render_template('admin/edit_user.html', title=gettext('page.admin.edit_user.title', username=user.username), form=form, user=user, image_file=image_file)
 
 
 @admin_blueprint.route('/admin/settings', methods=['GET', 'POST'])
