@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-28 22:19+0100\n"
+"POT-Creation-Date: 2022-01-29 11:14+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -34,7 +34,7 @@ msgstr "Vollständiger Name"
 msgid "ui.common.email"
 msgstr "Email-Adresse"
 
-#: PfaKSys/admin/forms.py:14 PfaKSys/templates/_base.html:99
+#: PfaKSys/admin/forms.py:14 PfaKSys/templates/_base.html:103
 #: PfaKSys/templates/admin/user_management.html:45
 #: PfaKSys/templates/admin/user_management.html:70 PfaKSys/user/forms.py:79
 msgid "ui.account.profile_picture"
@@ -84,53 +84,53 @@ msgstr "Benutzergruppenname"
 msgid "validation_error.group_name_already_taken"
 msgstr "Dieser Benutzergruppenname existiert bereits. Bitte wähle einen anderen."
 
-#: PfaKSys/admin/routes.py:32
+#: PfaKSys/admin/routes.py:30
 msgid "flash.success.admin.user_group_created"
 msgstr "Die Benutzergruppe \"%(group_name)s\" wurde erfolgreich erstellt."
 
-#: PfaKSys/admin/routes.py:35
+#: PfaKSys/admin/routes.py:33
 msgid "page.admin.user_group.title"
 msgstr "Benutzergruppe"
 
-#: PfaKSys/admin/routes.py:58
+#: PfaKSys/admin/routes.py:54
 msgid "flash.success.admin.account_deleted"
 msgstr "Der Account von \"%(username)s\" wurde erfolgreich gelöscht."
 
-#: PfaKSys/admin/routes.py:71
+#: PfaKSys/admin/routes.py:65
 msgid "flash.warning.admin.cant_delete_admin_group"
 msgstr "Die Admin-Gruppe kann nicht gelöscht werden!"
 
-#: PfaKSys/admin/routes.py:78
+#: PfaKSys/admin/routes.py:72
 msgid "flash.success.admin.user_group_deleted"
 msgstr "Die Benutzergruppe \"%(group_name)s\" wurde erfolgreich gelöscht."
 
-#: PfaKSys/admin/routes.py:120
+#: PfaKSys/admin/routes.py:112
 msgid "flash.success.account_update_admin"
 msgstr ""
 "Die Änderungen am Account von \"%(username)s\" und den Benutzergruppen "
 "wurden erfolgreich gespeichert."
 
-#: PfaKSys/admin/routes.py:131
+#: PfaKSys/admin/routes.py:123
 msgid "page.admin.edit_user.title"
 msgstr "Benutzerdaten von %(username)s"
 
-#: PfaKSys/admin/routes.py:148
+#: PfaKSys/admin/routes.py:138
 msgid "flash.success.admin.user_group_edited"
 msgstr "Die Benutzergruppe \"%(group_name)s\" wurde erfolgreich bearbeitet."
 
-#: PfaKSys/admin/routes.py:154
+#: PfaKSys/admin/routes.py:144
 msgid "page.admin.edit_user_group.title"
 msgstr "Benutzergruppe %(group_name)s"
 
-#: PfaKSys/admin/routes.py:169
+#: PfaKSys/admin/routes.py:157
 msgid "flash.success.system_settings.mail_saved"
 msgstr "Deine Email-Einstellungen wurden gespeichert."
 
-#: PfaKSys/admin/routes.py:178 PfaKSys/templates/admin/settings.html:4
+#: PfaKSys/admin/routes.py:166 PfaKSys/templates/admin/settings.html:4
 msgid "page.system_settings.title"
 msgstr "Systemeinstellungen"
 
-#: PfaKSys/admin/routes.py:215 PfaKSys/templates/admin/user_management.html:4
+#: PfaKSys/admin/routes.py:201 PfaKSys/templates/admin/user_management.html:4
 msgid "page.user_management.title"
 msgstr "Benutzerverwaltung"
 
@@ -159,12 +159,12 @@ msgstr "Name"
 msgid "ui.item.has_count"
 msgstr "Anzahl bekannt"
 
-#: PfaKSys/item/forms.py:14 PfaKSys/templates/item/details.html:76
+#: PfaKSys/item/forms.py:14 PfaKSys/templates/item/details.html:84
 #: PfaKSys/templates/item/edit.html:59 PfaKSys/templates/item/overview.html:59
 msgid "ui.common.count"
 msgstr "Anzahl"
 
-#: PfaKSys/item/forms.py:15 PfaKSys/templates/item/details.html:98
+#: PfaKSys/item/forms.py:15 PfaKSys/templates/item/details.html:106
 #: PfaKSys/templates/item/edit.html:80
 #: PfaKSys/templates/item/menus/overview_search_bar.html:22
 #: PfaKSys/templates/item/overview.html:8
@@ -172,26 +172,26 @@ msgstr "Anzahl"
 msgid "ui.common.condition"
 msgstr "Zustand"
 
-#: PfaKSys/item/forms.py:16 PfaKSys/templates/item/details.html:87
+#: PfaKSys/item/forms.py:16 PfaKSys/templates/item/details.html:95
 #: PfaKSys/templates/item/edit.html:103
 #: PfaKSys/templates/item/menus/overview_search_bar.html:43
 #: PfaKSys/templates/item/overview.html:21
 msgid "ui.item.category"
 msgstr "Kategorie"
 
-#: PfaKSys/item/forms.py:17 PfaKSys/templates/item/details.html:105
+#: PfaKSys/item/forms.py:17 PfaKSys/templates/item/details.html:113
 #: PfaKSys/templates/item/edit.html:124
 #: PfaKSys/templates/item/menus/overview_search_bar.html:64
 #: PfaKSys/templates/item/overview.html:34
 msgid "ui.item.location"
 msgstr "Lagerort"
 
-#: PfaKSys/item/forms.py:18 PfaKSys/templates/item/details.html:118
+#: PfaKSys/item/forms.py:18 PfaKSys/templates/item/details.html:126
 #: PfaKSys/templates/item/edit.html:145
 msgid "ui.common.description"
 msgstr "Beschreibung"
 
-#: PfaKSys/item/forms.py:19 PfaKSys/templates/item/details.html:126
+#: PfaKSys/item/forms.py:19 PfaKSys/templates/item/details.html:134
 #: PfaKSys/templates/item/edit.html:160
 msgid "ui.common.comment"
 msgstr "Kommentar"
@@ -252,76 +252,88 @@ msgstr "Unhygienisch"
 msgid "item.item_condition.other"
 msgstr "Sonstiges"
 
-#: PfaKSys/item/routes.py:28 PfaKSys/item/routes.py:306
+#: PfaKSys/item/routes.py:30 PfaKSys/item/routes.py:318
 msgid "flash.success.item_category.created"
 msgstr "Die Materialkategorie \"%(category_name)s\" wurde angelegt!"
 
-#: PfaKSys/item/routes.py:35 PfaKSys/templates/item/categories.html:4
+#: PfaKSys/item/routes.py:37 PfaKSys/templates/item/categories.html:4
 msgid "page.item_categories.title"
 msgstr "Alle Kategorien"
 
-#: PfaKSys/item/routes.py:36 PfaKSys/item/routes.py:243
-#: PfaKSys/item/routes.py:338
+#: PfaKSys/item/routes.py:38 PfaKSys/item/routes.py:254
+#: PfaKSys/item/routes.py:350
 msgid "ui.common.menu"
 msgstr "Menu"
 
-#: PfaKSys/item/routes.py:55
+#: PfaKSys/item/routes.py:58
 msgid "flash.success.item.deleted"
 msgstr "Das Material \"%(item_name)s\" wurde gelöscht!"
 
-#: PfaKSys/item/routes.py:66
+#: PfaKSys/item/routes.py:70
 msgid "flash.success.category.deleted"
 msgstr "Die Kategorie \"%(category_name)s\" wurde gelöscht!"
 
-#: PfaKSys/item/routes.py:91
+#: PfaKSys/item/routes.py:96
 msgid "flash.success.image_deleted"
 msgstr "Das Bild \"%(image_name)s\" wurde gelöscht!"
 
-#: PfaKSys/item/routes.py:103
+#: PfaKSys/item/routes.py:109
 msgid "flash.success.location.deleted"
 msgstr "Der Lagerort \"%(location_name)s\" wurde gelöscht!"
 
-#: PfaKSys/item/routes.py:144
+#: PfaKSys/item/routes.py:151
 msgid "flash.success.item.edited"
 msgstr "Das Material \"%(item_name)s\" wurde bearbeitet!"
 
-#: PfaKSys/item/routes.py:172
+#: PfaKSys/item/routes.py:180
 msgid "flash.success.category.edited"
 msgstr "Die Kategorie \"%(category_name)s\" wurde bearbeitet!"
 
-#: PfaKSys/item/routes.py:198
+#: PfaKSys/item/routes.py:207
 msgid "flash.success.item.image_added"
 msgstr "Das Bild \"%(image_name)s\" wurde gespeichert!"
 
-#: PfaKSys/item/routes.py:201
+#: PfaKSys/item/routes.py:210
 msgid "ui.common.images"
 msgstr "Bilder"
 
-#: PfaKSys/item/routes.py:216
+#: PfaKSys/item/routes.py:226
 msgid "flash.success.location.edited"
 msgstr "Der Lagerort \"%(location_name)s\" wurde bearbeitet!"
 
-#: PfaKSys/item/routes.py:235 PfaKSys/item/routes.py:315
+#: PfaKSys/item/routes.py:246 PfaKSys/item/routes.py:327
 msgid "flash.success.item_location.created"
 msgstr "Der Lagerort \"%(location_name)s\" wurde angelegt!"
 
-#: PfaKSys/item/routes.py:242 PfaKSys/templates/item/locations.html:4
+#: PfaKSys/item/routes.py:253 PfaKSys/templates/item/locations.html:4
 msgid "page.item_locations.title"
 msgstr "Alle Lagerorte"
 
-#: PfaKSys/item/routes.py:268
+#: PfaKSys/item/routes.py:280
 msgid "flash.success.item.created"
 msgstr "Das Material \"%(item_name)s\" wurde angelegt!"
 
-#: PfaKSys/item/routes.py:271 PfaKSys/templates/item/new.html:9
+#: PfaKSys/item/routes.py:283 PfaKSys/templates/item/new.html:9
 msgid "page.item_new.title"
 msgstr "Neues Material"
 
-#: PfaKSys/item/routes.py:337
+#: PfaKSys/item/routes.py:349
 msgid "page.item_overview.title"
 msgstr "Materialübersicht"
 
-#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:180
+#: PfaKSys/main/permissions.py:11
+msgid "main.permissions.manage_material"
+msgstr "Material verwalten"
+
+#: PfaKSys/main/permissions.py:12
+msgid "main.permissions.manage_categories"
+msgstr "Kategorien verwalten"
+
+#: PfaKSys/main/permissions.py:13
+msgid "main.permissions.manage_locations"
+msgstr "Lagerorte verwalten"
+
+#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:184
 msgid "ui.common.about"
 msgstr "Info"
 
@@ -342,48 +354,48 @@ msgstr "Startseite"
 msgid "ui.item.overview"
 msgstr "Material"
 
-#: PfaKSys/templates/_base.html:44
+#: PfaKSys/templates/_base.html:45
 msgid "ui.item.categories"
 msgstr "Kategorien"
 
-#: PfaKSys/templates/_base.html:46
+#: PfaKSys/templates/_base.html:49
 msgid "ui.item.locations"
 msgstr "Lagerorte"
 
-#: PfaKSys/templates/_base.html:61 PfaKSys/templates/_base.html:125
+#: PfaKSys/templates/_base.html:65 PfaKSys/templates/_base.html:129
 msgid "ui.common.wiki"
 msgstr "Dokumentation"
 
-#: PfaKSys/templates/_base.html:65 PfaKSys/templates/_base.html:129
+#: PfaKSys/templates/_base.html:69 PfaKSys/templates/_base.html:133
 msgid "ui.common.forum"
 msgstr "Forum"
 
-#: PfaKSys/templates/_base.html:78
+#: PfaKSys/templates/_base.html:82
 msgid "ui.common.user_settings"
 msgstr "Benutzereinstellungen"
 
-#: PfaKSys/templates/_base.html:86
+#: PfaKSys/templates/_base.html:90
 msgid "ui.common.system_settings"
 msgstr "Systemeinstellungen"
 
-#: PfaKSys/templates/_base.html:91
+#: PfaKSys/templates/_base.html:95
 msgid "ui.common.user_management"
 msgstr "Benutzerverwaltung"
 
-#: PfaKSys/templates/_base.html:105 PfaKSys/user/routes.py:48
+#: PfaKSys/templates/_base.html:109 PfaKSys/user/routes.py:48
 msgid "ui.common.account"
 msgstr "Profil"
 
-#: PfaKSys/templates/_base.html:112
+#: PfaKSys/templates/_base.html:116
 msgid "ui.common.logout"
 msgstr "Abmelden"
 
-#: PfaKSys/templates/_base.html:134 PfaKSys/templates/user/login.html:9
+#: PfaKSys/templates/_base.html:138 PfaKSys/templates/user/login.html:9
 #: PfaKSys/user/forms.py:17 PfaKSys/user/routes.py:93
 msgid "ui.common.login"
 msgstr "Anmelden"
 
-#: PfaKSys/templates/_base.html:136 PfaKSys/user/forms.py:27
+#: PfaKSys/templates/_base.html:140 PfaKSys/user/forms.py:27
 #: PfaKSys/user/routes.py:155
 msgid "ui.common.sign_up"
 msgstr "Registrieren"
@@ -429,7 +441,7 @@ msgstr ""
 " nachlesen.</p>"
 
 #: PfaKSys/templates/admin/user_group.html:9
-#: PfaKSys/templates/item/details.html:72 PfaKSys/templates/item/edit.html:28
+#: PfaKSys/templates/item/details.html:80 PfaKSys/templates/item/edit.html:28
 #: PfaKSys/templates/user/settings.html:14
 msgid "ui.common.general"
 msgstr "Allgemein"
@@ -475,7 +487,7 @@ msgstr "Account von \"%(username)s\" löschen?"
 #: PfaKSys/templates/admin/modals/delete_user_account_modal.html:12
 #: PfaKSys/templates/admin/modals/delete_user_group_modal.html:12
 #: PfaKSys/templates/item/categories.html:19
-#: PfaKSys/templates/item/details.html:62
+#: PfaKSys/templates/item/details.html:70
 #: PfaKSys/templates/item/locations.html:19
 #: PfaKSys/templates/item/modals/delete_category_modal.html:34
 #: PfaKSys/templates/item/modals/delete_item_image_modal.html:12
@@ -524,7 +536,7 @@ msgid "page.error_500.explanation"
 msgstr "Wir haben ein Problem auf unserer Seite. Bitte versuche es später nochmal."
 
 #: PfaKSys/templates/item/categories.html:14
-#: PfaKSys/templates/item/details.html:58
+#: PfaKSys/templates/item/details.html:61
 #: PfaKSys/templates/item/locations.html:14
 msgid "ui.common.edit"
 msgstr "Bearbeiten"
@@ -534,11 +546,11 @@ msgstr "Bearbeiten"
 msgid "ui.item.new_category"
 msgstr "Kategorie anlegen"
 
-#: PfaKSys/templates/item/details.html:45
+#: PfaKSys/templates/item/details.html:47
 msgid "ui.item.edit_images"
 msgstr "Materialbilder bearbeiten"
 
-#: PfaKSys/templates/item/details.html:52
+#: PfaKSys/templates/item/details.html:54
 msgid "ui.common.as_of"
 msgstr "Stand vom"
 
