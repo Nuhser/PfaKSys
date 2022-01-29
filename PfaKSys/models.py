@@ -1,7 +1,8 @@
 from datetime import datetime
+from email.policy import default
 from itsdangerous.jws import TimedJSONWebSignatureSerializer
 from flask import current_app, request
-from flask_login import UserMixin
+from flask_login import UserMixin, current_user
 
 from PfaKSys import db, login_manager
 from PfaKSys.item.item_condition import ItemCondition
@@ -86,6 +87,18 @@ class User(db.Model, UserMixin):
         serializer = TimedJSONWebSignatureSerializer(current_app.config['SECRET_KEY'], expire_sec)
         return serializer.dumps({'user_id': self.id}).decode('utf-8')
 
+    def has_permission(self, permission: str):
+        if current_user.is_admin():
+            return True
+
+        for group in self.groups:
+            if group.permissions == None:
+                return False
+            if permission in group.permissions.split(';'):
+                return True
+
+        return False
+
     @staticmethod
     def verify_reset_token(token: str):
         serializer = TimedJSONWebSignatureSerializer(current_app.config['SECRET_KEY'])
@@ -100,6 +113,7 @@ class User(db.Model, UserMixin):
 class UserGroup(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(60), unique=True, nullable=False)
+    permissions = db.Column(db.String, default='')
 
     def __repr__(self) -> str:
         return f"UserGroup('{self.name}')"

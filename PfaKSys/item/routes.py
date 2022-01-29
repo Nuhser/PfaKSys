@@ -9,6 +9,7 @@ from PfaKSys import db
 from PfaKSys.item.forms import ItemForm, ItemCategoryForm, ItemImageForm, ItemLocationForm, SearchItemForm
 from PfaKSys.item.item_condition import ItemCondition
 from PfaKSys.item.utils import save_picture
+from PfaKSys.main.permissions import Permission, permission_required
 from PfaKSys.models import Item, ItemCategory, ItemLocation
 
 
@@ -17,8 +18,9 @@ item_blueprint = Blueprint('item', __name__)
 
 @item_blueprint.route('/categories', methods=['GET', 'POST'])
 @login_required
+@permission_required(Permission.manage_categories)
 def categories():
-    new_category_form = ItemCategoryForm()    
+    new_category_form = ItemCategoryForm()
     if 'category_name' in request.form:
         if new_category_form.validate_on_submit():
             item_category = ItemCategory(name=new_category_form.category_name.data)
@@ -40,6 +42,7 @@ def categories():
 
 @item_blueprint.route('/items/<int:item_id>/delete', methods=['POST'])
 @login_required
+@permission_required(Permission.manage_material)
 def delete(item_id):
     item = Item.query.get_or_404(item_id)
 
@@ -58,6 +61,7 @@ def delete(item_id):
 
 @item_blueprint.route('/categories/<int:category_id>/delete', methods=['POST'])
 @login_required
+@permission_required(Permission.manage_categories)
 def delete_category(category_id):
     category = ItemCategory.query.get_or_404(category_id)
     db.session.delete(category)
@@ -69,6 +73,7 @@ def delete_category(category_id):
 
 @item_blueprint.route('/items/<int:item_id>/edit_images/delete', methods=['POST'])
 @login_required
+@permission_required(Permission.manage_material)
 def delete_image(item_id):
     item = Item.query.get_or_404(item_id)
 
@@ -95,6 +100,7 @@ def delete_image(item_id):
 
 @item_blueprint.route('/locations/<int:location_id>/delete', methods=['POST'])
 @login_required
+@permission_required(Permission.manage_locations)
 def delete_location(location_id):
     location = ItemLocation.query.get_or_404(location_id)
     db.session.delete(location)
@@ -115,6 +121,7 @@ def details(item_id):
 
 @item_blueprint.route('/items/<int:item_id>/edit', methods=['GET', 'POST'])
 @login_required
+@permission_required(Permission.manage_material)
 def edit(item_id):
     item = Item.query.get_or_404(item_id)
 
@@ -159,6 +166,7 @@ def edit(item_id):
 
 @item_blueprint.route('/categories/<int:category_id>/edit', methods=['GET', 'POST'])
 @login_required
+@permission_required(Permission.manage_categories)
 def edit_category(category_id):
     category = ItemCategory.query.get_or_404(category_id)
 
@@ -180,6 +188,7 @@ def edit_category(category_id):
 
 @item_blueprint.route('/items/<int:item_id>/edit_images', methods=['GET', 'POST'])
 @login_required
+@permission_required(Permission.manage_material)
 def edit_images(item_id):
     item = Item.query.get_or_404(item_id)
 
@@ -203,6 +212,7 @@ def edit_images(item_id):
 
 @item_blueprint.route('/locations/<int:location_id>/edit', methods=['GET', 'POST'])
 @login_required
+@permission_required(Permission.manage_locations)
 def edit_location(location_id):
     location = ItemLocation.query.get_or_404(location_id)
 
@@ -224,6 +234,7 @@ def edit_location(location_id):
 
 @item_blueprint.route('/locations', methods=['GET', 'POST'])
 @login_required
+@permission_required(Permission.manage_locations)
 def locations():
     new_location_form = ItemLocationForm()
     if 'location_name' in request.form:
@@ -247,6 +258,7 @@ def locations():
 
 @item_blueprint.route('/items/new', methods=['GET', 'POST'])
 @login_required
+@permission_required(Permission.manage_material)
 def new():
     form = ItemForm()
     form.category.choices = [(None, '')] + [(category.id, category.name) for category in ItemCategory.query.order_by(ItemCategory.name.collate('NOCASE').asc()).all()]

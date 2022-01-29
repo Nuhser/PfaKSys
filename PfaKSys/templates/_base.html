@@ -41,9 +41,13 @@
                             {% if current_user.is_authenticated %}
                                 <a class="nav-item nav-link" href="{{ url_for('item.overview') }}" id="nav-material"><span class="material-icons">inventory</span> {{ _('ui.item.overview') }}</a>
 
-                                <a class="nav-item nav-link" href="{{ url_for('item.categories') }}" id="nav-categories"><span class="material-icons">sell</span> {{ _('ui.item.categories') }}</a>
+                                {% if current_user.has_permission('manage_categories') %}
+                                    <a class="nav-item nav-link" href="{{ url_for('item.categories') }}" id="nav-categories"><span class="material-icons">sell</span> {{ _('ui.item.categories') }}</a>
+                                {% endif %}
 
-                                <a class="nav-item nav-link" href="{{ url_for('item.locations') }}" id="nav-locations"><span class="material-icons">place</span> {{ _('ui.item.locations') }}</a>
+                                {% if current_user.has_permission('manage_locations') %}
+                                    <a class="nav-item nav-link" href="{{ url_for('item.locations') }}" id="nav-locations"><span class="material-icons">place</span> {{ _('ui.item.locations') }}</a>
+                                {% endif %}
                             {% endif %}
                         </div>
 
@@ -186,12 +190,9 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src=https://code.jquery.com/jquery-3.5.1.js></script>
-        <script src=https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js></script>
-        <script src=https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js></script>
 
+        <!-- Initialize Popover -->
         <script type="text/javascript">
-            // initialize popovers
             $(function () {
                 $('[data-toggle="popover"]').popover()
             })

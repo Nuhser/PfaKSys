@@ -1,14 +1,14 @@
 import os
 
-from flask import abort, Blueprint, current_app, flash, redirect, render_template, request, url_for
+from flask import Blueprint, current_app, flash, redirect, render_template, request, url_for
 from flask_babel import gettext
 from flask_login import current_user, login_required
 from sqlalchemy import or_
-from wtforms import BooleanField
 
 from PfaKSys import db
 from PfaKSys.admin.forms import edit_account_form_builder, MailSettingsForm, SearchUserForm, SearchUserGroupForm, UserGroupForm
 from PfaKSys.admin.utils import save_mail_settings
+from PfaKSys.main.permissions import admin_required
 from PfaKSys.models import User, UserGroup
 from PfaKSys.user.utils import save_picture
 
@@ -18,10 +18,8 @@ admin_blueprint = Blueprint('admin', __name__)
 
 @admin_blueprint.route('/admin/add_user_group', methods=['GET', 'POST'])
 @login_required
+@admin_required
 def add_user_group():
-    if not current_user.is_admin():
-        abort(403)
-
     form = UserGroupForm()
 
     if form.validate_on_submit():
@@ -37,10 +35,8 @@ def add_user_group():
 
 @admin_blueprint.route('/admin/delete_account/<int:user_id>', methods=['POST'])
 @login_required
+@admin_required
 def delete_account(user_id):
-    if not current_user.is_admin():
-        abort(403)
-
     user = User.query.get_or_404(user_id)
 
     # delete profile picture
@@ -61,10 +57,8 @@ def delete_account(user_id):
 
 @admin_blueprint.route('/admin/delete_user_group/<int:group_id>', methods=['POST'])
 @login_required
+@admin_required
 def delete_user_group(group_id):
-    if not current_user.is_admin():
-        abort(403)
-
     group = UserGroup.query.get_or_404(group_id)
 
     if group.name == 'admin':
@@ -81,10 +75,8 @@ def delete_user_group(group_id):
 
 @admin_blueprint.route('/admin/edit_user/<int:user_id>', methods=['GET', 'POST'])
 @login_required
+@admin_required
 def edit_user(user_id):
-    if not current_user.is_admin():
-        abort(403)
-
     user = User.query.get_or_404(user_id)
     image_file = url_for('static', filename=f'profile_pics/{user.image_file}')
 
@@ -133,10 +125,8 @@ def edit_user(user_id):
 
 @admin_blueprint.route('/admin/edit_user_group/<int:group_id>', methods=['GET', 'POST'])
 @login_required
+@admin_required
 def edit_user_group(group_id):
-    if not current_user.is_admin():
-        abort(403)
-
     group = UserGroup.query.get_or_404(group_id)
     form = UserGroupForm()
     form.group = group
@@ -156,10 +146,8 @@ def edit_user_group(group_id):
 
 @admin_blueprint.route('/admin/settings', methods=['GET', 'POST'])
 @login_required
+@admin_required
 def settings():
-    if not current_user.is_admin():
-        abort(403)
-
     mail_form = MailSettingsForm()
 
     if 'use_tls' in request.form:
@@ -180,10 +168,8 @@ def settings():
 
 @admin_blueprint.route('/admin/user_management', methods=['GET', 'POST'])
 @login_required
+@admin_required
 def user_management():
-    if not current_user.is_admin():
-        abort(403)
-
     search_user_form = SearchUserForm()
     search_group_form = SearchUserGroupForm()
 
