@@ -24,7 +24,68 @@
                 </div>
             </fieldset>
 
-            <div class="border-top form-group">
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ _('ui.common.permissions') }}</legend>
+
+                <div class="form-group row ml-2" style="margin-bottom: -5px;">
+                    <div class="col-sm-1">
+                        <div class="form-check">
+                            {% if form.manage_material_permission.errors %}
+                                {{ form.manage_material_permission(class="form-check-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.manage_material_permission.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.manage_material_permission(class="form-check-input") }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    {{ form.manage_material_permission.label(class="col-sm-11") }}
+                </div>
+
+                <div class="form-group row ml-2" style="margin-bottom: -5px;">
+                    <div class="col-sm-1">
+                        <div class="form-check">
+                            {% if form.manage_categories_permission.errors %}
+                                {{ form.manage_categories_permission(class="form-check-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.manage_categories_permission.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.manage_categories_permission(class="form-check-input") }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    {{ form.manage_categories_permission.label(class="col-sm-11") }}
+                </div>
+
+                <div class="form-group row ml-2" style="margin-bottom: -5px;">
+                    <div class="col-sm-1">
+                        <div class="form-check">
+                            {% if form.manage_locations_permission.errors %}
+                                {{ form.manage_locations_permission(class="form-check-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in form.manage_locations_permission.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.manage_locations_permission(class="form-check-input") }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    {{ form.manage_locations_permission.label(class="col-sm-11") }}
+                </div>
+            </fieldset>
+
+            <div class="border-top form-group mt-4">
                 {{ form.submit(class="btn btn-success mt-2") }}
 
                 <a class="btn btn-secondary mt-2" href="{{ url_for('admin.user_management') }}">

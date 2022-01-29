@@ -8,12 +8,13 @@ from sqlalchemy import or_
 from PfaKSys import db
 from PfaKSys.admin.forms import edit_account_form_builder, MailSettingsForm, SearchUserForm, SearchUserGroupForm, UserGroupForm
 from PfaKSys.admin.utils import save_mail_settings
-from PfaKSys.main.permissions import admin_required
+from PfaKSys.main.permissions import admin_required, Permission
 from PfaKSys.models import User, UserGroup
 from PfaKSys.user.utils import save_picture
 
 
 admin_blueprint = Blueprint('admin', __name__)
+admin_blueprint.add_app_template_filter(Permission.from_str_list_to_value_list, 'permission_string_list')
 
 
 @admin_blueprint.route('/admin/add_user_group', methods=['GET', 'POST'])
@@ -24,6 +25,16 @@ def add_user_group():
 
     if form.validate_on_submit():
         group = UserGroup(name=form.name.data)
+
+        permissions = []
+        if form.manage_material_permission.data:
+            permissions.append('manage_material')
+        if form.manage_categories_permission.data:
+            permissions.append('manage_categories')
+        if form.manage_locations_permission.data:
+            permissions.append('manage_locations')
+        group.permissions = ';'.join(permissions)
+
         db.session.add(group)
         db.session.commit()
 
@@ -128,11 +139,22 @@ def edit_user(user_id):
 @admin_required
 def edit_user_group(group_id):
     group = UserGroup.query.get_or_404(group_id)
+    permissions = [Permission.from_str(p) for p in group.permissions.split(';')] if ((group.permissions != None) and (group.permissions != '')) else []
     form = UserGroupForm()
     form.group = group
 
     if form.validate_on_submit():
         group.name = form.name.data
+
+        permissions = []
+        if form.manage_material_permission.data:
+            permissions.append('manage_material')
+        if form.manage_categories_permission.data:
+            permissions.append('manage_categories')
+        if form.manage_locations_permission.data:
+            permissions.append('manage_locations')
+        group.permissions = ';'.join(permissions)
+
         db.session.commit()
 
         flash(gettext('flash.success.admin.user_group_edited', group_name=group.name), 'success')
@@ -140,6 +162,9 @@ def edit_user_group(group_id):
 
     elif request.method == 'GET':
         form.name.data = group.name
+        form.manage_material_permission.data = Permission.manage_material in permissions
+        form.manage_categories_permission.data = Permission.manage_categories in permissions
+        form.manage_locations_permission.data = Permission.manage_locations in permissions
 
     return render_template('admin/user_group.html', title=gettext('page.admin.edit_user_group.title', group_name=group.name), form=form)
 

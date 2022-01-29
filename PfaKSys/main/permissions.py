@@ -28,8 +28,9 @@ class Permission(Enum):
             case _:
                 raise ValueError(f'The permission "{name}" does not exist!')
 
-    def __repr__(self) -> str:
-        return self.value
+    @staticmethod
+    def from_str_list_to_value_list(permission_list: list):
+        return [Permission.from_str(p).value for p in permission_list]
 
 
 def admin_required(func):

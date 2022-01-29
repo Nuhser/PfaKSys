@@ -102,9 +102,10 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col" style="width: 13%;"></th>
-                                <th scope="col" style="width: 10%;">#</th>
-                                <th scope="col" style="width: 20%;">{{ _('ui.common.name') }}</th>
-                                <th scope="col" style="width: 57%;">{{ _('ui.common.users') }}</th>
+                                <th scope="col" style="width: 5%;">#</th>
+                                <th scope="col" style="width: 15%;">{{ _('ui.common.name') }}</th>
+                                <th scope="col" style="width: 37%;">{{ _('ui.common.permissions') }}</th>
+                                <th scope="col" style="width: 30%;">{{ _('ui.common.users') }}</th>
                             </tr>
                         </thead>
 
@@ -126,6 +127,13 @@
 
                                     <td>{{ group.id }}</td>
                                     <td>{{ group.name }}</td>
+                                    <td>
+                                        {% if (group.permissions != None) and group.permissions != '' %}
+                                            {{ (group.permissions.split(';') | permission_string_list) | join(', ') }}
+                                        {% else %}
+                                            -
+                                        {% endif %}
+                                    </td>
                                     <td>{{ ((group.users | list) | sort(attribute='username')) | join(', ', attribute='username') }}</td>
                                 </tr>
                             {% endfor %}
