@@ -40,12 +40,12 @@
                     {% endif %}
                 </div>
 
-                {% if current_user.has_permission('manage_material') %}
-                    <a class="btn btn-outline-secondary btn-sm mt-2" href="{{ url_for('item.edit_images', item_id=item.id) }}" role="button">
-                        <span class="material-icons">photo_library</span>
-                        {{ _('ui.item.edit_images')}}
-                    </a>
-                {% endif %}
+                <a class="btn btn-outline-secondary btn-sm mt-2 {% if not current_user.has_permission('manage_material') %}disabled{% endif %}"
+                   href="{{ url_for('item.edit_images', item_id=item.id) }}"
+                   role="button">
+                    <span class="material-icons">photo_library</span>
+                    {{ _('ui.item.edit_images')}}
+                </a>
             </div>
 
             <div class="media-body">
@@ -55,17 +55,20 @@
                     </div>
 
                     <div>
-                        {% if current_user.has_permission('manage_material') %}
-                            <a class="btn btn-secondary btn-sm" href="{{ url_for('item.edit', item_id=item.id) }}">
-                                <span class="material-icons">edit</span>
-                                {{ _('ui.common.edit') }}
-                            </a>
+                        <a class="btn btn-secondary btn-sm {% if not current_user.has_permission('manage_material') %}disabled{% endif %}"
+                            href="{{ url_for('item.edit', item_id=item.id) }}">
+                            <span class="material-icons">edit</span>
+                            {{ _('ui.common.edit') }}
+                        </a>
 
-                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-item-modal">
-                                <span class="material-icons">delete</span>
-                                {{ _('ui.common.delete') }}
-                            </button>
-                        {% endif %}
+                        <button type="button"
+                                class="btn btn-danger btn-sm"
+                                data-toggle="modal"
+                                data-target="#delete-item-modal"
+                                {% if not current_user.has_permission('manage_material') %}disabled{% endif %}>
+                            <span class="material-icons">delete</span>
+                            {{ _('ui.common.delete') }}
+                        </button>
                     </div>
                 </div>
 
