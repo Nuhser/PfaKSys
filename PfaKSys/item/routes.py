@@ -27,6 +27,7 @@ def categories():
             db.session.add(item_category)
             db.session.commit()
 
+            current_app.logger.info(f'{current_user.username} created the new category "{item_category.name}".')
             flash(gettext('flash.success.item_category.created', category_name=item_category.name), 'success')
             return redirect(url_for('item.categories'))
 
@@ -55,6 +56,7 @@ def delete(item_id):
     db.session.delete(item)
     db.session.commit()
 
+    current_app.logger.info(f'{current_user.username} deleted the item "{item.name}".')
     flash(gettext('flash.success.item.deleted', item_name=item.name), 'success')
     return redirect(url_for('item.overview'))
 
@@ -67,6 +69,7 @@ def delete_category(category_id):
     db.session.delete(category)
     db.session.commit()
 
+    current_app.logger.info(f'{current_user.username} deleted the item category "{category.name}".')
     flash(gettext('flash.success.category.deleted', category_name=category.name), 'success')
     return redirect(url_for('item.categories'))
 
@@ -106,6 +109,7 @@ def delete_location(location_id):
     db.session.delete(location)
     db.session.commit()
 
+    current_app.logger.info(f'{current_user.username} deleted the item category "{location.name}".')
     flash(gettext('flash.success.location.deleted', location_name=location.name), 'success')
     return redirect(url_for('item.locations'))
 
@@ -132,6 +136,8 @@ def edit(item_id):
 
     if form.validate_on_submit():
         with db.session.no_autoflush:
+            old_item_name = item.name
+
             if item.name != form.name.data:
                 _ = Item.query.filter_by(name=form.name.data).first()
                 if not _:
@@ -147,6 +153,11 @@ def edit(item_id):
             item.date_checked = datetime.utcnow()
 
             db.session.commit()
+
+        if old_item_name != item.name:
+            current_app.logger.info(f'{current_user.username} edited item "{old_item_name}" and changed the name to "{item.name}".')
+        else:
+            current_app.logger.info(f'{current_user.username} edited item "{item.name}".')
 
         flash(gettext('flash.success.item.edited', item_name=item.name), 'success')
         return redirect(url_for('item.details', item_id=item.id))
@@ -174,8 +185,14 @@ def edit_category(category_id):
     form.category_id = category_id
 
     if form.validate_on_submit():
+        old_category_name = category.name
         category.name = form.category_name.data
         db.session.commit()
+
+        if old_category_name != category.name:
+            current_app.logger.info(f'{current_user.username} edited category "{old_category_name}" and changed the name to "{category.name}".')
+        else:
+            current_app.logger.info(f'{current_user.username} edited category "{category.name}".')
 
         flash(gettext('flash.success.category.edited', category_name=category.name), 'success')
         return redirect(url_for('item.categories'))
@@ -220,8 +237,14 @@ def edit_location(location_id):
     form.location_id = location_id
 
     if form.validate_on_submit():
+        old_location_name = location.name
         location.name = form.location_name.data
         db.session.commit()
+
+        if old_location_name != location.name:
+            current_app.logger.info(f'{current_user.username} edited location "{old_location_name}" and changed the name to "{location.name}".')
+        else:
+            current_app.logger.info(f'{current_user.username} edited location "{location.name}".')
 
         flash(gettext('flash.success.location.edited', location_name=location.name), 'success')
         return redirect(url_for('item.locations'))
@@ -243,6 +266,7 @@ def locations():
             db.session.add(item_location)
             db.session.commit()
 
+            current_app.logger.info(f'{current_user.username} created the new location "{item_location.name}".')
             flash(gettext('flash.success.item_location.created', location_name=item_location.name), 'success')
             return redirect(url_for('item.locations'))
 
@@ -277,6 +301,7 @@ def new():
         db.session.add(item)
         db.session.commit()
 
+        current_app.logger.info(f'{current_user.username} created the new item "{item.name}".')
         flash(gettext('flash.success.item.created', item_name=item.name), 'success')
         return redirect(url_for('item.details', item_id=item.id))
 

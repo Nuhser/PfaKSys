@@ -35,7 +35,7 @@ def account():
         db.session.commit()
 
         if old_username != current_user.username:
-            current_app.logger.info(f'{old_username} changed his/her name to {current_user.username}.')
+            current_app.logger.info(f'{old_username} changed their name to {current_user.username}.')
 
         flash(gettext('flash.success.account_update'), 'success')
         return redirect(url_for('user.account'))
@@ -65,7 +65,7 @@ def delete_account():
     db.session.delete(user)
     db.session.commit()
 
-    current_app.logger.warning(f'{user.username} deleted their account.')
+    current_app.logger.info(f'{user.username} deleted their account.')
     flash(gettext('flash.success.delete_account'), 'success')
     return redirect(url_for('main.home'))
 
@@ -171,7 +171,7 @@ def request_reset():
             current_app.logger.exception(f'The connection to \'{current_app.config["MAIL_SERVER"]}\' got refused while {user.username} tried to reset their password.')
             abort(500)
 
-        current_app.logger.info(f'{user.username} has requested an email to reset their password.')
+        current_app.logger.warning(f'{user.username} has requested an email to reset their password.')
         flash(gettext('flash.info.reset_email_send'), 'info')
         return redirect(url_for('user.login'))
 
@@ -196,7 +196,7 @@ def reset_password(token: str):
         user.password = hashed_password
         db.session.commit()
 
-        current_app.logger.info(f'User {user.username} has reset their password.')
+        current_app.logger.info(f'{user.username} has reset their password.')
         flash(gettext('flash.success.password_reset'), 'success')
         return redirect(url_for('user.login'))
 

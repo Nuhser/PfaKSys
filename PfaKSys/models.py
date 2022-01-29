@@ -65,6 +65,9 @@ class SystemSettings(db.Model):
     mail = db.Column(db.JSON, nullable=False, default={'MAIL_SERVER': None, 'MAIL_PORT': 587, 'MAIL_USE_TLS': True, 'MAIL_SENDER': None})
     calendar = db.Column(db.JSON, nullable=False, default={'CALENDAR_LINK': None, 'CALENDAR_CATEGORIES': [], 'CALENDAR_SYNC_INTERVALL': 5})
 
+    def __repr__(self) -> str:
+        return f"SystemSettings(ID: '{self.id}')"
+
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -116,13 +119,16 @@ class UserGroup(db.Model):
     permissions = db.Column(db.String, default='')
 
     def __repr__(self) -> str:
-        return f"UserGroup('{self.name}')"
+        return f"UserGroup('{self.name}', '{self.permissions}')"
 
 
 class UserSettings(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     language = db.Column(db.String(2), default='de')
     item_filters = db.Column(db.JSON, default={})
+
+    def __repr__(self) -> str:
+        return f"UserSettings('{self.language}', '{self.item_filters}')"
 
 
 @login_manager.user_loader

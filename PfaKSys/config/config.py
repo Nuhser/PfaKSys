@@ -1,4 +1,5 @@
 import os
+import re
 
 from logging.config import dictConfig
 
@@ -42,6 +43,7 @@ def init_logging() -> None:
     This functions inititalizes the console and file loggers for PfaKSys. It should be called in the `__init__.py` file.
     """
 
+
     if not os.path.isdir('./PfaKSys/logs/'):
         os.mkdir('./PfaKSys/logs/')
 
@@ -50,6 +52,9 @@ def init_logging() -> None:
         'formatters': {
             'default': {
                 'format': '%(asctime)s [%(levelname)s]  \t[%(filename)s -> %(funcName)s:%(lineno)d] - %(message)s'
+            },
+            'file_formatter': {
+                'format': '%(asctime)s [%(levelname)s]  \t[%(filename)s -> %(funcName)s:%(lineno)d] - ' + re.sub(r'\033\[(\d|;)+?m', '', '%(message)s')
             }
         },
         'handlers': {
@@ -64,7 +69,7 @@ def init_logging() -> None:
                 'when': 'midnight',
                 'backupCount': 14,
                 'filename': 'PfaKSys/logs/PfaKSys.log',
-                'formatter': 'default',
+                'formatter': 'file_formatter',
                 'level': 'INFO'
             }
         },

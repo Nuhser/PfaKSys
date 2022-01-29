@@ -38,6 +38,7 @@ def add_user_group():
         db.session.add(group)
         db.session.commit()
 
+        current_app.logger.info(f'{current_user.username} created the new user group "{group}"')
         flash(gettext('flash.success.admin.user_group_created', group_name=group.name), 'success')
         return redirect(url_for('admin.user_management'))
 
@@ -61,7 +62,7 @@ def delete_account(user_id):
     db.session.delete(user)
     db.session.commit()
 
-    current_app.logger.warning(f'Account {user.username} was deleted by admin { current_user.username }.')
+    current_app.logger.info(f'Account "{user.username}" was deleted by admin {current_user.username}.')
     flash(gettext('flash.success.admin.account_deleted', username=user.username), 'success')
     return redirect(url_for('admin.user_management'))
 
@@ -73,13 +74,14 @@ def delete_user_group(group_id):
     group = UserGroup.query.get_or_404(group_id)
 
     if group.name == 'admin':
+        current_app.logger.warning(f'{current_user.name} tried to delete the admin group!')
         flash(gettext('flash.warning.admin.cant_delete_admin_group'), 'warning')
         return redirect(url_for('admin.user_management'))
 
     db.session.delete(group)
     db.session.commit()
 
-    current_app.logger.warning(f'User group {group.name} was deleted by admin { current_user.username }.')
+    current_app.logger.info(f'User group "{group.name}" was deleted by admin {current_user.username}.')
     flash(gettext('flash.success.admin.user_group_deleted', group_name=group.name), 'success')
     return redirect(url_for('admin.user_management'))
 
@@ -116,9 +118,9 @@ def edit_user(user_id):
         db.session.commit()
 
         if old_username != user.username:
-            current_app.logger.info(f'{current_user.username} edited the account/user groups of {old_username} and changed their username to {user.username}.')
+            current_app.logger.info(f'{current_user.username} edited the account/user groups of "{old_username}" and changed their username to "{user.username}".')
         else:
-            current_app.logger.info(f'{current_user.username} edited the account/user groups of {user.username}.')
+            current_app.logger.info(f'{current_user.username} edited the account/user groups of "{user.username}".')
 
         flash(gettext('flash.success.account_update_admin', username=user.username), 'success')
         return redirect(url_for('admin.user_management'))
@@ -144,6 +146,7 @@ def edit_user_group(group_id):
     form.group = group
 
     if form.validate_on_submit():
+        old_group_name = group.name
         group.name = form.name.data
 
         permissions = []
@@ -156,6 +159,11 @@ def edit_user_group(group_id):
         group.permissions = ';'.join(permissions)
 
         db.session.commit()
+
+        if old_group_name != group.name:
+            current_app.logger.info(f'{current_user.username} edited user group "{old_group_name}" and changed the name to "{group.name}".')
+        else:
+            current_app.logger.info(f'{current_user.username} edited user group "{group.name}".')
 
         flash(gettext('flash.success.admin.user_group_edited', group_name=group.name), 'success')
         return redirect(url_for('admin.user_management'))
@@ -179,6 +187,7 @@ def settings():
         if mail_form.validate_on_submit():
             save_mail_settings(mail_form)
 
+            current_app.logger.info(f'{current_user.username} edited the system settings.')
             flash(gettext('flash.success.system_settings.mail_saved'), 'success')
             return redirect(url_for('admin.settings'))
 
