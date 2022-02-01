@@ -9,5 +9,5 @@ class PrintTest(BackgroundJob):
         time.sleep(5)
 
 
-print_test = PrintTest(1, 'Print')
-start_jobs()
+# print_test = PrintTest(1, 'Print')
+# start_jobs()
