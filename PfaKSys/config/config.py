@@ -14,15 +14,9 @@ SQL_CONVENTIONS = {
 
 
 class Config():
-    """
-    This class contains the standard configuration for a PfaKSys-app.
-
-    It should be used with `app.config.from_object()`.
-    """
-
     ALLOWED_IMAGE_TYPES = ['jpg', 'jpeg', 'png', 'gif']
     BABEL_DEFAULT_LOCALE = 'en'
-    DEBUG_MODE = True
+    DEBUG = False
     LANGUAGES = {
         'de': 'Deutsch',
         'en': 'English'
@@ -30,12 +24,20 @@ class Config():
     NAMESPACE = 'PfaKSys'
     PORT = 5000
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    USE_RELOADER = False
 
     # values from environment variables
     MAIL_PASSWORD = os.environ.get('PFAKSYS_MAIL_PASSWORD')
     MAIL_USERNAME = os.environ.get('PFAKSYS_MAIL_USERNAME')
     SECRET_KEY = os.environ.get('PFAKSYS_SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = os.environ.get('PFAKSYS_SQLALCHEMY_DATABASE_URI')
+
+class ProductionConfig(Config):
+    DEBUG = False
+
+class DevelopmentConfig(Config):
+    DEBUG = True
+    DEVELOPMENT = True
 
 
 def init_logging() -> None:

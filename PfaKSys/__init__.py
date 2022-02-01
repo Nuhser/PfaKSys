@@ -9,7 +9,7 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 
-from PfaKSys.config.config import Config, init_logging, SQL_CONVENTIONS
+from PfaKSys.config.config import init_logging, ProductionConfig, SQL_CONVENTIONS
 
 
 init_logging()
@@ -37,7 +37,7 @@ def get_locale():
         return request.accept_languages.best_match(current_app.config['LANGUAGES'].keys(), default=Config.BABEL_DEFAULT_LOCALE)
 
 
-def create_app(config=Config):
+def create_app(config=ProductionConfig):
     # create flask app
     app = Flask(__name__)
     app.config.from_object(config)
