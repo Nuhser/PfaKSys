@@ -80,16 +80,20 @@ def create_app(config=Config):
 
     # import and register blueprints
     from PfaKSys.admin.routes import admin_blueprint
+    from PfaKSys.background_jobs.utils import background_blueprint
     from PfaKSys.error.handlers import error_blueprint
     from PfaKSys.item.routes import item_blueprint
     from PfaKSys.main.routes import main_blueprint
     from PfaKSys.user.routes import user_blueprint
 
     app.register_blueprint(admin_blueprint)
+    app.register_blueprint(background_blueprint)
     app.register_blueprint(error_blueprint)
     app.register_blueprint(item_blueprint)
     app.register_blueprint(main_blueprint)
     app.register_blueprint(user_blueprint)
+
+    from PfaKSys.background_jobs.scheduled_tasks import PrintTest
 
     app.logger.info('Server has been started successfully.')
 
