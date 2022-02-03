@@ -21,16 +21,14 @@ class Config():
         'de': 'Deutsch',
         'en': 'English'
     }
-    NAMESPACE = 'PfaKSys'
-    PORT = 5000
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
-    USE_RELOADER = False
-
-    # values from environment variables
     MAIL_PASSWORD = os.environ.get('PFAKSYS_MAIL_PASSWORD')
     MAIL_USERNAME = os.environ.get('PFAKSYS_MAIL_USERNAME')
+    NAMESPACE = 'PfaKSys'
+    PORT = 5000
     SECRET_KEY = os.environ.get('PFAKSYS_SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = os.environ.get('PFAKSYS_SQLALCHEMY_DATABASE_URI')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    USE_RELOADER = False
 
 class ProductionConfig(Config):
     DEBUG = False
