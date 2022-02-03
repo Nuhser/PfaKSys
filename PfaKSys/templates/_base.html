@@ -152,8 +152,11 @@
                     {% with messages = get_flashed_messages(with_categories=true) %}
                         {% if messages %}
                             {% for category, message in messages %}
-                                <div class="alert alert-{{ category }}">
+                                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
                                     {{ message }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
                             {% endfor %}
                         {% endif %}
@@ -196,6 +199,13 @@
             $(function() {
                 $('[data-toggle="popover"]').popover();
             });
+        </script>
+
+        <!-- Fade out Alerts after 10 seconds-->
+        <script type="text/javascript">
+            window.setTimeout(function() {
+                $(".alert").alert('close');
+            }, 10000);
         </script>
 
         {% block scripts %}{% endblock %}
