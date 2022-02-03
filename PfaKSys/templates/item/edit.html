@@ -145,14 +145,14 @@
                 <legend class="border-bottom mb-3">{{ _('ui.common.description') }}</legend>
 
                 {% if form.description.errors %}
-                    {{ form.description(class="form-control form-control-lg is-invalid")}}
+                    {{ form.description(class="form-control form-control-lg is-invalid editor")}}
                     <div class="invalid-feedback">
                         {% for error in form.description.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.description(class="form-control form-control-lg") }}
+                    {{ form.description(class="form-control form-control-lg editor") }}
                 {% endif %}
             </fieldset>
 
@@ -160,14 +160,14 @@
                 <legend class="border-bottom mb-3">{{ _('ui.common.comment') }}</legend>
 
                 {% if form.comment.errors %}
-                    {{ form.comment(class="form-control form-control-lg is-invalid")}}
+                    {{ form.comment(class="form-control form-control-lg is-invalid editor")}}
                     <div class="invalid-feedback">
                         {% for error in form.comment.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.comment(class="form-control form-control-lg") }}
+                    {{ form.comment(class="form-control form-control-lg editor") }}
                 {% endif %}
             </fieldset>
 

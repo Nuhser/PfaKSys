@@ -194,6 +194,20 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+        <!-- Tiny Texteditor -->
+        <script src="https://cdn.tiny.cloud/1/0q9xftxd8fj9umgxfyitmfl9sbmluzbto8tv6asj5oklayf5/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>
+            tinymce.init({
+                selector: 'textarea.editor',
+                skin: 'bootstrap',
+                height: 480,
+                plugins: 'advlist, autolink, charmap, emoticons, help, image, lists, link, media, quickbars, table, wordcount',
+                menubar: false,
+                toolbar: 'undo redo | formatselect bold italic underline | forecolor backcolor | removeformat | bullist numlist | outdent indent | alignleft aligncenter alignright | table | emoticons charmap | link image media | help',
+                quickbars_selection_toolbar: 'bold italic underline | forecolor backcolor | removeformat'
+            });
+        </script>
+
         <!-- Initialize Popover -->
         <script type="text/javascript">
             $(function() {
