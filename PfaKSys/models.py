@@ -1,5 +1,4 @@
 from datetime import datetime
-from email.policy import default
 from itsdangerous.jws import TimedJSONWebSignatureSerializer
 from flask import current_app, request
 from flask_login import UserMixin, current_user
