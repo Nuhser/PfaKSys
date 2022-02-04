@@ -26,7 +26,7 @@ class Config():
     MAIL_USERNAME = os.environ.get('PFAKSYS_MAIL_USERNAME')
     NAMESPACE = 'PfaKSys'
     PORT = 5000
-    SCHEDULER_JOBSTORES = {'sqlalchemy': SQLAlchemyJobStore(url='sqlite:///db.sqlite')}
+    SCHEDULER_JOBSTORES = {'sqlalchemy': SQLAlchemyJobStore(url='sqlite:///PfaKSys/db.sqlite')}
     SECRET_KEY = os.environ.get('PFAKSYS_SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = os.environ.get('PFAKSYS_SQLALCHEMY_DATABASE_URI')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
