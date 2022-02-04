@@ -7,7 +7,6 @@ from flask_babel import Babel
 from flask_bcrypt import Bcrypt
 from flask_login import current_user, LoginManager
 from flask_mail import Mail
-from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 
@@ -22,7 +21,6 @@ bcrypt = Bcrypt()
 db = SQLAlchemy(metadata=MetaData(naming_convention=SQL_CONVENTIONS))
 login_manager = LoginManager()
 mail = Mail()
-migrate = Migrate()
 scheduler = APScheduler()
 
 # configure login manager
@@ -53,7 +51,6 @@ def create_app(config=ProductionConfig):
     db.init_app(app)
     login_manager.init_app(app)
     mail.init_app(app)
-    migrate.init_app(app, db)
     scheduler.init_app(app)
 
     # create database if not existing
