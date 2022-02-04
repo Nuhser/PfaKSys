@@ -9,7 +9,7 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 
-from PfaKSys.config.config import init_logging, ProductionConfig, SQL_CONVENTIONS
+from PfaKSys.config.config import Config, init_logging, ProductionConfig, SQL_CONVENTIONS
 
 
 init_logging()
@@ -92,8 +92,6 @@ def create_app(config=ProductionConfig):
     app.register_blueprint(item_blueprint)
     app.register_blueprint(main_blueprint)
     app.register_blueprint(user_blueprint)
-
-    from PfaKSys.background_jobs.scheduled_tasks import PrintTest
 
     app.logger.info('Server has been started successfully.')
 
