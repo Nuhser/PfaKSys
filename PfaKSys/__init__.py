@@ -1,6 +1,8 @@
+import atexit
 import os
 
 from flask import current_app, Flask, request
+from flask_apscheduler import APScheduler
 from flask_babel import Babel
 from flask_bcrypt import Bcrypt
 from flask_login import current_user, LoginManager
@@ -21,6 +23,7 @@ db = SQLAlchemy(metadata=MetaData(naming_convention=SQL_CONVENTIONS))
 login_manager = LoginManager()
 mail = Mail()
 migrate = Migrate()
+scheduler = APScheduler()
 
 # configure login manager
 login_manager.login_view = 'user.login'
@@ -51,6 +54,7 @@ def create_app(config=ProductionConfig):
     login_manager.init_app(app)
     mail.init_app(app)
     migrate.init_app(app, db)
+    scheduler.init_app(app)
 
     # create database if not existing
     if not os.path.isfile(os.path.join(app.root_path, 'db.sqlite')):
@@ -78,16 +82,19 @@ def create_app(config=ProductionConfig):
         for key in system_settings.calendar:
             app.config[key] = system_settings.calendar[key]
 
+    # schedule background jobs
+    import PfaKSys.main.background_jobs
+    scheduler.start()
+    atexit.register(scheduler.shutdown)
+
     # import and register blueprints
     from PfaKSys.admin.routes import admin_blueprint
-    from PfaKSys.background_jobs.utils import background_blueprint
     from PfaKSys.error.handlers import error_blueprint
     from PfaKSys.item.routes import item_blueprint
     from PfaKSys.main.routes import main_blueprint
     from PfaKSys.user.routes import user_blueprint
 
     app.register_blueprint(admin_blueprint)
-    app.register_blueprint(background_blueprint)
     app.register_blueprint(error_blueprint)
     app.register_blueprint(item_blueprint)
     app.register_blueprint(main_blueprint)
