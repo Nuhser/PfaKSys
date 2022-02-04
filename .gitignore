@@ -1,6 +1,7 @@
 *__pycache__*
 
 .vscode*
+PfaKSys/backups*
 PfaKSys/logs*
 PfaKSys/static/item_images/*
 PfaKSys/static/profile_pics/*
