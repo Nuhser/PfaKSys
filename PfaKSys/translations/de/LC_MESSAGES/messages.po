@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-01-29 12:04+0100\n"
+"POT-Creation-Date: 2022-02-15 16:01+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -18,147 +18,155 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: PfaKSys/admin/forms.py:12 PfaKSys/admin/forms.py:53
+#: PfaKSys/admin/forms.py:11
+msgid "ui.system_settings.database_backup_quantity"
+msgstr "Backup-Anzahl"
+
+#: PfaKSys/admin/forms.py:12 PfaKSys/admin/forms.py:21
+#: PfaKSys/admin/forms.py:53 PfaKSys/admin/forms.py:71 PfaKSys/item/forms.py:20
+#: PfaKSys/item/forms.py:38 PfaKSys/item/forms.py:56 PfaKSys/user/forms.py:100
+msgid "ui.common.save"
+msgstr "Speichern"
+
+#: PfaKSys/admin/forms.py:16 PfaKSys/admin/forms.py:57
 #: PfaKSys/templates/admin/user_management.html:46 PfaKSys/user/forms.py:12
 #: PfaKSys/user/forms.py:21 PfaKSys/user/forms.py:76
 msgid "ui.common.username"
 msgstr "Benutzername"
 
-#: PfaKSys/admin/forms.py:13 PfaKSys/templates/admin/user_management.html:47
+#: PfaKSys/admin/forms.py:17 PfaKSys/templates/admin/user_management.html:47
 #: PfaKSys/user/forms.py:22 PfaKSys/user/forms.py:77
 msgid "ui.common.full_name"
 msgstr "Vollständiger Name"
 
-#: PfaKSys/admin/forms.py:14 PfaKSys/templates/admin/user_management.html:48
+#: PfaKSys/admin/forms.py:18 PfaKSys/templates/admin/user_management.html:48
 #: PfaKSys/user/forms.py:23 PfaKSys/user/forms.py:50 PfaKSys/user/forms.py:78
 msgid "ui.common.email"
 msgstr "Email-Adresse"
 
-#: PfaKSys/admin/forms.py:15 PfaKSys/templates/_base.html:103
+#: PfaKSys/admin/forms.py:19 PfaKSys/templates/_base.html:103
 #: PfaKSys/templates/admin/user_management.html:45
 #: PfaKSys/templates/admin/user_management.html:70 PfaKSys/user/forms.py:79
 msgid "ui.account.profile_picture"
 msgstr "Profilbild"
 
-#: PfaKSys/admin/forms.py:17 PfaKSys/admin/forms.py:49
-#: PfaKSys/admin/forms.py:67 PfaKSys/item/forms.py:20 PfaKSys/item/forms.py:38
-#: PfaKSys/item/forms.py:56 PfaKSys/user/forms.py:100
-msgid "ui.common.save"
-msgstr "Speichern"
-
-#: PfaKSys/admin/forms.py:25 PfaKSys/user/forms.py:32 PfaKSys/user/forms.py:87
+#: PfaKSys/admin/forms.py:29 PfaKSys/user/forms.py:32 PfaKSys/user/forms.py:87
 msgid "validation_error.username_already_taken"
 msgstr "Dieser Benutzername existiert bereits. Bitte wähle einen anderen."
 
-#: PfaKSys/admin/forms.py:31 PfaKSys/user/forms.py:37 PfaKSys/user/forms.py:93
+#: PfaKSys/admin/forms.py:35 PfaKSys/user/forms.py:37 PfaKSys/user/forms.py:93
 msgid "validation_error.email_already_exists"
 msgstr ""
 "Diese Email-Adresse wird bereits von einem anderen Benutzer verwendet. "
 "Bitte wähle eine andere."
 
-#: PfaKSys/admin/forms.py:44
+#: PfaKSys/admin/forms.py:48
 msgid "ui.system_settings.mail_server"
 msgstr "Postausgangsserver"
 
-#: PfaKSys/admin/forms.py:45
+#: PfaKSys/admin/forms.py:49
 msgid "ui.system_settings.mail_port"
 msgstr "Server-Port"
 
-#: PfaKSys/admin/forms.py:46
+#: PfaKSys/admin/forms.py:50
 msgid "ui.system_settings.mail_use_tls"
 msgstr "Benutze TLS-Verbindung"
 
-#: PfaKSys/admin/forms.py:47
+#: PfaKSys/admin/forms.py:51
 msgid "ui.system_settings.mail_sender"
 msgstr "Mailsender-Adresse"
 
-#: PfaKSys/admin/forms.py:54 PfaKSys/admin/forms.py:59 PfaKSys/item/forms.py:68
+#: PfaKSys/admin/forms.py:58 PfaKSys/admin/forms.py:63 PfaKSys/item/forms.py:68
 msgid "ui.common.search"
 msgstr "Suchen"
 
-#: PfaKSys/admin/forms.py:58 PfaKSys/admin/forms.py:63
+#: PfaKSys/admin/forms.py:62 PfaKSys/admin/forms.py:67
 msgid "ui.admin.group_name"
 msgstr "Benutzergruppenname"
 
-#: PfaKSys/admin/forms.py:64 PfaKSys/main/permissions.py:11
+#: PfaKSys/admin/forms.py:68 PfaKSys/main/permissions.py:11
 msgid "main.permissions.manage_material"
 msgstr "Material verwalten"
 
-#: PfaKSys/admin/forms.py:65 PfaKSys/main/permissions.py:12
+#: PfaKSys/admin/forms.py:69 PfaKSys/main/permissions.py:12
 msgid "main.permissions.manage_categories"
 msgstr "Kategorien verwalten"
 
-#: PfaKSys/admin/forms.py:66 PfaKSys/main/permissions.py:13
+#: PfaKSys/admin/forms.py:70 PfaKSys/main/permissions.py:13
 msgid "main.permissions.manage_locations"
 msgstr "Lagerorte verwalten"
 
-#: PfaKSys/admin/forms.py:75
+#: PfaKSys/admin/forms.py:79
 msgid "validation_error.group_name_already_taken"
 msgstr "Dieser Benutzergruppenname existiert bereits. Bitte wähle einen anderen."
 
-#: PfaKSys/admin/routes.py:40
+#: PfaKSys/admin/routes.py:42
 msgid "flash.success.admin.user_group_created"
 msgstr "Die Benutzergruppe \"%(group_name)s\" wurde erfolgreich erstellt."
 
-#: PfaKSys/admin/routes.py:43
+#: PfaKSys/admin/routes.py:45
 msgid "page.admin.user_group.title"
 msgstr "Benutzergruppe"
 
-#: PfaKSys/admin/routes.py:64
+#: PfaKSys/admin/routes.py:66
 msgid "flash.success.admin.account_deleted"
 msgstr "Der Account von \"%(username)s\" wurde erfolgreich gelöscht."
 
-#: PfaKSys/admin/routes.py:75
+#: PfaKSys/admin/routes.py:78
 msgid "flash.warning.admin.cant_delete_admin_group"
 msgstr "Die Admin-Gruppe kann nicht gelöscht werden!"
 
-#: PfaKSys/admin/routes.py:82
+#: PfaKSys/admin/routes.py:85
 msgid "flash.success.admin.user_group_deleted"
 msgstr "Die Benutzergruppe \"%(group_name)s\" wurde erfolgreich gelöscht."
 
-#: PfaKSys/admin/routes.py:122
+#: PfaKSys/admin/routes.py:125
 msgid "flash.success.account_update_admin"
 msgstr ""
 "Die Änderungen am Account von \"%(username)s\" und den Benutzergruppen "
 "wurden erfolgreich gespeichert."
 
-#: PfaKSys/admin/routes.py:133
+#: PfaKSys/admin/routes.py:136
 msgid "page.admin.edit_user.title"
 msgstr "Benutzerdaten von %(username)s"
 
-#: PfaKSys/admin/routes.py:159
+#: PfaKSys/admin/routes.py:168
 msgid "flash.success.admin.user_group_edited"
 msgstr "Die Benutzergruppe \"%(group_name)s\" wurde erfolgreich bearbeitet."
 
-#: PfaKSys/admin/routes.py:168
+#: PfaKSys/admin/routes.py:177
 msgid "page.admin.edit_user_group.title"
 msgstr "Benutzergruppe %(group_name)s"
 
-#: PfaKSys/admin/routes.py:181
+#: PfaKSys/admin/routes.py:194
 msgid "flash.success.system_settings.mail_saved"
 msgstr "Deine Email-Einstellungen wurden gespeichert."
 
-#: PfaKSys/admin/routes.py:190 PfaKSys/templates/admin/settings.html:4
+#: PfaKSys/admin/routes.py:202
+msgid "flash.success.system_settings.database_saved"
+msgstr "Deine Datenbank-Einstellungen wurden gespeichert."
+
+#: PfaKSys/admin/routes.py:213 PfaKSys/templates/admin/settings.html:4
 msgid "page.system_settings.title"
 msgstr "Systemeinstellungen"
 
-#: PfaKSys/admin/routes.py:225 PfaKSys/templates/admin/user_management.html:4
+#: PfaKSys/admin/routes.py:248 PfaKSys/templates/admin/user_management.html:4
 msgid "page.user_management.title"
 msgstr "Benutzerverwaltung"
 
-#: PfaKSys/error/handlers.py:10
+#: PfaKSys/error/handlers.py:12
 msgid "page.error_403.title"
 msgstr "Fehler 403"
 
-#: PfaKSys/error/handlers.py:15
+#: PfaKSys/error/handlers.py:18
 msgid "page.error_404.title"
 msgstr "Fehler 404"
 
-#: PfaKSys/error/handlers.py:20
+#: PfaKSys/error/handlers.py:24
 msgid "page.error_405.title"
 msgstr "Fehler 405"
 
-#: PfaKSys/error/handlers.py:25
+#: PfaKSys/error/handlers.py:30
 msgid "page.error_500.title"
 msgstr "Fehler 500"
 
@@ -264,76 +272,76 @@ msgstr "Unhygienisch"
 msgid "item.item_condition.other"
 msgstr "Sonstiges"
 
-#: PfaKSys/item/routes.py:30 PfaKSys/item/routes.py:318
+#: PfaKSys/item/routes.py:31 PfaKSys/item/routes.py:343
 msgid "flash.success.item_category.created"
 msgstr "Die Materialkategorie \"%(category_name)s\" wurde angelegt!"
 
-#: PfaKSys/item/routes.py:37 PfaKSys/templates/item/categories.html:4
+#: PfaKSys/item/routes.py:38 PfaKSys/templates/item/categories.html:4
 msgid "page.item_categories.title"
 msgstr "Alle Kategorien"
 
-#: PfaKSys/item/routes.py:38 PfaKSys/item/routes.py:254
-#: PfaKSys/item/routes.py:350
+#: PfaKSys/item/routes.py:39 PfaKSys/item/routes.py:278
+#: PfaKSys/item/routes.py:375
 msgid "ui.common.menu"
 msgstr "Menu"
 
-#: PfaKSys/item/routes.py:58
+#: PfaKSys/item/routes.py:60
 msgid "flash.success.item.deleted"
 msgstr "Das Material \"%(item_name)s\" wurde gelöscht!"
 
-#: PfaKSys/item/routes.py:70
+#: PfaKSys/item/routes.py:73
 msgid "flash.success.category.deleted"
 msgstr "Die Kategorie \"%(category_name)s\" wurde gelöscht!"
 
-#: PfaKSys/item/routes.py:96
+#: PfaKSys/item/routes.py:99
 msgid "flash.success.image_deleted"
 msgstr "Das Bild \"%(image_name)s\" wurde gelöscht!"
 
-#: PfaKSys/item/routes.py:109
+#: PfaKSys/item/routes.py:113
 msgid "flash.success.location.deleted"
 msgstr "Der Lagerort \"%(location_name)s\" wurde gelöscht!"
 
-#: PfaKSys/item/routes.py:151
+#: PfaKSys/item/routes.py:162
 msgid "flash.success.item.edited"
 msgstr "Das Material \"%(item_name)s\" wurde bearbeitet!"
 
-#: PfaKSys/item/routes.py:180
+#: PfaKSys/item/routes.py:197
 msgid "flash.success.category.edited"
 msgstr "Die Kategorie \"%(category_name)s\" wurde bearbeitet!"
 
-#: PfaKSys/item/routes.py:207
+#: PfaKSys/item/routes.py:224
 msgid "flash.success.item.image_added"
 msgstr "Das Bild \"%(image_name)s\" wurde gespeichert!"
 
-#: PfaKSys/item/routes.py:210
+#: PfaKSys/item/routes.py:227
 msgid "ui.common.images"
 msgstr "Bilder"
 
-#: PfaKSys/item/routes.py:226
+#: PfaKSys/item/routes.py:249
 msgid "flash.success.location.edited"
 msgstr "Der Lagerort \"%(location_name)s\" wurde bearbeitet!"
 
-#: PfaKSys/item/routes.py:246 PfaKSys/item/routes.py:327
+#: PfaKSys/item/routes.py:270 PfaKSys/item/routes.py:352
 msgid "flash.success.item_location.created"
 msgstr "Der Lagerort \"%(location_name)s\" wurde angelegt!"
 
-#: PfaKSys/item/routes.py:253 PfaKSys/templates/item/locations.html:4
+#: PfaKSys/item/routes.py:277 PfaKSys/templates/item/locations.html:4
 msgid "page.item_locations.title"
 msgstr "Alle Lagerorte"
 
-#: PfaKSys/item/routes.py:280
+#: PfaKSys/item/routes.py:305
 msgid "flash.success.item.created"
 msgstr "Das Material \"%(item_name)s\" wurde angelegt!"
 
-#: PfaKSys/item/routes.py:283 PfaKSys/templates/item/new.html:9
+#: PfaKSys/item/routes.py:308 PfaKSys/templates/item/new.html:9
 msgid "page.item_new.title"
 msgstr "Neues Material"
 
-#: PfaKSys/item/routes.py:349
+#: PfaKSys/item/routes.py:374
 msgid "page.item_overview.title"
 msgstr "Materialübersicht"
 
-#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:184
+#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:189
 msgid "ui.common.about"
 msgstr "Info"
 
@@ -420,18 +428,23 @@ msgstr "Zurück"
 msgid "page.system_settings.mail"
 msgstr "Email"
 
-#: PfaKSys/templates/admin/settings.html:74
+#: PfaKSys/templates/admin/settings.html:16
+msgid "page.system_settings.database"
+msgstr "Datenbank"
+
+#: PfaKSys/templates/admin/settings.html:79
+#: PfaKSys/templates/admin/settings.html:112
 msgid "ui.common.help"
 msgstr "Hilfe"
 
-#: PfaKSys/templates/admin/settings.html:74
+#: PfaKSys/templates/admin/settings.html:79
 msgid "page.system_settings.mail_sender_help"
 msgstr ""
 "Das ist die Mail-Adresse, die als Sender bei Mails von PfaKSys stehen "
 "wird, z.B. wenn ein Benutzer sein Passwort zurücksetzt.<br>Du kannst zum "
 "Beispiel etwas wie <i>no-reply@xyz.de</i> eintragen."
 
-#: PfaKSys/templates/admin/settings.html:91
+#: PfaKSys/templates/admin/settings.html:96
 msgid "page.system_settings.mail_credentials_info"
 msgstr ""
 "<h4 class='alert-heading'>Achtung!</h4><p>Benutzername und Passwort für "
@@ -439,6 +452,10 @@ msgstr ""
 "gespeichert. Wie du diese einrichtest, kannst du <a target='_blank' "
 "href='https://github.com/Nuhser/PfaKSys/wiki' class='alert-link'>hier</a>"
 " nachlesen.</p>"
+
+#: PfaKSys/templates/admin/settings.html:112
+msgid "page.system_settings.database_backup_quantity_help"
+msgstr "Das ist die Anzahl der Datenbank-Backups, welche gleichzeitig gespeichert sein sollen. Soll ein weiteres Backup gespeichert werden, wird die älteste Sicherung gelöscht."
 
 #: PfaKSys/templates/admin/user_group.html:9
 #: PfaKSys/templates/item/details.html:80 PfaKSys/templates/item/edit.html:28
