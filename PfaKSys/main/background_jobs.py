@@ -12,7 +12,7 @@ from PfaKSys.models import SystemSettings
 def database_backup():
     """
     This background job saves a backup of the database to the backups-folder every night at 4 o'clock and when PfaKSys is closed.
-    It keeps the current backup plus as many backups as `database_backup_quantity` in the system settings says.
+    It keeps the current backup plus as many backups as `database['BACKUP_QUANTITY']` in the system settings says.
     """
 
     backup_path = os.path.join(scheduler.app.root_path, 'backups/db')
@@ -24,7 +24,7 @@ def database_backup():
     # get max backups to keep from db
     with scheduler.app.app_context():
         system_settings = SystemSettings.query.first()
-        backup_quantity = system_settings.database_backup_quantity
+        backup_quantity = system_settings.database['BACKUP_QUANTITY']
 
     # delete backups if there are to many
     backup_list = [os.path.join(backup_path, name) for name in os.listdir(backup_path) if os.path.isfile(os.path.join(backup_path, name))]
