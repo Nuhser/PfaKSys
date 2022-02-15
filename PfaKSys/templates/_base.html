@@ -147,12 +147,13 @@
 
         <main role="main" class="container">
             <div class="row">
-                <!-- Main Content -->
+                <!-- Main Body -->
                 <div {% if sidebar %}class="col-md-8"{% else %}class="col-md-12"{% endif %}>
+                    <!-- Flash Messages -->
                     {% with messages = get_flashed_messages(with_categories=true) %}
                         {% if messages %}
                             {% for category, message in messages %}
-                                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                <div class="alert alert-{{ category }} alert-dismissible alert-auto-fade fade show" role="alert">
                                     {{ message }}
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -162,6 +163,7 @@
                         {% endif %}
                     {% endwith %}
 
+                    <!-- Content -->
                     {% block content %}{% endblock %}
                 </div>
 
@@ -217,7 +219,7 @@
         <!-- Fade out Alerts after 10 seconds-->
         <script type="text/javascript">
             window.setTimeout(function() {
-                $(".alert").alert('close');
+                $(".alert-auto-fade").alert('close');
             }, 10000);
         </script>
 
