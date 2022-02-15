@@ -1,5 +1,6 @@
 alembic==1.7.5
 APScheduler==3.8.1
+email_validator
 Flask==2.0.2
 Flask_APScheduler==1.12.3
 Flask_Babel==2.0.0
