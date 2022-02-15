@@ -62,7 +62,7 @@ class ItemLocation(db.Model):
 class SystemSettings(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     calendar = db.Column(db.JSON, nullable=False, default={'CALENDAR_LINK': None, 'CALENDAR_CATEGORIES': [], 'CALENDAR_SYNC_INTERVALL': 5})
-    database = db.Column(db.JSON, nullable=False, default={'BACKUP_QUANTITY': 2})
+    database = db.Column(db.JSON, nullable=False, default={'BACKUP_QUANTITY': 3})
     mail = db.Column(db.JSON, nullable=False, default={'MAIL_SERVER': None, 'MAIL_PORT': 587, 'MAIL_USE_TLS': True, 'MAIL_SENDER': None})
 
     def __repr__(self) -> str:

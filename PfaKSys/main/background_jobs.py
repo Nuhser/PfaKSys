@@ -28,7 +28,7 @@ def database_backup():
 
     # delete backups if there are to many
     backup_list = [os.path.join(backup_path, name) for name in os.listdir(backup_path) if os.path.isfile(os.path.join(backup_path, name))]
-    while len(backup_list) > backup_quantity:
+    while len(backup_list) >= backup_quantity:
         oldest_backup = backup_list.pop(backup_list.index(min(backup_list, key=os.path.getctime)))
         os.remove(oldest_backup)
 
