@@ -455,7 +455,7 @@ msgstr ""
 
 #: PfaKSys/templates/admin/settings.html:112
 msgid "page.system_settings.database_backup_quantity_help"
-msgstr "Das ist die Anzahl der Datenbank-Backups, welche gleichzeitig gespeichert sein sollen. Soll ein weiteres Backup gespeichert werden, wird die älteste Sicherung gelöscht."
+msgstr "Das ist die Anzahl der Datenbank-Backups, welche <b>gleichzeitig</b> gespeichert sein sollen. Soll ein weiteres Backup gespeichert werden, wird die älteste Sicherung gelöscht.<br>Mehr Informationen zum Datenbank-Backup findest du in der <i>PfaKSys-Dokumentation</i>."
 
 #: PfaKSys/templates/admin/user_group.html:9
 #: PfaKSys/templates/item/details.html:80 PfaKSys/templates/item/edit.html:28

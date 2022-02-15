@@ -453,7 +453,7 @@ msgstr ""
 
 #: PfaKSys/templates/admin/settings.html:112
 msgid "page.system_settings.database_backup_quantity_help"
-msgstr "This is the number of database backups which should be kept simultaneously. If a new backup is being saved the oldest one is getting deleted."
+msgstr "This is the number of database backups which should be kept <b>simultaneously</b>. If a new backup is being saved the oldest one is getting deleted.<br>You can find more informations on the database backup in the <i>PfaKSys-documentations</i>."
 
 #: PfaKSys/templates/admin/user_group.html:9
 #: PfaKSys/templates/item/details.html:80 PfaKSys/templates/item/edit.html:28
