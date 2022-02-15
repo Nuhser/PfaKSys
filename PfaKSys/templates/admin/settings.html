@@ -11,12 +11,17 @@
                     {{ _('page.system_settings.mail') }}
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link pfaksys-link" data-toggle="tab" href="#tab-database">
+                    {{ _('page.system_settings.database') }}
+                </a>
+            </li>
         </ul>
 
         <!-- Tab Contents -->
         <div class="tab-content">
             <!-- Mail Settings -->
-            <form class="tab-pane active" id="tab-mail"  action="" method="POST">
+            <form class="tab-pane active" id="tab-mail" action="" method="POST">
                 {{ mail_form.hidden_tag() }}
 
                 <div class="form-group">
@@ -95,6 +100,35 @@
                     {{ mail_form.submit(class="btn btn-success mt-2") }}
                 </div>
             </form>
+
+
+            <!-- Database Settings -->
+            <form class="tab-pane" id="tab-database" action="" method="POST">
+                {{ database_form.hidden_tag() }}
+
+                <div class="form-group">
+                    {{ database_form.database_backup_quantity.label(class="form-control-label") }}
+
+                    <a tabindex="0" class="pfaksys-link" data-toggle="popover" data-trigger="hover" data-html=true title="{{ _('ui.common.help') }}" data-content="{{ _('page.system_settings.database_backup_quantity_help') }}">
+                        <span class="material-icons">help_outline</span>
+                    </a>
+
+                    {% if database_form.database_backup_quantity.errors %}
+                        {{ database_form.database_backup_quantity(class="form-control is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in database_form.database_backup_quantity.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ database_form.database_backup_quantity(class="form-control") }}
+                    {% endif %}
+                </div>
+
+                <div class="border-top form-group mt-4">
+                    {{ database_form.submit(class="btn btn-success mt-2") }}
+                </div>
+            </form>
         </div>
     </div>
 {% endblock %}
@@ -103,10 +137,4 @@
 {% endblock %}
 
 {% block scripts %}
-    <script type="text/javascript">
-        // initialize popovers
-        $(function () {
-            $('[data-toggle="popover"]').popover()
-        })
-    </script>
 {% endblock %}

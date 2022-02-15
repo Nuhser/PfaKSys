@@ -6,10 +6,10 @@ from flask_login import current_user, login_required
 from sqlalchemy import or_
 
 from PfaKSys import db
-from PfaKSys.admin.forms import edit_account_form_builder, MailSettingsForm, SearchUserForm, SearchUserGroupForm, UserGroupForm
-from PfaKSys.admin.utils import save_mail_settings
+from PfaKSys.admin.forms import DatabaseSettingsForm, edit_account_form_builder, MailSettingsForm, SearchUserForm, SearchUserGroupForm, UserGroupForm
+from PfaKSys.admin.utils import save_database_settings, save_mail_settings
 from PfaKSys.main.permissions import admin_required, Permission
-from PfaKSys.models import User, UserGroup
+from PfaKSys.models import SystemSettings, User, UserGroup
 from PfaKSys.user.utils import save_picture
 
 
@@ -181,23 +181,36 @@ def edit_user_group(group_id):
 @login_required
 @admin_required
 def settings():
+    system_settings = SystemSettings.query.first()
+
+    database_form = DatabaseSettingsForm()
     mail_form = MailSettingsForm()
 
     if 'use_tls' in request.form:
         if mail_form.validate_on_submit():
             save_mail_settings(mail_form)
 
-            current_app.logger.info(f'{current_user.username} edited the system settings.')
+            current_app.logger.info(f'{current_user.username} edited the system settings (mail).')
             flash(gettext('flash.success.system_settings.mail_saved'), 'success')
             return redirect(url_for('admin.settings'))
 
+    elif 'database_backup_quantity' in request.form:
+        if database_form.validate_on_submit():
+            save_database_settings(database_form)
+
+            current_app.logger.info(f'{current_user.username} edited the system settings (database).')
+            flash(gettext('flash.success.system_settings.database_saved'), 'success')
+            return redirect(url_for('admin.settings'))
+
     elif request.method == 'GET':
+        database_form.database_backup_quantity.data = system_settings.database['BACKUP_QUANTITY']
+
         mail_form.server.data = current_app.config['MAIL_SERVER'] if 'MAIL_SERVER' in current_app.config else None
         mail_form.port.data = current_app.config['MAIL_PORT'] if 'MAIL_PORT' in current_app.config else None
         mail_form.use_tls.data = current_app.config['MAIL_USE_TLS'] if 'MAIL_USE_TLS' in current_app.config else None
         mail_form.sender.data = current_app.config['MAIL_SENDER'] if 'MAIL_SENDER' in current_app.config else None
 
-    return render_template('admin/settings.html', title=gettext('page.system_settings.title'), mail_form=mail_form)
+    return render_template('admin/settings.html', title=gettext('page.system_settings.title'), database_form=database_form, mail_form=mail_form)
 
 
 @admin_blueprint.route('/admin/user_management', methods=['GET', 'POST'])

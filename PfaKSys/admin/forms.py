@@ -2,9 +2,14 @@ from flask_babel import lazy_gettext
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed, FileField
 from wtforms import BooleanField, IntegerField, StringField, SubmitField
-from wtforms.validators import DataRequired, Email, Length, ValidationError
+from wtforms.validators import DataRequired, Email, Length, NumberRange, ValidationError
 
 from PfaKSys.models import User, UserGroup
+
+
+class DatabaseSettingsForm(FlaskForm):
+    database_backup_quantity = IntegerField(lazy_gettext('ui.system_settings.database_backup_quantity'), validators=[DataRequired(), NumberRange(min=1, max=14)])    
+    submit = SubmitField(lazy_gettext('ui.common.save'))
 
 
 class EditAccountFormBase(FlaskForm):
