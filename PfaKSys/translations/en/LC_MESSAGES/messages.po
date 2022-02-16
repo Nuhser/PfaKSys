@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-02-16 08:51+0100\n"
+"POT-Creation-Date: 2022-02-16 11:24+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -392,7 +392,7 @@ msgstr "System Settings"
 msgid "ui.common.user_management"
 msgstr "User Management"
 
-#: PfaKSys/templates/_base.html:109 PfaKSys/user/routes.py:48
+#: PfaKSys/templates/_base.html:109 PfaKSys/user/routes.py:49
 msgid "ui.common.account"
 msgstr "Account"
 
@@ -401,12 +401,12 @@ msgid "ui.common.logout"
 msgstr "Logout"
 
 #: PfaKSys/templates/_base.html:138 PfaKSys/templates/user/login.html:9
-#: PfaKSys/user/forms.py:17 PfaKSys/user/routes.py:93
+#: PfaKSys/user/forms.py:17 PfaKSys/user/routes.py:94
 msgid "ui.common.login"
 msgstr "Login"
 
 #: PfaKSys/templates/_base.html:140 PfaKSys/user/forms.py:27
-#: PfaKSys/user/routes.py:155
+#: PfaKSys/user/routes.py:161
 msgid "ui.common.sign_up"
 msgstr "Sign Up"
 
@@ -689,12 +689,12 @@ msgid "ui.register.login"
 msgstr "Sign in here."
 
 #: PfaKSys/templates/user/request_reset.html:9
-#: PfaKSys/templates/user/reset_password.html:9 PfaKSys/user/routes.py:178
-#: PfaKSys/user/routes.py:203
+#: PfaKSys/templates/user/reset_password.html:9 PfaKSys/user/routes.py:184
+#: PfaKSys/user/routes.py:209
 msgid "page.reset_password.title"
 msgstr "Reset Password"
 
-#: PfaKSys/templates/user/settings.html:4 PfaKSys/user/routes.py:225
+#: PfaKSys/templates/user/settings.html:4 PfaKSys/user/routes.py:231
 msgid "page.user_settings.title"
 msgstr "User Settings"
 
@@ -762,41 +762,49 @@ msgstr "Update"
 msgid "ui.common.language"
 msgstr "Language"
 
-#: PfaKSys/user/routes.py:40
+#: PfaKSys/user/routes.py:41
 msgid "flash.success.account_update"
 msgstr "Your account has been updated."
 
-#: PfaKSys/user/routes.py:69
+#: PfaKSys/user/routes.py:70
 msgid "flash.success.delete_account"
 msgstr "You have successfully deleted your account."
 
-#: PfaKSys/user/routes.py:91
+#: PfaKSys/user/routes.py:92
 msgid "flash.danger.login_failed"
 msgstr "Login unsuccessful. Please check username or password!"
 
-#: PfaKSys/user/routes.py:103
+#: PfaKSys/user/routes.py:104
 msgid "flash.success.logout"
 msgstr "You have successfully logged out."
 
-#: PfaKSys/user/routes.py:152
+#: PfaKSys/user/routes.py:154
+msgid "mail.new_user_admin.subject"
+msgstr "PfaKSys Admin-Notification: New User \"%(username)s\""
+
+#: PfaKSys/user/routes.py:155
+msgid "mail.new_user_admin.body"
+msgstr "A new user has registered on your PfaKSys-server. The user details are:\n\n\tUsername: %(username)s\n\tFull Name: %(full_name)s\n\tEmail Address: %(email)s\n\nLink to user management: %(link)s\n\n\nThis is an automaticaly generated mail. You don't need to respond to it."
+
+#: PfaKSys/user/routes.py:158
 msgid "flash.success.account_created"
 msgstr "Your account has been created! You are now able to log in."
 
-#: PfaKSys/user/routes.py:175
+#: PfaKSys/user/routes.py:181
 msgid "flash.info.reset_email_send"
 msgstr ""
 "An email has been send with instructions to reset your password.\n"
 "(Check your spam folder if the email doesn't appear.)"
 
-#: PfaKSys/user/routes.py:189
+#: PfaKSys/user/routes.py:195
 msgid "flash.warning.reset_token_expired_or_invalid"
 msgstr "This link is either invalid or has expired."
 
-#: PfaKSys/user/routes.py:200
+#: PfaKSys/user/routes.py:206
 msgid "flash.success.password_reset"
 msgstr "Your password has been updated! You are now able to log in."
 
-#: PfaKSys/user/routes.py:218
+#: PfaKSys/user/routes.py:224
 msgid "flash.success.user_settings_saved"
 msgstr "Your settings have been saved."
 
@@ -804,12 +812,12 @@ msgstr "Your settings have been saved."
 msgid "mail.reset_password.subject"
 msgstr "Your PfaKSys-Password Reset Request"
 
-#: PfaKSys/user/utils.py:48
+#: PfaKSys/user/utils.py:44
 msgid "mail.reset_password.body"
 msgstr ""
 "To reset your password, visit the following link:\n"
 "%(link)s\n"
 "This link is valid for 30 minutes.\n"
 "\n"
-"If you did not make this request then simply ignore this email."
+"If you did not make this request then simply ignore this email.\n\n\nThis is an automaticaly generated mail. You don't need to respond to it."
 
