@@ -186,7 +186,7 @@ def settings():
     database_form = DatabaseSettingsForm()
     mail_form = MailSettingsForm()
 
-    if 'use_tls' in request.form:
+    if 'mail_sender' in request.form:
         if mail_form.validate_on_submit():
             save_mail_settings(mail_form)
 
