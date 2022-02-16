@@ -16,6 +16,11 @@
                     {{ _('page.system_settings.database') }}
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link pfaksys-link" data-toggle="tab" href="#tab-notifications">
+                    {{ _('page.system_settings.notifications') }}
+                </a>
+            </li>
         </ul>
 
         <!-- Tab Contents -->
@@ -146,6 +151,41 @@
 
                 <div class="border-top form-group mt-4">
                     {{ database_form.submit(class="btn btn-success mt-2") }}
+                </div>
+            </form>
+
+
+            <!-- Notification Settings -->
+            <form class="tab-pane" id="tab-notifications" action="" method="POST">
+                {{ notifications_form.hidden_tag() }}
+
+                <fieldset class="mb-4">
+                    <legend class="border-bottom mb-3">{{ _('ui.system_settings.email_notifications') }}</legend>
+
+                    <p><b><i>{{ _('ui.system_settings.notifications_intro') }}</i></b></p>
+
+                    <div class="form-group row">
+                        {{ notifications_form.new_user.label(class="col-sm-4") }}
+
+                        <div class="col-sm-8">
+                            <div class="form-check">
+                                {% if notifications_form.new_user.errors %}
+                                    {{ notifications_form.new_user(class="form-check-input is-invalid")}}
+                                    <div class="invalid-feedback">
+                                        {% for error in notifications_form.new_user.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ notifications_form.new_user(class="form-check-input") }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="border-top form-group">
+                    {{ notifications_form.submit_notification_settings(class="btn btn-success mt-2") }}
                 </div>
             </form>
         </div>

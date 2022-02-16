@@ -1,7 +1,7 @@
 from flask import current_app
 
 from PfaKSys import db, mail
-from PfaKSys.admin.forms import DatabaseSettingsForm, MailSettingsForm
+from PfaKSys.admin.forms import DatabaseSettingsForm, MailSettingsForm, NotificationSettingsForm
 from PfaKSys.main.utils import get_system_settings
 
 
@@ -28,3 +28,10 @@ def save_mail_settings(form: MailSettingsForm) -> None:
         current_app.config[key] = system_settings.mail[key]
 
     mail.init_app(current_app)
+
+
+def save_notification_settings(form: NotificationSettingsForm) -> None:
+    get_system_settings().notifications = {
+        'NEW_USER': form.new_user.data
+    }
+    db.session.commit()

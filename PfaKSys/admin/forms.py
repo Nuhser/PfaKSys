@@ -53,6 +53,11 @@ class MailSettingsForm(FlaskForm):
     submit = SubmitField(lazy_gettext('ui.common.save'))
 
 
+class NotificationSettingsForm(FlaskForm):
+    new_user = BooleanField(lazy_gettext('ui.system_settings.notification_new_user'), default=True)
+    submit_notification_settings = SubmitField(lazy_gettext('ui.common.save'))
+
+
 class SearchUserForm(FlaskForm):
     username = StringField(lazy_gettext('ui.common.username'))
     submit = SubmitField(lazy_gettext('ui.common.search'))

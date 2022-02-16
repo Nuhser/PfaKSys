@@ -6,8 +6,8 @@ from flask_login import current_user, login_required
 from sqlalchemy import or_
 
 from PfaKSys import db
-from PfaKSys.admin.forms import DatabaseSettingsForm, edit_account_form_builder, MailSettingsForm, SearchUserForm, SearchUserGroupForm, UserGroupForm
-from PfaKSys.admin.utils import save_database_settings, save_mail_settings
+from PfaKSys.admin.forms import DatabaseSettingsForm, edit_account_form_builder, MailSettingsForm, NotificationSettingsForm, SearchUserForm, SearchUserGroupForm, UserGroupForm
+from PfaKSys.admin.utils import save_database_settings, save_mail_settings, save_notification_settings
 from PfaKSys.main.permissions import admin_required, Permission
 from PfaKSys.main.utils import get_system_settings
 from PfaKSys.models import User, UserGroup
@@ -186,6 +186,7 @@ def settings():
 
     database_form = DatabaseSettingsForm()
     mail_form = MailSettingsForm()
+    notifications_form = NotificationSettingsForm()
 
     if 'mail_sender' in request.form:
         if mail_form.validate_on_submit():
@@ -203,6 +204,14 @@ def settings():
             flash(gettext('flash.success.system_settings.database_saved'), 'success')
             return redirect(url_for('admin.settings'))
 
+    elif 'submit_notification_settings' in request.form:
+        if notifications_form.validate_on_submit():
+            save_notification_settings(notifications_form)
+
+            current_app.logger.info(f'{current_user.username} edited the system settings (notifications).')
+            flash(gettext('flash.success.system_settings.notifications_saved'), 'success')
+            return redirect(url_for('admin.settings'))
+
     elif request.method == 'GET':
         database_form.database_backup_quantity.data = system_settings.database['BACKUP_QUANTITY']
 
@@ -212,7 +221,15 @@ def settings():
         mail_form.use_ssl.data = current_app.config['MAIL_USE_SSL'] if 'MAIL_USE_SSL' in current_app.config else None
         mail_form.mail_sender.data = current_app.config['MAIL_SENDER'] if 'MAIL_SENDER' in current_app.config else None
 
-    return render_template('admin/settings.html', title=gettext('page.system_settings.title'), database_form=database_form, mail_form=mail_form)
+        notifications_form.new_user.data = system_settings.notifications["NEW_USER"]
+
+    return render_template(
+        'admin/settings.html',
+        title=gettext('page.system_settings.title'),
+        database_form=database_form,
+        mail_form=mail_form,
+        notifications_form=notifications_form
+    )
 
 
 @admin_blueprint.route('/admin/user_management', methods=['GET', 'POST'])
