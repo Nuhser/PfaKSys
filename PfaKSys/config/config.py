@@ -28,7 +28,7 @@ class Config():
     PORT = 5000
     SCHEDULER_JOBSTORES = {'sqlalchemy': SQLAlchemyJobStore(url='sqlite:///PfaKSys/db.sqlite')}
     SECRET_KEY = os.environ.get('PFAKSYS_SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = os.environ.get('PFAKSYS_SQLALCHEMY_DATABASE_URI')
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///db.sqlite'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     USE_RELOADER = False
 
