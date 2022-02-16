@@ -1,8 +1,7 @@
 from flask import current_app
 
-from PfaKSys import db, mail, scheduler
+from PfaKSys import db, mail
 from PfaKSys.admin.forms import DatabaseSettingsForm, MailSettingsForm
-from PfaKSys.main.background_jobs import database_backup
 from PfaKSys.models import SystemSettings
 
 
