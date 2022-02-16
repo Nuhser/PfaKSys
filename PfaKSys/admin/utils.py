@@ -2,11 +2,11 @@ from flask import current_app
 
 from PfaKSys import db, mail
 from PfaKSys.admin.forms import DatabaseSettingsForm, MailSettingsForm
-from PfaKSys.models import SystemSettings
+from PfaKSys.main.utils import get_system_settings
 
 
 def save_database_settings(form: DatabaseSettingsForm) -> None:
-    system_settings = SystemSettings.query.first()
+    system_settings = get_system_settings()
     system_settings.database = {
         'BACKUP_QUANTITY': form.database_backup_quantity.data
     }
@@ -14,7 +14,7 @@ def save_database_settings(form: DatabaseSettingsForm) -> None:
 
 
 def save_mail_settings(form: MailSettingsForm) -> None:
-    system_settings = SystemSettings.query.first()
+    system_settings = get_system_settings()
     system_settings.mail = {
         'MAIL_SERVER': form.server.data,
         'MAIL_PORT': form.port.data,

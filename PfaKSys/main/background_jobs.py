@@ -5,7 +5,7 @@ import shutil
 from datetime import datetime
 
 from PfaKSys import scheduler
-from PfaKSys.models import SystemSettings
+from PfaKSys.main.utils import get_system_settings
 
 
 @scheduler.task('cron', id='database_backup', name='Database Backup', hour='4')
@@ -23,7 +23,7 @@ def database_backup():
 
     # get max backups to keep from db
     with scheduler.app.app_context():
-        system_settings = SystemSettings.query.first()
+        system_settings = get_system_settings()
         backup_quantity = system_settings.database['BACKUP_QUANTITY']
 
     # delete backups if there are to many

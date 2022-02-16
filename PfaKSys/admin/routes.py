@@ -9,7 +9,8 @@ from PfaKSys import db
 from PfaKSys.admin.forms import DatabaseSettingsForm, edit_account_form_builder, MailSettingsForm, SearchUserForm, SearchUserGroupForm, UserGroupForm
 from PfaKSys.admin.utils import save_database_settings, save_mail_settings
 from PfaKSys.main.permissions import admin_required, Permission
-from PfaKSys.models import SystemSettings, User, UserGroup
+from PfaKSys.main.utils import get_system_settings
+from PfaKSys.models import User, UserGroup
 from PfaKSys.user.utils import save_picture
 
 
@@ -181,7 +182,7 @@ def edit_user_group(group_id):
 @login_required
 @admin_required
 def settings():
-    system_settings = SystemSettings.query.first()
+    system_settings = get_system_settings()
 
     database_form = DatabaseSettingsForm()
     mail_form = MailSettingsForm()
