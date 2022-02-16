@@ -19,7 +19,8 @@ def save_mail_settings(form: MailSettingsForm) -> None:
         'MAIL_SERVER': form.server.data,
         'MAIL_PORT': form.port.data,
         'MAIL_USE_TLS': form.use_tls.data,
-        'MAIL_SENDER': form.sender.data
+        'MAIL_USE_SSL': form.use_ssl.data,
+        'MAIL_SENDER': form.mail_sender.data
     }
     db.session.commit()
 

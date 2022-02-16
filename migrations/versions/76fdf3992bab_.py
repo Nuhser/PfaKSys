@@ -28,7 +28,7 @@ def upgrade():
     
     op.execute(
         system_settings.insert().values(
-            mail={'MAIL_SERVER': None, 'MAIL_PORT': 587, 'MAIL_USE_TLS': True},
+            mail={'MAIL_SERVER': None, 'MAIL_PORT': 587, 'MAIL_USE_TLS': True, 'MAIL_USE_SSL': True, 'MAIL_SENDER': None},
             calendar={'CALENDAR_LINK': None, 'CALENDAR_CATEGORIES': [], 'CALENDAR_SYNC_INTERVALL': 5}
         )
     )

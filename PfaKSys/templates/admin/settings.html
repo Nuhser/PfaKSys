@@ -55,6 +55,25 @@
                 </div>
 
                 <div class="form-group row">
+                    {{ mail_form.use_ssl.label(class="col-sm-3") }}
+
+                    <div class="col-sm-9">
+                        <div class="form-check">
+                            {% if mail_form.use_ssl.errors %}
+                                {{ mail_form.use_ssl(class="form-check-input is-invalid")}}
+                                <div class="invalid-feedback">
+                                    {% for error in mail_form.use_ssl.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ mail_form.use_ssl(class="form-check-input") }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
                     {{ mail_form.use_tls.label(class="col-sm-3") }}
 
                     <div class="col-sm-9">
@@ -74,21 +93,21 @@
                 </div>
 
                 <div class="form-group">
-                    {{ mail_form.sender.label(class="form-control-label") }}
+                    {{ mail_form.mail_sender.label(class="form-control-label") }}
                     
                     <a tabindex="0" class="pfaksys-link" data-toggle="popover" data-trigger="hover" data-html=true title="{{ _('ui.common.help') }}" data-content="{{ _('page.system_settings.mail_sender_help') }}">
                         <span class="material-icons">help_outline</span>
                     </a>
 
-                    {% if mail_form.sender.errors %}
-                        {{ mail_form.sender(class="form-control is-invalid")}}
+                    {% if mail_form.mail_sender.errors %}
+                        {{ mail_form.mail_sender(class="form-control is-invalid")}}
                         <div class="invalid-feedback">
-                            {% for error in mail_form.sender.errors %}
+                            {% for error in mail_form.mail_sender.errors %}
                                 <span>{{ error }}</span>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ mail_form.sender(class="form-control") }}
+                        {{ mail_form.mail_sender(class="form-control") }}
                     {% endif %}
                 </div>
 
