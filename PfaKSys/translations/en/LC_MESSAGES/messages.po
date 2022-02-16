@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-02-15 16:01+0100\n"
+"POT-Creation-Date: 2022-02-16 08:51+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -71,6 +71,10 @@ msgid "ui.system_settings.mail_use_tls"
 msgstr "Use TLS-Connection"
 
 #: PfaKSys/admin/forms.py:51
+msgid "ui.system_settings.mail_use_ssl"
+msgstr "Use SSL-Connection"
+
+#: PfaKSys/admin/forms.py:52
 msgid "ui.system_settings.mail_sender"
 msgstr "Mail Sender Address"
 
@@ -144,11 +148,11 @@ msgstr "Your mail settings have been saved."
 msgid "flash.success.system_settings.database_saved"
 msgstr "Your database settings have been saved."
 
-#: PfaKSys/admin/routes.py:213 PfaKSys/templates/admin/settings.html:4
+#: PfaKSys/admin/routes.py:214 PfaKSys/templates/admin/settings.html:4
 msgid "page.system_settings.title"
 msgstr "System Settings"
 
-#: PfaKSys/admin/routes.py:248 PfaKSys/templates/admin/user_management.html:4
+#: PfaKSys/admin/routes.py:249 PfaKSys/templates/admin/user_management.html:4
 msgid "page.user_management.title"
 msgstr "User Management"
 
@@ -430,19 +434,19 @@ msgstr "Mail"
 msgid "page.system_settings.database"
 msgstr "Database"
 
-#: PfaKSys/templates/admin/settings.html:79
-#: PfaKSys/templates/admin/settings.html:112
+#: PfaKSys/templates/admin/settings.html:98
+#: PfaKSys/templates/admin/settings.html:131
 msgid "ui.common.help"
 msgstr "Help"
 
-#: PfaKSys/templates/admin/settings.html:79
+#: PfaKSys/templates/admin/settings.html:98
 msgid "page.system_settings.mail_sender_help"
 msgstr ""
 "This is the mail address that will show up as the sender when PfaKSys "
 "sends a mail, e.g. if someone resets his password.<br>You could enter "
 "something like <i>no-reply@xyz.de</i>."
 
-#: PfaKSys/templates/admin/settings.html:96
+#: PfaKSys/templates/admin/settings.html:115
 msgid "page.system_settings.mail_credentials_info"
 msgstr ""
 "<h4 class='alert-heading'>Warning!</h4><p>For security reasons username "
@@ -451,9 +455,13 @@ msgstr ""
 "href='https://github.com/Nuhser/PfaKSys/wiki' class='alert-"
 "link'>here</a>.</p>"
 
-#: PfaKSys/templates/admin/settings.html:112
+#: PfaKSys/templates/admin/settings.html:131
 msgid "page.system_settings.database_backup_quantity_help"
-msgstr "This is the number of database backups which should be kept <b>simultaneously</b>. If a new backup is being saved the oldest one is getting deleted.<br>You can find more informations on the database backup in the <i>PfaKSys-documentations</i>."
+msgstr ""
+"This is the number of database backups which should be kept "
+"<b>simultaneously</b>. If a new backup is being saved the oldest one is "
+"getting deleted.<br>You can find more informations on the database backup"
+" in the <i>PfaKSys-documentations</i>."
 
 #: PfaKSys/templates/admin/user_group.html:9
 #: PfaKSys/templates/item/details.html:80 PfaKSys/templates/item/edit.html:28

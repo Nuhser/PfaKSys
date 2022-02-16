@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-02-15 16:01+0100\n"
+"POT-Creation-Date: 2022-02-16 08:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,6 +70,10 @@ msgid "ui.system_settings.mail_use_tls"
 msgstr ""
 
 #: PfaKSys/admin/forms.py:51
+msgid "ui.system_settings.mail_use_ssl"
+msgstr ""
+
+#: PfaKSys/admin/forms.py:52
 msgid "ui.system_settings.mail_sender"
 msgstr ""
 
@@ -141,11 +145,11 @@ msgstr ""
 msgid "flash.success.system_settings.database_saved"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:213 PfaKSys/templates/admin/settings.html:4
+#: PfaKSys/admin/routes.py:214 PfaKSys/templates/admin/settings.html:4
 msgid "page.system_settings.title"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:248 PfaKSys/templates/admin/user_management.html:4
+#: PfaKSys/admin/routes.py:249 PfaKSys/templates/admin/user_management.html:4
 msgid "page.user_management.title"
 msgstr ""
 
@@ -427,20 +431,20 @@ msgstr ""
 msgid "page.system_settings.database"
 msgstr ""
 
-#: PfaKSys/templates/admin/settings.html:79
-#: PfaKSys/templates/admin/settings.html:112
+#: PfaKSys/templates/admin/settings.html:98
+#: PfaKSys/templates/admin/settings.html:131
 msgid "ui.common.help"
 msgstr ""
 
-#: PfaKSys/templates/admin/settings.html:79
+#: PfaKSys/templates/admin/settings.html:98
 msgid "page.system_settings.mail_sender_help"
 msgstr ""
 
-#: PfaKSys/templates/admin/settings.html:96
+#: PfaKSys/templates/admin/settings.html:115
 msgid "page.system_settings.mail_credentials_info"
 msgstr ""
 
-#: PfaKSys/templates/admin/settings.html:112
+#: PfaKSys/templates/admin/settings.html:131
 msgid "page.system_settings.database_backup_quantity_help"
 msgstr ""
 
