@@ -50,7 +50,6 @@ def create_app(config=ProductionConfig):
     bcrypt.init_app(app)
     db.init_app(app)
     login_manager.init_app(app)
-    mail.init_app(app)
     scheduler.init_app(app)
 
     # create database if not existing
@@ -78,6 +77,9 @@ def create_app(config=ProductionConfig):
             app.config[key] = system_settings.mail[key]
         for key in system_settings.calendar:
             app.config[key] = system_settings.calendar[key]
+
+    # init mail extension
+    mail.init_app(app)
 
     # schedule background jobs
     import PfaKSys.main.background_jobs
