@@ -5,6 +5,7 @@ from flask_babel import gettext
 from flask_login import current_user, login_required, login_user, logout_user
 
 from PfaKSys import bcrypt, db
+from PfaKSys.main.email import send_email_to_all_admins
 from PfaKSys.models import User, UserGroup, UserSettings
 from PfaKSys.user.forms import LoginForm, RegistrationForm, RequestResetForm, ResetPasswordForm, UpdateAccountForm, UserSettingsForm
 from PfaKSys.user.utils import generate_and_save_gravatar, save_picture, send_reset_email
@@ -149,6 +150,11 @@ def register():
         db.session.commit()
 
         current_app.logger.info(f'New user {user.username} was created successfully.')
+        send_email_to_all_admins(
+            subject=gettext('mail.new_user_admin.subject', username=user.username),
+            body=gettext('mail.new_user_admin.body', username=user.username, full_name=user.full_name, email=user.email, link=url_for('admin.edit_user', user_id=user.id, _external=True))
+        )
+
         flash(gettext('flash.success.account_created'), 'success')
         return redirect(url_for('user.login'))
 
