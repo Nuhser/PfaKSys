@@ -34,10 +34,12 @@ class Config():
 
 class ProductionConfig(Config):
     DEBUG = False
+    HOST = '0.0.0.0'
 
 class DevelopmentConfig(Config):
     DEBUG = True
     DEVELOPMENT = True
+    HOST = '127.0.0.1'
 
 
 def init_logging() -> None:
