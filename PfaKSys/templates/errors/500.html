@@ -5,7 +5,7 @@
         <h1>{{ _('page.error_500.heading') }}</h1>
         <p>{{ _('page.error_500.explanation') }}</p>
 
-        {% if debug_mode %}
+        {% if debug_mode or current_user.is_admin() %}
             <h3>Error Message</h3>
             <p>{{ error }}</p>
         {% endif %}
