@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-02-16 15:33+0100\n"
+"POT-Creation-Date: 2022-02-18 10:48+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -45,7 +45,7 @@ msgstr "Vollständiger Name"
 msgid "ui.common.email"
 msgstr "Email-Adresse"
 
-#: PfaKSys/admin/forms.py:19 PfaKSys/templates/_base.html:103
+#: PfaKSys/admin/forms.py:19 PfaKSys/templates/_base.html:105
 #: PfaKSys/templates/admin/user_management.html:45
 #: PfaKSys/templates/admin/user_management.html:70 PfaKSys/user/forms.py:79
 msgid "ui.account.profile_picture"
@@ -129,41 +129,41 @@ msgstr "Die Admin-Gruppe kann nicht gelöscht werden!"
 msgid "flash.success.admin.user_group_deleted"
 msgstr "Die Benutzergruppe \"%(group_name)s\" wurde erfolgreich gelöscht."
 
-#: PfaKSys/admin/routes.py:126
+#: PfaKSys/admin/routes.py:134
 msgid "flash.success.account_update_admin"
 msgstr ""
 "Die Änderungen am Account von \"%(username)s\" und den Benutzergruppen "
 "wurden erfolgreich gespeichert."
 
-#: PfaKSys/admin/routes.py:137
+#: PfaKSys/admin/routes.py:145
 msgid "page.admin.edit_user.title"
 msgstr "Benutzerdaten von %(username)s"
 
-#: PfaKSys/admin/routes.py:169
+#: PfaKSys/admin/routes.py:177
 msgid "flash.success.admin.user_group_edited"
 msgstr "Die Benutzergruppe \"%(group_name)s\" wurde erfolgreich bearbeitet."
 
-#: PfaKSys/admin/routes.py:178
+#: PfaKSys/admin/routes.py:186
 msgid "page.admin.edit_user_group.title"
 msgstr "Benutzergruppe %(group_name)s"
 
-#: PfaKSys/admin/routes.py:196
+#: PfaKSys/admin/routes.py:204
 msgid "flash.success.system_settings.mail_saved"
 msgstr "Deine Email-Einstellungen wurden gespeichert."
 
-#: PfaKSys/admin/routes.py:204
+#: PfaKSys/admin/routes.py:212
 msgid "flash.success.system_settings.database_saved"
 msgstr "Deine Datenbank-Einstellungen wurden gespeichert."
 
-#: PfaKSys/admin/routes.py:212
+#: PfaKSys/admin/routes.py:220
 msgid "flash.success.system_settings.notifications_saved"
 msgstr "Deine Benachrichtigungs-Einstellungen wurden gespeichert."
 
-#: PfaKSys/admin/routes.py:228 PfaKSys/templates/admin/settings.html:4
+#: PfaKSys/admin/routes.py:243 PfaKSys/templates/admin/settings.html:4
 msgid "page.system_settings.title"
 msgstr "Systemeinstellungen"
 
-#: PfaKSys/admin/routes.py:267 PfaKSys/templates/admin/user_management.html:4
+#: PfaKSys/admin/routes.py:283 PfaKSys/templates/admin/user_management.html:4
 msgid "page.user_management.title"
 msgstr "Benutzerverwaltung"
 
@@ -354,7 +354,7 @@ msgstr "Neues Material"
 msgid "page.item_overview.title"
 msgstr "Materialübersicht"
 
-#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:189
+#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:191
 msgid "ui.common.about"
 msgstr "Info"
 
@@ -363,60 +363,59 @@ msgid "page.home.title"
 msgstr "Startseite"
 
 #: PfaKSys/templates/_base.html:21 PfaKSys/templates/_base.html:23
-#: PfaKSys/templates/_base.html:31
 msgid "ui.common.app_title"
 msgstr "PfaKSys"
 
-#: PfaKSys/templates/_base.html:39
+#: PfaKSys/templates/_base.html:41
 msgid "ui.common.home"
 msgstr "Startseite"
 
-#: PfaKSys/templates/_base.html:42
+#: PfaKSys/templates/_base.html:44
 msgid "ui.item.overview"
 msgstr "Material"
 
-#: PfaKSys/templates/_base.html:45
+#: PfaKSys/templates/_base.html:47
 msgid "ui.item.categories"
 msgstr "Kategorien"
 
-#: PfaKSys/templates/_base.html:49
+#: PfaKSys/templates/_base.html:51
 msgid "ui.item.locations"
 msgstr "Lagerorte"
 
-#: PfaKSys/templates/_base.html:65 PfaKSys/templates/_base.html:129
+#: PfaKSys/templates/_base.html:67 PfaKSys/templates/_base.html:131
 msgid "ui.common.wiki"
 msgstr "Dokumentation"
 
-#: PfaKSys/templates/_base.html:69 PfaKSys/templates/_base.html:133
+#: PfaKSys/templates/_base.html:71 PfaKSys/templates/_base.html:135
 msgid "ui.common.forum"
 msgstr "Forum"
 
-#: PfaKSys/templates/_base.html:82
+#: PfaKSys/templates/_base.html:84
 msgid "ui.common.user_settings"
 msgstr "Benutzereinstellungen"
 
-#: PfaKSys/templates/_base.html:90
+#: PfaKSys/templates/_base.html:92
 msgid "ui.common.system_settings"
 msgstr "Systemeinstellungen"
 
-#: PfaKSys/templates/_base.html:95
+#: PfaKSys/templates/_base.html:97
 msgid "ui.common.user_management"
 msgstr "Benutzerverwaltung"
 
-#: PfaKSys/templates/_base.html:109 PfaKSys/user/routes.py:50
+#: PfaKSys/templates/_base.html:111 PfaKSys/user/routes.py:50
 msgid "ui.common.account"
 msgstr "Profil"
 
-#: PfaKSys/templates/_base.html:116
+#: PfaKSys/templates/_base.html:118
 msgid "ui.common.logout"
 msgstr "Abmelden"
 
-#: PfaKSys/templates/_base.html:138 PfaKSys/templates/user/login.html:9
+#: PfaKSys/templates/_base.html:140 PfaKSys/templates/user/login.html:9
 #: PfaKSys/user/forms.py:17 PfaKSys/user/routes.py:95
 msgid "ui.common.login"
 msgstr "Anmelden"
 
-#: PfaKSys/templates/_base.html:140 PfaKSys/user/forms.py:27
+#: PfaKSys/templates/_base.html:142 PfaKSys/user/forms.py:27
 #: PfaKSys/user/routes.py:163
 msgid "ui.common.sign_up"
 msgstr "Registrieren"
@@ -449,19 +448,23 @@ msgstr "Datenbank"
 msgid "page.system_settings.notifications"
 msgstr "Benachrichtigungen"
 
-#: PfaKSys/templates/admin/settings.html:103
-#: PfaKSys/templates/admin/settings.html:136
+#: PfaKSys/templates/admin/settings.html:26
+msgid "page.system_settings.logs"
+msgstr "Logs"
+
+#: PfaKSys/templates/admin/settings.html:108
+#: PfaKSys/templates/admin/settings.html:141
 msgid "ui.common.help"
 msgstr "Hilfe"
 
-#: PfaKSys/templates/admin/settings.html:103
+#: PfaKSys/templates/admin/settings.html:108
 msgid "page.system_settings.mail_sender_help"
 msgstr ""
 "Das ist die Mail-Adresse, die als Sender bei Mails von PfaKSys stehen "
 "wird, z.B. wenn ein Benutzer sein Passwort zurücksetzt.<br>Du kannst zum "
 "Beispiel etwas wie <i>no-reply@xyz.de</i> eintragen."
 
-#: PfaKSys/templates/admin/settings.html:120
+#: PfaKSys/templates/admin/settings.html:125
 msgid "page.system_settings.mail_credentials_info"
 msgstr ""
 "<h4 class='alert-heading'>Achtung!</h4><p>Benutzername und Passwort für "
@@ -470,7 +473,7 @@ msgstr ""
 "href='https://github.com/Nuhser/PfaKSys/wiki' class='alert-link'>hier</a>"
 " nachlesen.</p>"
 
-#: PfaKSys/templates/admin/settings.html:136
+#: PfaKSys/templates/admin/settings.html:141
 msgid "page.system_settings.database_backup_quantity_help"
 msgstr ""
 "Das ist die Anzahl der Datenbank-Backups, welche <b>gleichzeitig</b> "
@@ -478,11 +481,11 @@ msgstr ""
 "wird die älteste Sicherung gelöscht.<br>Mehr Informationen zum Datenbank-"
 "Backup findest du in der <i>PfaKSys-Dokumentation</i>."
 
-#: PfaKSys/templates/admin/settings.html:163
+#: PfaKSys/templates/admin/settings.html:168
 msgid "ui.system_settings.email_notifications"
 msgstr "Email-Benachrichtigungen"
 
-#: PfaKSys/templates/admin/settings.html:165
+#: PfaKSys/templates/admin/settings.html:170
 msgid "ui.system_settings.notifications_intro"
 msgstr "Sende Email-Benachrichtigungen, wenn..."
 
