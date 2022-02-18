@@ -107,7 +107,7 @@
 
 {% block sidebar %}
     <form class="btn-block" action="{{ url_for('item.new') }}" method='GET'>
-        <button class="btn btn-primary btn-block" type="submit">
+        <button class="btn btn-primary btn-block" type="submit" {% if not current_user.has_permission('manage_material') %}disabled{% endif %}>
             <span class="material-icons">add_box</span>
             {{ _('ui.item.new') }}
         </button>
