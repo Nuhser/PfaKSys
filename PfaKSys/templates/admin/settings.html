@@ -135,24 +135,41 @@
             <form class="tab-pane" id="tab-database" action="" method="POST">
                 {{ database_form.hidden_tag() }}
 
-                <div class="form-group">
-                    {{ database_form.database_backup_quantity.label(class="form-control-label") }}
+                <fieldset class="mb-4">
+                    <legend class="border-bottom mb-3">{{ _('ui.common.settings') }}</legend>
+                    
+                    <div class="form-group">
+                        {{ database_form.database_backup_quantity.label(class="form-control-label") }}
 
-                    <a tabindex="0" class="pfaksys-link" data-toggle="popover" data-trigger="hover" data-html=true title="{{ _('ui.common.help') }}" data-content="{{ _('page.system_settings.database_backup_quantity_help') }}">
-                        <span class="material-icons">help_outline</span>
-                    </a>
+                        <a tabindex="0" class="pfaksys-link" data-toggle="popover" data-trigger="hover" data-html=true title="{{ _('ui.common.help') }}" data-content="{{ _('page.system_settings.database_backup_quantity_help') }}">
+                            <span class="material-icons">help_outline</span>
+                        </a>
 
-                    {% if database_form.database_backup_quantity.errors %}
-                        {{ database_form.database_backup_quantity(class="form-control is-invalid")}}
-                        <div class="invalid-feedback">
-                            {% for error in database_form.database_backup_quantity.errors %}
-                                <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ database_form.database_backup_quantity(class="form-control") }}
-                    {% endif %}
-                </div>
+                        {% if database_form.database_backup_quantity.errors %}
+                            {{ database_form.database_backup_quantity(class="form-control is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in database_form.database_backup_quantity.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ database_form.database_backup_quantity(class="form-control") }}
+                        {% endif %}
+                    </div>
+                </fieldset>
+
+                <fieldset class="mb-4">
+                    <legend class="border-bottom mb-3">{{ _('ui.common.backups') }}</legend>
+
+                    {% for db_backup in db_backups %}
+                    <div class="mb-2">
+                        <a class="material-icons btn btn-sm btn-outline-primary align-middle" href="{{ url_for('admin.download_db_backup', filename=db_backup) }}">
+                            download
+                        </a>
+                        {{ db_backup }}
+                    </div>
+                {% endfor %}
+                </fieldset>
 
                 <div class="border-top form-group mt-4">
                     {{ database_form.submit(class="btn btn-success mt-2") }}
