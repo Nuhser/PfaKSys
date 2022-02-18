@@ -1,0 +1,63 @@
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='calendar.css') }}">
+
+<table id="calendar" class="mb-5">
+    <div class="d-flex justify-content-between mb-2">
+        <div class="calendar-caption">
+            {{ calendar.month.name }} {{ calendar.year }}
+        </div>
+
+        <div class="btn-toolbar" role="toolbar">
+            <a class="btn btn-primary btn-sm" href="{{ url_for('main.home') }}">
+                <span class="align-middle calendar-btn">
+                    <span class="material-icons">today</span>
+                    {{ _('ui.calendar.today') }}
+                </span>
+            </a>
+    
+            <div class="btn-group ml-1" role="group">
+                <a class="btn btn-primary btn-sm" href="{{ url_for('main.home', month=calendar.month.number-1, year=calendar.year) }}">
+                    <span class="align-middle calendar-btn">&laquo;</span>
+                </a>
+                <a class="btn btn-primary btn-sm" href="{{ url_for('main.home', month=calendar.month.number+1, year=calendar.year) }}">
+                    <span class="align-middle calendar-btn">&raquo;</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <tr class="weekdays">
+        <th scope="col">{{ _('main.calendar.monday') }}</th>
+        <th scope="col">{{ _('main.calendar.tuesday') }}</th>
+        <th scope="col">{{ _('main.calendar.wednesday') }}</th>
+        <th scope="col">{{ _('main.calendar.thursday') }}</th>
+        <th scope="col">{{ _('main.calendar.friday') }}</th>
+        <th scope="col">{{ _('main.calendar.saturday') }}</th>
+        <th scope="col">{{ _('main.calendar.sunday') }}</th>
+    </tr>
+
+    {% for week in calendar.month.weeks %}
+        <tr class="days">
+            {% for day in week %}
+                <td class="day {% if day.other_month %}other-month{% endif %}">
+                    <div class="date {% if (calendar.today.day == day.date) and (calendar.today.month == calendar.month.number) and (calendar.today.year == calendar.year) and (not day.other_month) %}today{% endif %}">
+                        {{ day.date }}
+                    </div>
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+
+    <!-- <tr>
+        <td class="day">
+            <div class="date">25</div>
+            <div class="event">
+                <div class="event-desc">
+                    Conference Call
+                </div>
+                <div class="event-time">
+                    1:00pm to 3:00pm
+                </div>
+            </div>
+        </td>
+    </tr> -->
+</table>

@@ -1,8 +1,9 @@
 {% extends '_base.html' %}
 
 {% block content %}
-    <h1 class="mb-3">{{ _('page.home.title') }}</h1>
-    <p>Hier stehen später interessante Sachen.</p>
+    <!-- <h1 class="mb-3">{{ _('page.home.title') }}</h1> -->
+    
+    {% include 'main/calendar.html' %}
 {% endblock %}
 
 {% block scripts %}
