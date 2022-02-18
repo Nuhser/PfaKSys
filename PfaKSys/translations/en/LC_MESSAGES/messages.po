@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-02-18 09:45+0100\n"
+"POT-Creation-Date: 2022-02-18 10:48+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -127,41 +127,41 @@ msgstr "You can't delete the admin-group!"
 msgid "flash.success.admin.user_group_deleted"
 msgstr "The user group \"%(group_name)s\" was deleted successfully."
 
-#: PfaKSys/admin/routes.py:126
+#: PfaKSys/admin/routes.py:134
 msgid "flash.success.account_update_admin"
 msgstr ""
 "The changes to the account of \"%(username)s\" and their user groups were"
 " saved."
 
-#: PfaKSys/admin/routes.py:137
+#: PfaKSys/admin/routes.py:145
 msgid "page.admin.edit_user.title"
 msgstr "User Data of %(username)s"
 
-#: PfaKSys/admin/routes.py:169
+#: PfaKSys/admin/routes.py:177
 msgid "flash.success.admin.user_group_edited"
 msgstr "The user group \"%(group_name)s\" was edited successfully."
 
-#: PfaKSys/admin/routes.py:178
+#: PfaKSys/admin/routes.py:186
 msgid "page.admin.edit_user_group.title"
 msgstr "User Group %(username)s"
 
-#: PfaKSys/admin/routes.py:196
+#: PfaKSys/admin/routes.py:204
 msgid "flash.success.system_settings.mail_saved"
 msgstr "Your mail settings have been saved."
 
-#: PfaKSys/admin/routes.py:204
+#: PfaKSys/admin/routes.py:212
 msgid "flash.success.system_settings.database_saved"
 msgstr "Your database settings have been saved."
 
-#: PfaKSys/admin/routes.py:212
+#: PfaKSys/admin/routes.py:220
 msgid "flash.success.system_settings.notifications_saved"
 msgstr "Your notification settings have been saved."
 
-#: PfaKSys/admin/routes.py:228 PfaKSys/templates/admin/settings.html:4
+#: PfaKSys/admin/routes.py:243 PfaKSys/templates/admin/settings.html:4
 msgid "page.system_settings.title"
 msgstr "System Settings"
 
-#: PfaKSys/admin/routes.py:267 PfaKSys/templates/admin/user_management.html:4
+#: PfaKSys/admin/routes.py:283 PfaKSys/templates/admin/user_management.html:4
 msgid "page.user_management.title"
 msgstr "User Management"
 
@@ -530,19 +530,23 @@ msgstr "Database"
 msgid "page.system_settings.notifications"
 msgstr "Notifications"
 
-#: PfaKSys/templates/admin/settings.html:103
-#: PfaKSys/templates/admin/settings.html:136
+#: PfaKSys/templates/admin/settings.html:26
+msgid "page.system_settings.logs"
+msgstr "Logs"
+
+#: PfaKSys/templates/admin/settings.html:108
+#: PfaKSys/templates/admin/settings.html:141
 msgid "ui.common.help"
 msgstr "Help"
 
-#: PfaKSys/templates/admin/settings.html:103
+#: PfaKSys/templates/admin/settings.html:108
 msgid "page.system_settings.mail_sender_help"
 msgstr ""
 "This is the mail address that will show up as the sender when PfaKSys "
 "sends a mail, e.g. if someone resets his password.<br>You could enter "
 "something like <i>no-reply@xyz.de</i>."
 
-#: PfaKSys/templates/admin/settings.html:120
+#: PfaKSys/templates/admin/settings.html:125
 msgid "page.system_settings.mail_credentials_info"
 msgstr ""
 "<h4 class='alert-heading'>Warning!</h4><p>For security reasons username "
@@ -551,7 +555,7 @@ msgstr ""
 "href='https://github.com/Nuhser/PfaKSys/wiki' class='alert-"
 "link'>here</a>.</p>"
 
-#: PfaKSys/templates/admin/settings.html:136
+#: PfaKSys/templates/admin/settings.html:141
 msgid "page.system_settings.database_backup_quantity_help"
 msgstr ""
 "This is the number of database backups which should be kept "
@@ -559,11 +563,11 @@ msgstr ""
 "getting deleted.<br>You can find more informations on the database backup"
 " in the <i>PfaKSys-documentations</i>."
 
-#: PfaKSys/templates/admin/settings.html:163
+#: PfaKSys/templates/admin/settings.html:168
 msgid "ui.system_settings.email_notifications"
 msgstr "Email Notifications"
 
-#: PfaKSys/templates/admin/settings.html:165
+#: PfaKSys/templates/admin/settings.html:170
 msgid "ui.system_settings.notifications_intro"
 msgstr "Send email notifications when..."
 

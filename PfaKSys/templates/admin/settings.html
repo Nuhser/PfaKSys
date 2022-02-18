@@ -21,6 +21,11 @@
                     {{ _('page.system_settings.notifications') }}
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link pfaksys-link" data-toggle="tab" href="#tab-logs">
+                    {{ _('page.system_settings.logs') }}
+                </a>
+            </li>
         </ul>
 
         <!-- Tab Contents -->
@@ -188,6 +193,29 @@
                     {{ notifications_form.submit_notification_settings(class="btn btn-success mt-2") }}
                 </div>
             </form>
+
+
+            <!-- Logs -->
+            <div class="tab-pane" id="tab-logs">
+                {% for log in logs %}
+                    <div class="mb-2">
+                        <a class="material-icons btn btn-sm btn-outline-primary align-middle" href="{{ url_for('admin.download_log', filename=log) }}">
+                            download
+                        </a>
+                        <a class="pfaksys-link" data-toggle="collapse" href="#logs-collapse{{ log }}" role="button">
+                            {{ log }}
+                        </a>
+
+                        <div class="collapse mt-1" id="logs-collapse{{ log }}">
+                            <div class="card card-body" style="max-height: 600px; overflow: auto;">
+                                {% for line in logs[log] %}
+                                    {{ line }}<br>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}

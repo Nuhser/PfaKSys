@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-02-18 09:45+0100\n"
+"POT-Creation-Date: 2022-02-18 10:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,39 +126,39 @@ msgstr ""
 msgid "flash.success.admin.user_group_deleted"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:126
+#: PfaKSys/admin/routes.py:134
 msgid "flash.success.account_update_admin"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:137
+#: PfaKSys/admin/routes.py:145
 msgid "page.admin.edit_user.title"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:169
+#: PfaKSys/admin/routes.py:177
 msgid "flash.success.admin.user_group_edited"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:178
+#: PfaKSys/admin/routes.py:186
 msgid "page.admin.edit_user_group.title"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:196
+#: PfaKSys/admin/routes.py:204
 msgid "flash.success.system_settings.mail_saved"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:204
+#: PfaKSys/admin/routes.py:212
 msgid "flash.success.system_settings.database_saved"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:212
+#: PfaKSys/admin/routes.py:220
 msgid "flash.success.system_settings.notifications_saved"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:228 PfaKSys/templates/admin/settings.html:4
+#: PfaKSys/admin/routes.py:243 PfaKSys/templates/admin/settings.html:4
 msgid "page.system_settings.title"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:267 PfaKSys/templates/admin/user_management.html:4
+#: PfaKSys/admin/routes.py:283 PfaKSys/templates/admin/user_management.html:4
 msgid "page.user_management.title"
 msgstr ""
 
@@ -527,28 +527,32 @@ msgstr ""
 msgid "page.system_settings.notifications"
 msgstr ""
 
-#: PfaKSys/templates/admin/settings.html:103
-#: PfaKSys/templates/admin/settings.html:136
+#: PfaKSys/templates/admin/settings.html:26
+msgid "page.system_settings.logs"
+msgstr ""
+
+#: PfaKSys/templates/admin/settings.html:108
+#: PfaKSys/templates/admin/settings.html:141
 msgid "ui.common.help"
 msgstr ""
 
-#: PfaKSys/templates/admin/settings.html:103
+#: PfaKSys/templates/admin/settings.html:108
 msgid "page.system_settings.mail_sender_help"
 msgstr ""
 
-#: PfaKSys/templates/admin/settings.html:120
+#: PfaKSys/templates/admin/settings.html:125
 msgid "page.system_settings.mail_credentials_info"
 msgstr ""
 
-#: PfaKSys/templates/admin/settings.html:136
+#: PfaKSys/templates/admin/settings.html:141
 msgid "page.system_settings.database_backup_quantity_help"
 msgstr ""
 
-#: PfaKSys/templates/admin/settings.html:163
+#: PfaKSys/templates/admin/settings.html:168
 msgid "ui.system_settings.email_notifications"
 msgstr ""
 
-#: PfaKSys/templates/admin/settings.html:165
+#: PfaKSys/templates/admin/settings.html:170
 msgid "ui.system_settings.notifications_intro"
 msgstr ""
 

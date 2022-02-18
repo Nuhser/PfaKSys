@@ -1,6 +1,6 @@
 import os
 
-from flask import Blueprint, current_app, flash, redirect, render_template, request, url_for
+from flask import Blueprint, current_app, flash, redirect, render_template, request, send_file, url_for
 from flask_babel import gettext
 from flask_login import current_user, login_required
 from sqlalchemy import or_
@@ -85,6 +85,14 @@ def delete_user_group(group_id):
     current_app.logger.info(f'User group "{group.name}" was deleted by admin {current_user.username}.')
     flash(gettext('flash.success.admin.user_group_deleted', group_name=group.name), 'success')
     return redirect(url_for('admin.user_management'))
+
+
+@admin_blueprint.route('/admin/download_log/<path:filename>')
+@login_required
+@admin_required
+def download_log(filename: str):
+    log_path = os.path.join(current_app.root_path, 'logs', filename)
+    return send_file(log_path)
 
 
 @admin_blueprint.route('/admin/edit_user/<int:user_id>', methods=['GET', 'POST'])
@@ -223,12 +231,20 @@ def settings():
 
         notifications_form.new_user.data = system_settings.notifications["NEW_USER"]
 
+        log_path = os.path.join(current_app.root_path, 'logs')
+        logs = {
+            file: 
+                [line.strip() for line in open(os.path.join(log_path, file)).readlines()]
+                for file in os.listdir(log_path) if os.path.isfile(os.path.join(log_path, file))
+            }
+
     return render_template(
         'admin/settings.html',
         title=gettext('page.system_settings.title'),
         database_form=database_form,
         mail_form=mail_form,
-        notifications_form=notifications_form
+        notifications_form=notifications_form,
+        logs=logs
     )
 
 
