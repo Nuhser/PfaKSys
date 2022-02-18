@@ -87,6 +87,14 @@ def delete_user_group(group_id):
     return redirect(url_for('admin.user_management'))
 
 
+@admin_blueprint.route('/admin/download_db_backup/<path:filename>')
+@login_required
+@admin_required
+def download_db_backup(filename: str):
+    db_backup_path = os.path.join(current_app.root_path, 'backups/db', filename)
+    return send_file(db_backup_path)
+
+
 @admin_blueprint.route('/admin/download_log/<path:filename>')
 @login_required
 @admin_required
@@ -223,6 +231,9 @@ def settings():
     elif request.method == 'GET':
         database_form.database_backup_quantity.data = system_settings.database['BACKUP_QUANTITY']
 
+        db_backups_path = os.path.join(current_app.root_path, 'backups/db')
+        db_backups = [file for file in os.listdir(db_backups_path) if os.path.isfile(os.path.join(db_backups_path, file))]
+
         mail_form.server.data = current_app.config['MAIL_SERVER'] if 'MAIL_SERVER' in current_app.config else None
         mail_form.port.data = current_app.config['MAIL_PORT'] if 'MAIL_PORT' in current_app.config else None
         mail_form.use_tls.data = current_app.config['MAIL_USE_TLS'] if 'MAIL_USE_TLS' in current_app.config else None
@@ -242,6 +253,7 @@ def settings():
         'admin/settings.html',
         title=gettext('page.system_settings.title'),
         database_form=database_form,
+        db_backups=db_backups,
         mail_form=mail_form,
         notifications_form=notifications_form,
         logs=logs
