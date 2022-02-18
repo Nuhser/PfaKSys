@@ -28,7 +28,9 @@
         <header class="site-header">
             <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
                 <div class="container">
-                    <a class="navbar-brand mr-4" href="{{ url_for('main.home') }}">{{ _('ui.common.app_title') }}</a>
+                    <a class="navbar-brand mr-4" href="{{ url_for('main.home') }}">
+                        <img src="{{ url_for('static', filename='logo_horizontal_black.png') }}" style="max-height: 1.75em; vertical-align: middle; margin-right: -30px" />
+                    </a>
                     
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
