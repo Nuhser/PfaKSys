@@ -50,6 +50,8 @@
                                 {% if current_user.has_permission('manage_locations') %}
                                     <a class="nav-item nav-link" href="{{ url_for('item.locations') }}" id="nav-locations"><span class="material-icons">place</span> {{ _('ui.item.locations') }}</a>
                                 {% endif %}
+
+                                <a class="nav-item nav-link" href="{{ url_for('main.calendar') }}" id="nav-calendar"><span class="material-icons">calendar_month</span> {{ _('ui.common.calendar') }}</a>
                             {% endif %}
                         </div>
 

@@ -1,6 +1,7 @@
 from datetime import datetime
 from flask import Blueprint, render_template, request
 from flask_babel import gettext
+from flask_login import login_required
 
 from PfaKSys.main.calendar import Calendar
 
@@ -13,9 +14,9 @@ def about():
     return render_template('main/about.html', title=gettext('ui.common.about'))
 
 
-@main_blueprint.route('/')
-@main_blueprint.route('/home')
-def home():
+@main_blueprint.route('/calendar')
+@login_required
+def calendar():
     month = request.args.get('month', None, type=int)
     year = request.args.get('year', None, type=int)
 
@@ -30,4 +31,10 @@ def home():
 
     calendar = Calendar.from_datetime(date)
 
-    return render_template('main/home.html', title=gettext('page.home.title'), calendar=calendar)
+    return render_template('main/calendar.html', title=gettext('page.calendar.title'), calendar=calendar)
+
+
+@main_blueprint.route('/')
+@main_blueprint.route('/home')
+def home():
+    return render_template('main/home.html', title=gettext('page.home.title'))
