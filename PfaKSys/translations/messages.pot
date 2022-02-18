@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-02-17 18:29+0100\n"
+"POT-Creation-Date: 2022-02-18 09:45+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "ui.common.email"
 msgstr ""
 
-#: PfaKSys/admin/forms.py:19 PfaKSys/templates/_base.html:105
+#: PfaKSys/admin/forms.py:19 PfaKSys/templates/_base.html:107
 #: PfaKSys/templates/admin/user_management.html:45
 #: PfaKSys/templates/admin/user_management.html:70 PfaKSys/user/forms.py:79
 msgid "ui.account.profile_picture"
@@ -349,87 +349,91 @@ msgstr ""
 msgid "page.item_overview.title"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:19
+#: PfaKSys/main/calendar.py:20
 msgid "main.calendar.january"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:20
+#: PfaKSys/main/calendar.py:21
 msgid "main.calendar.february"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:21
+#: PfaKSys/main/calendar.py:22
 msgid "main.calendar.march"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:22
+#: PfaKSys/main/calendar.py:23
 msgid "main.calendar.april"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:23
+#: PfaKSys/main/calendar.py:24
 msgid "main.calendar.may"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:24
+#: PfaKSys/main/calendar.py:25
 msgid "main.calendar.june"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:25
+#: PfaKSys/main/calendar.py:26
 msgid "main.calendar.july"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:26
+#: PfaKSys/main/calendar.py:27
 msgid "main.calendar.august"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:27
+#: PfaKSys/main/calendar.py:28
 msgid "main.calendar.september"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:28
+#: PfaKSys/main/calendar.py:29
 msgid "main.calendar.october"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:29
+#: PfaKSys/main/calendar.py:30
 msgid "main.calendar.november"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:30
+#: PfaKSys/main/calendar.py:31
 msgid "main.calendar.december"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:74 PfaKSys/templates/main/calendar.html:29
+#: PfaKSys/main/calendar.py:75 PfaKSys/templates/main/calendar.html:34
 msgid "main.calendar.monday"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:75 PfaKSys/templates/main/calendar.html:30
+#: PfaKSys/main/calendar.py:76 PfaKSys/templates/main/calendar.html:35
 msgid "main.calendar.tuesday"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:76 PfaKSys/templates/main/calendar.html:31
+#: PfaKSys/main/calendar.py:77 PfaKSys/templates/main/calendar.html:36
 msgid "main.calendar.wednesday"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:77 PfaKSys/templates/main/calendar.html:32
+#: PfaKSys/main/calendar.py:78 PfaKSys/templates/main/calendar.html:37
 msgid "main.calendar.thursday"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:78 PfaKSys/templates/main/calendar.html:33
+#: PfaKSys/main/calendar.py:79 PfaKSys/templates/main/calendar.html:38
 msgid "main.calendar.friday"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:79 PfaKSys/templates/main/calendar.html:34
+#: PfaKSys/main/calendar.py:80 PfaKSys/templates/main/calendar.html:39
 msgid "main.calendar.saturday"
 msgstr ""
 
-#: PfaKSys/main/calendar.py:80 PfaKSys/templates/main/calendar.html:35
+#: PfaKSys/main/calendar.py:81 PfaKSys/templates/main/calendar.html:40
 msgid "main.calendar.sunday"
 msgstr ""
 
-#: PfaKSys/main/routes.py:13 PfaKSys/templates/_base.html:191
+#: PfaKSys/main/routes.py:14 PfaKSys/templates/_base.html:193
 msgid "ui.common.about"
 msgstr ""
 
-#: PfaKSys/main/routes.py:33 PfaKSys/templates/main/home.html:4
+#: PfaKSys/main/routes.py:34 PfaKSys/templates/main/calendar.html:4
+msgid "page.calendar.title"
+msgstr ""
+
+#: PfaKSys/main/routes.py:40 PfaKSys/templates/main/home.html:4
 msgid "page.home.title"
 msgstr ""
 
@@ -453,40 +457,44 @@ msgstr ""
 msgid "ui.item.locations"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:67 PfaKSys/templates/_base.html:131
+#: PfaKSys/templates/_base.html:54
+msgid "ui.common.calendar"
+msgstr ""
+
+#: PfaKSys/templates/_base.html:69 PfaKSys/templates/_base.html:133
 msgid "ui.common.wiki"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:71 PfaKSys/templates/_base.html:135
+#: PfaKSys/templates/_base.html:73 PfaKSys/templates/_base.html:137
 msgid "ui.common.forum"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:84
+#: PfaKSys/templates/_base.html:86
 msgid "ui.common.user_settings"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:92
+#: PfaKSys/templates/_base.html:94
 msgid "ui.common.system_settings"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:97
+#: PfaKSys/templates/_base.html:99
 msgid "ui.common.user_management"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:111 PfaKSys/user/routes.py:50
+#: PfaKSys/templates/_base.html:113 PfaKSys/user/routes.py:50
 msgid "ui.common.account"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:118
+#: PfaKSys/templates/_base.html:120
 msgid "ui.common.logout"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:140 PfaKSys/templates/user/login.html:9
+#: PfaKSys/templates/_base.html:142 PfaKSys/templates/user/login.html:9
 #: PfaKSys/user/forms.py:17 PfaKSys/user/routes.py:95
 msgid "ui.common.login"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:142 PfaKSys/user/forms.py:27
+#: PfaKSys/templates/_base.html:144 PfaKSys/user/forms.py:27
 #: PfaKSys/user/routes.py:163
 msgid "ui.common.sign_up"
 msgstr ""
@@ -737,7 +745,7 @@ msgstr ""
 msgid "page.about.body"
 msgstr ""
 
-#: PfaKSys/templates/main/calendar.html:13
+#: PfaKSys/templates/main/calendar.html:18
 msgid "ui.calendar.today"
 msgstr ""
 
