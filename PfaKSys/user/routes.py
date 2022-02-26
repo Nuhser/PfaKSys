@@ -6,7 +6,7 @@ from flask_login import current_user, login_required, login_user, logout_user
 
 from PfaKSys import bcrypt, db
 from PfaKSys.main.email import send_email_to_all_admins
-from PfaKSys.main.utils import get_system_settings
+from PfaKSys.main.utils import get_system_settings, _url_for
 from PfaKSys.models import User, UserGroup, UserSettings
 from PfaKSys.user.forms import LoginForm, RegistrationForm, RequestResetForm, ResetPasswordForm, UpdateAccountForm, UserSettingsForm
 from PfaKSys.user.utils import generate_and_save_gravatar, save_picture, send_reset_email
@@ -40,7 +40,7 @@ def account():
             current_app.logger.info(f'{old_username} changed their name to {current_user.username}.')
 
         flash(gettext('flash.success.account_update'), 'success')
-        return redirect(url_for('user.account'))
+        return redirect(_url_for('user.account'))
 
     elif request.method == 'GET':
         form.username.data = current_user.username
@@ -69,13 +69,13 @@ def delete_account():
 
     current_app.logger.info(f'{user.username} deleted their account.')
     flash(gettext('flash.success.delete_account'), 'success')
-    return redirect(url_for('main.home'))
+    return redirect(_url_for('main.home'))
 
 
 @user_blueprint.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('main.home'))
+        return redirect(_url_for('main.home'))
 
     form = LoginForm()
 
@@ -88,7 +88,7 @@ def login():
             current_app.logger.info(f'{user.username} logged in successfully.')
 
             next_page = request.args.get('next')
-            return redirect(next_page if next_page else url_for('main.home'))
+            return redirect(next_page if next_page else _url_for('main.home'))
         else:
             flash(gettext('flash.danger.login_failed'), 'danger')
 
@@ -103,7 +103,7 @@ def logout():
 
     current_app.logger.info(f'{username} logged out successfully.')
     flash(gettext('flash.success.logout'), 'success')
-    return redirect(url_for('main.home'))
+    return redirect(_url_for('main.home'))
 
 
 @user_blueprint.route('/modify_item_filters')
@@ -122,13 +122,13 @@ def modify_item_filters():
     }
     db.session.commit()
 
-    return redirect(url_for('item.overview'))
+    return redirect(_url_for('item.overview'))
 
 
 @user_blueprint.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('main.home'))
+        return redirect(_url_for('main.home'))
 
     form = RegistrationForm()
 
@@ -153,12 +153,12 @@ def register():
         if get_system_settings().notifications['NEW_USER']:
             send_email_to_all_admins(
                 subject=gettext('mail.new_user_admin.subject', username=user.username),
-                body=gettext('mail.new_user_admin.body', username=user.username, full_name=user.full_name, email=user.email, link=url_for('admin.edit_user', user_id=user.id, _external=True))
+                body=gettext('mail.new_user_admin.body', username=user.username, full_name=user.full_name, email=user.email, link=_url_for('admin.edit_user', user_id=user.id))
             )
 
         current_app.logger.info(f'New user {user.username} was created successfully.')
         flash(gettext('flash.success.account_created'), 'success')
-        return redirect(url_for('user.login'))
+        return redirect(_url_for('user.login'))
 
     return render_template('user/register.html', title=gettext('ui.common.sign_up'), form=form)
 
@@ -166,7 +166,7 @@ def register():
 @user_blueprint.route('/reset_password', methods=['GET', 'POST'])
 def request_reset():
     if current_user.is_authenticated:
-        return redirect(url_for('main.home'))
+        return redirect(_url_for('main.home'))
 
     form = RequestResetForm()
 
@@ -181,7 +181,7 @@ def request_reset():
 
         current_app.logger.warning(f'{user.username} has requested an email to reset their password.')
         flash(gettext('flash.info.reset_email_send'), 'info')
-        return redirect(url_for('user.login'))
+        return redirect(_url_for('user.login'))
 
     return render_template('user/request_reset.html', title=gettext('page.reset_password.title'), form=form)
 
@@ -189,13 +189,13 @@ def request_reset():
 @user_blueprint.route('/reset_password/<string:token>', methods=['GET', 'POST'])
 def reset_password(token: str):
     if current_user.is_authenticated:
-        return redirect(url_for('main.home'))
+        return redirect(_url_for('main.home'))
 
     user = User.verify_reset_token(token)
     if not user:
         current_app.logger.warning(f'Invalid or expired token was used to try to reset a password! (Token: {token})')
         flash(gettext('flash.warning.reset_token_expired_or_invalid'), 'warning')
-        return redirect(url_for('user.request_reset'))
+        return redirect(_url_for('user.request_reset'))
 
     form = ResetPasswordForm()
 
@@ -206,7 +206,7 @@ def reset_password(token: str):
 
         current_app.logger.info(f'{user.username} has reset their password.')
         flash(gettext('flash.success.password_reset'), 'success')
-        return redirect(url_for('user.login'))
+        return redirect(_url_for('user.login'))
 
     return render_template('user/reset_password.html', title=gettext('page.reset_password.title'), form=form)
 
@@ -224,7 +224,7 @@ def settings():
         db.session.commit()
 
         flash(gettext('flash.success.user_settings_saved'), 'success')
-        return redirect(url_for('user.settings'))
+        return redirect(_url_for('user.settings'))
 
     # fill form with current values if settings are opened
     elif request.method == 'GET':

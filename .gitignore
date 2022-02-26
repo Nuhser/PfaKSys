@@ -12,6 +12,7 @@ PfaKSys/static/profile_pics/*
 .calendar_test.py
 .commands.txt
 .count_lines.py
+custom_config.json
 db.sqlite
 
 !PfaKSys/static/profile_pics/default.jpg

@@ -9,7 +9,7 @@ from PfaKSys import db
 from PfaKSys.admin.forms import DatabaseSettingsForm, edit_account_form_builder, MailSettingsForm, NotificationSettingsForm, SearchUserForm, SearchUserGroupForm, UserGroupForm
 from PfaKSys.admin.utils import save_database_settings, save_mail_settings, save_notification_settings
 from PfaKSys.main.permissions import admin_required, Permission
-from PfaKSys.main.utils import get_system_settings
+from PfaKSys.main.utils import get_system_settings, _url_for
 from PfaKSys.models import User, UserGroup
 from PfaKSys.user.utils import save_picture
 
@@ -41,7 +41,7 @@ def add_user_group():
 
         current_app.logger.info(f'{current_user.username} created the new user group "{group}"')
         flash(gettext('flash.success.admin.user_group_created', group_name=group.name), 'success')
-        return redirect(url_for('admin.user_management'))
+        return redirect(_url_for('admin.user_management'))
 
     return render_template('admin/user_group.html', title=gettext('page.admin.user_group.title'), form=form)
 
@@ -65,7 +65,7 @@ def delete_account(user_id):
 
     current_app.logger.info(f'Account "{user.username}" was deleted by admin {current_user.username}.')
     flash(gettext('flash.success.admin.account_deleted', username=user.username), 'success')
-    return redirect(url_for('admin.user_management'))
+    return redirect(_url_for('admin.user_management'))
 
 
 @admin_blueprint.route('/admin/delete_user_group/<int:group_id>', methods=['POST'])
@@ -77,14 +77,14 @@ def delete_user_group(group_id):
     if group.name == 'admin':
         current_app.logger.warning(f'{current_user.name} tried to delete the admin group!')
         flash(gettext('flash.warning.admin.cant_delete_admin_group'), 'warning')
-        return redirect(url_for('admin.user_management'))
+        return redirect(_url_for('admin.user_management'))
 
     db.session.delete(group)
     db.session.commit()
 
     current_app.logger.info(f'User group "{group.name}" was deleted by admin {current_user.username}.')
     flash(gettext('flash.success.admin.user_group_deleted', group_name=group.name), 'success')
-    return redirect(url_for('admin.user_management'))
+    return redirect(_url_for('admin.user_management'))
 
 
 @admin_blueprint.route('/admin/download_db_backup/<path:filename>')
@@ -140,7 +140,7 @@ def edit_user(user_id):
             current_app.logger.info(f'{current_user.username} edited the account/user groups of "{user.username}".')
 
         flash(gettext('flash.success.account_update_admin', username=user.username), 'success')
-        return redirect(url_for('admin.user_management'))
+        return redirect(_url_for('admin.user_management'))
 
     elif request.method == 'GET':
         form.username.data = user.username
@@ -183,7 +183,7 @@ def edit_user_group(group_id):
             current_app.logger.info(f'{current_user.username} edited user group "{group.name}".')
 
         flash(gettext('flash.success.admin.user_group_edited', group_name=group.name), 'success')
-        return redirect(url_for('admin.user_management'))
+        return redirect(_url_for('admin.user_management'))
 
     elif request.method == 'GET':
         form.name.data = group.name
@@ -210,7 +210,7 @@ def settings():
 
             current_app.logger.info(f'{current_user.username} edited the system settings (mail).')
             flash(gettext('flash.success.system_settings.mail_saved'), 'success')
-            return redirect(url_for('admin.settings'))
+            return redirect(_url_for('admin.settings'))
 
     elif 'database_backup_quantity' in request.form:
         if database_form.validate_on_submit():
@@ -218,7 +218,7 @@ def settings():
 
             current_app.logger.info(f'{current_user.username} edited the system settings (database).')
             flash(gettext('flash.success.system_settings.database_saved'), 'success')
-            return redirect(url_for('admin.settings'))
+            return redirect(_url_for('admin.settings'))
 
     elif 'submit_notification_settings' in request.form:
         if notifications_form.validate_on_submit():
@@ -226,7 +226,7 @@ def settings():
 
             current_app.logger.info(f'{current_user.username} edited the system settings (notifications).')
             flash(gettext('flash.success.system_settings.notifications_saved'), 'success')
-            return redirect(url_for('admin.settings'))
+            return redirect(_url_for('admin.settings'))
 
     elif request.method == 'GET':
         database_form.database_backup_quantity.data = system_settings.database['BACKUP_QUANTITY']
@@ -269,10 +269,10 @@ def user_management():
 
     if 'username' in request.form:
         if search_user_form.validate_on_submit():
-            return redirect(url_for('admin.user_management', username=search_user_form.username.data))
+            return redirect(_url_for('admin.user_management', username=search_user_form.username.data))
     elif 'group_name' in request.form:
         if search_group_form.validate_on_submit():
-            return redirect(url_for('admin.user_management', group_name=search_group_form.group_name.data))
+            return redirect(_url_for('admin.user_management', group_name=search_group_form.group_name.data))
 
     username = request.args.get('username', '', type=str)
     group_name = request.args.get('group_name', '', type=str)
