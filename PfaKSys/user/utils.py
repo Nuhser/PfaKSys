@@ -3,7 +3,7 @@ import os
 import secrets
 import urllib
 
-from flask import current_app, url_for
+from flask import current_app
 from flask_babel import gettext
 from PIL import Image
 
