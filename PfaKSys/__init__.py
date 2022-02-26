@@ -42,6 +42,7 @@ def create_app(config=ProductionConfig):
     # create flask app
     app = Flask(__name__)
     app.config.from_object(config)
+    app.config.from_json(os.path.join(app.root_path, 'config/custom_config.json'))
 
     app.logger.info('PfaKSys app created. Server is beeing started...')
 

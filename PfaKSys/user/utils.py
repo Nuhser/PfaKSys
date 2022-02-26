@@ -3,11 +3,12 @@ import os
 import secrets
 import urllib
 
-from flask import current_app, url_for
+from flask import current_app
 from flask_babel import gettext
 from PIL import Image
 
 from PfaKSys.main.email import send_email
+from PfaKSys.main.utils import _url_for
 from PfaKSys.models import User
 
 
@@ -41,6 +42,6 @@ def send_reset_email(user: User) -> None:
 
     send_email(
         subject=gettext('mail.reset_password.subject'),
-        body=gettext('mail.reset_password.body', link=url_for('user.reset_password', token=token, _external=True)),
+        body=gettext('mail.reset_password.body', link=_url_for('user.reset_password', token=token)),
         recipients=[user.email]
     )

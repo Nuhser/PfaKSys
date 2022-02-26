@@ -1,7 +1,7 @@
 import os
 
 from datetime import datetime
-from flask import Blueprint, current_app, flash, redirect, render_template, request, url_for
+from flask import Blueprint, current_app, flash, redirect, render_template, request
 from flask_babel import gettext
 from flask_login import current_user, login_required
 
@@ -10,6 +10,7 @@ from PfaKSys.item.forms import ItemForm, ItemCategoryForm, ItemImageForm, ItemLo
 from PfaKSys.item.item_condition import ItemCondition
 from PfaKSys.item.utils import save_picture
 from PfaKSys.main.permissions import Permission, permission_required
+from PfaKSys.main.utils import _url_for
 from PfaKSys.models import Item, ItemCategory, ItemLocation
 
 
@@ -29,7 +30,7 @@ def categories():
 
             current_app.logger.info(f'{current_user.username} created the new category "{item_category.name}".')
             flash(gettext('flash.success.item_category.created', category_name=item_category.name), 'success')
-            return redirect(url_for('item.categories'))
+            return redirect(_url_for('item.categories'))
 
     page = request.args.get('page', 1, type=int)
     pagination = ItemCategory.query.order_by(ItemCategory.name.collate('NOCASE').asc()).paginate(page=page, per_page=10)
@@ -58,7 +59,7 @@ def delete(item_id):
 
     current_app.logger.info(f'{current_user.username} deleted the item "{item.name}".')
     flash(gettext('flash.success.item.deleted', item_name=item.name), 'success')
-    return redirect(url_for('item.overview'))
+    return redirect(_url_for('item.overview'))
 
 
 @item_blueprint.route('/categories/<int:category_id>/delete', methods=['POST'])
@@ -71,7 +72,7 @@ def delete_category(category_id):
 
     current_app.logger.info(f'{current_user.username} deleted the item category "{category.name}".')
     flash(gettext('flash.success.category.deleted', category_name=category.name), 'success')
-    return redirect(url_for('item.categories'))
+    return redirect(_url_for('item.categories'))
 
 
 @item_blueprint.route('/items/<int:item_id>/edit_images/delete', methods=['POST'])
@@ -98,7 +99,7 @@ def delete_image(item_id):
             os.remove(image_path)
             flash(gettext('flash.success.image_deleted', image_name=image_name), 'success')
 
-    return redirect(url_for('item.edit_images', item_id=item.id))
+    return redirect(_url_for('item.edit_images', item_id=item.id))
 
 
 @item_blueprint.route('/locations/<int:location_id>/delete', methods=['POST'])
@@ -111,7 +112,7 @@ def delete_location(location_id):
 
     current_app.logger.info(f'{current_user.username} deleted the item category "{location.name}".')
     flash(gettext('flash.success.location.deleted', location_name=location.name), 'success')
-    return redirect(url_for('item.locations'))
+    return redirect(_url_for('item.locations'))
 
 
 @item_blueprint.route('/items/<int:item_id>')
@@ -160,7 +161,7 @@ def edit(item_id):
             current_app.logger.info(f'{current_user.username} edited item "{item.name}".')
 
         flash(gettext('flash.success.item.edited', item_name=item.name), 'success')
-        return redirect(url_for('item.details', item_id=item.id))
+        return redirect(_url_for('item.details', item_id=item.id))
 
     elif request.method == 'GET':
         form.name.data = item.name
@@ -195,7 +196,7 @@ def edit_category(category_id):
             current_app.logger.info(f'{current_user.username} edited category "{category.name}".')
 
         flash(gettext('flash.success.category.edited', category_name=category.name), 'success')
-        return redirect(url_for('item.categories'))
+        return redirect(_url_for('item.categories'))
 
     elif request.method == 'GET':
         form.category_name.data = category.name
@@ -222,7 +223,7 @@ def edit_images(item_id):
         db.session.commit()
 
         flash(gettext('flash.success.item.image_added', image_name=image_name), 'success')
-        return redirect(url_for('item.edit_images', item_id=item.id))
+        return redirect(_url_for('item.edit_images', item_id=item.id))
 
     return render_template('item/edit_images.html', title=f'{item.name} - ' + gettext("ui.common.images"), item=item, form=form)
 
@@ -247,7 +248,7 @@ def edit_location(location_id):
             current_app.logger.info(f'{current_user.username} edited location "{location.name}".')
 
         flash(gettext('flash.success.location.edited', location_name=location.name), 'success')
-        return redirect(url_for('item.locations'))
+        return redirect(_url_for('item.locations'))
 
     elif request.method == 'GET':
         form.location_name.data = location.name
@@ -268,7 +269,7 @@ def locations():
 
             current_app.logger.info(f'{current_user.username} created the new location "{item_location.name}".')
             flash(gettext('flash.success.item_location.created', location_name=item_location.name), 'success')
-            return redirect(url_for('item.locations'))
+            return redirect(_url_for('item.locations'))
 
     page = request.args.get('page', 1, type=int)
     pagination = ItemLocation.query.order_by(ItemLocation.name.collate('NOCASE').asc()).paginate(page=page, per_page=10)
@@ -303,7 +304,7 @@ def new():
 
         current_app.logger.info(f'{current_user.username} created the new item "{item.name}".')
         flash(gettext('flash.success.item.created', item_name=item.name), 'success')
-        return redirect(url_for('item.details', item_id=item.id))
+        return redirect(_url_for('item.details', item_id=item.id))
 
     return render_template('item/new.html', title=gettext('page.item_new.title'), form=form)
 
@@ -331,8 +332,7 @@ def overview():
         if search_item_form.validate_on_submit():
             search_name = search_item_form.search_name.data if (search_item_form.search_name.data != "") else None
 
-            # return redirect(url_for('item.overview', name=search_name, conditions=filter_conditions, categories=filter_categories, locations=filter_locations))
-            return redirect(url_for('user.modify_item_filters', name=search_name, conditions=filter_conditions, categories=filter_categories, locations=filter_locations))
+            return redirect(_url_for('user.modify_item_filters', name=search_name, conditions=filter_conditions, categories=filter_categories, locations=filter_locations))
 
     if 'category_name' in request.form:
         if new_category_form.validate_on_submit():
@@ -341,7 +341,7 @@ def overview():
             db.session.commit()
 
             flash(gettext('flash.success.item_category.created', category_name=item_category.name), 'success')
-            return redirect(url_for('item.overview'))
+            return redirect(_url_for('item.overview'))
 
     elif 'location_name' in request.form:
         if new_location_form.validate_on_submit():
@@ -350,7 +350,7 @@ def overview():
             db.session.commit()
 
             flash(gettext('flash.success.item_location.created', location_name=item_location.name), 'success')
-            return redirect(url_for('item.overview'))
+            return redirect(_url_for('item.overview'))
 
     pagination = Item.query
 
