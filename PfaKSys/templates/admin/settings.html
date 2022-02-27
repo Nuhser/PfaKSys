@@ -161,6 +161,11 @@
                 <fieldset class="mb-4">
                     <legend class="border-bottom mb-3">{{ _('ui.common.backups') }}</legend>
 
+                    <button type="button" class="btn btn-success btn-sm mb-4" data-toggle="modal" data-target="#create-new-database-backup-modal">
+                        <span class="material-icons">cloud_done</span>
+                        {{ _('ui.system_settings.create_new_database_backup') }}
+                    </button>
+
                     {% for db_backup in db_backups %}
                     <div class="mb-2">
                         <a class="material-icons btn btn-sm btn-outline-primary align-middle" href="{{ url_for('admin.download_db_backup', filename=db_backup) }}">
@@ -240,6 +245,7 @@
 {% endblock %}
 
 {% block modals %}
+    {% include 'admin/modals/create_new_database_backup_modal.html' %}
 {% endblock %}
 
 {% block scripts %}

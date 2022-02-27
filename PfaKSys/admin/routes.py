@@ -7,7 +7,7 @@ from sqlalchemy import or_
 
 from PfaKSys import db
 from PfaKSys.admin.forms import DatabaseSettingsForm, edit_account_form_builder, MailSettingsForm, NotificationSettingsForm, SearchUserForm, SearchUserGroupForm, UserGroupForm
-from PfaKSys.admin.utils import save_database_settings, save_mail_settings, save_notification_settings
+from PfaKSys.admin.utils import database_backup, save_database_settings, save_mail_settings, save_notification_settings
 from PfaKSys.main.permissions import admin_required, Permission
 from PfaKSys.main.utils import get_system_settings, _url_for
 from PfaKSys.models import User, UserGroup
@@ -44,6 +44,17 @@ def add_user_group():
         return redirect(_url_for('admin.user_management'))
 
     return render_template('admin/user_group.html', title=gettext('page.admin.user_group.title'), form=form)
+
+
+@admin_blueprint.route('/admin/create_database_backup', methods=['POST'])
+@login_required
+@admin_required
+def create_database_backup():
+    new_backup_name = database_backup()
+
+    current_app.logger.info(f'{current_user.username} created a new database backup "{new_backup_name}"')
+    flash(gettext('flash.success.admin.database_backup_created', backup_name=new_backup_name), 'success')
+    return redirect(_url_for('admin.settings'))
 
 
 @admin_blueprint.route('/admin/delete_account/<int:user_id>', methods=['POST'])

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-02-18 11:35+0100\n"
+"POT-Creation-Date: 2022-02-27 13:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -106,59 +106,63 @@ msgstr ""
 msgid "validation_error.group_name_already_taken"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:43
+#: PfaKSys/admin/routes.py:44
 msgid "flash.success.admin.user_group_created"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:46
+#: PfaKSys/admin/routes.py:47
 msgid "page.admin.user_group.title"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:67
-msgid "flash.success.admin.account_deleted"
+#: PfaKSys/admin/routes.py:57
+msgid "flash.success.admin.database_backup_created"
 msgstr ""
 
 #: PfaKSys/admin/routes.py:79
+msgid "flash.success.admin.account_deleted"
+msgstr ""
+
+#: PfaKSys/admin/routes.py:91
 msgid "flash.warning.admin.cant_delete_admin_group"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:86
+#: PfaKSys/admin/routes.py:98
 msgid "flash.success.admin.user_group_deleted"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:142
+#: PfaKSys/admin/routes.py:154
 msgid "flash.success.account_update_admin"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:153
+#: PfaKSys/admin/routes.py:165
 msgid "page.admin.edit_user.title"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:185
+#: PfaKSys/admin/routes.py:197
 msgid "flash.success.admin.user_group_edited"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:194
+#: PfaKSys/admin/routes.py:206
 msgid "page.admin.edit_user_group.title"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:212
+#: PfaKSys/admin/routes.py:224
 msgid "flash.success.system_settings.mail_saved"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:220
+#: PfaKSys/admin/routes.py:232
 msgid "flash.success.system_settings.database_saved"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:228
+#: PfaKSys/admin/routes.py:240
 msgid "flash.success.system_settings.notifications_saved"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:254 PfaKSys/templates/admin/settings.html:4
+#: PfaKSys/admin/routes.py:266 PfaKSys/templates/admin/settings.html:4
 msgid "page.system_settings.title"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:295 PfaKSys/templates/admin/user_management.html:4
+#: PfaKSys/admin/routes.py:307 PfaKSys/templates/admin/user_management.html:4
 msgid "page.user_management.title"
 msgstr ""
 
@@ -280,68 +284,68 @@ msgstr ""
 msgid "item.item_condition.other"
 msgstr ""
 
-#: PfaKSys/item/routes.py:31 PfaKSys/item/routes.py:343
+#: PfaKSys/item/routes.py:32 PfaKSys/item/routes.py:343
 msgid "flash.success.item_category.created"
 msgstr ""
 
-#: PfaKSys/item/routes.py:38 PfaKSys/templates/item/categories.html:4
+#: PfaKSys/item/routes.py:39 PfaKSys/templates/item/categories.html:4
 msgid "page.item_categories.title"
 msgstr ""
 
-#: PfaKSys/item/routes.py:39 PfaKSys/item/routes.py:278
+#: PfaKSys/item/routes.py:40 PfaKSys/item/routes.py:279
 #: PfaKSys/item/routes.py:375
 msgid "ui.common.menu"
 msgstr ""
 
-#: PfaKSys/item/routes.py:60
+#: PfaKSys/item/routes.py:61
 msgid "flash.success.item.deleted"
 msgstr ""
 
-#: PfaKSys/item/routes.py:73
+#: PfaKSys/item/routes.py:74
 msgid "flash.success.category.deleted"
 msgstr ""
 
-#: PfaKSys/item/routes.py:99
+#: PfaKSys/item/routes.py:100
 msgid "flash.success.image_deleted"
 msgstr ""
 
-#: PfaKSys/item/routes.py:113
+#: PfaKSys/item/routes.py:114
 msgid "flash.success.location.deleted"
 msgstr ""
 
-#: PfaKSys/item/routes.py:162
+#: PfaKSys/item/routes.py:163
 msgid "flash.success.item.edited"
 msgstr ""
 
-#: PfaKSys/item/routes.py:197
+#: PfaKSys/item/routes.py:198
 msgid "flash.success.category.edited"
 msgstr ""
 
-#: PfaKSys/item/routes.py:224
+#: PfaKSys/item/routes.py:225
 msgid "flash.success.item.image_added"
 msgstr ""
 
-#: PfaKSys/item/routes.py:227
+#: PfaKSys/item/routes.py:228
 msgid "ui.common.images"
 msgstr ""
 
-#: PfaKSys/item/routes.py:249
+#: PfaKSys/item/routes.py:250
 msgid "flash.success.location.edited"
 msgstr ""
 
-#: PfaKSys/item/routes.py:270 PfaKSys/item/routes.py:352
+#: PfaKSys/item/routes.py:271 PfaKSys/item/routes.py:352
 msgid "flash.success.item_location.created"
 msgstr ""
 
-#: PfaKSys/item/routes.py:277 PfaKSys/templates/item/locations.html:4
+#: PfaKSys/item/routes.py:278 PfaKSys/templates/item/locations.html:4
 msgid "page.item_locations.title"
 msgstr ""
 
-#: PfaKSys/item/routes.py:305
+#: PfaKSys/item/routes.py:306
 msgid "flash.success.item.created"
 msgstr ""
 
-#: PfaKSys/item/routes.py:308 PfaKSys/templates/item/new.html:9
+#: PfaKSys/item/routes.py:309 PfaKSys/templates/item/new.html:9
 msgid "page.item_new.title"
 msgstr ""
 
@@ -448,7 +452,7 @@ msgid "page.system_settings.logs"
 msgstr ""
 
 #: PfaKSys/templates/admin/settings.html:108
-#: PfaKSys/templates/admin/settings.html:143
+#: PfaKSys/templates/admin/settings.html:144
 msgid "ui.common.help"
 msgstr ""
 
@@ -464,19 +468,24 @@ msgstr ""
 msgid "ui.common.settings"
 msgstr ""
 
-#: PfaKSys/templates/admin/settings.html:143
+#: PfaKSys/templates/admin/settings.html:144
 msgid "page.system_settings.database_backup_quantity_help"
 msgstr ""
 
-#: PfaKSys/templates/admin/settings.html:161
+#: PfaKSys/templates/admin/settings.html:162
 msgid "ui.common.backups"
 msgstr ""
 
-#: PfaKSys/templates/admin/settings.html:184
+#: PfaKSys/templates/admin/modals/create_new_database_backup_modal.html:19
+#: PfaKSys/templates/admin/settings.html:166
+msgid "ui.system_settings.create_new_database_backup"
+msgstr ""
+
+#: PfaKSys/templates/admin/settings.html:190
 msgid "ui.system_settings.email_notifications"
 msgstr ""
 
-#: PfaKSys/templates/admin/settings.html:186
+#: PfaKSys/templates/admin/settings.html:192
 msgid "ui.system_settings.notifications_intro"
 msgstr ""
 
@@ -491,6 +500,7 @@ msgstr ""
 msgid "ui.common.permissions"
 msgstr ""
 
+#: PfaKSys/templates/admin/modals/create_new_database_backup_modal.html:22
 #: PfaKSys/templates/admin/modals/delete_user_account_modal.html:15
 #: PfaKSys/templates/admin/modals/delete_user_group_modal.html:15
 #: PfaKSys/templates/admin/user_group.html:92
@@ -523,6 +533,14 @@ msgstr ""
 
 #: PfaKSys/templates/admin/user_management.html:144
 msgid "ui.admin.new_user_group"
+msgstr ""
+
+#: PfaKSys/templates/admin/modals/create_new_database_backup_modal.html:5
+msgid "modal.create_new_database_admin.title"
+msgstr ""
+
+#: PfaKSys/templates/admin/modals/create_new_database_backup_modal.html:13
+msgid "modal.create_new_database_admin.body"
 msgstr ""
 
 #: PfaKSys/templates/admin/modals/delete_user_account_modal.html:5
@@ -811,11 +829,11 @@ msgstr ""
 msgid "flash.success.user_settings_saved"
 msgstr ""
 
-#: PfaKSys/user/utils.py:43
+#: PfaKSys/user/utils.py:44
 msgid "mail.reset_password.subject"
 msgstr ""
 
-#: PfaKSys/user/utils.py:44
+#: PfaKSys/user/utils.py:45
 msgid "mail.reset_password.body"
 msgstr ""
 
