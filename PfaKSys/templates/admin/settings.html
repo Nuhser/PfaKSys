@@ -225,9 +225,11 @@
 
                         <div class="collapse mt-1" id="logs-collapse{{ log }}">
                             <div class="card card-body" style="max-height: 600px; overflow: auto;">
-                                {% for line in logs[log] %}
-                                    {{ line }}<br>
-                                {% endfor %}
+                                <code>
+                                    {% for line in logs[log] %}
+                                        {{ line }}<br>
+                                    {% endfor %}
+                                </code>
                             </div>
                         </div>
                     </div>
