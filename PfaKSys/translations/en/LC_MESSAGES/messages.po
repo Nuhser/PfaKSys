@@ -466,9 +466,9 @@ msgstr ""
 msgid "page.system_settings.mail_credentials_info"
 msgstr ""
 "<h4 class='alert-heading'>Warning!</h4><p>For security reasons username "
-"and password for the email connection are saved in environment variables."
+"and password for the email connection are saved directly inside the config file."
 " You can learn more about how to set this up <a target='_blank' "
-"href='https://github.com/Nuhser/PfaKSys/wiki' class='alert-"
+"href='https://github.com/Nuhser/PfaKSys/wiki/Installation#3-configure-pfaksys' class='alert-"
 "link'>here</a>.</p>"
 
 #: PfaKSys/templates/admin/settings.html:139

@@ -468,9 +468,9 @@ msgstr ""
 msgid "page.system_settings.mail_credentials_info"
 msgstr ""
 "<h4 class='alert-heading'>Achtung!</h4><p>Benutzername und Passwort für "
-"den Email-Zugang werden aus Sicherheitsgründen als Umgebungsvariablen "
+"den Email-Zugang werden aus Sicherheitsgründen direkt in der Config-Datei "
 "gespeichert. Wie du diese einrichtest, kannst du <a target='_blank' "
-"href='https://github.com/Nuhser/PfaKSys/wiki' class='alert-link'>hier</a>"
+"href='https://github.com/Nuhser/PfaKSys/wiki/Installation#3-configure-pfaksys' class='alert-link'>hier</a>"
 " nachlesen.</p>"
 
 #: PfaKSys/templates/admin/settings.html:139
