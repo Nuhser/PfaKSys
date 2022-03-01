@@ -100,6 +100,14 @@ def create_app(config=ProductionConfig):
     app.register_blueprint(main_blueprint)
     app.register_blueprint(user_blueprint)
 
+    @app.context_processor
+    def inject_template_scope() -> dict:
+        def cookies_check() -> bool:
+            value = request.cookies.get('cookie_consent')
+            return value == 'true'
+
+        return {'cookies_check': cookies_check}
+
     app.logger.info('Server has been started successfully.')
 
     return app

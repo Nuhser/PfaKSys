@@ -181,6 +181,20 @@
                     </div>
                 {% endif %}
             </div>
+
+            {% if not cookies_check() %}
+                <div id="cookie-banner" class="cookie-banner">
+                    <p>{{ _('ui.cookie_banner') }}</p>
+                    <button id="cookie-consent" class="close">&times;</button>
+                </div>
+                <script>
+                    var fn = function () {
+                        document.cookie = 'cookie_consent=true';
+                        document.getElementById('cookie-banner').hidden = true;
+                    };
+                    document.getElementById('cookie-consent').onclick = fn;
+                </script>
+            {% endif %}
         </main>
 
         <footer class="align-items-center">

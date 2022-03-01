@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-02-27 13:46+0100\n"
+"POT-Creation-Date: 2022-03-01 15:26+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -107,57 +107,57 @@ msgstr "Manage Locations"
 msgid "validation_error.group_name_already_taken"
 msgstr "This user group name already taken. Please choose a different one."
 
-#: PfaKSys/admin/routes.py:44
+#: PfaKSys/admin/routes.py:43
 msgid "flash.success.admin.user_group_created"
 msgstr "The user group \"%(group_name)s\" was created successfully."
 
-#: PfaKSys/admin/routes.py:47
+#: PfaKSys/admin/routes.py:46
 msgid "page.admin.user_group.title"
 msgstr "User Group"
 
-#: PfaKSys/admin/routes.py:57
+#: PfaKSys/admin/routes.py:56
 msgid "flash.success.admin.database_backup_created"
 msgstr "The database backup \"%(backup_name)s\" was created successfully."
 
-#: PfaKSys/admin/routes.py:79
+#: PfaKSys/admin/routes.py:78
 msgid "flash.success.admin.account_deleted"
 msgstr "The account of \"%(username)s\" was deleted successfully."
 
-#: PfaKSys/admin/routes.py:91
+#: PfaKSys/admin/routes.py:90
 msgid "flash.warning.admin.cant_delete_admin_group"
 msgstr "You can't delete the admin-group!"
 
-#: PfaKSys/admin/routes.py:98
+#: PfaKSys/admin/routes.py:97
 msgid "flash.success.admin.user_group_deleted"
 msgstr "The user group \"%(group_name)s\" was deleted successfully."
 
-#: PfaKSys/admin/routes.py:154
+#: PfaKSys/admin/routes.py:153
 msgid "flash.success.account_update_admin"
 msgstr ""
 "The changes to the account of \"%(username)s\" and their user groups were"
 " saved."
 
-#: PfaKSys/admin/routes.py:165
+#: PfaKSys/admin/routes.py:164
 msgid "page.admin.edit_user.title"
 msgstr "User Data of %(username)s"
 
-#: PfaKSys/admin/routes.py:197
+#: PfaKSys/admin/routes.py:196
 msgid "flash.success.admin.user_group_edited"
 msgstr "The user group \"%(group_name)s\" was edited successfully."
 
-#: PfaKSys/admin/routes.py:206
+#: PfaKSys/admin/routes.py:205
 msgid "page.admin.edit_user_group.title"
 msgstr "User Group %(username)s"
 
-#: PfaKSys/admin/routes.py:224
+#: PfaKSys/admin/routes.py:223
 msgid "flash.success.system_settings.mail_saved"
 msgstr "Your mail settings have been saved."
 
-#: PfaKSys/admin/routes.py:232
+#: PfaKSys/admin/routes.py:231
 msgid "flash.success.system_settings.database_saved"
 msgstr "Your database settings have been saved."
 
-#: PfaKSys/admin/routes.py:240
+#: PfaKSys/admin/routes.py:239
 msgid "flash.success.system_settings.notifications_saved"
 msgstr "Your notification settings have been saved."
 
@@ -356,7 +356,7 @@ msgstr "New Item"
 msgid "page.item_overview.title"
 msgstr "Item Overview"
 
-#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:191
+#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:205
 msgid "ui.common.about"
 msgstr "About"
 
@@ -421,6 +421,10 @@ msgstr "Login"
 #: PfaKSys/user/routes.py:163
 msgid "ui.common.sign_up"
 msgstr "Sign Up"
+
+#: PfaKSys/templates/_base.html:187
+msgid "ui.cookie_banner"
+msgstr "By using PfaKSys, you agree to the use of <b>functional</b> cookies by this software."
 
 #: PfaKSys/templates/admin/edit_user.html:18
 #: PfaKSys/templates/user/account.html:18

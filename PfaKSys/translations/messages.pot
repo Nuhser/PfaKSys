@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-02-27 13:46+0100\n"
+"POT-Creation-Date: 2022-03-01 15:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -106,55 +106,55 @@ msgstr ""
 msgid "validation_error.group_name_already_taken"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:44
+#: PfaKSys/admin/routes.py:43
 msgid "flash.success.admin.user_group_created"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:47
+#: PfaKSys/admin/routes.py:46
 msgid "page.admin.user_group.title"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:57
+#: PfaKSys/admin/routes.py:56
 msgid "flash.success.admin.database_backup_created"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:79
+#: PfaKSys/admin/routes.py:78
 msgid "flash.success.admin.account_deleted"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:91
+#: PfaKSys/admin/routes.py:90
 msgid "flash.warning.admin.cant_delete_admin_group"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:98
+#: PfaKSys/admin/routes.py:97
 msgid "flash.success.admin.user_group_deleted"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:154
+#: PfaKSys/admin/routes.py:153
 msgid "flash.success.account_update_admin"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:165
+#: PfaKSys/admin/routes.py:164
 msgid "page.admin.edit_user.title"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:197
+#: PfaKSys/admin/routes.py:196
 msgid "flash.success.admin.user_group_edited"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:206
+#: PfaKSys/admin/routes.py:205
 msgid "page.admin.edit_user_group.title"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:224
+#: PfaKSys/admin/routes.py:223
 msgid "flash.success.system_settings.mail_saved"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:232
+#: PfaKSys/admin/routes.py:231
 msgid "flash.success.system_settings.database_saved"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:240
+#: PfaKSys/admin/routes.py:239
 msgid "flash.success.system_settings.notifications_saved"
 msgstr ""
 
@@ -353,7 +353,7 @@ msgstr ""
 msgid "page.item_overview.title"
 msgstr ""
 
-#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:191
+#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:205
 msgid "ui.common.about"
 msgstr ""
 
@@ -417,6 +417,10 @@ msgstr ""
 #: PfaKSys/templates/_base.html:142 PfaKSys/user/forms.py:27
 #: PfaKSys/user/routes.py:163
 msgid "ui.common.sign_up"
+msgstr ""
+
+#: PfaKSys/templates/_base.html:187
+msgid "ui.cookie_banner"
 msgstr ""
 
 #: PfaKSys/templates/admin/edit_user.html:18
