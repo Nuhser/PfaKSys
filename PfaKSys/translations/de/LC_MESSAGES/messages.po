@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-01 15:26+0100\n"
+"POT-Creation-Date: 2022-03-01 21:32+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -426,7 +426,9 @@ msgstr "Registrieren"
 
 #: PfaKSys/templates/_base.html:187
 msgid "ui.cookie_banner"
-msgstr "Mit der Benutzung von PfaKSys stimmst du der Verwendung von <b>funktionalen</b> Cookies durch die Software zu."
+msgstr ""
+"Mit der Benutzung von PfaKSys stimmst du der Verwendung von "
+"<b>funktionalen</b> Cookies durch die Software zu."
 
 #: PfaKSys/templates/admin/edit_user.html:18
 #: PfaKSys/templates/user/account.html:18
@@ -535,7 +537,7 @@ msgstr "Berechtigungen"
 #: PfaKSys/templates/location/edit.html:29
 #: PfaKSys/templates/user/modals/delete_user_account_modal.html:15
 #: PfaKSys/templates/user/modals/delete_user_account_modal2.html:15
-#: PfaKSys/templates/user/settings.html:61
+#: PfaKSys/templates/user/settings.html:75
 msgid "ui.common.cancel"
 msgstr "Abbrechen"
 
@@ -767,7 +769,15 @@ msgstr "Sonstiges"
 msgid "page.common.general_settings"
 msgstr "Allgemeine Einstellungen"
 
-#: PfaKSys/templates/user/settings.html:68
+#: PfaKSys/templates/user/settings.html:49
+msgid "page.user_settings.danger_zone"
+msgstr "Danger Zone"
+
+#: PfaKSys/templates/user/settings.html:53
+msgid "ui.user_settings.reset_password"
+msgstr "Passwort zurücksetzen"
+
+#: PfaKSys/templates/user/settings.html:58
 msgid "ui.user_settings.delete_account"
 msgstr "Account löschen"
 
