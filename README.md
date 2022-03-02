@@ -2,7 +2,9 @@
 
 PfaKSys is a server based inventory management and borrowing system using a Flask webapp for small to medium sized organizations.
 
-*More informations comming later...*
+PfaKSys makes it possible to keep track of the materials like tents, cooking utensils, torches and candles, ... and see how many of them are available at any point. Members of your organization can reserve items for them self and events they organize and get detailed summaries of their reservation.
+
+*Other features are planned and will be implemented over time. See [Issues](https://github.com/Nuhser/PfaKSys/issues) for more information on planned features or known bugs.*
 
 ----
 
