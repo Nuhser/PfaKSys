@@ -28,6 +28,10 @@ def add_user_group():
         group = UserGroup(name=form.name.data)
 
         permissions = []
+        if form.data_export_permission.data:
+            permissions.append('data_export')
+        if form.data_import_permission.data:
+            permissions.append('data_import')
         if form.manage_material_permission.data:
             permissions.append('manage_material')
         if form.manage_categories_permission.data:
@@ -178,6 +182,10 @@ def edit_user_group(group_id):
         group.name = form.name.data
 
         permissions = []
+        if form.data_export_permission.data:
+            permissions.append('data_export')
+        if form.data_import_permission.data:
+            permissions.append('data_import')
         if form.manage_material_permission.data:
             permissions.append('manage_material')
         if form.manage_categories_permission.data:
@@ -198,6 +206,8 @@ def edit_user_group(group_id):
 
     elif request.method == 'GET':
         form.name.data = group.name
+        form.data_export_permission.data = Permission.data_export in permissions
+        form.data_import_permission.data = Permission.data_import in permissions
         form.manage_material_permission.data = Permission.manage_material in permissions
         form.manage_categories_permission.data = Permission.manage_categories in permissions
         form.manage_locations_permission.data = Permission.manage_locations in permissions

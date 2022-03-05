@@ -25,7 +25,7 @@
                             {{ _('ui.item.items') }}
                         </a>
 
-                        <div class="dropdown-menu">
+                        <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="{{ url_for('item.overview') }}">
                                 <span class="material-icons">inventory</span> 
                                 {{ _('ui.item.overview') }}
@@ -48,6 +48,24 @@
                             {% endif %}
                         </div>
                     </div>
+
+                    {% if current_user.has_permission('data_export') or current_user.has_permission('data_import') %}
+                        <div class="btn-group navbar-btn">
+                            <a class="nav-item nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" id="nav-import-export">
+                                <span class="material-icons">import_export</span> 
+                                {{ _('ui.data.import_export') }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right">
+                                {% if current_user.has_permission('data_import') %}
+                                    <a class="dropdown-item" href="#">
+                                        <span class="material-icons">publish</span> 
+                                        {{ _('ui.data.import') }}
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
                 {% endif %}
             </div>
 

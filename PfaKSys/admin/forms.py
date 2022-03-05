@@ -70,6 +70,8 @@ class SearchUserGroupForm(FlaskForm):
 
 class UserGroupForm(FlaskForm):
     name = StringField(lazy_gettext('ui.admin.group_name'), validators=[DataRequired(), Length(max=32)])
+    data_export_permission = BooleanField(lazy_gettext('main.permissions.data_export'), default=False)
+    data_import_permission = BooleanField(lazy_gettext('main.permissions.data_import'), default=False)
     manage_material_permission = BooleanField(lazy_gettext('main.permissions.manage_material'), default=False)
     manage_categories_permission = BooleanField(lazy_gettext('main.permissions.manage_categories'), default=False)
     manage_locations_permission = BooleanField(lazy_gettext('main.permissions.manage_locations'), default=False)
