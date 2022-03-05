@@ -17,23 +17,23 @@
         <div class="tab-content">
             <!-- General Settings -->
             <form class="tab-pane active" id="tab-general" action="" method="POST">
-                {{ form.hidden_tag() }}
+                {{ general_settings_form.hidden_tag() }}
 
                 <fieldset class="mb-4">
                     <legend class="border-bottom mb-3">{{ _('page.common.general_settings') }}</legend>
 
                     <div class="form-group">
-                        {{ form.language.label(class="form-control-label") }}
+                        {{ general_settings_form.language.label(class="form-control-label") }}
     
-                        {% if form.language.errors %}
-                            {{ form.language(class="form-control is-invalid")}}
+                        {% if general_settings_form.language.errors %}
+                            {{ general_settings_form.language(class="form-control is-invalid")}}
                             <div class="invalid-feedback">
-                                {% for error in form.language.errors %}
+                                {% for error in general_settings_form.language.errors %}
                                     <span>{{ error }}</span>
                                 {% endfor %}
                             </div>
                         {% else %}
-                            {{ form.language(class="form-control") }}
+                            {{ general_settings_form.language(class="form-control") }}
                         {% endif %}
                     </div>
                 </fieldset>
@@ -41,10 +41,10 @@
                 <fieldset class="mb-4">
                     <legend class="border-bottom border-danger mb-3" style="color: red;">{{ _('page.user_settings.danger_zone') }}</legend>
 
-                    <a type="button" class="btn btn-secondary" href="#">
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#change-password-modal">
                         <span class="material-icons">key</span>
                         {{ _('ui.user_settings.reset_password') }}
-                    </a>
+                    </button>
 
                     <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete-user-account-modal">
                         <span class="material-icons">delete</span>
@@ -53,25 +53,25 @@
                 </fieldset>
 
                 <div class="border-top form-group">
-                    {{ form.submit(class="btn btn-success mt-2") }}
+                    {{ general_settings_form.submit(class="btn btn-success mt-2") }}
                 </div>
             </form>
-
-            <!-- Other Settings -->
-            <!-- <form class="tab-pane" id="tab-other" action="" method="POST">
-                {{ form.hidden_tag() }}
-
-                <fieldset class="mb-4">
-                    <i>Comming soon...</i>
-                </fieldset>
-            </form> -->
         </div>
     </div>
 {% endblock %}
 
 {% block modals %}
     {% include 'user/modals/delete_user_account_modal.html' %}
+    {% include 'user/modals/change_password_modal.html' %}
 {% endblock %}
 
 {% block scripts %}
+    <!-- Modal Scripts -->
+    {% if change_password_form.errors %}
+        <script type="text/javascript">
+            $(window).on('load', function() {
+                $("#change-password-modal").modal("show")
+            });
+        </script>
+    {% endif %}
 {% endblock %}

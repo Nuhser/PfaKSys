@@ -8,7 +8,7 @@ from PfaKSys import bcrypt, db
 from PfaKSys.main.email import send_email_to_all_admins
 from PfaKSys.main.utils import get_system_settings, _url_for
 from PfaKSys.models import User, UserGroup, UserSettings
-from PfaKSys.user.forms import LoginForm, RegistrationForm, RequestResetForm, ResetPasswordForm, UpdateAccountForm, UserSettingsForm
+from PfaKSys.user.forms import ChangePasswordForm, LoginForm, RegistrationForm, RequestResetForm, ResetPasswordForm, UpdateAccountForm, UserSettingsForm
 from PfaKSys.user.utils import generate_and_save_gravatar, save_picture, send_reset_email
 
 
@@ -214,20 +214,36 @@ def reset_password(token: str):
 @user_blueprint.route('/user_settings', methods=['GET', 'POST'])
 @login_required
 def settings():
-    # initialize form
-    form = UserSettingsForm()
-    form.language.choices = [(key, value) for key, value in current_app.config['LANGUAGES'].items()]
+    general_settings_form = UserSettingsForm()
+    change_password_form = ChangePasswordForm()
 
-    # validate submitted form
-    if form.validate_on_submit():
-        current_user.settings.language = form.language.data
-        db.session.commit()
+    general_settings_form.language.choices = [(key, value) for key, value in current_app.config['LANGUAGES'].items()]
 
-        flash(gettext('flash.success.user_settings_saved'), 'success')
-        return redirect(_url_for('user.settings'))
+    if 'submit_change_password' in request.form:
+        if change_password_form.validate_on_submit():
+            hashed_password = bcrypt.generate_password_hash(change_password_form.new_password.data).decode('utf-8')
+            current_user.password = hashed_password
+            db.session.commit()
+
+            current_app.logger.info(f'{current_user.username} has changed their password.')
+            flash(gettext('flash.success.password_change'), 'success')
+            return redirect(_url_for('user.settings'))
+
+    elif 'language' in request.form:
+        if general_settings_form.validate_on_submit():
+            current_user.settings.language = general_settings_form.language.data
+            db.session.commit()
+
+            flash(gettext('flash.success.user_settings_saved'), 'success')
+            return redirect(_url_for('user.settings'))
 
     # fill form with current values if settings are opened
     elif request.method == 'GET':
-        form.language.data = current_user.settings.language
+        general_settings_form.language.data = current_user.settings.language
 
-    return render_template('user/settings.html', title=gettext('page.user_settings.title'), form=form)
+    return render_template(
+        'user/settings.html',
+        title=gettext('page.user_settings.title'),
+        general_settings_form=general_settings_form,
+        change_password_form=change_password_form
+    )
