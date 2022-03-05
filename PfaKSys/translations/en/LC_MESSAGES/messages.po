@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-04 10:13+0100\n"
+"POT-Creation-Date: 2022-03-05 10:01+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -754,7 +754,7 @@ msgstr "Sign in here."
 msgid "page.reset_password.title"
 msgstr "Reset Password"
 
-#: PfaKSys/templates/user/settings.html:4 PfaKSys/user/routes.py:240
+#: PfaKSys/templates/user/settings.html:4 PfaKSys/user/routes.py:246
 msgid "page.user_settings.title"
 msgstr "User Settings"
 
@@ -894,7 +894,11 @@ msgstr "This link is either invalid or has expired."
 msgid "flash.success.password_reset"
 msgstr "Your password has been updated! You are now able to log in."
 
-#: PfaKSys/user/routes.py:231
+#: PfaKSys/user/routes.py:229
+msgid "flash.success.password_change"
+msgstr "Your password has been updated! Remember that the next time you log in."
+
+#: PfaKSys/user/routes.py:237
 msgid "flash.success.user_settings_saved"
 msgstr "Your settings have been saved."
 
@@ -913,3 +917,4 @@ msgstr ""
 "\n"
 "\n"
 "This is an automaticaly generated mail. You don't need to respond to it."
+

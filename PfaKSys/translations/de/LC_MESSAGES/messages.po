@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-04 10:13+0100\n"
+"POT-Creation-Date: 2022-03-05 10:01+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -758,7 +758,7 @@ msgstr "Melde dich hier an."
 msgid "page.reset_password.title"
 msgstr "Passwort Zurücksetzen"
 
-#: PfaKSys/templates/user/settings.html:4 PfaKSys/user/routes.py:240
+#: PfaKSys/templates/user/settings.html:4 PfaKSys/user/routes.py:246
 msgid "page.user_settings.title"
 msgstr "Benutzereinstellungen"
 
@@ -903,7 +903,11 @@ msgstr ""
 "Dein Passwort wurde erfolgreich zurückgesetzt! Du kannst dich jetzt "
 "anmelden."
 
-#: PfaKSys/user/routes.py:231
+#: PfaKSys/user/routes.py:229
+msgid "flash.success.password_change"
+msgstr "Dein Passwort wurde erfolgreich geändert! Denk daran, wenn du dich das nächste Mal anmeldest."
+
+#: PfaKSys/user/routes.py:237
 msgid "flash.success.user_settings_saved"
 msgstr "Deine Einstellungen wurden gespeichert."
 
@@ -924,3 +928,4 @@ msgstr ""
 "\n"
 "Dies ist eine automatisch generierte Mail. Du brauchst ihr nicht zu "
 "antworten."
+

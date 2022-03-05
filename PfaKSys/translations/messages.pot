@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-04 10:13+0100\n"
+"POT-Creation-Date: 2022-03-05 10:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -726,7 +726,7 @@ msgstr ""
 msgid "page.reset_password.title"
 msgstr ""
 
-#: PfaKSys/templates/user/settings.html:4 PfaKSys/user/routes.py:240
+#: PfaKSys/templates/user/settings.html:4 PfaKSys/user/routes.py:246
 msgid "page.user_settings.title"
 msgstr ""
 
@@ -850,7 +850,11 @@ msgstr ""
 msgid "flash.success.password_reset"
 msgstr ""
 
-#: PfaKSys/user/routes.py:231
+#: PfaKSys/user/routes.py:229
+msgid "flash.success.password_change"
+msgstr ""
+
+#: PfaKSys/user/routes.py:237
 msgid "flash.success.user_settings_saved"
 msgstr ""
 
