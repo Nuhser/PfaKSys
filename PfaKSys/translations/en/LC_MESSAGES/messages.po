@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-06 14:32+0100\n"
+"POT-Creation-Date: 2022-03-06 15:30+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -177,31 +177,31 @@ msgstr "System Settings"
 msgid "page.user_management.title"
 msgstr "User Management"
 
-#: PfaKSys/data/forms.py:12
+#: PfaKSys/data/forms.py:13
 msgid "ui.import.excel_file"
 msgstr "Excel File"
 
-#: PfaKSys/data/forms.py:13
+#: PfaKSys/data/forms.py:14
 msgid "ui.import.has_header_row"
 msgstr "Has title row"
 
-#: PfaKSys/data/forms.py:14 PfaKSys/data/forms.py:22
+#: PfaKSys/data/forms.py:15 PfaKSys/data/forms.py:23
 msgid "ui.common.import"
 msgstr "Import"
 
-#: PfaKSys/data/forms.py:18
+#: PfaKSys/data/forms.py:19
 msgid "validation_error.no_file_selected"
 msgstr "You have to select a file."
 
-#: PfaKSys/data/forms.py:42
+#: PfaKSys/data/forms.py:49
 msgid "ui.data_import.new_category"
 msgstr "---Create new category---"
 
-#: PfaKSys/data/forms.py:52
+#: PfaKSys/data/forms.py:62
 msgid "ui.data_import.new_location"
 msgstr "---Create new location---"
 
-#: PfaKSys/data/routes.py:66
+#: PfaKSys/data/routes.py:64
 msgid "page.data_import.title"
 msgstr "Import Data"
 
@@ -384,7 +384,9 @@ msgstr "All Storage Locations"
 msgid "flash.success.item.created"
 msgstr "The item \"%(item_name)s\" has been created!"
 
-#: PfaKSys/item/routes.py:309 PfaKSys/templates/item/new.html:9
+#: PfaKSys/item/routes.py:309
+#: PfaKSys/templates/data/modals/excel_item_import_success_modal.html:16
+#: PfaKSys/templates/item/new.html:9
 msgid "page.item_new.title"
 msgstr "New Item"
 
@@ -649,8 +651,9 @@ msgstr "Import Items"
 msgid "page.data_import.excel_item_import_help"
 msgstr ""
 "The Excel table must consist of <b>7 Spalten</b>. The header row is "
-"optional and can be toggled on and off using the option above.<br>You can leave the quantity field empty if an item has no quantity.<br><br>The"
-" columns must be sorted as follows:<br><b>1. Name<br>2. Quantity<br>3. "
+"optional and can be toggled on and off using the option above.<br>You can"
+" leave the quantity field empty if an item has no quantity.<br><br>The "
+"columns must be sorted as follows:<br><b>1. Name<br>2. Quantity<br>3. "
 "Condition<br>4. Category<br>5. Location<br>6. Description<br>7. "
 "Comment</b>"
 
@@ -668,9 +671,22 @@ msgstr "Item Import from Excel successful"
 
 #: PfaKSys/templates/data/modals/excel_item_import_success_modal.html:11
 msgid "modal.data_import.excel_item_success_body"
-msgstr "<b>%(new_items)s</b> new items, <b>%(new_categories)s</b> new item categories and <b>%(new_locations)s</b> new storage locations were imported successfully."
+msgstr ""
+"<b>%(new_items)s</b> new items, <b>%(new_categories)s</b> new item "
+"categories and <b>%(new_locations)s</b> new storage locations were "
+"imported successfully."
 
-#: PfaKSys/templates/data/modals/excel_item_import_success_modal.html:15
+#: PfaKSys/templates/data/modals/excel_item_import_success_modal.html:35
+#, fuzzy
+msgid "page.data_import.new_categories"
+msgstr "---Create new category---"
+
+#: PfaKSys/templates/data/modals/excel_item_import_success_modal.html:54
+#, fuzzy
+msgid "page.data_import.new_locations"
+msgstr "---Create new location---"
+
+#: PfaKSys/templates/data/modals/excel_item_import_success_modal.html:72
 msgid "ui.common.ok"
 msgstr "OK"
 

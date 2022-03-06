@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-06 14:32+0100\n"
+"POT-Creation-Date: 2022-03-06 15:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -174,31 +174,31 @@ msgstr ""
 msgid "page.user_management.title"
 msgstr ""
 
-#: PfaKSys/data/forms.py:12
+#: PfaKSys/data/forms.py:13
 msgid "ui.import.excel_file"
 msgstr ""
 
-#: PfaKSys/data/forms.py:13
+#: PfaKSys/data/forms.py:14
 msgid "ui.import.has_header_row"
 msgstr ""
 
-#: PfaKSys/data/forms.py:14 PfaKSys/data/forms.py:22
+#: PfaKSys/data/forms.py:15 PfaKSys/data/forms.py:23
 msgid "ui.common.import"
 msgstr ""
 
-#: PfaKSys/data/forms.py:18
+#: PfaKSys/data/forms.py:19
 msgid "validation_error.no_file_selected"
 msgstr ""
 
-#: PfaKSys/data/forms.py:42
+#: PfaKSys/data/forms.py:49
 msgid "ui.data_import.new_category"
 msgstr ""
 
-#: PfaKSys/data/forms.py:52
+#: PfaKSys/data/forms.py:62
 msgid "ui.data_import.new_location"
 msgstr ""
 
-#: PfaKSys/data/routes.py:66
+#: PfaKSys/data/routes.py:64
 msgid "page.data_import.title"
 msgstr ""
 
@@ -381,7 +381,9 @@ msgstr ""
 msgid "flash.success.item.created"
 msgstr ""
 
-#: PfaKSys/item/routes.py:309 PfaKSys/templates/item/new.html:9
+#: PfaKSys/item/routes.py:309
+#: PfaKSys/templates/data/modals/excel_item_import_success_modal.html:16
+#: PfaKSys/templates/item/new.html:9
 msgid "page.item_new.title"
 msgstr ""
 
@@ -645,7 +647,15 @@ msgstr ""
 msgid "modal.data_import.excel_item_success_body"
 msgstr ""
 
-#: PfaKSys/templates/data/modals/excel_item_import_success_modal.html:15
+#: PfaKSys/templates/data/modals/excel_item_import_success_modal.html:35
+msgid "page.data_import.new_categories"
+msgstr ""
+
+#: PfaKSys/templates/data/modals/excel_item_import_success_modal.html:54
+msgid "page.data_import.new_locations"
+msgstr ""
+
+#: PfaKSys/templates/data/modals/excel_item_import_success_modal.html:72
 msgid "ui.common.ok"
 msgstr ""
 
