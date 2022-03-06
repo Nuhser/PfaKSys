@@ -36,14 +36,14 @@
                             {% if current_user.has_permission('manage_categories') %}
                                 <a class="dropdown-item" href="{{ url_for('item.categories') }}">
                                     <span class="material-icons">sell</span> 
-                                    {{ _('ui.item.categories') }}
+                                    {{ _('ui.common.categories') }}
                                 </a>
                             {% endif %}
 
                             {% if current_user.has_permission('manage_locations') %}
                                 <a class="dropdown-item" href="{{ url_for('item.locations') }}">
                                     <span class="material-icons">place</span> 
-                                    {{ _('ui.item.locations') }}
+                                    {{ _('ui.common.locations') }}
                                 </a>
                             {% endif %}
                         </div>
@@ -58,7 +58,7 @@
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 {% if current_user.has_permission('data_import') %}
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ url_for('data.import_data') }}">
                                         <span class="material-icons">publish</span> 
                                         {{ _('ui.data.import') }}
                                     </a>
