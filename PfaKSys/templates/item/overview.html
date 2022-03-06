@@ -53,8 +53,8 @@
             {% include 'item/modals/show_item_image_modal.html' %}
 
             <div class="media-body">
-                <h2><a class="article-title" href="{{ url_for('item.details', item_id=item.id) }}">{{ item.name }}</a></h2>
-                <div class="row mt-3">
+                <h4><a class="article-title" href="{{ url_for('item.details', item_id=item.id) }}">{{ item.name }}</a></h4>
+                <div class="row mt-2">
                     <div class="col">
                         <b>{{ _('ui.common.count') }}:</b> 
                         {% if item.has_count %}
