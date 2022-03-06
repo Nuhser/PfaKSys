@@ -89,12 +89,14 @@ def create_app(config=ProductionConfig):
 
     # import and register blueprints
     from PfaKSys.admin.routes import admin_blueprint
+    from PfaKSys.data.routes import data_blueprint
     from PfaKSys.error.handlers import error_blueprint
     from PfaKSys.item.routes import item_blueprint
     from PfaKSys.main.routes import main_blueprint
     from PfaKSys.user.routes import user_blueprint
 
     app.register_blueprint(admin_blueprint)
+    app.register_blueprint(data_blueprint)
     app.register_blueprint(error_blueprint)
     app.register_blueprint(item_blueprint)
     app.register_blueprint(main_blueprint)
