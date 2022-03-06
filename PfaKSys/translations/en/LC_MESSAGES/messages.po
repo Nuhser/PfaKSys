@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-05 11:44+0100\n"
+"POT-Creation-Date: 2022-03-06 14:32+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -176,6 +176,34 @@ msgstr "System Settings"
 #: PfaKSys/admin/routes.py:317 PfaKSys/templates/admin/user_management.html:4
 msgid "page.user_management.title"
 msgstr "User Management"
+
+#: PfaKSys/data/forms.py:12
+msgid "ui.import.excel_file"
+msgstr "Excel File"
+
+#: PfaKSys/data/forms.py:13
+msgid "ui.import.has_header_row"
+msgstr "Has title row"
+
+#: PfaKSys/data/forms.py:14 PfaKSys/data/forms.py:22
+msgid "ui.common.import"
+msgstr "Import"
+
+#: PfaKSys/data/forms.py:18
+msgid "validation_error.no_file_selected"
+msgstr "You have to select a file."
+
+#: PfaKSys/data/forms.py:42
+msgid "ui.data_import.new_category"
+msgstr "---Create new category---"
+
+#: PfaKSys/data/forms.py:52
+msgid "ui.data_import.new_location"
+msgstr "---Create new location---"
+
+#: PfaKSys/data/routes.py:66
+msgid "page.data_import.title"
+msgstr "Import Data"
 
 #: PfaKSys/error/handlers.py:12
 msgid "page.error_403.title"
@@ -386,7 +414,7 @@ msgstr ""
 msgid "ui.common.home"
 msgstr "Home"
 
-#: PfaKSys/templates/_navbar.html:25
+#: PfaKSys/templates/_navbar.html:25 PfaKSys/templates/data/imports.html:11
 msgid "ui.item.items"
 msgstr "Items"
 
@@ -395,12 +423,14 @@ msgid "ui.item.overview"
 msgstr "Overview"
 
 #: PfaKSys/templates/_navbar.html:39
-msgid "ui.item.categories"
+#: PfaKSys/templates/data/modals/excel_item_import_modal.html:38
+msgid "ui.common.categories"
 msgstr "Categories"
 
 #: PfaKSys/templates/_navbar.html:46
-msgid "ui.item.locations"
-msgstr "Storage Locations"
+#: PfaKSys/templates/data/modals/excel_item_import_modal.html:61
+msgid "ui.common.locations"
+msgstr "Locations"
 
 #: PfaKSys/templates/_navbar.html:56
 msgid "ui.data.import_export"
@@ -482,6 +512,7 @@ msgstr "Logs"
 
 #: PfaKSys/templates/admin/settings.html:108
 #: PfaKSys/templates/admin/settings.html:144
+#: PfaKSys/templates/data/imports.html:63
 msgid "ui.common.help"
 msgstr "Help"
 
@@ -546,7 +577,9 @@ msgstr "Permissions"
 #: PfaKSys/templates/admin/modals/delete_user_account_modal.html:15
 #: PfaKSys/templates/admin/modals/delete_user_group_modal.html:15
 #: PfaKSys/templates/admin/user_group.html:130
-#: PfaKSys/templates/category/edit.html:29 PfaKSys/templates/item/edit.html:178
+#: PfaKSys/templates/category/edit.html:29
+#: PfaKSys/templates/data/modals/excel_item_import_modal.html:87
+#: PfaKSys/templates/item/edit.html:178
 #: PfaKSys/templates/item/modals/delete_category_modal.html:37
 #: PfaKSys/templates/item/modals/delete_item_image_modal.html:15
 #: PfaKSys/templates/item/modals/delete_item_modal.html:15
@@ -607,6 +640,39 @@ msgstr "Delete"
 #: PfaKSys/templates/admin/modals/delete_user_group_modal.html:5
 msgid "modal.user_group_delete_admin.title"
 msgstr "Delete user group \"%(group_name)s\"?"
+
+#: PfaKSys/templates/data/imports.html:24
+msgid "page.data_import.item_title"
+msgstr "Import Items"
+
+#: PfaKSys/templates/data/imports.html:63
+msgid "page.data_import.excel_item_import_help"
+msgstr ""
+"The Excel table must consist of <b>7 Spalten</b>. The header row is "
+"optional and can be toggled on and off using the option above.<br>You can leave the quantity field empty if an item has no quantity.<br><br>The"
+" columns must be sorted as follows:<br><b>1. Name<br>2. Quantity<br>3. "
+"Condition<br>4. Category<br>5. Location<br>6. Description<br>7. "
+"Comment</b>"
+
+#: PfaKSys/templates/data/modals/excel_item_import_modal.html:5
+msgid "modal.data_import.excel_item_title"
+msgstr "Match conditions, categories and locations from \"<b>%(filename)s</b>\""
+
+#: PfaKSys/templates/data/modals/excel_item_import_modal.html:15
+msgid "ui.common.conditions"
+msgstr "Conditions"
+
+#: PfaKSys/templates/data/modals/excel_item_import_success_modal.html:5
+msgid "modal.data_import.excel_item_success_title"
+msgstr "Item Import from Excel successful"
+
+#: PfaKSys/templates/data/modals/excel_item_import_success_modal.html:11
+msgid "modal.data_import.excel_item_success_body"
+msgstr "<b>%(new_items)s</b> new items, <b>%(new_categories)s</b> new item categories and <b>%(new_locations)s</b> new storage locations were imported successfully."
+
+#: PfaKSys/templates/data/modals/excel_item_import_success_modal.html:15
+msgid "ui.common.ok"
+msgstr "OK"
 
 #: PfaKSys/templates/errors/403.html:5
 msgid "page.error_403.heading"
