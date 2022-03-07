@@ -1,6 +1,7 @@
 
 from datetime import datetime
-from flask import Blueprint, request
+from flask import Blueprint, render_template, request
+from flask_babel import gettext
 from flask_login import login_required
 
 from PfaKSys.calendar.calendar import Calendar, Event
@@ -29,4 +30,4 @@ def calendar():
     events = Event.from_ical('https://hessenwiki.de/confluence/rest/calendar-services/1.0/calendar/export/subcalendar/private/acab0f6eb1ea9a4b0478f49b91b73d0095e1130d.ics', ["Schulferien & Feiertage"])
     print(len(events))
 
-    return render_template('main/calendar.html', title=gettext('page.calendar.title'), calendar=calendar)
+    return render_template('calendar/calendar.html', title=gettext('page.calendar.title'), calendar=calendar)

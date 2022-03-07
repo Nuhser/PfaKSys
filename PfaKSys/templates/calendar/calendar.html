@@ -12,7 +12,7 @@
             </div>
     
             <div class="btn-toolbar" role="toolbar">
-                <a class="btn btn-primary btn-sm" href="{{ url_for('main.calendar') }}">
+                <a class="btn btn-primary btn-sm" href="{{ url_for('calendar.calendar') }}">
                     <span class="align-middle calendar-btn">
                         <span class="material-icons">today</span>
                         {{ _('ui.calendar.today') }}
@@ -20,10 +20,10 @@
                 </a>
         
                 <div class="btn-group ml-1" role="group">
-                    <a class="btn btn-primary btn-sm" href="{{ url_for('main.calendar', month=calendar.month.number-1, year=calendar.year) }}">
+                    <a class="btn btn-primary btn-sm" href="{{ url_for('calendar.calendar', month=calendar.month.number-1, year=calendar.year) }}">
                         <span class="align-middle calendar-btn">&laquo;</span>
                     </a>
-                    <a class="btn btn-primary btn-sm" href="{{ url_for('main.calendar', month=calendar.month.number+1, year=calendar.year) }}">
+                    <a class="btn btn-primary btn-sm" href="{{ url_for('calendar.calendar', month=calendar.month.number+1, year=calendar.year) }}">
                         <span class="align-middle calendar-btn">&raquo;</span>
                     </a>
                 </div>
