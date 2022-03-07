@@ -21,18 +21,18 @@ class Calendar():
 
 class Month():
     NAMES = [
-        lazy_gettext('main.calendar.january'),
-        lazy_gettext('main.calendar.february'),
-        lazy_gettext('main.calendar.march'),
-        lazy_gettext('main.calendar.april'),
-        lazy_gettext('main.calendar.may'),
-        lazy_gettext('main.calendar.june'),
-        lazy_gettext('main.calendar.july'),
-        lazy_gettext('main.calendar.august'),
-        lazy_gettext('main.calendar.september'),
-        lazy_gettext('main.calendar.october'),
-        lazy_gettext('main.calendar.november'),
-        lazy_gettext('main.calendar.december')
+        lazy_gettext('calendar.month.january'),
+        lazy_gettext('calendar.month.february'),
+        lazy_gettext('calendar.month.march'),
+        lazy_gettext('calendar.month.april'),
+        lazy_gettext('calendar.month.may'),
+        lazy_gettext('calendar.month.june'),
+        lazy_gettext('calendar.month.july'),
+        lazy_gettext('calendar.month.august'),
+        lazy_gettext('calendar.month.september'),
+        lazy_gettext('calendar.month.october'),
+        lazy_gettext('calendar.month.november'),
+        lazy_gettext('calendar.month.december')
     ]
 
     def __init__(self, year: int, month: int) -> None:
@@ -76,13 +76,13 @@ class Month():
 
 class Day():
     NAMES = [
-        lazy_gettext('main.calendar.monday'),
-        lazy_gettext('main.calendar.tuesday'),
-        lazy_gettext('main.calendar.wednesday'),
-        lazy_gettext('main.calendar.thursday'),
-        lazy_gettext('main.calendar.friday'),
-        lazy_gettext('main.calendar.saturday'),
-        lazy_gettext('main.calendar.sunday')
+        lazy_gettext('calendar.weekday.monday'),
+        lazy_gettext('calendar.weekday.tuesday'),
+        lazy_gettext('calendar.weekday.wednesday'),
+        lazy_gettext('calendar.weekday.thursday'),
+        lazy_gettext('calendar.weekday.friday'),
+        lazy_gettext('calendar.weekday.saturday'),
+        lazy_gettext('calendar.weekday.sunday')
     ]
 
     def __init__(self, date: int, weekday: int, other_month: bool=False) -> None:
