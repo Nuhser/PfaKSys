@@ -1,7 +1,11 @@
+from enum import Enum
+import icalendar
+import urllib.request
+
 from calendar import monthrange
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
+from dateutil.rrule import *
 from flask_babel import lazy_gettext
-from sqlalchemy import true
 
 
 class Calendar():
@@ -86,3 +90,67 @@ class Day():
         self.weekday = weekday
         self.name = self.NAMES[weekday]
         self.other_month = other_month
+
+
+class SyncInterval(Enum):
+    pass
+
+
+class Event():
+    def __init__(self, date: datetime, title: str, description: str, location: str, date_end: datetime=None) -> None:
+        self.date = date
+        self.date_end = date_end
+        self.title = title
+        self.description = description if location != None else ''
+        self.location = location if location != None else ''
+
+    def __repr__(self) -> str:
+        return f"Event('{self.title}', from: '{self.date}', to: '{self.date_end}', description: '{self.description}', location: '{self.location}')"
+
+
+    @staticmethod
+    def from_ical(url: str, categories_to_ignore: list[str]=[]) -> list:
+        def parse_recurrences(recur_rule, start, exclusions) -> list:
+            rules = rruleset()
+            first_rule = rrulestr(recur_rule, dtstart=start)
+            rules.rrule(first_rule)
+
+            if not isinstance(exclusions, list):
+                exclusions = [exclusions]
+                for xdate in exclusions:
+                    try:
+                        rules.exdate(xdate.dts[0].dt)
+                    except AttributeError:
+                        pass
+
+            dates = []
+            for rule in rules:
+                dates.append(rule.strftime("%D %H:%M UTC "))
+
+            return dates
+
+        with urllib.request.urlopen(url) as ical_file:
+            gcal = icalendar.Calendar.from_ical(ical_file.read())
+
+            events = []
+            for component in gcal.walk():
+                if (component.name == "VEVENT") and (not component.get('categories').cats[0] in categories_to_ignore):
+                    summary = component.get('summary')
+                    description = component.get('description')
+                    location = component.get('location')
+                    startdt = component.get('dtstart').dt
+                    enddt = component.get('dtend').dt
+                    exdate = component.get('exdate')
+
+                    if component.get('rrule'):
+                        reoccur = component.get('rrule').to_ical().decode('utf-8')
+                        for date in parse_recurrences(reoccur, startdt, exdate):
+                            events.append(Event(date, summary, description, location))
+                    else:
+                        events.append(Event(startdt, summary, description, location, date_end=enddt))
+
+        return events
+
+
+    def get_google_maps_link(self) -> str:
+        return f'https://maps.google.com/?q={self.location}'
