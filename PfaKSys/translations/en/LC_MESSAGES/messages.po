@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-07 23:44+0100\n"
+"POT-Creation-Date: 2022-03-08 00:15+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -24,7 +24,7 @@ msgstr "Number of Backups"
 
 #: PfaKSys/admin/forms.py:12 PfaKSys/admin/forms.py:21
 #: PfaKSys/admin/forms.py:53 PfaKSys/admin/forms.py:58
-#: PfaKSys/admin/forms.py:78 PfaKSys/calendar/forms.py:8
+#: PfaKSys/admin/forms.py:78 PfaKSys/calendar/forms.py:10
 #: PfaKSys/item/forms.py:20 PfaKSys/item/forms.py:38 PfaKSys/item/forms.py:56
 #: PfaKSys/user/forms.py:120
 msgid "ui.common.save"
@@ -116,65 +116,65 @@ msgstr "Manage Locations"
 msgid "validation_error.group_name_already_taken"
 msgstr "This user group name already taken. Please choose a different one."
 
-#: PfaKSys/admin/routes.py:47
+#: PfaKSys/admin/routes.py:48
 msgid "flash.success.admin.user_group_created"
 msgstr "The user group \"%(group_name)s\" was created successfully."
 
-#: PfaKSys/admin/routes.py:50
+#: PfaKSys/admin/routes.py:51
 msgid "page.admin.user_group.title"
 msgstr "User Group"
 
-#: PfaKSys/admin/routes.py:60
+#: PfaKSys/admin/routes.py:61
 msgid "flash.success.admin.database_backup_created"
 msgstr "The database backup \"%(backup_name)s\" was created successfully."
 
-#: PfaKSys/admin/routes.py:82
+#: PfaKSys/admin/routes.py:83
 msgid "flash.success.admin.account_deleted"
 msgstr "The account of \"%(username)s\" was deleted successfully."
 
-#: PfaKSys/admin/routes.py:94
+#: PfaKSys/admin/routes.py:95
 msgid "flash.warning.admin.cant_delete_admin_group"
 msgstr "You can't delete the admin-group!"
 
-#: PfaKSys/admin/routes.py:101
+#: PfaKSys/admin/routes.py:102
 msgid "flash.success.admin.user_group_deleted"
 msgstr "The user group \"%(group_name)s\" was deleted successfully."
 
-#: PfaKSys/admin/routes.py:157
+#: PfaKSys/admin/routes.py:158
 msgid "flash.success.account_update_admin"
 msgstr ""
 "The changes to the account of \"%(username)s\" and their user groups were"
 " saved."
 
-#: PfaKSys/admin/routes.py:168
+#: PfaKSys/admin/routes.py:169
 msgid "page.admin.edit_user.title"
 msgstr "User Data of %(username)s"
 
-#: PfaKSys/admin/routes.py:204
+#: PfaKSys/admin/routes.py:205
 msgid "flash.success.admin.user_group_edited"
 msgstr "The user group \"%(group_name)s\" was edited successfully."
 
-#: PfaKSys/admin/routes.py:215
+#: PfaKSys/admin/routes.py:216
 msgid "page.admin.edit_user_group.title"
 msgstr "User Group %(username)s"
 
-#: PfaKSys/admin/routes.py:233
+#: PfaKSys/admin/routes.py:235
 msgid "flash.success.system_settings.mail_saved"
 msgstr "Your mail settings have been saved."
 
-#: PfaKSys/admin/routes.py:241
+#: PfaKSys/admin/routes.py:243
 msgid "flash.success.system_settings.database_saved"
 msgstr "Your database settings have been saved."
 
-#: PfaKSys/admin/routes.py:249
+#: PfaKSys/admin/routes.py:251
 msgid "flash.success.system_settings.notifications_saved"
 msgstr "Your notification settings have been saved."
 
-#: PfaKSys/admin/routes.py:275 PfaKSys/templates/admin/settings.html:4
+#: PfaKSys/admin/routes.py:277 PfaKSys/templates/admin/settings.html:4
 msgid "page.system_settings.title"
 msgstr "System Settings"
 
-#: PfaKSys/admin/routes.py:316 PfaKSys/templates/admin/user_management.html:4
+#: PfaKSys/admin/routes.py:319 PfaKSys/templates/admin/user_management.html:4
 msgid "page.user_management.title"
 msgstr "User Management"
 
@@ -254,13 +254,33 @@ msgstr "Saturday"
 msgid "calendar.weekday.sunday"
 msgstr "Sunday"
 
-#: PfaKSys/calendar/forms.py:7
+#: PfaKSys/calendar/forms.py:9
 msgid "ui.system_settings.calendar_sync_interval"
 msgstr "Sync Interval"
 
 #: PfaKSys/calendar/routes.py:33 PfaKSys/templates/calendar/calendar.html:4
 msgid "page.calendar.title"
 msgstr "Calendar"
+
+#: PfaKSys/calendar/sync_interval.py:7
+msgid "calendar.sync_interval.five_minutes"
+msgstr "Every 5 minutes"
+
+#: PfaKSys/calendar/sync_interval.py:8
+msgid "calendar.sync_interval.thirty_minutes"
+msgstr "Every 30 minutes"
+
+#: PfaKSys/calendar/sync_interval.py:9
+msgid "calendar.sync_interval.hourly"
+msgstr "Hourly"
+
+#: PfaKSys/calendar/sync_interval.py:10
+msgid "calendar.sync_interval.five_hours"
+msgstr "Every 5 hours"
+
+#: PfaKSys/calendar/sync_interval.py:11
+msgid "calendar.sync_interval.daily"
+msgstr "Daily"
 
 #: PfaKSys/data/forms.py:13
 msgid "ui.import.excel_file"
@@ -602,7 +622,7 @@ msgid "page.system_settings.logs"
 msgstr "Logs"
 
 #: PfaKSys/templates/admin/settings.html:113
-#: PfaKSys/templates/admin/settings.html:161
+#: PfaKSys/templates/admin/settings.html:172
 #: PfaKSys/templates/data/imports.html:63
 msgid "ui.common.help"
 msgstr "Help"
@@ -624,11 +644,11 @@ msgstr ""
 "href='https://github.com/Nuhser/PfaKSys/wiki/Installation#3-configure-"
 "pfaksys' class='alert-link'>here</a>.</p>"
 
-#: PfaKSys/templates/admin/settings.html:156
+#: PfaKSys/templates/admin/settings.html:167
 msgid "ui.common.settings"
 msgstr "Settings"
 
-#: PfaKSys/templates/admin/settings.html:161
+#: PfaKSys/templates/admin/settings.html:172
 msgid "page.system_settings.database_backup_quantity_help"
 msgstr ""
 "This is the number of database backups which should be kept "
@@ -636,20 +656,20 @@ msgstr ""
 "getting deleted.<br>You can find more informations on the database backup"
 " in the <i>PfaKSys-documentations</i>."
 
-#: PfaKSys/templates/admin/settings.html:179
+#: PfaKSys/templates/admin/settings.html:190
 msgid "ui.common.backups"
 msgstr "Backups"
 
 #: PfaKSys/templates/admin/modals/create_new_database_backup_modal.html:19
-#: PfaKSys/templates/admin/settings.html:183
+#: PfaKSys/templates/admin/settings.html:194
 msgid "ui.system_settings.create_new_database_backup"
 msgstr "Create New Backup"
 
-#: PfaKSys/templates/admin/settings.html:207
+#: PfaKSys/templates/admin/settings.html:218
 msgid "ui.system_settings.email_notifications"
 msgstr "Email Notifications"
 
-#: PfaKSys/templates/admin/settings.html:209
+#: PfaKSys/templates/admin/settings.html:220
 msgid "ui.system_settings.notifications_intro"
 msgstr "Send email notifications when..."
 
