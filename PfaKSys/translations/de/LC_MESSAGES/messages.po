@@ -258,7 +258,7 @@ msgstr "Sonntag"
 
 #: PfaKSys/calendar/forms.py:7
 msgid "ui.system_settings.calendar_sync_interval"
-msgstr "Aktualisierungs-Intervall"
+msgstr "Aktualisierungsintervall"
 
 #: PfaKSys/calendar/routes.py:33 PfaKSys/templates/calendar/calendar.html:4
 msgid "page.calendar.title"
