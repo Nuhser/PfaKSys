@@ -95,4 +95,11 @@
             });
         </script>
     {% endif %}
+
+    <script type="text/javascript">
+        $(window).on('load', function(){
+            $(".nav").find(".active").removeClass("active");
+            $("#nav-import-export").addClass("active");
+        });
+    </script>
 {% endblock %}
