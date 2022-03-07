@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-06 15:30+0100\n"
+"POT-Creation-Date: 2022-03-07 21:41+0100\n"
 "PO-Revision-Date: 2022-01-16 17:27+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -19,99 +19,103 @@ msgstr ""
 "Generated-By: Babel 2.9.1\n"
 
 #: PfaKSys/admin/forms.py:11
-msgid "ui.system_settings.database_backup_quantity"
-msgstr "Number of Backups"
+msgid "ui.system_settings.calendar_sync_interval"
+msgstr "Sync Interval"
 
-#: PfaKSys/admin/forms.py:12 PfaKSys/admin/forms.py:21
-#: PfaKSys/admin/forms.py:53 PfaKSys/admin/forms.py:58
-#: PfaKSys/admin/forms.py:78 PfaKSys/item/forms.py:20 PfaKSys/item/forms.py:38
-#: PfaKSys/item/forms.py:56 PfaKSys/user/forms.py:120
+#: PfaKSys/admin/forms.py:12 PfaKSys/admin/forms.py:17
+#: PfaKSys/admin/forms.py:26 PfaKSys/admin/forms.py:58
+#: PfaKSys/admin/forms.py:63 PfaKSys/admin/forms.py:83 PfaKSys/item/forms.py:20
+#: PfaKSys/item/forms.py:38 PfaKSys/item/forms.py:56 PfaKSys/user/forms.py:120
 msgid "ui.common.save"
 msgstr "Save"
 
-#: PfaKSys/admin/forms.py:16 PfaKSys/admin/forms.py:62
+#: PfaKSys/admin/forms.py:16
+msgid "ui.system_settings.database_backup_quantity"
+msgstr "Number of Backups"
+
+#: PfaKSys/admin/forms.py:21 PfaKSys/admin/forms.py:67
 #: PfaKSys/templates/admin/user_management.html:46 PfaKSys/user/forms.py:33
 #: PfaKSys/user/forms.py:42 PfaKSys/user/forms.py:97
 msgid "ui.common.username"
 msgstr "Username"
 
-#: PfaKSys/admin/forms.py:17 PfaKSys/templates/admin/user_management.html:47
+#: PfaKSys/admin/forms.py:22 PfaKSys/templates/admin/user_management.html:47
 #: PfaKSys/user/forms.py:43 PfaKSys/user/forms.py:98
 msgid "ui.common.full_name"
 msgstr "Full Name"
 
-#: PfaKSys/admin/forms.py:18 PfaKSys/templates/admin/user_management.html:48
+#: PfaKSys/admin/forms.py:23 PfaKSys/templates/admin/user_management.html:48
 #: PfaKSys/user/forms.py:44 PfaKSys/user/forms.py:71 PfaKSys/user/forms.py:99
 msgid "ui.common.email"
 msgstr "Email-Address"
 
-#: PfaKSys/admin/forms.py:19 PfaKSys/templates/_base.html:107
+#: PfaKSys/admin/forms.py:24 PfaKSys/templates/_navbar.html:121
 #: PfaKSys/templates/admin/user_management.html:45
 #: PfaKSys/templates/admin/user_management.html:70 PfaKSys/user/forms.py:100
 msgid "ui.account.profile_picture"
 msgstr "Profile Picture"
 
-#: PfaKSys/admin/forms.py:29 PfaKSys/user/forms.py:53 PfaKSys/user/forms.py:108
+#: PfaKSys/admin/forms.py:34 PfaKSys/user/forms.py:53 PfaKSys/user/forms.py:108
 msgid "validation_error.username_already_taken"
 msgstr "This username already taken. Please choose a different one."
 
-#: PfaKSys/admin/forms.py:35 PfaKSys/user/forms.py:58 PfaKSys/user/forms.py:114
+#: PfaKSys/admin/forms.py:40 PfaKSys/user/forms.py:58 PfaKSys/user/forms.py:114
 msgid "validation_error.email_already_exists"
 msgstr "This email-address is used by another user. Please choose a different one."
 
-#: PfaKSys/admin/forms.py:48
+#: PfaKSys/admin/forms.py:53
 msgid "ui.system_settings.mail_server"
 msgstr "Outbox Server"
 
-#: PfaKSys/admin/forms.py:49
+#: PfaKSys/admin/forms.py:54
 msgid "ui.system_settings.mail_port"
 msgstr "Server Port"
 
-#: PfaKSys/admin/forms.py:50
+#: PfaKSys/admin/forms.py:55
 msgid "ui.system_settings.mail_use_tls"
 msgstr "Use TLS-Connection"
 
-#: PfaKSys/admin/forms.py:51
+#: PfaKSys/admin/forms.py:56
 msgid "ui.system_settings.mail_use_ssl"
 msgstr "Use SSL-Connection"
 
-#: PfaKSys/admin/forms.py:52
+#: PfaKSys/admin/forms.py:57
 msgid "ui.system_settings.mail_sender"
 msgstr "Mail Sender Address"
 
-#: PfaKSys/admin/forms.py:57
+#: PfaKSys/admin/forms.py:62
 msgid "ui.system_settings.notification_new_user"
 msgstr "...a new user registers."
 
-#: PfaKSys/admin/forms.py:63 PfaKSys/admin/forms.py:68 PfaKSys/item/forms.py:68
+#: PfaKSys/admin/forms.py:68 PfaKSys/admin/forms.py:73 PfaKSys/item/forms.py:68
 msgid "ui.common.search"
 msgstr "Search"
 
-#: PfaKSys/admin/forms.py:67 PfaKSys/admin/forms.py:72
+#: PfaKSys/admin/forms.py:72 PfaKSys/admin/forms.py:77
 msgid "ui.admin.group_name"
 msgstr "User Group Name"
 
-#: PfaKSys/admin/forms.py:73 PfaKSys/main/permissions.py:11
+#: PfaKSys/admin/forms.py:78 PfaKSys/main/permissions.py:11
 msgid "main.permissions.data_export"
 msgstr "Export Data"
 
-#: PfaKSys/admin/forms.py:74 PfaKSys/main/permissions.py:12
+#: PfaKSys/admin/forms.py:79 PfaKSys/main/permissions.py:12
 msgid "main.permissions.data_import"
 msgstr "Import Data"
 
-#: PfaKSys/admin/forms.py:75 PfaKSys/main/permissions.py:13
+#: PfaKSys/admin/forms.py:80 PfaKSys/main/permissions.py:13
 msgid "main.permissions.manage_material"
 msgstr "Manage Materials"
 
-#: PfaKSys/admin/forms.py:76 PfaKSys/main/permissions.py:14
+#: PfaKSys/admin/forms.py:81 PfaKSys/main/permissions.py:14
 msgid "main.permissions.manage_categories"
 msgstr "Manage Categories"
 
-#: PfaKSys/admin/forms.py:77 PfaKSys/main/permissions.py:15
+#: PfaKSys/admin/forms.py:82 PfaKSys/main/permissions.py:15
 msgid "main.permissions.manage_locations"
 msgstr "Manage Locations"
 
-#: PfaKSys/admin/forms.py:86
+#: PfaKSys/admin/forms.py:91
 msgid "validation_error.group_name_already_taken"
 msgstr "This user group name already taken. Please choose a different one."
 
@@ -394,91 +398,91 @@ msgstr "New Item"
 msgid "page.item_overview.title"
 msgstr "Item Overview"
 
-#: PfaKSys/main/calendar.py:20
+#: PfaKSys/main/calendar.py:24
 msgid "main.calendar.january"
 msgstr "January"
 
-#: PfaKSys/main/calendar.py:21
+#: PfaKSys/main/calendar.py:25
 msgid "main.calendar.february"
 msgstr "February"
 
-#: PfaKSys/main/calendar.py:22
+#: PfaKSys/main/calendar.py:26
 msgid "main.calendar.march"
 msgstr "March"
 
-#: PfaKSys/main/calendar.py:23
+#: PfaKSys/main/calendar.py:27
 msgid "main.calendar.april"
 msgstr "April"
 
-#: PfaKSys/main/calendar.py:24
+#: PfaKSys/main/calendar.py:28
 msgid "main.calendar.may"
 msgstr "May"
 
-#: PfaKSys/main/calendar.py:25
+#: PfaKSys/main/calendar.py:29
 msgid "main.calendar.june"
 msgstr "June"
 
-#: PfaKSys/main/calendar.py:26
+#: PfaKSys/main/calendar.py:30
 msgid "main.calendar.july"
 msgstr "July"
 
-#: PfaKSys/main/calendar.py:27
+#: PfaKSys/main/calendar.py:31
 msgid "main.calendar.august"
 msgstr "August"
 
-#: PfaKSys/main/calendar.py:28
+#: PfaKSys/main/calendar.py:32
 msgid "main.calendar.september"
 msgstr "September"
 
-#: PfaKSys/main/calendar.py:29
+#: PfaKSys/main/calendar.py:33
 msgid "main.calendar.october"
 msgstr "October"
 
-#: PfaKSys/main/calendar.py:30
+#: PfaKSys/main/calendar.py:34
 msgid "main.calendar.november"
 msgstr "November"
 
-#: PfaKSys/main/calendar.py:31
+#: PfaKSys/main/calendar.py:35
 msgid "main.calendar.december"
 msgstr "December"
 
-#: PfaKSys/main/calendar.py:75 PfaKSys/templates/main/calendar.html:34
+#: PfaKSys/main/calendar.py:79 PfaKSys/templates/main/calendar.html:34
 msgid "main.calendar.monday"
 msgstr "Monday"
 
-#: PfaKSys/main/calendar.py:76 PfaKSys/templates/main/calendar.html:35
+#: PfaKSys/main/calendar.py:80 PfaKSys/templates/main/calendar.html:35
 msgid "main.calendar.tuesday"
 msgstr "Tuesday"
 
-#: PfaKSys/main/calendar.py:77 PfaKSys/templates/main/calendar.html:36
+#: PfaKSys/main/calendar.py:81 PfaKSys/templates/main/calendar.html:36
 msgid "main.calendar.wednesday"
 msgstr "Wednesday"
 
-#: PfaKSys/main/calendar.py:78 PfaKSys/templates/main/calendar.html:37
+#: PfaKSys/main/calendar.py:82 PfaKSys/templates/main/calendar.html:37
 msgid "main.calendar.thursday"
 msgstr "Thursday"
 
-#: PfaKSys/main/calendar.py:79 PfaKSys/templates/main/calendar.html:38
+#: PfaKSys/main/calendar.py:83 PfaKSys/templates/main/calendar.html:38
 msgid "main.calendar.friday"
 msgstr "Friday"
 
-#: PfaKSys/main/calendar.py:80 PfaKSys/templates/main/calendar.html:39
+#: PfaKSys/main/calendar.py:84 PfaKSys/templates/main/calendar.html:39
 msgid "main.calendar.saturday"
 msgstr "Saturday"
 
-#: PfaKSys/main/calendar.py:81 PfaKSys/templates/main/calendar.html:40
+#: PfaKSys/main/calendar.py:85 PfaKSys/templates/main/calendar.html:40
 msgid "main.calendar.sunday"
 msgstr "Sunday"
 
-#: PfaKSys/main/routes.py:14 PfaKSys/templates/_base.html:193
+#: PfaKSys/main/routes.py:14 PfaKSys/templates/_base.html:87
 msgid "ui.common.about"
 msgstr "About"
 
-#: PfaKSys/main/routes.py:34 PfaKSys/templates/main/calendar.html:4
+#: PfaKSys/main/routes.py:37 PfaKSys/templates/main/calendar.html:4
 msgid "page.calendar.title"
 msgstr "Calendar"
 
-#: PfaKSys/main/routes.py:40 PfaKSys/templates/main/home.html:4
+#: PfaKSys/main/routes.py:43 PfaKSys/templates/main/home.html:4
 msgid "page.home.title"
 msgstr "Home"
 
@@ -513,10 +517,6 @@ msgstr "Categories"
 #: PfaKSys/templates/data/modals/excel_item_import_modal.html:61
 msgid "ui.common.locations"
 msgstr "Locations"
-
-#: PfaKSys/templates/_base.html:54
-msgid "ui.common.calendar"
-msgstr "Calendar"
 
 #: PfaKSys/templates/_navbar.html:56
 msgid "ui.data.import_export"
@@ -585,31 +585,35 @@ msgid "page.system_settings.mail"
 msgstr "Mail"
 
 #: PfaKSys/templates/admin/settings.html:16
+msgid "ui.common.calendar"
+msgstr "Calendar"
+
+#: PfaKSys/templates/admin/settings.html:21
 msgid "page.system_settings.database"
 msgstr "Database"
 
-#: PfaKSys/templates/admin/settings.html:21
+#: PfaKSys/templates/admin/settings.html:26
 msgid "page.system_settings.notifications"
 msgstr "Notifications"
 
-#: PfaKSys/templates/admin/settings.html:26
+#: PfaKSys/templates/admin/settings.html:31
 msgid "page.system_settings.logs"
 msgstr "Logs"
 
-#: PfaKSys/templates/admin/settings.html:108
-#: PfaKSys/templates/admin/settings.html:144
+#: PfaKSys/templates/admin/settings.html:113
+#: PfaKSys/templates/admin/settings.html:161
 #: PfaKSys/templates/data/imports.html:63
 msgid "ui.common.help"
 msgstr "Help"
 
-#: PfaKSys/templates/admin/settings.html:108
+#: PfaKSys/templates/admin/settings.html:113
 msgid "page.system_settings.mail_sender_help"
 msgstr ""
 "This is the mail address that will show up as the sender when PfaKSys "
 "sends a mail, e.g. if someone resets his password.<br>You could enter "
 "something like <i>no-reply@xyz.de</i>."
 
-#: PfaKSys/templates/admin/settings.html:125
+#: PfaKSys/templates/admin/settings.html:130
 msgid "page.system_settings.mail_credentials_info"
 msgstr ""
 "<h4 class='alert-heading'>Warning!</h4><p>For security reasons username "
@@ -619,11 +623,11 @@ msgstr ""
 "href='https://github.com/Nuhser/PfaKSys/wiki/Installation#3-configure-"
 "pfaksys' class='alert-link'>here</a>.</p>"
 
-#: PfaKSys/templates/admin/settings.html:139
+#: PfaKSys/templates/admin/settings.html:156
 msgid "ui.common.settings"
 msgstr "Settings"
 
-#: PfaKSys/templates/admin/settings.html:144
+#: PfaKSys/templates/admin/settings.html:161
 msgid "page.system_settings.database_backup_quantity_help"
 msgstr ""
 "This is the number of database backups which should be kept "
@@ -631,20 +635,20 @@ msgstr ""
 "getting deleted.<br>You can find more informations on the database backup"
 " in the <i>PfaKSys-documentations</i>."
 
-#: PfaKSys/templates/admin/settings.html:162
+#: PfaKSys/templates/admin/settings.html:179
 msgid "ui.common.backups"
 msgstr "Backups"
 
 #: PfaKSys/templates/admin/modals/create_new_database_backup_modal.html:19
-#: PfaKSys/templates/admin/settings.html:166
+#: PfaKSys/templates/admin/settings.html:183
 msgid "ui.system_settings.create_new_database_backup"
 msgstr "Create New Backup"
 
-#: PfaKSys/templates/admin/settings.html:190
+#: PfaKSys/templates/admin/settings.html:207
 msgid "ui.system_settings.email_notifications"
 msgstr "Email Notifications"
 
-#: PfaKSys/templates/admin/settings.html:192
+#: PfaKSys/templates/admin/settings.html:209
 msgid "ui.system_settings.notifications_intro"
 msgstr "Send email notifications when..."
 
