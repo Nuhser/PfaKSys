@@ -19,7 +19,22 @@ user_group_association_table = db.Table('user_group_association', db.Model.metad
 #     date_to = db.Column(db.DateTime)
 #     borrower_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 #     borrower = db.relationship('User', backref='borrows')
-    
+
+
+class Event(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(), nullable=False)
+    description = db.Column(db.String, default='')
+    date_start = db.Column(db.DateTime, nullable=False)
+    date_end = db.Column(db.DateTime)
+    location = db.Column(db.String)
+    sync_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+    def __repr__(self) -> str:
+        return f"Event('{self.title}', from: '{self.date}', to: '{self.date_end}', description: '{self.description}', location: '{self.location}')"
+
+    def get_google_maps_link(self) -> str:
+        return f'https://maps.google.com/?q={self.location}'
 
 
 class Item(db.Model):
