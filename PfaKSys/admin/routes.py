@@ -266,7 +266,6 @@ def settings():
         log_path = os.path.join(current_app.root_path, 'logs')
         logs = {
             file: [line.strip() for line in open(os.path.join(log_path, file), encoding='ISO-8859-1').readlines()]
-            
             for file in os.listdir(log_path) if os.path.isfile(os.path.join(log_path, file))
         }
         logs = {file: logs[file] for file in sorted(logs.keys())}
