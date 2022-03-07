@@ -49,6 +49,11 @@
                         </div>
                     </div>
 
+                    <a class="nav-item nav-link" href="{{ url_for('main.calendar') }}" id="nav-calendar">
+                        <span class="material-icons">calendar_month</span> 
+                        {{ _('ui.common.calendar') }}
+                    </a>
+
                     {% if current_user.has_permission('data_export') or current_user.has_permission('data_import') %}
                         <div class="btn-group navbar-btn">
                             <a class="nav-item nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" id="nav-import-export">
