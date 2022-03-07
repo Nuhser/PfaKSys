@@ -7,7 +7,7 @@ from sqlalchemy import or_
 
 from PfaKSys import db
 from PfaKSys.admin.forms import DatabaseSettingsForm, edit_account_form_builder, MailSettingsForm, NotificationSettingsForm, SearchUserForm, SearchUserGroupForm, UserGroupForm
-from PfaKSys.admin.utils import save_database_settings, save_mail_settings, save_notification_settings
+from PfaKSys.admin.utils import database_backup, save_database_settings, save_mail_settings, save_notification_settings
 from PfaKSys.main.permissions import admin_required, Permission
 from PfaKSys.main.utils import get_system_settings, _url_for
 from PfaKSys.models import User, UserGroup
@@ -28,6 +28,10 @@ def add_user_group():
         group = UserGroup(name=form.name.data)
 
         permissions = []
+        if form.data_export_permission.data:
+            permissions.append('data_export')
+        if form.data_import_permission.data:
+            permissions.append('data_import')
         if form.manage_material_permission.data:
             permissions.append('manage_material')
         if form.manage_categories_permission.data:
@@ -44,6 +48,17 @@ def add_user_group():
         return redirect(_url_for('admin.user_management'))
 
     return render_template('admin/user_group.html', title=gettext('page.admin.user_group.title'), form=form)
+
+
+@admin_blueprint.route('/admin/create_database_backup', methods=['POST'])
+@login_required
+@admin_required
+def create_database_backup():
+    new_backup_name = database_backup()
+
+    current_app.logger.info(f'{current_user.username} created a new database backup "{new_backup_name}"')
+    flash(gettext('flash.success.admin.database_backup_created', backup_name=new_backup_name), 'success')
+    return redirect(_url_for('admin.settings'))
 
 
 @admin_blueprint.route('/admin/delete_account/<int:user_id>', methods=['POST'])
@@ -167,6 +182,10 @@ def edit_user_group(group_id):
         group.name = form.name.data
 
         permissions = []
+        if form.data_export_permission.data:
+            permissions.append('data_export')
+        if form.data_import_permission.data:
+            permissions.append('data_import')
         if form.manage_material_permission.data:
             permissions.append('manage_material')
         if form.manage_categories_permission.data:
@@ -187,6 +206,8 @@ def edit_user_group(group_id):
 
     elif request.method == 'GET':
         form.name.data = group.name
+        form.data_export_permission.data = Permission.data_export in permissions
+        form.data_import_permission.data = Permission.data_import in permissions
         form.manage_material_permission.data = Permission.manage_material in permissions
         form.manage_categories_permission.data = Permission.manage_categories in permissions
         form.manage_locations_permission.data = Permission.manage_locations in permissions
@@ -232,7 +253,7 @@ def settings():
         database_form.database_backup_quantity.data = system_settings.database['BACKUP_QUANTITY']
 
         db_backups_path = os.path.join(current_app.root_path, 'backups/db')
-        db_backups = [file for file in os.listdir(db_backups_path) if os.path.isfile(os.path.join(db_backups_path, file))]
+        db_backups = sorted([file for file in os.listdir(db_backups_path) if os.path.isfile(os.path.join(db_backups_path, file))])
 
         mail_form.server.data = current_app.config['MAIL_SERVER'] if 'MAIL_SERVER' in current_app.config else None
         mail_form.port.data = current_app.config['MAIL_PORT'] if 'MAIL_PORT' in current_app.config else None
@@ -244,10 +265,11 @@ def settings():
 
         log_path = os.path.join(current_app.root_path, 'logs')
         logs = {
-            file: 
-                [line.strip() for line in open(os.path.join(log_path, file), encoding='ISO-8859-1').readlines()]
-                for file in os.listdir(log_path) if os.path.isfile(os.path.join(log_path, file))
-            }
+            file: [line.strip() for line in open(os.path.join(log_path, file), encoding='ISO-8859-1').readlines()]
+            
+            for file in os.listdir(log_path) if os.path.isfile(os.path.join(log_path, file))
+        }
+        logs = {file: logs[file] for file in sorted(logs.keys())}
 
     return render_template(
         'admin/settings.html',

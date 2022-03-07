@@ -4,75 +4,74 @@
     <h1 class="mb-3">{{ _('page.user_settings.title') }}</h1>
 
     <div class="content-section">
-        <form action="" method="POST">
-            {{ form.hidden_tag() }}
-
-            <!-- Tab Navigation -->
-            <ul class="nav nav-tabs mb-3">
-                <li class="nav-item">
-                    <a class="nav-link active pfaksys-link" data-toggle="tab" href="#tab-general">
-                        {{ _('ui.common.general') }}
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link pfaksys-link" data-toggle="tab" href="#tab-other">
-                        {{ _('ui.common.other') }}
-                    </a>
-                </li>
-            </ul>
-
-            <!-- Tab Contents -->
-            <div class="tab-content mb-4">
-                <!-- General Settings -->
-                <div class="tab-pane active" id="tab-general">
-                    <fieldset class="mb-4">
-                        <legend class="border-bottom mb-3">{{ _('page.common.general_settings') }}</legend>
-
-                        <div class="form-group">
-                            {{ form.language.label(class="form-control-label") }}
-        
-                            {% if form.language.errors %}
-                                {{ form.language(class="form-control is-invalid")}}
-                                <div class="invalid-feedback">
-                                    {% for error in form.language.errors %}
-                                        <span>{{ error }}</span>
-                                    {% endfor %}
-                                </div>
-                            {% else %}
-                                {{ form.language(class="form-control") }}
-                            {% endif %}
-                        </div>
-                    </fieldset>
-                </div>
-
-                <!-- Other Settings -->
-                <div class="tab-pane" id="tab-other">
-                    <fieldset class="mb-4">
-                        <i>Comming soon...</i>
-                    </fieldset>
-                </div>
-            </div>
-
-            <div class="border-top form-group">
-                {{ form.submit(class="btn btn-success mt-2") }}
-
-                <a class="btn btn-secondary mt-2" href="{{ url_for('main.home') }}">
-                    {{ _('ui.common.cancel') }}
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs mb-3">
+            <li class="nav-item">
+                <a class="nav-link active pfaksys-link" data-toggle="tab" href="#tab-general">
+                    {{ _('ui.common.general') }}
                 </a>
-            </div>
-        </form>
+            </li>
+        </ul>
 
-        <button type="button" class="btn btn-outline-danger float-right" style="margin-top: -54px;" data-toggle="modal" data-target="#delete-user-account-modal">
-            <span class="material-icons">delete</span>
-            {{ _('ui.user_settings.delete_account') }}
-        </button>
+        <!-- Tab Contents -->
+        <div class="tab-content">
+            <!-- General Settings -->
+            <form class="tab-pane active" id="tab-general" action="" method="POST">
+                {{ general_settings_form.hidden_tag() }}
+
+                <fieldset class="mb-4">
+                    <legend class="border-bottom mb-3">{{ _('page.common.general_settings') }}</legend>
+
+                    <div class="form-group">
+                        {{ general_settings_form.language.label(class="form-control-label") }}
+    
+                        {% if general_settings_form.language.errors %}
+                            {{ general_settings_form.language(class="form-control is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in general_settings_form.language.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ general_settings_form.language(class="form-control") }}
+                        {% endif %}
+                    </div>
+                </fieldset>
+
+                <fieldset class="mb-4">
+                    <legend class="border-bottom border-danger mb-3" style="color: red;">{{ _('page.user_settings.danger_zone') }}</legend>
+
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#change-password-modal">
+                        <span class="material-icons">key</span>
+                        {{ _('ui.user_settings.reset_password') }}
+                    </button>
+
+                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#delete-user-account-modal">
+                        <span class="material-icons">delete</span>
+                        {{ _('ui.user_settings.delete_account') }}
+                    </button>
+                </fieldset>
+
+                <div class="border-top form-group">
+                    {{ general_settings_form.submit(class="btn btn-success mt-2") }}
+                </div>
+            </form>
+        </div>
     </div>
 {% endblock %}
 
 {% block modals %}
     {% include 'user/modals/delete_user_account_modal.html' %}
+    {% include 'user/modals/change_password_modal.html' %}
 {% endblock %}
 
 {% block scripts %}
+    <!-- Modal Scripts -->
+    {% if change_password_form.errors %}
+        <script type="text/javascript">
+            $(window).on('load', function() {
+                $("#change-password-modal").modal("show")
+            });
+        </script>
+    {% endif %}
 {% endblock %}

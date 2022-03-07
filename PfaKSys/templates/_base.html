@@ -26,127 +26,7 @@
 
     <body>
         <header class="site-header">
-            <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-                <div class="container">
-                    <a class="navbar-brand mr-4" href="{{ url_for('main.home') }}">
-                        <img src="{{ url_for('static', filename='logo_horizontal_black.png') }}" style="max-height: 1.75em; vertical-align: middle; margin-right: -30px" />
-                    </a>
-                    
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarToggle">
-                        <div class="navbar-nav mr-auto">
-                            <a class="nav-item nav-link" href="{{ url_for('main.home') }}" id="nav-home"><span class="material-icons">home</span> {{ _('ui.common.home') }}</a>
-
-                            {% if current_user.is_authenticated %}
-                                <a class="nav-item nav-link" href="{{ url_for('item.overview') }}" id="nav-material"><span class="material-icons">inventory</span> {{ _('ui.item.overview') }}</a>
-
-                                {% if current_user.has_permission('manage_categories') %}
-                                    <a class="nav-item nav-link" href="{{ url_for('item.categories') }}" id="nav-categories"><span class="material-icons">sell</span> {{ _('ui.item.categories') }}</a>
-                                {% endif %}
-
-                                {% if current_user.has_permission('manage_locations') %}
-                                    <a class="nav-item nav-link" href="{{ url_for('item.locations') }}" id="nav-locations"><span class="material-icons">place</span> {{ _('ui.item.locations') }}</a>
-                                {% endif %}
-
-                                <a class="nav-item nav-link" href="{{ url_for('main.calendar') }}" id="nav-calendar"><span class="material-icons">calendar_month</span> {{ _('ui.common.calendar') }}</a>
-                            {% endif %}
-                        </div>
-
-                        <!-- Navbar Right Side -->
-                        <div class="navbar-nav">
-                            {% if current_user.is_authenticated %}
-                                <div class="dropdown">
-                                    <a class="nav-item nav-link dropdown-toggle" href="#" role="button" id="nav-question" data-toggle="dropdown">
-                                        <span class="material-icons">help</span>
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://github.com/Nuhser/PfaKSys/wiki">
-                                            <span class="material-icons">help</span>
-                                            {{ _('ui.common.wiki') }}
-                                        </a>
-                                        <a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://github.com/Nuhser/PfaKSys/discussions">
-                                            <span class="material-icons">question_answer</span>
-                                            {{ _('ui.common.forum') }}
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="dropdown">
-                                    <a class="nav-item nav-link dropdown-toggle" href="#" role="button" id="nav-settings" data-toggle="dropdown">
-                                        <span class="material-icons">settings</span>
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="{{url_for('user.settings') }}">
-                                            <span class="material-icons">manage_accounts</span>
-                                            {{ _('ui.common.user_settings') }}
-                                        </a>
-
-                                        {% if current_user.is_admin() %}
-                                            <div class="dropdown-divider"></div>
-
-                                            <a class="dropdown-item" href="{{ url_for('admin.settings') }}">
-                                                <span class="material-icons">settings_applications</span>
-                                                {{ _('ui.common.system_settings') }}
-                                            </a>
-
-                                            <a class="dropdown-item" href="{{ url_for('admin.user_management') }}">
-                                                <span class="material-icons">people_alt</span>
-                                                {{ _('ui.common.user_management') }}
-                                            </a>
-                                        {% endif %}
-                                    </div>
-                                </div>
-
-                                <div class="dropdown">
-                                    <a class="nav-item nav-link dropdown-toggle" href="#" role="button" id="nav-account" data-toggle="dropdown">
-                                        <img class="rounded-circle account-img-navbar" src="{{ url_for('static', filename='profile_pics/' + current_user.image_file) }}" alt="{{ _('ui.account.profile_picture') }}">
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="{{ url_for('user.account') }}" id="nav-account">
-                                            <span class="material-icons">account_circle</span>
-                                            {{ _('ui.common.account') }}
-                                        </a>
-
-                                        <div class="dropdown-divider"></div>
-
-                                        <a class="dropdown-item" href="{{ url_for('user.logout') }}" id="nav-logout">
-                                            <span class="material-icons">logout</span>
-                                            {{ _('ui.common.logout') }}
-                                        </a>
-                                    </div>
-                                </div>
-                            {% else %}
-                                <div class="dropdown">
-                                    <a class="nav-item nav-link dropdown-toggle" href="#" role="button" id="nav-question" data-toggle="dropdown">
-                                        <span class="material-icons">help</span>
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://github.com/Nuhser/PfaKSys/wiki">
-                                            <span class="material-icons">help</span>
-                                            {{ _('ui.common.wiki') }}
-                                        </a>
-                                        <a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://github.com/Nuhser/PfaKSys/discussions">
-                                            <span class="material-icons">question_answer</span>
-                                            {{ _('ui.common.forum') }}
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <a class="nav-item nav-link" href="{{ url_for('user.login') }}" id="nav-login"><span class="material-icons">login</span> {{ _('ui.common.login') }}</a>
-
-                                <a class="nav-item nav-link" href="{{ url_for('user.register') }}" id="nav-register"><span class="material-icons">person_add</span> {{ _('ui.common.sign_up') }}</a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            {% include '_navbar.html' %}
         </header>
 
         <main role="main" class="container">
@@ -183,11 +63,25 @@
                     </div>
                 {% endif %}
             </div>
+
+            {% if not cookies_check() %}
+                <div id="cookie-banner" class="cookie-banner">
+                    <p>{{ _('ui.cookie_banner') }}</p>
+                    <button id="cookie-consent" class="close">&times;</button>
+                </div>
+                <script>
+                    var fn = function () {
+                        document.cookie = 'cookie_consent=true';
+                        document.getElementById('cookie-banner').hidden = true;
+                    };
+                    document.getElementById('cookie-consent').onclick = fn;
+                </script>
+            {% endif %}
         </main>
 
         <footer class="align-items-center">
             <div class="d-flex justify-content-around">
-                <div><b>PfaKSys v0.0.0</b></div>
+                <div><b>PfaKSys v1.0.1</b></div>
             </div>
             <div class="d-flex justify-content-around">
                 <div><a class="nav-item nav-link pfaksys-link" href="{{ url_for('main.about') }}" id="nav-about">{{ _('ui.common.about') }}</a></div>

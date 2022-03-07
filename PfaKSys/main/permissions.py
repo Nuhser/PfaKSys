@@ -8,6 +8,8 @@ from PfaKSys.models import UserGroup
 
 
 class Permission(Enum):
+    data_export = lazy_gettext('main.permissions.data_export')
+    data_import = lazy_gettext('main.permissions.data_import')
     manage_material = lazy_gettext('main.permissions.manage_material')
     manage_categories = lazy_gettext('main.permissions.manage_categories')
     manage_locations = lazy_gettext('main.permissions.manage_locations')
@@ -19,6 +21,10 @@ class Permission(Enum):
     @staticmethod
     def from_str(name: str):
         match name:
+            case 'data_export':
+                return Permission.data_export
+            case 'data_import':
+                return Permission.data_import
             case 'manage_material':
                 return Permission.manage_material
             case 'manage_categories':

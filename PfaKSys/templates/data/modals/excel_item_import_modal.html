@@ -1,0 +1,92 @@
+<div class="modal fade" id="excel-item-import-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ _('modal.data_import.excel_item_title', filename=excel_item_import_filename) }}</h5>
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <form action="" method="POST">
+                {{ excel_item_import_modal_form.hidden_tag() }}
+
+                <div class="modal-body">
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">{{ _('ui.common.conditions') }}</legend>
+        
+                        {% for field in excel_item_import_modal_form._fields %}
+                            {% if field.startswith('condition_') %}
+                            <div class="form-group row ml-2 mr-2">
+                                {{ excel_item_import_modal_form._fields[field].label(class="col-sm-6") }}
+
+                                {% if excel_item_import_modal_form._fields[field].errors %}
+                                    {{ excel_item_import_modal_form._fields[field](class="form-control form-control-sm is-invalid col-sm-6")}}
+                                    <div class="invalid-feedback">
+                                        {% for error in excel_item_import_modal_form._fields[field].errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ excel_item_import_modal_form._fields[field](class="form-control form-control-sm col-sm-6") }}
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </fieldset>
+
+                    <fieldset class="form-group mt-3">
+                        <legend class="border-bottom mb-4">{{ _('ui.common.categories') }}</legend>
+        
+                        {% for field in excel_item_import_modal_form._fields %}
+                            {% if field.startswith('category_') %}
+                            <div class="form-group row ml-2 mr-2">
+                                {{ excel_item_import_modal_form._fields[field].label(class="col-sm-6") }}
+
+                                {% if excel_item_import_modal_form._fields[field].errors %}
+                                    {{ excel_item_import_modal_form._fields[field](class="form-control form-control-sm is-invalid col-sm-6")}}
+                                    <div class="invalid-feedback">
+                                        {% for error in excel_item_import_modal_form._fields[field].errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ excel_item_import_modal_form._fields[field](class="form-control form-control-sm col-sm-6") }}
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </fieldset>
+
+                    <fieldset class="form-group mt-3">
+                        <legend class="border-bottom mb-4">{{ _('ui.common.locations') }}</legend>
+        
+                        {% for field in excel_item_import_modal_form._fields %}
+                            {% if field.startswith('location_') %}
+                            <div class="form-group row ml-2 mr-2">
+                                {{ excel_item_import_modal_form._fields[field].label(class="col-sm-6") }}
+
+                                {% if excel_item_import_modal_form._fields[field].errors %}
+                                    {{ excel_item_import_modal_form._fields[field](class="form-control form-control-sm is-invalid col-sm-6")}}
+                                    <div class="invalid-feedback">
+                                        {% for error in excel_item_import_modal_form._fields[field].errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ excel_item_import_modal_form._fields[field](class="form-control form-control-sm col-sm-6") }}
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </fieldset>
+                </div>
+
+                <div class="modal-footer">
+                    {{ excel_item_import_modal_form.submit_excel_item_import_modal(class="btn btn-success") }}
+                    
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('ui.common.cancel') }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

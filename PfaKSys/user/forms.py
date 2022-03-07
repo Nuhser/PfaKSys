@@ -5,7 +5,28 @@ from flask_wtf.file import FileAllowed, FileField
 from wtforms import BooleanField, PasswordField, SelectField, StringField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 
+from PfaKSys import bcrypt
 from PfaKSys.models import User
+
+
+class ChangePasswordForm(FlaskForm):
+    current_password = PasswordField(lazy_gettext('ui.change_password.current_password'), validators=[DataRequired(), Length(8, 32)])
+    new_password = PasswordField(lazy_gettext('ui.change_password.new_password'), validators=[DataRequired(), Length(8, 32)])
+    confirm_new_password = PasswordField(lazy_gettext('ui.change_password.confirm_new_password'), validators=[DataRequired(), Length(8, 32), EqualTo('new_password')])
+    submit_change_password = SubmitField(lazy_gettext('ui.password_reset.reset'))
+
+    def validate_current_password(self, current_password: PasswordField) -> None:
+        if not bcrypt.check_password_hash(current_user.password, current_password.data):
+            raise ValidationError(lazy_gettext('validation_error.wrong_password'))
+
+    def validate_new_password(self, new_password: PasswordField) -> None:
+        password_string = new_password.data
+
+        if (not any(c.islower() for c in password_string))\
+            or (not any(c.isupper() for c in password_string))\
+            or (not any(c.isdigit() for c in password_string))\
+            or (not any(c.isalpha() for c in password_string)):
+            raise ValidationError(lazy_gettext('validation_error.password_not_valid'))
 
 
 class LoginForm(FlaskForm):
@@ -94,7 +115,6 @@ class UpdateAccountForm(FlaskForm):
 
 
 class UserSettingsForm(FlaskForm):
-    # general
     language = SelectField(lazy_gettext('ui.common.language'), validators=[DataRequired()])
 
     submit = SubmitField(lazy_gettext('ui.common.save'))

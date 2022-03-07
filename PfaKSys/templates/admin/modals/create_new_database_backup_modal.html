@@ -1,0 +1,26 @@
+<div class="modal fade" id="create-new-database-backup-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ _('modal.create_new_database_admin.title') }}</h5>
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            
+            {% if (db_backups | length) >= database_form.database_backup_quantity.data %}
+                <div class="modal-body">
+                    {{ _('modal.create_new_database_admin.body', backup_name=db_backups[0]) }}
+                </div>
+            {% endif %}
+
+            <div class="modal-footer">
+                <form action="{{ url_for('admin.create_database_backup') }}" method='POST'>
+                    <input class="btn btn-success" type="submit" value="{{ _('ui.system_settings.create_new_database_backup') }}">
+                </form>
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('ui.common.cancel') }}</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="modal fade" id="excel-item-import-success-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ _('modal.data_import.excel_item_success_title') }}</h5>
+
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                {{ _('modal.data_import.excel_item_success_body', new_items=(new_items | length), new_categories=(new_categories | length), new_locations=(new_locations | length)) }}
+
+                {% if (new_items | length) > 0 %}
+                    <br>
+                    <a class="pfaksys-link" data-toggle="collapse" href="#new-items-collapse" role="button">
+                        <b>{{ _('page.item_new.title') }}</b>
+                    </a>
+
+                    <div class="collapse mt-1" id="new-items-collapse">
+                        <div class="card card-body" style="max-height: 600px; overflow: auto;">
+                            <ul>
+                                {% for item in new_items %}
+                                    <li>
+                                        <a class="pfaksys-link" href="{{ url_for('item.details', item_id=item[0]) }}">{{ item[1] }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if (new_categories | length) > 0 %}
+                    <br>
+                    <a class="pfaksys-link" data-toggle="collapse" href="#new-categories-collapse" role="button">
+                        <b>{{ _('page.data_import.new_categories') }}</b>
+                    </a>
+
+                    <div class="collapse mt-1" id="new-categories-collapse">
+                        <div class="card card-body" style="max-height: 600px; overflow: auto;">
+                            <ul>
+                                {% for category in new_categories %}
+                                    <li>
+                                        {{ category[1] }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if (new_locations | length) > 0 %}
+                    <br>
+                    <a class="pfaksys-link" data-toggle="collapse" href="#new-locations-collapse" role="button">
+                        <b>{{ _('page.data_import.new_locations') }}</b>
+                    </a>
+
+                    <div class="collapse mt-1" id="new-locations-collapse">
+                        <div class="card card-body" style="max-height: 600px; overflow: auto;">
+                            <ul>
+                                {% for location in new_locations %}
+                                    <li>
+                                        {{ location[1] }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">{{ _('ui.common.ok') }}</button>
+            </div>
+        </div>
+    </div>
+</div>
