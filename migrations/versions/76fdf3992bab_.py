@@ -8,6 +8,8 @@ Create Date: 2022-01-27 12:05:33.967430
 from alembic import op
 import sqlalchemy as sa
 
+from PfaKSys.calendar.sync_interval import SyncInterval
+
 
 # revision identifiers, used by Alembic.
 revision = '76fdf3992bab'
@@ -29,7 +31,7 @@ def upgrade():
     op.execute(
         system_settings.insert().values(
             mail={'MAIL_SERVER': None, 'MAIL_PORT': 587, 'MAIL_USE_TLS': True, 'MAIL_USE_SSL': True, 'MAIL_SENDER': None},
-            calendar={'CALENDAR_LINK': None, 'CALENDAR_CATEGORIES': [], 'CALENDAR_SYNC_INTERVALL': 5}
+            calendar={'LINK': None, 'CATEGORIES': [], 'SYNC_INTERVAL': SyncInterval.thirty_minutes}
         )
     )
 

@@ -4,6 +4,7 @@ from flask import current_app, request
 from flask_login import UserMixin, current_user
 
 from PfaKSys import db, login_manager
+from PfaKSys.calendar.sync_interval import SyncInterval
 from PfaKSys.item.item_condition import ItemCondition
 
 
@@ -76,7 +77,7 @@ class ItemLocation(db.Model):
 
 class SystemSettings(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    calendar = db.Column(db.JSON, nullable=False, default={'CALENDAR_LINK': None, 'CALENDAR_CATEGORIES': [], 'CALENDAR_SYNC_INTERVALL': 5})
+    calendar = db.Column(db.JSON, nullable=False, default={'LINK': None, 'CATEGORIES': [], 'SYNC_INTERVAL': SyncInterval.thirty_minutes})
     database = db.Column(db.JSON, nullable=False, default={'BACKUP_QUANTITY': 3})
     mail = db.Column(db.JSON, nullable=False, default={'MAIL_SERVER': None, 'MAIL_PORT': 0, 'MAIL_USE_TLS': False, 'MAIL_USE_SSL': True, 'MAIL_SENDER': None})
     notifications = db.Column(db.JSON, nullable=False, default={'NEW_USER': True})
