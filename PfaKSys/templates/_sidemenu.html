@@ -1,7 +1,7 @@
 <div id="sidenav" class="sidenav">
     <a class="sidenav-link" href="{{ url_for('main.home') }}" id="nav-home">
         <span class="material-icons">home</span> 
-        {{ _('ui.common.home') }}
+        {{ _('ui.sidenav.home') }}
     </a>
 
     {% if current_user.is_authenticated %}
@@ -9,7 +9,7 @@
 
         <a class="sidenav-link" href="#material-sidenav-collapse" role="button" data-toggle="collapse">
             <span class="material-icons">inventory</span> 
-            {{ _('ui.item.items') }}
+            {{ _('ui.sidenav.items') }}
         </a>
 
         <div class="collapse" id="material-sidenav-collapse">
@@ -30,10 +30,15 @@
             {% endif %}
         </div>
 
+        <a class="sidenav-link" href="{{ url_for('calendar.calendar') }}" id="nav-calendar">
+            <span class="material-icons">calendar_month</span> 
+            {{ _('ui.sidenav.calendar') }}
+        </a>
+
         {% if current_user.has_permission('data_export') or current_user.has_permission('data_import') %}
             <a class="sidenav-link" href="#import-export-sidenav-collapse" role="button" data-toggle="collapse">
                 <span class="material-icons">import_export</span> 
-                {{ _('ui.data.import_export') }}
+                {{ _('ui.sidenav.import_export') }}
             </a>
 
             <div class="collapse" id="import-export-sidenav-collapse">

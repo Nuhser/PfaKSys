@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-11 20:00+0100\n"
+"POT-Creation-Date: 2022-03-11 22:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgstr ""
 msgid "ui.common.email"
 msgstr ""
 
-#: PfaKSys/admin/forms.py:19 PfaKSys/templates/_navbar.html:126
+#: PfaKSys/admin/forms.py:19 PfaKSys/templates/_navbar.html:74
 #: PfaKSys/templates/admin/user_management.html:45
 #: PfaKSys/templates/admin/user_management.html:70 PfaKSys/user/forms.py:100
 msgid "ui.account.profile_picture"
@@ -500,7 +500,7 @@ msgstr ""
 msgid "page.item_overview.title"
 msgstr ""
 
-#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:89
+#: PfaKSys/main/routes.py:10
 msgid "ui.common.about"
 msgstr ""
 
@@ -508,109 +508,61 @@ msgstr ""
 msgid "page.home.title"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:21 PfaKSys/templates/_base.html:23
+#: PfaKSys/templates/_base.html:22 PfaKSys/templates/_base.html:24
 msgid "ui.common.app_title"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:71
+#: PfaKSys/templates/_base.html:77
 msgid "ui.cookie_banner"
 msgstr ""
 
-#: PfaKSys/templates/_navbar.html:29 PfaKSys/templates/_navbar.html:94
+#: PfaKSys/templates/_navbar.html:28
 msgid "ui.common.wiki"
 msgstr ""
 
-#: PfaKSys/templates/_navbar.html:33 PfaKSys/templates/_navbar.html:98
+#: PfaKSys/templates/_navbar.html:33
 msgid "ui.common.forum"
 msgstr ""
 
-#: PfaKSys/templates/_navbar.html:46
+#: PfaKSys/templates/_navbar.html:53
 msgid "ui.common.user_settings"
-msgstr ""
-
-#: PfaKSys/templates/_navbar.html:54
-msgid "ui.common.system_settings"
-msgstr ""
-
-#: PfaKSys/templates/_navbar.html:59
-msgid "ui.common.user_management"
-msgstr ""
-
-#: PfaKSys/templates/_navbar.html:54 PfaKSys/templates/admin/settings.html:16
-msgid "ui.common.calendar"
 msgstr ""
 
 #: PfaKSys/templates/_navbar.html:61
-msgid "ui.data.import_export"
-msgstr ""
-
-#: PfaKSys/templates/_navbar.html:68
-msgid "ui.data.import"
-msgstr ""
-
-#: PfaKSys/templates/_navbar.html:88 PfaKSys/templates/_navbar.html:152
-msgid "ui.common.wiki"
-msgstr ""
-
-#: PfaKSys/templates/_navbar.html:92 PfaKSys/templates/_navbar.html:156
-msgid "ui.common.forum"
-msgstr ""
-
-#: PfaKSys/templates/_navbar.html:105
-msgid "ui.common.user_settings"
-msgstr ""
-
-#: PfaKSys/templates/_navbar.html:113
 msgid "ui.common.system_settings"
 msgstr ""
 
-#: PfaKSys/templates/_navbar.html:118
+#: PfaKSys/templates/_navbar.html:66
 msgid "ui.common.user_management"
 msgstr ""
 
-#: PfaKSys/templates/_navbar.html:132 PfaKSys/user/routes.py:50
+#: PfaKSys/templates/_navbar.html:81 PfaKSys/user/routes.py:50
 msgid "ui.common.account"
 msgstr ""
 
-#: PfaKSys/templates/_navbar.html:139
+#: PfaKSys/templates/_navbar.html:88
 msgid "ui.common.logout"
 msgstr ""
 
-#: PfaKSys/templates/_navbar.html:161 PfaKSys/templates/user/login.html:9
+#: PfaKSys/templates/_navbar.html:93 PfaKSys/templates/user/login.html:9
 #: PfaKSys/user/forms.py:38 PfaKSys/user/routes.py:95
 msgid "ui.common.login"
 msgstr ""
 
-#: PfaKSys/templates/_navbar.html:163 PfaKSys/user/forms.py:48
-#: PfaKSys/user/routes.py:163
-msgid "ui.common.sign_up"
-#: PfaKSys/templates/_navbar.html:74 PfaKSys/user/routes.py:50
-msgid "ui.common.account"
-msgstr ""
-
-#: PfaKSys/templates/_navbar.html:81
-msgid "ui.common.logout"
-msgstr ""
-
-#: PfaKSys/templates/_navbar.html:103 PfaKSys/templates/user/login.html:9
-#: PfaKSys/user/forms.py:38 PfaKSys/user/routes.py:95
-msgid "ui.common.login"
-msgstr ""
-
-#: PfaKSys/templates/_navbar.html:105 PfaKSys/user/forms.py:48
+#: PfaKSys/templates/_navbar.html:95 PfaKSys/user/forms.py:48
 #: PfaKSys/user/routes.py:163
 msgid "ui.common.sign_up"
 msgstr ""
 
 #: PfaKSys/templates/_sidemenu.html:4
-msgid "ui.common.home"
+msgid "ui.sidenav.home"
 msgstr ""
 
-#: PfaKSys/templates/_sidemenu.html:10 PfaKSys/templates/data/imports.html:11
-msgid "ui.item.items"
+#: PfaKSys/templates/_sidemenu.html:12
+msgid "ui.sidenav.items"
 msgstr ""
 
-#: PfaKSys/templates/_sidemenu.html:15
+#: PfaKSys/templates/_sidemenu.html:17
 msgid "ui.item.overview"
 msgstr ""
 
@@ -624,11 +576,15 @@ msgstr ""
 msgid "ui.common.locations"
 msgstr ""
 
-#: PfaKSys/templates/_sidemenu.html:36
-msgid "ui.data.import_export"
+#: PfaKSys/templates/_sidemenu.html:35
+msgid "ui.sidenav.calendar"
 msgstr ""
 
-#: PfaKSys/templates/_sidemenu.html:43
+#: PfaKSys/templates/_sidemenu.html:41
+msgid "ui.sidenav.import_export"
+msgstr ""
+
+#: PfaKSys/templates/_sidemenu.html:47
 msgid "ui.data.import"
 msgstr ""
 
@@ -650,6 +606,10 @@ msgstr ""
 
 #: PfaKSys/templates/admin/settings.html:11
 msgid "page.system_settings.mail"
+msgstr ""
+
+#: PfaKSys/templates/admin/settings.html:16
+msgid "ui.common.calendar"
 msgstr ""
 
 #: PfaKSys/templates/admin/settings.html:21
@@ -782,6 +742,10 @@ msgstr ""
 
 #: PfaKSys/templates/calendar/calendar.html:18
 msgid "ui.calendar.today"
+msgstr ""
+
+#: PfaKSys/templates/data/imports.html:11
+msgid "ui.item.items"
 msgstr ""
 
 #: PfaKSys/templates/data/imports.html:24
