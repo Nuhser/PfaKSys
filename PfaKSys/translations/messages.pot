@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-08 00:15+0100\n"
+"POT-Creation-Date: 2022-03-11 16:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -156,7 +156,7 @@ msgid "page.admin.edit_user_group.title"
 msgstr ""
 
 #: PfaKSys/admin/routes.py:235
-msgid "flash.success.system_settings.mail_saved"
+msgid "flash.success.system_settings.calendar_saved"
 msgstr ""
 
 #: PfaKSys/admin/routes.py:243
@@ -164,14 +164,18 @@ msgid "flash.success.system_settings.database_saved"
 msgstr ""
 
 #: PfaKSys/admin/routes.py:251
+msgid "flash.success.system_settings.mail_saved"
+msgstr ""
+
+#: PfaKSys/admin/routes.py:259
 msgid "flash.success.system_settings.notifications_saved"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:277 PfaKSys/templates/admin/settings.html:4
+#: PfaKSys/admin/routes.py:287 PfaKSys/templates/admin/settings.html:4
 msgid "page.system_settings.title"
 msgstr ""
 
-#: PfaKSys/admin/routes.py:319 PfaKSys/templates/admin/user_management.html:4
+#: PfaKSys/admin/routes.py:329 PfaKSys/templates/admin/user_management.html:4
 msgid "page.user_management.title"
 msgstr ""
 
