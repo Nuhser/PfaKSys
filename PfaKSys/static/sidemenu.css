@@ -1,0 +1,79 @@
+.sidenav-openbtn {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(90, 90, 90);
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    padding-top: 5px;
+    padding-left: 3px;
+    z-index: 1;
+}
+
+.sidenav-openbtn:hover {
+    color: #428bca;
+}
+
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: rgb(90, 90, 90);
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 61px;
+    transition: 0.5s;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: rgb(90, 90, 90);
+    text-align: center;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: 35px;
+    width: 35px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.sidenav .closebtn:hover {
+    color: #428bca;
+}
+
+.sidenav .sidenav-link {
+    padding: 8px 8px 8px 16px;
+    text-decoration: none;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav .sidenav-link:hover {
+    background-color: rgb(172, 172, 172);
+}
+
+.sidenav .sidenav-link.active {
+    background-color: #428bca;
+}
+
+.sidenav .collapse {
+    background-color: rgb(39, 39, 39);
+}
+
+.sidenav .collapse .sidenav-link {
+    padding-left: 0;
+    text-align: center;
+}

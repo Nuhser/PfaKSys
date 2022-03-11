@@ -11,8 +11,9 @@
         <!-- Google Material Icons -->
         <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 
-        <!-- Load style from main.css -->
+        <!-- Load style from CSS -->
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='sidemenu.css') }}">
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
@@ -29,10 +30,16 @@
             {% include '_navbar.html' %}
         </header>
 
-        <main role="main" class="container">
+        {% include '_sidemenu.html' %}
+
+        <a href="javascript:void(0)" class="sidenav-openbtn" onclick="openNav()">
+            <span class="material-icons">arrow_forward_ios</span>
+        </a>
+
+        <div id="main" class="main" role="main">
             <div class="row">
                 <!-- Main Body -->
-                <div {% if sidebar %}class="col-md-8"{% else %}class="col-md-12"{% endif %}>
+                <div {% if sidebar %}class="col-md-9"{% else %}class="col-md-12"{% endif %}>
                     <!-- Flash Messages -->
                     {% with messages = get_flashed_messages(with_categories=true) %}
                         {% if messages %}
@@ -53,7 +60,7 @@
 
                 <!-- Side Bar -->
                 {% if sidebar %}
-                    <div class="col-md-4 sidebar">
+                    <div class="col-md-3 sidebar">
                         <div class="content-section sticky-top sticky-offset">
                             <h3>{{ sidebar }}</h3>
                             <ul class="list-group mt-3">
@@ -63,30 +70,21 @@
                     </div>
                 {% endif %}
             </div>
+        </div>
 
-            {% if not cookies_check() %}
-                <div id="cookie-banner" class="cookie-banner">
-                    <p>{{ _('ui.cookie_banner') }}</p>
-                    <button id="cookie-consent" class="close">&times;</button>
-                </div>
-                <script>
-                    var fn = function () {
-                        document.cookie = 'cookie_consent=true';
-                        document.getElementById('cookie-banner').hidden = true;
-                    };
-                    document.getElementById('cookie-consent').onclick = fn;
-                </script>
-            {% endif %}
-        </main>
-
-        <footer class="align-items-center">
-            <div class="d-flex justify-content-around">
-                <div><b>PfaKSys v1.0.1</b></div>
+        {% if not cookies_check() %}
+            <div id="cookie-banner" class="cookie-banner">
+                <p>{{ _('ui.cookie_banner') }}</p>
+                <button id="cookie-consent" class="close">&times;</button>
             </div>
-            <div class="d-flex justify-content-around">
-                <div><a class="nav-item nav-link pfaksys-link" href="{{ url_for('main.about') }}" id="nav-about">{{ _('ui.common.about') }}</a></div>
-            </div>
-        </footer>
+            <script>
+                var fn = function () {
+                    document.cookie = 'cookie_consent=true';
+                    document.getElementById('cookie-banner').hidden = true;
+                };
+                document.getElementById('cookie-consent').onclick = fn;
+            </script>
+        {% endif %}
 
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
