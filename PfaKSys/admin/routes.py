@@ -7,7 +7,8 @@ from sqlalchemy import or_
 
 from PfaKSys import db
 from PfaKSys.admin.forms import DatabaseSettingsForm, edit_account_form_builder, MailSettingsForm, NotificationSettingsForm, SearchUserForm, SearchUserGroupForm, UserGroupForm
-from PfaKSys.admin.utils import database_backup, save_database_settings, save_mail_settings, save_notification_settings
+from PfaKSys.admin.utils import database_backup, save_calendar_settings, save_database_settings, save_mail_settings, save_notification_settings
+from PfaKSys.calendar.forms import CalendarSettingsForm
 from PfaKSys.main.permissions import admin_required, Permission
 from PfaKSys.main.utils import get_system_settings, _url_for
 from PfaKSys.models import User, UserGroup
@@ -221,16 +222,17 @@ def edit_user_group(group_id):
 def settings():
     system_settings = get_system_settings()
 
+    calendar_form = CalendarSettingsForm()
     database_form = DatabaseSettingsForm()
     mail_form = MailSettingsForm()
     notifications_form = NotificationSettingsForm()
 
-    if 'mail_sender' in request.form:
-        if mail_form.validate_on_submit():
-            save_mail_settings(mail_form)
+    if 'submit_calendar_settings' in request.form:
+        if calendar_form.validate_on_submit():
+            save_calendar_settings(calendar_form)
 
-            current_app.logger.info(f'{current_user.username} edited the system settings (mail).')
-            flash(gettext('flash.success.system_settings.mail_saved'), 'success')
+            current_app.logger.info(f'{current_user.username} edited the system settings (calendar).')
+            flash(gettext('flash.success.system_settings.calendar_saved'), 'success')
             return redirect(_url_for('admin.settings'))
 
     elif 'database_backup_quantity' in request.form:
@@ -239,6 +241,14 @@ def settings():
 
             current_app.logger.info(f'{current_user.username} edited the system settings (database).')
             flash(gettext('flash.success.system_settings.database_saved'), 'success')
+            return redirect(_url_for('admin.settings'))
+
+    elif 'mail_sender' in request.form:
+        if mail_form.validate_on_submit():
+            save_mail_settings(mail_form)
+
+            current_app.logger.info(f'{current_user.username} edited the system settings (mail).')
+            flash(gettext('flash.success.system_settings.mail_saved'), 'success')
             return redirect(_url_for('admin.settings'))
 
     elif 'submit_notification_settings' in request.form:
@@ -250,6 +260,8 @@ def settings():
             return redirect(_url_for('admin.settings'))
 
     elif request.method == 'GET':
+        calendar_form.sync_interval.data = system_settings.calendar['SYNC_INTERVAL']
+
         database_form.database_backup_quantity.data = system_settings.database['BACKUP_QUANTITY']
 
         db_backups_path = os.path.join(current_app.root_path, 'backups/db')
@@ -273,6 +285,7 @@ def settings():
     return render_template(
         'admin/settings.html',
         title=gettext('page.system_settings.title'),
+        calendar_form=calendar_form,
         database_form=database_form,
         db_backups=db_backups,
         mail_form=mail_form,

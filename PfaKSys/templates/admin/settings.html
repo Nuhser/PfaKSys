@@ -12,6 +12,11 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link pfaksys-link" data-toggle="tab" href="#tab-calendar">
+                    {{ _('ui.common.calendar') }}
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link pfaksys-link" data-toggle="tab" href="#tab-database">
                     {{ _('page.system_settings.database') }}
                 </a>
@@ -127,6 +132,29 @@
 
                 <div class="border-top form-group mt-4">
                     {{ mail_form.submit(class="btn btn-success mt-2") }}
+                </div>
+            </form>
+
+
+            <!-- Calendar Settings -->
+            <form class="tab-pane" id="tab-calendar" action="" method="POST">
+                {{ calendar_form.hidden_tag() }}
+
+                {{ calendar_form.sync_interval.label(class="form-control-label") }}
+
+                {% if calendar_form.sync_interval.errors %}
+                    {{ calendar_form.sync_interval(class="form-control is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in calendar_form.sync_interval.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ calendar_form.sync_interval(class="form-control") }}
+                {% endif %}
+
+                <div class="border-top form-group mt-4">
+                    {{ calendar_form.submit_calendar_settings(class="btn btn-success mt-2") }}
                 </div>
             </form>
 

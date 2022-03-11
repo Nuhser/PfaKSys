@@ -6,6 +6,7 @@ from flask import current_app
 
 from PfaKSys import db, mail
 from PfaKSys.admin.forms import DatabaseSettingsForm, MailSettingsForm, NotificationSettingsForm
+from PfaKSys.calendar.forms import CalendarSettingsForm
 from PfaKSys.main.utils import get_system_settings
 
 
@@ -31,6 +32,16 @@ def database_backup() -> str:
     shutil.copy(os.path.join(current_app.root_path, 'db.sqlite'), os.path.join(backup_path, new_backup_name))
 
     return new_backup_name
+
+
+def save_calendar_settings(form: CalendarSettingsForm) -> None:
+    system_settings = get_system_settings()
+    system_settings.calendar = {
+        'LINK': system_settings.calendar['LINK'] if ('LINK' in system_settings.calendar) else None,
+        'CATEGORIES': system_settings.calendar['CATEGORIES'] if ('CATEGORIES' in system_settings.calendar) else [],
+        'SYNC_INTERVAL': form.sync_interval.data
+    }
+    db.session.commit()
 
 
 def save_database_settings(form: DatabaseSettingsForm) -> None:
