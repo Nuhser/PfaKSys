@@ -1,0 +1,65 @@
+<div id="sidenav" class="sidenav">
+    <a class="sidenav-link" href="{{ url_for('main.home') }}" id="nav-home">
+        <span class="material-icons">home</span> 
+        {{ _('ui.common.home') }}
+    </a>
+
+    {% if current_user.is_authenticated %}
+        <div class="dropdown-divider"></div>
+
+        <a class="sidenav-link" href="#material-sidenav-collapse" role="button" data-toggle="collapse">
+            <span class="material-icons">inventory</span> 
+            {{ _('ui.item.items') }}
+        </a>
+
+        <div class="collapse" id="material-sidenav-collapse">
+            <a class="sidenav-link" href="{{ url_for('item.overview') }}" id="nav-material">
+                {{ _('ui.item.overview') }}
+            </a>
+
+            {% if current_user.has_permission('manage_categories') %}
+                <a class="sidenav-link" href="{{ url_for('item.categories') }}" id="nav-categories">
+                    {{ _('ui.common.categories') }}
+                </a>
+            {% endif %}
+
+            {% if current_user.has_permission('manage_locations') %}
+                <a class="sidenav-link" href="{{ url_for('item.locations') }}" id="nav-locations">
+                    {{ _('ui.common.locations') }}
+                </a>
+            {% endif %}
+        </div>
+
+        {% if current_user.has_permission('data_export') or current_user.has_permission('data_import') %}
+            <a class="sidenav-link" href="#import-export-sidenav-collapse" role="button" data-toggle="collapse">
+                <span class="material-icons">import_export</span> 
+                {{ _('ui.data.import_export') }}
+            </a>
+
+            <div class="collapse" id="import-export-sidenav-collapse">
+                {% if current_user.has_permission('data_import') %}
+                    <a class="sidenav-link" href="{{ url_for('data.import_data') }}" id="nav-data-import">
+                        {{ _('ui.data.import') }}
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+        <span class="material-icons">arrow_back_ios</span>
+    </a>
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("sidenav").style.width = "200px";
+        document.getElementById("main").style.marginLeft = "200px";
+    }
+
+    /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+    function closeNav() {
+        document.getElementById("sidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+</script>

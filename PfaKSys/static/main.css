@@ -16,6 +16,7 @@ footer {
     background: rgb(218, 218, 218);
     width: 100%;
     margin-top: auto;
+    z-index: 1;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -115,8 +116,8 @@ a.article-title:hover {
 .cookie-banner {
     position: fixed;
     bottom: 40px;
-    left: 10%;
     right: 10%;
+    left: 10%;
     width: 80%;
     padding: 5px 14px;
     display: flex;
@@ -125,6 +126,7 @@ a.article-title:hover {
     background-color: rgb(255, 248, 145);
     border-radius: 5px;
     box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+    z-index: 3;
 }
 
 .dropdown {
@@ -163,6 +165,12 @@ a.article-title:hover {
     width: 10px;
     height: 10px;
     border-radius: 100%;
+}
+
+.main {
+    margin-left: 200px;
+    padding: 0px 20px;
+    transition: margin-left .5s;
 }
 
 .material-icons {
@@ -206,6 +214,7 @@ a.pfaksys-link:hover {
 .site-header .navbar-brand {
     color: #242424;
     font-weight: bold;
+    width: 170px;
 }
 
 .site-header .navbar-nav .nav-link {

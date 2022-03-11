@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-03-11 16:27+0100\n"
+"POT-Creation-Date: 2022-03-11 20:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -500,7 +500,7 @@ msgstr ""
 msgid "page.item_overview.title"
 msgstr ""
 
-#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:87
+#: PfaKSys/main/routes.py:10 PfaKSys/templates/_base.html:89
 msgid "ui.common.about"
 msgstr ""
 
@@ -512,30 +512,28 @@ msgstr ""
 msgid "ui.common.app_title"
 msgstr ""
 
-#: PfaKSys/templates/_base.html:69
+#: PfaKSys/templates/_base.html:71
 msgid "ui.cookie_banner"
 msgstr ""
 
-#: PfaKSys/templates/_navbar.html:18
-msgid "ui.common.home"
+#: PfaKSys/templates/_navbar.html:29 PfaKSys/templates/_navbar.html:94
+msgid "ui.common.wiki"
 msgstr ""
 
-#: PfaKSys/templates/_navbar.html:25 PfaKSys/templates/data/imports.html:11
-msgid "ui.item.items"
-msgstr ""
-
-#: PfaKSys/templates/_navbar.html:31
-msgid "ui.item.overview"
-msgstr ""
-
-#: PfaKSys/templates/_navbar.html:39
-#: PfaKSys/templates/data/modals/excel_item_import_modal.html:38
-msgid "ui.common.categories"
+#: PfaKSys/templates/_navbar.html:33 PfaKSys/templates/_navbar.html:98
+msgid "ui.common.forum"
 msgstr ""
 
 #: PfaKSys/templates/_navbar.html:46
-#: PfaKSys/templates/data/modals/excel_item_import_modal.html:61
-msgid "ui.common.locations"
+msgid "ui.common.user_settings"
+msgstr ""
+
+#: PfaKSys/templates/_navbar.html:54
+msgid "ui.common.system_settings"
+msgstr ""
+
+#: PfaKSys/templates/_navbar.html:59
+msgid "ui.common.user_management"
 msgstr ""
 
 #: PfaKSys/templates/_navbar.html:54 PfaKSys/templates/admin/settings.html:16
@@ -586,6 +584,52 @@ msgstr ""
 #: PfaKSys/templates/_navbar.html:163 PfaKSys/user/forms.py:48
 #: PfaKSys/user/routes.py:163
 msgid "ui.common.sign_up"
+#: PfaKSys/templates/_navbar.html:74 PfaKSys/user/routes.py:50
+msgid "ui.common.account"
+msgstr ""
+
+#: PfaKSys/templates/_navbar.html:81
+msgid "ui.common.logout"
+msgstr ""
+
+#: PfaKSys/templates/_navbar.html:103 PfaKSys/templates/user/login.html:9
+#: PfaKSys/user/forms.py:38 PfaKSys/user/routes.py:95
+msgid "ui.common.login"
+msgstr ""
+
+#: PfaKSys/templates/_navbar.html:105 PfaKSys/user/forms.py:48
+#: PfaKSys/user/routes.py:163
+msgid "ui.common.sign_up"
+msgstr ""
+
+#: PfaKSys/templates/_sidemenu.html:4
+msgid "ui.common.home"
+msgstr ""
+
+#: PfaKSys/templates/_sidemenu.html:10 PfaKSys/templates/data/imports.html:11
+msgid "ui.item.items"
+msgstr ""
+
+#: PfaKSys/templates/_sidemenu.html:15
+msgid "ui.item.overview"
+msgstr ""
+
+#: PfaKSys/templates/_sidemenu.html:22
+#: PfaKSys/templates/data/modals/excel_item_import_modal.html:38
+msgid "ui.common.categories"
+msgstr ""
+
+#: PfaKSys/templates/_sidemenu.html:28
+#: PfaKSys/templates/data/modals/excel_item_import_modal.html:61
+msgid "ui.common.locations"
+msgstr ""
+
+#: PfaKSys/templates/_sidemenu.html:36
+msgid "ui.data.import_export"
+msgstr ""
+
+#: PfaKSys/templates/_sidemenu.html:43
+msgid "ui.data.import"
 msgstr ""
 
 #: PfaKSys/templates/admin/edit_user.html:18
